@@ -1,0 +1,100 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /uiadapter
+
+spring:
+  main:
+    banner-mode: "console"
+  web:
+    resources:
+      static-locations: classpath:/static/
+    mvc:
+      #static-path-pattern: /webapp/**
+  servlet:
+    session:
+      timeout: 1m # 1800 # 초
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      file-size-threshold: 1MB
+      max-request-size: 20MB
+      location: ${java.io.tmpdir} # C:/Temp
+  http:
+    multipart:
+      enabled: false
+
+# messages 파일의 기본 이름 (콤마로 구분해서 사용 가능) (default messages)
+#  messages:
+#    basename: messages/message-common    # /resources/messages/message-common_{언어}.properties를 바라보도록 설정
+#    encoding: UTF-8                     # 인코딩 설정 (default UTF-8)
+#    use-code-as-default-message: false  # 메세지 코드를 찾지 못했을 때 (true : 코드 값 그대로 반환, default false : exception 발생)
+#    fallback-to-system-locale: false    # 언어별 message 파일을 없을때 (default true : 시스템 설정 (MessageConfig) 파일 사용, false → default 파일 (message.properties))
+#    cache-duration: 3600                # 캐시 주기 설정 (default forever) 
+#    always-use-message-format: true     # (true : message-format 항상 사용, default false : 항상 미사용)
+    
+#  security:
+#    filter:
+#      order: 2  # devpro filter 및 custom login처리 filter 추가를 위간 간격 조정
+#  cache:
+#    ehcache: 
+#      config: classpath:ehcache.xml
+  sql:
+    init:
+      mode: always
+      platform: hsqldb #oracle hsqldb, h2, oracle, mysql, postgresql
+#=================================================
+# 단일 DB 사용 설정
+#=================================================
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    #driver-class-name: net.sf.log4jdbc.DriverSpy
+    url: jdbc:log4jdbc:hsqldb:mem:sampledb
+    username: sa
+    password: 
+
+mybatis:
+  config-location: classpath:mybatis/sql-mapper-config.xml
+  mapper-locations:
+  - classpath:mybatis/mappers/*mapper.xml
+
+# logging.level.org.springframework.security=TRACE
+logging:
+  level:
+    org.springframwork.web: TRACE
+    sql: off
+    jdbc: off
+    jdbc.sqlonly: debug
+    jdbc.resultsettable: debug
+
+azure:
+  keyvault:
+    client-id: # 서비스주체의 appId
+    client-key: # 서비스주체의 password
+    enabled: true
+    tenant-id: # 서비스주체의 tenant
+    uri: https://ymkappkv.vault.azure.net/
+
+#=================================================    
+# boot의 경우 spring f/w에서 사용하던 변수명을 아래와 같이 변경.
+# spring f/w은 uiadapter 1.3 이하 버전에서는 아래와 같이 사용
+#  uiAdapter.getHeader.WhoAreYou
+#  uiAdapter.useRequestCharset
+#  uiAdapter.useRequestContentType
+#  uiAdapter.trimParamDataSet
+#  uiAdapter.trimParamVariable
+#  uiAdapter.replaceAllEmptyVariable
+
+# column-case 지원 : camel(whoAreYou), snake(who_are_you),upper(WHO_ARE_YOU)
+# column-case 미지원 : kebab(who-are-you)
+# who-are-you: nexacro (deprecated)
+#=================================================
+#nexacro:
+#  client-column-case: 
+#  db-column-case: 
+#  who-are-you: nexacro
+#  use-request-charset: all
+#  use-request-contenttype: all
+#  trim-paramdataset: all
+#  trim-paramvariable: all
+#  replace-all-empty-variable: all
