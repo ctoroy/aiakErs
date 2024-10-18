@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="leftFrame" width="260" height="720" titletext="leftFrame" background="blue" onload="form_onload">
+    <Layouts>
+      <Layout width="260" height="720" screenid="Desktop_screen">
+        <Static id="Static00" taborder="0" text="LEFT frame" left="35" top="0" width="191" height="60" font="normal 800 36px/normal &quot;Malgun Gothic&quot;" background="white"/>
+        <Grid id="grdMenu" taborder="1" left="0" top="100" right="0" bottom="0" autofittype="col" treeusecheckbox="false" treeinitstatus="collapse,all" binddataset="dsMenu">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="195"/>
+              </Columns>
+              <Rows>
+                <Row size="30"/>
+              </Rows>
+              <Band id="body">
+                <Cell text="bind:menuNm" treelevel="bind:menuLv" displaytype="treeitemcontrol" edittype="tree"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsMenu"/>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/**
+*  AIA 비용관리시스템
+*  @FileName 	sampleScript.xfdl
+*  @Creator 	송원창
+*  @CreateDate 	2020.11.25
+*  @Desction 
+************** 소스 수정 이력 ***********************************************
+* Date					Modifier					Description
+*******************************************************************************
+* 2020.11.25			TOBESOFT					최초생성
+*******************************************************************************
+*/
+
+/*******************************************************************************************************************************
+ * FORM 변수 선언 영역
+*******************************************************************************************************************************/
+this.objApp = nexacro.getApplication();	//필수 application
+/*******************************************************************************************************************************
+ * FORM EVENT 영역(onload, onbeforeclose..)
+*******************************************************************************************************************************/
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnload(obj); //필수함수
+	this.fnInit();
+};
+
+//화면 load시 초기화
+this.fnInit = function()
+{
+	this.fnMenuList();
+};
+
+//공통코드콤보설정(Combo/Grid)
+this.afterCommCodeLoad = function()
+{
+};
+
+//공통코드콤보설정 서버조회방식
+this.fnAfterCommCodeLoad = function()
+{
+};
+
+/*******************************************************************************************************************************
+ * 공통함수영역 (cfnSearch : 조회 / cfnAdd : 추가 / cfnSave : 저장 / cfnDel : 삭제 / cfnExecl : 엑셀.. / cfnPrint : 인쇄 / cfnHep : 도움말  / cfnClose : 화면 닫기전 체크)
+ * 추가 버튼은 prefix cfn 으로 시작하여 명칭을 만든다.
+*******************************************************************************************************************************/
+//조회
+this.cfnSearch = function(obj, e)
+{
+	this.fnSearch();
+	//TODO..
+};
+
+//추가
+this.cfnAdd = function(obj, e)
+{
+	this.gfnAlert("msg.general", [obj.text + " 버튼입니다."]);
+	//TODO..
+};
+
+//저장
+this.cfnSave = function(obj, e)
+{
+	this.gfnAlert("msg.general", [obj.text + " 버튼입니다."]);
+	//TODO..
+};
+
+//삭제
+this.cfnDel = function(obj, e)
+{
+	this.gfnAlert("msg.general", [obj.text + " 버튼입니다."]);
+	//TODO..
+};
+
+//엑셀
+this.cfnExcel = function(obj, e)
+{
+	this.gfnAlert("msg.general", [obj.text + " 버튼입니다."]);
+	//TODO..
+};
+
+//프린트
+this.cfnPrint = function(obj, e)
+{
+	this.gfnAlert("msg.general", [obj.text + " 버튼입니다."]);
+	//TODO..
+};
+
+//도움말
+this.cfnHelp = function(obj, e)
+{
+	this.gfnAlert("msg.general", [obj.text + " 버튼입니다."]);
+	//TODO..
+};
+
+//화면 닫기전 체크
+this.cfnClose = function()
+{
+	trace("업무화면에 수정 사항이 있으면  cfnClose 메소드를 추가 하세요.");
+	//return false;	//수정사항이 있을경우;
+};
+
+/*******************************************************************************************************************************
+ * Transaction 서비스호출 처리 영역
+*******************************************************************************************************************************/
+//조회
+this.fnMenuList = function ()
+{
+	var strSvcId    = "search";
+	var strSvcUrl   = "selectMenuList.do"; // "retrieve_datalist.do";
+	var inData      = "";
+	var outData     = "gdsMenu=MENULIST";
+	var strArg      = "";
+	var callBackFnc = "fnCallback";
+	var isAsync   	= true;
+
+	this.gfnTransaction(strSvcId , 		// transaction을 구분하기 위한 svc id값
+						strSvcUrl , 	// trabsaction을 요청할 주소
+						inData , 		// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						outData , 		// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						strArg, 		// 입력값으로 보낼 arguments, strFormData="20120607"
+						callBackFnc, 	// transaction의 결과를 받을 Function 이름
+						isAsync); 		// 비동기통신 여부 [생략가능]
+};
+/*******************************************************************************************************************************
+ * Callback 영역 (Transaction, popup, message..)
+*******************************************************************************************************************************/
+//transaction
+this.fnCallback = function (svcId, nErrCd, sErrMsg)
+{
+	switch(svcId)
+	{
+		case "search":
+			this.dsMenu.copyData(this.objApp.gdsMenu);
+			break;
+		default:break;
+	}
+};
+
+//excel import callback
+this.fnExcelImportCallback = function (sImportId, e)
+{
+	if(sImportId == "sampleExcel")
+	{
+		//import시 전체 데이터 normal로 넘어오므로 status update및 서버단에서 
+		//mergeinto로 처리하기 위한 임의 데이터 삽입
+// 		this.dsList.addColumn("_STATUS_","STRING");
+// 		for(var i = 0; i < this.dsList.getRowCount(); i++)
+// 		{
+// 			this.dsList.setColumn(i, "_STATUS_", "EXCEL");
+// 		}
+		this.grdList.createFormat();
+	}
+};
+/*******************************************************************************************************************************
+ * 사용자 Function 영역
+*******************************************************************************************************************************/
+
+/*******************************************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+*******************************************************************************************************************************/
+]]></Script>
+  </Form>
+</FDL>

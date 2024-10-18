@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="frameWork" width="1020" height="650" titletext="frameWork">
+    <Layouts>
+      <Layout width="1020" height="650" screenid="Desktop_screen">
+        <Static id="Static00" taborder="0" text="WORK frame" left="290" top="120" width="251" height="60" font="normal 800 36px/normal &quot;Malgun Gothic&quot;" background="white"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

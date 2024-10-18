@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="2.0">
+  <Application id="Application_Desktop" screenid="Desktop_screen">
+    <Layout>
+      <MainFrame id="mainframe" left="0" top="0" width="1280" height="720" titletext="비용관리시스템" showcascadetitletext="false" showtitleicon="false">
+        <VFrameSet id="VFrameSet" separatesize="100,*" showtitlebar="false" showtitleicon="false" showcascadetitletext="false">
+          <Frames>
+            <ChildFrame id="FR_LOGIN" formurl="frame::frameLogin.xfdl" showcascadetitletext="false" showtitlebar="false" showtitleicon="false" dragmovetype="none"/>
+            <HFrameSet id="HFrameSet" separatesize="260,*" showcascadetitletext="false" showtitlebar="false" showtitleicon="false">
+              <Frames>
+                <ChildFrame id="FR_LEFT" showtitlebar="false" formurl="frame::leftFrame.xfdl" showtitleicon="false" dragmovetype="none"/>
+                <VFrameSet id="VFrameSet1" separatesize="70,50,0,*,30" showcascadetitletext="false" showtitlebar="false" showtitleicon="false">
+                  <Frames>
+                    <ChildFrame id="FR_TOP" showtitlebar="false" formurl="frame::frameTop.xfdl" showtitleicon="false" showcascadetitletext="false" dragmovetype="none"/>
+                    <ChildFrame id="FR_MID" showtitlebar="false" formurl="frame::midFrame.xfdl" showtitleicon="false" showcascadetitletext="false" dragmovetype="none"/>
+                    <FrameSet id="FR_WORK" showcascadetitletext="false" showtitleicon="false" showtitlebar="false" statusbarheight=""/>
+                    <ChildFrame id="FR_MAIN" formurl="frame::main.xfdl" dragmovetype="none" showtitlebar="false" showtitleicon="false" showcascadetitletext="false"/>
+                    <ChildFrame id="FR_BOTTOM" formurl="frame::bottomFrame.xfdl" showtitlebar="false" showtitleicon="false" showcascadetitletext="false" dragmovetype="none"/>
+                  </Frames>
+                </VFrameSet>
+              </Frames>
+            </HFrameSet>
+          </Frames>
+        </VFrameSet>
+      </MainFrame>
+    </Layout>
+  </Application>
+</ADL>

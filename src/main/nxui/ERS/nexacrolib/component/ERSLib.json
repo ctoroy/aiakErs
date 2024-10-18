@@ -1,0 +1,20 @@
+{
+	"name": "ERSLib",
+	"version": "1.0.0.0",
+	"description": "Library for nexacro platform N24",
+	"license": "",
+	"scripts": [
+		"ERSLib/Frame.js",
+        "ERSLib/Util.js",
+        "ERSLib/Comp.js",
+        "ERSLib/Transaction.js",  
+        "ERSLib/Validation.js",
+        "ERSLib/Popup.js",
+        "ERSLib/File.js",
+        "ERSLib/Message.js",
+        "ERSLib/Grid.js",
+        "ERSLib/Excel.js",
+        "ERSLib/ExtLib.js",
+        "ERSLib/CompOverride.js"
+	]
+}

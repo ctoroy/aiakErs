@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="cmmAlert" width="280" height="265" titletext="알림창" onload="form_onload">
+    <Layouts>
+      <Layout height="265" mobileorientation="landscape" width="280">
+        <Static id="staBg" taborder="4" left="0" top="0" cssclass="sta_POP_MsgBg" right="0" text="" boxShadow="none" onclick="Static01_onclick" bottom="0"/>
+        <TextArea id="txtMsgContent" taborder="0" left="20" top="114" right="20" readonly="true" cssclass="txt_POP_Msg" height="76"/>
+        <Button id="btnOk" taborder="1" text="확인" fittocontents="width" height="25" width="50" onclick="btnOk_onclick" left="114" cssclass="btn_POP_Yes" top="220"/>
+        <ImageViewer id="imgLink" taborder="2" left="113" top="30" width="54" height="54" text="" accessibilitylabel="알림 아이콘" image="url('theme://images/img_POP_Warning.png')" stretch="fit" cssclass="img_WF_None"/>
+        <Button id="btnVoc" taborder="3" top="125" width="31" height="31" right="388" onclick="btnVoc_onclick" tooltiptext="VOC등록" cssclass="btn_MDI_Voc" visible="false"/>
+        <ImageViewer id="imgLink00" taborder="5" left="352.00" top="30" width="54" height="54" text="" accessibilitylabel="알림 아이콘" image="url('theme://images/img_POP_Error.png')" cssclass="img_WF_None" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[/**
+*  문화센터 파크 및 마권안내 홈페이지 재구축
+*  @FileName 	cmmAlert.xfdl
+*  @Creator 	TOBESOFT
+*  @CreateDate 	2020.12.03
+*  @Desction
+************** 소스 수정 이력 ***********************************************
+* Date					Modifier					Description
+*******************************************************************************
+* 2020.12.03			TOBESOFT					최초생성
+*******************************************************************************
+*/
+
+/********************************************************************************
+ * Form 변수선언 영역
+ ********************************************************************************/
+this.fvOptSize;
+
+/********************************************************************************
+ * Form Event 영역
+ ********************************************************************************/
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnload(obj); //필수함수
+
+	var sMsgId    = this.getOwnerFrame().paramId;
+	var paramType = this.getOwnerFrame().paramType;
+	var sContents = this.getOwnerFrame().paramContents;
+	this.fvOptSize = this.getOwnerFrame().pOptSize;
+	
+	switch(paramType) 
+	{
+		case "ERR":
+			this.imgLink.set_image("theme://images/img_POP_Error.png");
+			break;
+		case "WAN":
+			this.imgLink.set_image("theme://images/img_POP_Warning.png");
+			this.btnVoc.set_visible(true);
+			break;
+	}
+
+	this.fnMsgSetting(sContents);
+	
+	this.btnOk.setFocus();
+};
+
+/********************************************************************************
+ * 사용자 Function 영역
+ ********************************************************************************/
+/**
+* @description 메세지설정
+*/
+ this.fnMsgSetting = function (sMsgContent)
+ {
+	this.txtMsgContent.set_value(sMsgContent);
+ };
+
+//웹일경우 해당컴포넌트 이미지 파일로 다운로드
+this.fnWebImageSave = function(objComp,strFileName)
+{
+	//var ele = document.getElementById(objComp.getElement().handle.id);
+	var ele = window.document.body;
+	var oForm = this;
+	if(!ele)
+	{
+		trace('ele is not exist.')
+		return false;
+	}			
+
+	html2canvas(ele, {
+		onrendered : function(canvas){
+			sImageData = canvas.toDataURL('image/png'); //Image 코드로 뽑아내기 // image 추가
+			oForm.fnOpenBoardPopup(sImageData);
+		}
+	});	
+};
+
+//20210609 VOC추가
+//게시판입력팝업오픈
+this.fnOpenBoardPopup = function (sImg)
+{
+	var sImgTag = "<p></p> <p></p>  <p></p> <img src="+nexacro.wrapQuote(sImg)+">";
+	//게시판추가
+	var popupId = "addBoard";
+	var popupUrl = "comm::board/boardPu.xfdl";
+	var oArg   = { pvApndYn		: "1"
+				  ,pvTitle 		: "VOC등록 "
+				  ,pvInputId	: nexacro.getApplication().gdsUser.getColumn(0, "USER_ID")
+				  ,pvInputEmpNo	: nexacro.getApplication().gdsUser.getColumn(0, "EMP_NO")
+				  ,pvContTitle	: ""
+				  ,pvBoardCd	: "VOC001"
+				  ,pvOpenType	: "add"
+				  ,pvHrank		: ""
+				  ,pvAnswLvl    : 0
+				  ,pvCont		: sImgTag };
+	var sPopupCallBack = "fnPopupCallback";
+	var sTitle = "게시글";
+	var oOption = {title:sTitle, titlebar:true};
+	this.gfnOpenPopup(popupId, popupUrl, oArg, sPopupCallBack, oOption);
+};
+ 
+/********************************************************************************
+ * Component Event 영역
+ ********************************************************************************/
+/**
+* @description OK버튼이벤트
+*/
+this.btnOk_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close(true);
+};
+
+/**
+* @description VOC버튼클릭
+*/
+this.btnVoc_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var oTarget = nexacro.getApplication().getActiveFrame();
+
+	var sFileName = oTarget.name+".png";
+	var sImg = "";
+	
+	if(system.navigatorname != "nexacro")
+	{
+		sImg = this.fnWebImageSave(oTarget,sFileName);
+	}
+	else
+	{
+		sImg = system.saveToImageBase64String(oTarget, false, "PNG");
+		this.fnOpenBoardPopup(sImg);
+	}
+};
+]]></Script>
+  </Form>
+</FDL>
