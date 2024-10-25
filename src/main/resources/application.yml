@@ -9,8 +9,8 @@ spring:
   web:
     resources:
       static-locations: classpath:/static/
-    #mvc:
-    #  static-path-pattern: /webapp/**
+    mvc:
+      static-path-pattern: /webapp/**
   servlet:
     session:
       timeout: 1m # 1800 # 초
@@ -23,59 +23,41 @@ spring:
   http:
     multipart:
       enabled: false
-  output:
-    ansi:
-      enabled: always
 
+    # messages 파일의 기본 이름 (콤마로 구분해서 사용 가능) (default messages)
+    #  messages:
+    #    basename: messages/message-common    # /resources/messages/message-common_{언어}.properties를 바라보도록 설정
+    #    encoding: UTF-8                     # 인코딩 설정 (default UTF-8)
+    #    use-code-as-default-message: false  # 메세지 코드를 찾지 못했을 때 (true : 코드 값 그대로 반환, default false : exception 발생)
+    #    fallback-to-system-locale: false    # 언어별 message 파일을 없을때 (default true : 시스템 설정 (MessageConfig) 파일 사용, false → default 파일 (message.properties))
+    #    cache-duration: 3600                # 캐시 주기 설정 (default forever)
+    #    always-use-message-format: true     # (true : message-format 항상 사용, default false : 항상 미사용)
 
-# messages 파일의 기본 이름 (콤마로 구분해서 사용 가능) (default messages)
-#  messages:
-#    basename: messages/message-common    # /resources/messages/message-common_{언어}.properties를 바라보도록 설정
-#    encoding: UTF-8                     # 인코딩 설정 (default UTF-8)
-#    use-code-as-default-message: false  # 메세지 코드를 찾지 못했을 때 (true : 코드 값 그대로 반환, default false : exception 발생)
-#    fallback-to-system-locale: false    # 언어별 message 파일을 없을때 (default true : 시스템 설정 (MessageConfig) 파일 사용, false → default 파일 (message.properties))
-#    cache-duration: 3600                # 캐시 주기 설정 (default forever) 
-#    always-use-message-format: true     # (true : message-format 항상 사용, default false : 항상 미사용)
-
-#  security:
-#    filter:
-#      order: 2  # devpro filter 및 custom login처리 filter 추가를 위간 간격 조정
-#  cache:
-#    ehcache: 
-#      config: classpath:ehcache.xml
+  #  security:
+  #    filter:
+  #      order: 2  # devpro filter 및 custom login처리 filter 추가를 위간 간격 조정
+  #  cache:
+  #    ehcache:
+  #      config: classpath:ehcache.xml
   sql:
     init:
       mode: always
       platform: hsqldb #oracle hsqldb, h2, oracle, mysql, postgresql
 
-#=================================================
-# 단일 DB 사용 설정
-#=================================================
+  #=================================================
+  # 단일 DB 사용 설정
+  #=================================================
   datasource:
-    #driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     #driver-class-name: net.sf.log4jdbc.DriverSpy
-    #url: jdbc:log4jdbc:hsqldb:mem:sampledb
-    #username: sa
-    #password:
-
-#    driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://localhost:5432/postgres
-#    username: postgres
-#    password: cctest
-
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: cctest
-
-    hikari:
-      connection-timeout: 5000
-      max-lifetime: 50000
+    url: jdbc:log4jdbc:hsqldb:mem:sampledb
+    username: sa
+    password:
 
 mybatis:
   config-location: classpath:mybatis/sql-mapper-config.xml
   mapper-locations:
-  - classpath:mybatis/mappers/*mapper.xml
+    - classpath:mybatis/mappers/*mapper.xml
 
 # logging.level.org.springframework.security=TRACE
 logging:
