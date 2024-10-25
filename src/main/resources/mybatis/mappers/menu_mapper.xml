@@ -6,14 +6,158 @@
 	
     <!--  POJO -->
      <select id="selectMenuList" parameterType="example.nexacro.uiadapter.pojo.MenuList" resultType="example.nexacro.uiadapter.pojo.MenuList">
-            SELECT
-                DISPLAY_PATH as displayPath,
-                MENU_ID as menuId,
-                MENU_NM as menuNm,
-                MENU_URL as menuUrl,
-                MENU_LV as menuLv,
-                MENU_ORDER as menuOrder
-            FROM SCC_MENU
-            order by menuOrder
+         SELECT
+             MENU_ID as menuId,
+             MENU_NM as menuNm,
+             SYS_ID as sysId,
+             HIGH_MENU_ID as highMenuId,
+             MENU_TPCD as menuTpcd,
+             MENU_LVL as menuLvl,
+             PRG_ID as prgId,
+             PRG_PATH as prgPath,
+             PRG_TYPE as prgType,
+             CALL_PARAM as callParam,
+             SORT_SEQ as sortSeq,
+             RMK as rmk,
+             USYN as usyn,
+             MGR_USYN as mgrUsyn,
+             COM_YN as comYn
+         FROM SCC_MENU
+         WHERE USYN = 'Y'
+           --AND MGR_USYN = 'Y'
+         ORDER BY SORT_SEQ;
     </select>
+
+    <insert id="insertMenuList" parameterType="example.nexacro.uiadapter.pojo.MenuList">
+        INSERT INTO SCC_MENU (
+            MENU_ID,
+            MENU_NM,
+            SYS_ID,
+            HIGH_MENU_ID,
+            MENU_TPCD,
+            MENU_LVL,
+            PRG_ID,
+            PRG_PATH,
+            PRG_TYPE,
+            CALL_PARAM,
+            SORT_SEQ,
+            RMK,
+            USYN,
+            MGR_USYN,
+            COM_YN,
+            CRTR_ID,
+            CRTR_DTTM,
+            MDPS_ID,
+            MDPS_DTTM
+        ) VALUES (
+             #{menuId},
+             #{menuNm},
+             #{sysId},
+             #{highMenuId},
+             #{menuTpcd},
+             #{menuLvl},
+             #{prgId},
+             #{prgPath},
+             #{prgType},
+             #{callParam},
+             #{sortSeq},
+             #{rmk},
+             #{usyn},
+             #{mgrUsyn},
+             #{comYn},
+             #{crtrId},
+             now(),
+             #{mdpsId},
+             now()
+        )
+    </insert>
+
+    <update id="updateMenuList" parameterType="example.nexacro.uiadapter.pojo.MenuList">
+        UPDATE SCC_MENU
+        SET
+            MENU_NM = #{menuNm},
+            SYS_ID = #{sysId},
+            HIGH_MENU_ID = #{highMenuId},
+            MENU_TPCD = #{menuTpcd},
+            MENU_LVL = #{menuLvl},
+            PRG_ID = #{prgId},
+            PRG_PATH = #{prgPath},
+            PRG_TYPE = #{prgType},
+            CALL_PARAM = #{callParam},
+            SORT_SEQ = #{sortSeq},
+            RMK = #{rmk},
+            USYN = #{usyn},
+            MGR_USYN = #{mgrUsyn},
+            COM_YN = #{comYn},
+            MDPS_ID = #{mdpsId},
+            MDPS_DTTM = now()
+        WHERE MENU_ID = #{menuId}
+
+    </update>
+
+    <delete id="deleteMenuList" parameterType="example.nexacro.uiadapter.pojo.MenuList">
+        DELETE FROM SCC_MENU
+        WHERE MENU_ID = #{menuId}
+    </delete>
+
+    <select id="selectCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtnList" resultType="example.nexacro.uiadapter.pojo.CmmBtnList">
+        SELECT
+            MENU_ID as menuId,
+            BTN_ID as btnId,
+            BTN_NM as btnNm,
+            FUNCTION_NM as functionNm,
+            CSS_NM as cssNm,
+            SORT_SEQ as sortSeq,
+            USYN as usyn
+        FROM SCC_MENU_BTN
+        WHERE MENU_ID=#{menuId}
+        order by sortSeq
+    </select>
+
+    <insert id="insertCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtnList">
+        INSERT INTO SCC_MENU_BTN (
+            MENU_ID,
+            BTN_ID,
+            BTN_NM,
+            FUNCTION_NM,
+            CSS_NM,
+            SORT_SEQ,
+            RMK,
+            USYN,
+            CRTR_ID,
+            CRTR_DTTM,
+            MDPS_ID,
+            MDPS_DTTM
+        ) VALUES (
+                     #{menuId},
+                     #{btnId},
+                     #{btnNm},
+                     #{functionNm},
+                     #{cssNm},
+                     #{sortSeq},
+                     #{rmk},
+                     #{usyn},
+                     #{crtrId},
+                     now(),
+                     #{mdpsId},
+                     now()
+                 )
+    </insert>
+    <update id="updateCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtnList">
+        UPDATE SCC_MENU_BTN
+        SET
+            MENU_ID = #{menuId},
+            BTN_ID = #{btnId},
+            BTN_NM = #{btnNm},
+            FUNCTION_NM = #{functionNm},
+            CSS_NM = #{cssNm},
+            USYN = #{usyn},
+            MDPS_ID = #{mdpsId},
+            MDPS_DTTM = now()
+        WHERE MENU_ID = #{menuId} AND BTN_ID = #{btnId}
+    </update>
+    <delete id="deleteCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtnList">
+        DELETE FROM SCC_MENU_BTN
+        WHERE MENU_ID = #{menuId}
+    </delete>
 </mapper>

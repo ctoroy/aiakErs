@@ -178,7 +178,8 @@ this.FileUpDown_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 {
 	//접속 환경별 서비스 URL 셋팅
 	var objEnv = nexacro.getEnvironment();
-	this.serverUrl =  objEnv.services["svcurl"].url; // "http://localhost:8080/uiadapter-spring-sample/"; // 
+	//this.serverUrl =  objEnv.services["svcUrl"].url; // "http://localhost:8080/uiadapter-spring-sample/"; // 
+	this.serverUrl =  "svcUrl::";
 
 };
  
@@ -345,6 +346,11 @@ this.fnGetFileSize = function(filesize)
 	return sOutput;
 };
 
+this.fnSearchFileList = function()
+{
+	var sUrl = this.serverUrl+"advancedDownloadList.do?subFolder=" + this.folderName;	
+	this.transaction("list", sUrl, "", "dsDownload=dsList", "", "fnCallbackTransaction", "false", "0")	
+};
 
 /************************************************************************************************
 * TRANSACTION 및 추가 FUNCTION 영역
@@ -436,8 +442,7 @@ this.btnSave_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 */
 this.btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	var sUrl = this.serverUrl+"advancedDownloadList.do?subFolder=" + this.folderName;	
-	this.transaction("list", sUrl, "", "dsDownload=dsList", "", "fnCallbackTransaction", "false", "0")	
+	this.fnSearchFileList();
 };
 
 
@@ -561,8 +566,8 @@ this.fileUpTrans_onsuccess = function(obj:nexacro.FileUpTransfer,e:nexacro.FileU
 	{
 		this.dsUpload.setColumn(i, "FILE_URL",objCallDs.getColumn(i,"savePath"));
 	}
-	
-	alert("전송완료");	
+	this.fnSearchFileList();
+	this.alert("전송완료");
 };
 
 

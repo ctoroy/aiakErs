@@ -1,5 +1,6 @@
 package example.nexacro.uiadapter.service;
 
+import example.nexacro.uiadapter.pojo.CmmBtnList;
 import example.nexacro.uiadapter.pojo.MenuList;
 
 import java.util.List;
@@ -25,4 +26,8 @@ import java.util.List;
 public interface UiFrameService {
 
     List<MenuList> selectMenuList();
+    void saveMenuList(List<MenuList> menuLists);
+
+    List<CmmBtnList> selectCmmBtnList(CmmBtnList cmmBtnList);
+    void saveCmmBtnList(List<CmmBtnList> cmmBtnLists);
 }

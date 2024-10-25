@@ -1,33 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="leftFrame" width="260" height="720" titletext="leftFrame" background="blue" onload="form_onload">
+  <Form id="main" width="1020" height="650" titletext="main" background="lightgreen">
     <Layouts>
-      <Layout width="260" height="720" screenid="Desktop_screen">
-        <Static id="Static00" taborder="0" text="LEFT frame" left="35" top="0" width="191" height="60" font="normal 800 36px/normal &quot;Malgun Gothic&quot;" background="white"/>
-        <Grid id="grdMenu" taborder="1" left="0" top="100" right="0" bottom="0" autofittype="col" treeusecheckbox="false" treeinitstatus="collapse,all" binddataset="dsMenu">
+      <Layout width="1020" height="650" screenid="Desktop_screen">
+        <Static id="Static00" taborder="0" text="MAIN frame" left="39" top="20" width="241" height="60" font="normal 800 36px/normal &quot;Malgun Gothic&quot;" background="white"/>
+        <Grid id="grdList" taborder="1" left="40" top="145" height="425" binddataset="dsList" autofittype="col" right="40">
           <Formats>
-            <Format id="default">
-              <Columns>
-                <Column size="195"/>
-              </Columns>
-              <Rows>
-                <Row size="30"/>
-              </Rows>
-              <Band id="body">
-                <Cell text="bind:menuNm" treelevel="bind:menuLv" displaytype="treeitemcontrol" edittype="tree"/>
-              </Band>
-            </Format>
+            <Format id="default"/>
           </Formats>
         </Grid>
+        <Button id="Button00" taborder="2" text="조회" left="630" top="70" width="56" height="36" onclick="Button00_onclick"/>
+        <Button id="btn00" taborder="3" text="엑셀다운로드" left="696" top="70" width="104" height="36" onclick="btn00_onclick"/>
+        <Button id="btn01" taborder="4" text="엑셀 업로드" left="810" top="70" width="97" height="36" onclick="btn01_onclick"/>
+        <Button id="btn02" taborder="5" text="데이터 삭제" left="917" top="70" width="97" height="36" onclick="btn02_onclick"/>
+        <Static id="staTitle" taborder="6" text="엑셀 다운로드 테스트" left="40" top="102" width="342" height="43" cssclass="sta_WF_Title"/>
       </Layout>
     </Layouts>
-    <Objects>
-      <Dataset id="dsMenu"/>
-    </Objects>
     <Script type="xscript5.1"><![CDATA[/**
 *  AIA 비용관리시스템
 *  @FileName 	sampleScript.xfdl
-*  @Creator 	송원창
+*  @Creator 	마사회
 *  @CreateDate 	2020.11.25
 *  @Desction 
 ************** 소스 수정 이력 ***********************************************
@@ -53,7 +45,6 @@ this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 //화면 load시 초기화
 this.fnInit = function()
 {
-	this.fnMenuList();
 };
 
 //공통코드콤보설정(Combo/Grid)
@@ -73,7 +64,7 @@ this.fnAfterCommCodeLoad = function()
 //조회
 this.cfnSearch = function(obj, e)
 {
-	this.fnSearch();
+	this.fnMenuList();
 	//TODO..
 };
 
@@ -135,7 +126,7 @@ this.fnMenuList = function ()
 	var strSvcId    = "search";
 	var strSvcUrl   = "selectMenuList.do"; // "retrieve_datalist.do";
 	var inData      = "";
-	var outData     = "gdsMenu=MENULIST";
+	var outData     = "dsList=MENULIST";
 	var strArg      = "";
 	var callBackFnc = "fnCallback";
 	var isAsync   	= true;
@@ -157,7 +148,12 @@ this.fnCallback = function (svcId, nErrCd, sErrMsg)
 	switch(svcId)
 	{
 		case "search":
-			this.dsMenu.copyData(this.objApp.gdsMenu);
+			this.grdList.createFormat();
+			break;
+
+		case "save":
+			// 저장 되었습니다.
+			this.gfnAlert("msg.save.success");
 			break;
 		default:break;
 	}
@@ -168,13 +164,7 @@ this.fnExcelImportCallback = function (sImportId, e)
 {
 	if(sImportId == "sampleExcel")
 	{
-		//import시 전체 데이터 normal로 넘어오므로 status update및 서버단에서 
-		//mergeinto로 처리하기 위한 임의 데이터 삽입
-// 		this.dsList.addColumn("_STATUS_","STRING");
-// 		for(var i = 0; i < this.dsList.getRowCount(); i++)
-// 		{
-// 			this.dsList.setColumn(i, "_STATUS_", "EXCEL");
-// 		}
+		trace(this.dsList.saveXML());
 		this.grdList.createFormat();
 	}
 };
@@ -185,6 +175,104 @@ this.fnExcelImportCallback = function (sImportId, e)
 /*******************************************************************************************************************************
  * 각 COMPONENT 별 EVENT 영역
 *******************************************************************************************************************************/
+
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.cfnSearch();
+};
+
+this.btn00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	// 엑셀 상단 타이틀 텍스트 설정
+	var sSubTitle = this.staTitle.text + " 리스트";
+
+	// Excel Export 공통함수 호출
+	this.gfnExcelExport(this.grdList, "", "sampleExcelExportImport", "","", sSubTitle, true, "");
+};
+
+this.btn01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	// Excel Import 공통함수 호출
+	//this.gfnExcelImport("dsList", "", "A2", "fnExcelImportCallback", "sampleExcel");
+	
+	//this.gfnExcelImport("dsList","A1:E1","A2","fnExcelImportCallback","ExcelImport");
+	
+	//this.gfnExcelImportAll("dsList","sheet1","A1:E1","A2","fnImportCallback","import",this);
+	
+	this.gfnExcelImport("dsList", "", "A2", "fnExcelImportCallback", "sampleExcel", "", "A1:E1");
+};
+
+// 
+// 
+// this.gfnExcelImportAll = function(objDs,sSheet,sHead,sBody,sCallback,sImportId,objForm)
+// {
+// 	if(this.gfnIsNull(sSheet)) sSheet = "sheet1";
+// 	if(this.gfnIsNull(sBody)) sBody = "A2";
+// 	if(this.gfnIsNull(sHead)) return false;
+// 	
+// 	var svcUrl = "svcUrl::XExportImport.do";
+// 	
+// 	var objImport ;	
+// 	
+// 	objImport = new nexacro.ExcelImportObject(objDs+"_ExcelImport",this);				
+// 	objImport.set_importurl(svcUrl);						
+// 	objImport.set_importtype(nexacro.ImportTypes.EXCEL);
+// 	
+// 	if (!this.gfnIsNull(sCallback))
+// 	{
+// 		objImport.callback = sCallback;
+// 		objImport.importid = sImportId;
+// 		objImport.form = objForm;
+// 	}
+// 	
+// 	//objImport.addEventHandler("onsuccess", this.gfnImportOnsuccess, this);
+// 	//objImport.addEventHandler("onerror",   this.gfnImportOnerror,   this);	
+// 	
+// 	objImport.addEventHandler("onsuccess", this.gfnImportAllOnsuccess, this);
+// 	//objImport.addEventHandler("onerror", this.gfnImportOnerror, this);
+// 	var sParam1 = "[Command=getsheetdata;Output=outds;Head="+sSheet+"!"+sHead+";Body="+sSheet+"!"+sBody+"]";
+// 	var sParam2 = "["+objDs+"=outds]";
+// 
+// 	objImport.importData("", sParam1, sParam2);
+// 	objImport = null;
+// 	
+// 	//this.setWaitCursor(true);
+// };
+// 
+// this.gfnImportAllOnsuccess = function(obj,  e)
+// {		
+// 	this.setWaitCursor(false);
+// 	var sCallback = obj.callback;
+// 	var sImportId = obj.importid;	
+// 	//화면의 callback 함수 호출
+// 	this.fnExcelImportCallback(sImportId);
+// };
+// 
+// 
+// this.btn02_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+// {
+// 	this.dsList.clearData();
+// };
+
+this.btn02_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.dsList.clearData();
+};
 ]]></Script>
+    <Objects>
+      <Dataset id="dsSearch">
+        <ColumnInfo>
+          <Column id="searchKeyword" type="STRING" size="100"/>
+          <Column id="searchCondition" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="searchKeyword"/>
+            <Col id="searchCondition">TITLE</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsList"/>
+    </Objects>
   </Form>
 </FDL>

@@ -17,16 +17,16 @@ var pForm = nexacro.Form.prototype;
 pForm.FRAME_MENUCOLUMNS = 
 {
 	sytmFlagCd		: "SYTM_FLAG_CD",    	// 시스템구분코드
-	menuId 			: "MENU_ID",    		// 아이디
-	menuNm 			: "MENU_NM",			// 명칭
+	menuId 			: "menuId",    		// 아이디
+	menuNm 			: "menuNm",			// 명칭
 	groupId			: "MODULE_CD",			// 메뉴그룹 아이디
-	prgmId 			: "PRGM_ID",			// 프로그램 아이디
+	prgmId 			: "prgmId",			// 프로그램 아이디
 	prgmPath		: "PRGM_PATH",			// 프로그램 경로(서비스그룹명)
 	prgmFileNm		: "PRGM_FILE_NM",		// 프로그램 파일명
 	prgmHelpFlag	: "PRGM_HELP_FLAG",		// 프로그램 매뉴얼 작성 여부
 	prgmNm			: "PRGM_NM",			// 프로그램 이름
-	menuUrl 		: "MENU_URL",			// 프로그램 URL(서비스그룹명 + "::" + 파일명)
-	menuLevel 		: "MENU_LV",     		// 메뉴레벨	
+	menuUrl 		: "prgPath",			// 프로그램 URL(서비스그룹명 + "::" + 파일명)
+	menuLevel 		: "menuLvl",     		// 메뉴레벨	
     upMenuId    	: "HIPO_MENU_ID",		// 상위메뉴 아이디
 	//leafYn 		: "LEAF_YN",			// 마지막 노드 여부
 	//useYn			: "USED_YN",			// 사용여부
@@ -39,10 +39,10 @@ pForm.FRAME_MENUCOLUMNS =
 	initbtinYn		: "CMMNBTNINIT",        // 공통초기화버튼 사용여부
 	//excelUpBtnYn	: "cmmnBtnExcelUp",		// 공통엑셀업로드버튼 사용여부
 	//helpBtnYn		: "cmmnBtnHelp",		// 공통도움말버튼 사용여부
-	winId 			: "WIN_ID",      		// 윈도우(프레임)아이디(열린 메뉴의 윈도우 아이디)
-	title 			: "MENU_NM",			// 메뉴타이틀
+	winId 			: "winId",      		// 윈도우(프레임)아이디(열린 메뉴의 윈도우 아이디)
+	title 			: "menuNm",				// 메뉴타이틀
 	param			: "PARM",
-	displayPath     : "DISPLAY_PATH"
+	displayPath     : "displayPath"
 };
 
 /************************************************************************************************
@@ -124,9 +124,10 @@ pForm.gfnSetLogin = function()
 	objApp.gvCloseCheck = true;
 
 	// URL 연결
-	objApp.gvFrmTop.set_formurl(objApp._TOP_FORM_PATH);
+	//objApp.gvFrmTop.set_formurl(objApp._TOP_FORM_PATH);
 	objApp.gvFrmLeft.set_formurl(objApp._LEFT_FORM_PATH);
 	objApp.gvFrmMdi.set_formurl(objApp._MDI_FORM_PATH);
+	objApp.gvFrmBottom.set_formurl(objApp._BOTTOM_FORM_PATH);
 
 	// LogIn Frame Form Url Initiate
 	objApp.gvFrmLogin.set_formurl("");
@@ -153,12 +154,12 @@ pForm.gfnSetMain = function(bInit)
 	objApp.gvFrameStat	= "main";
 	
 	// Layout
-	objApp.gvVFS.set_separatesize("0,*");
+	objApp.gvVFS.set_separatesize("0,42,*");
 	
 	// Mdi Frame 위치 설정(top || bottom)
 	if(objApp.gvMdiFramePos == "top")
 	{
-		objApp.gvVFS1.set_separatesize("50,40,0,*");
+		objApp.gvVFS1.set_separatesize("*,0,0");
 	}
 	else if(objApp.gvMdiFramePos == "bottom")
 	{
@@ -190,7 +191,7 @@ pForm.gfnSetSub = function()
 	// Mdi Frame 위치 설정(top || bottom)
 	if (objApp.gvMdiFramePos == "top")
 	{
-		objApp.gvVFS1.set_separatesize("50,40,*,0");
+		objApp.gvVFS1.set_separatesize("0,*,0");
 	}
 	else if(objApp.gvMdiFramePos == "bottom")
 	{
@@ -252,9 +253,11 @@ pForm.gfnShowLeftFrame = function ()
 {
 	var objApp = nexacro.getApplication();
 
-	objApp.gvHFS.set_separatesize("280,*");
-	objApp.gvFrmMdi.form.btnLeftMenuShowHide.set_cssclass("btn_MDI_MenuClose");
+	objApp.gvHFS.set_separatesize("320,*");
+	objApp.gvFrmMdi.form.btnLeftMenuShowHide.cssclass = "btn_MDI_MenuClose";
 	objApp.gvFrmLeft.form.fvMenuStatus = "open";
+	objApp.gvFrmLeft.form.fnMenuVisible();
+	
 };
 
 /**
@@ -267,9 +270,10 @@ pForm.gfnHideLeftFrame = function ()
 {
 	var objApp = nexacro.getApplication();
 
-	objApp.gvHFS.set_separatesize("0,*");
-	objApp.gvFrmMdi.form.btnLeftMenuShowHide.set_cssclass("btn_MDI_MenuOpen");
+	objApp.gvHFS.set_separatesize("50,*");
+	objApp.gvFrmMdi.form.btnLeftMenuShowHide.cssclass = "btn_MDI_MenuOpen";
 	objApp.gvFrmLeft.form.fvMenuStatus = "close";
+	objApp.gvFrmLeft.form.fnMenuVisible();
 };
 
 /**
@@ -626,7 +630,7 @@ pForm.gfnSetWorkMode = function (status)
 	var objApp = nexacro.getApplication();
 	
 	if(this.gfnIsNull(objApp.gvVFS.status)) objApp.gvVFS.status = "0,50,*";
-	if(this.gfnIsNull(objApp.gvHFS.status)) objApp.gvHFS.status = "280,*";
+	if(this.gfnIsNull(objApp.gvHFS.status)) objApp.gvHFS.status = "320,*";
 	if(this.gfnIsNull(objApp.gvVFS1.status)) objApp.gvVFS1.status = "42,0,*,0";
 	
 	if(status == "normal")

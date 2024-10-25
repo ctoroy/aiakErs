@@ -851,9 +851,9 @@ pForm._gfnMakeGridPopupMenu = function (objGrid, arrProp)
 	// col hide 속성
 	if(arrProp.indexOf("colhide") < 0)
 	{
-		for (var i = objPopupDs.rowcount - 1; i > -1; i--) 
+		for(var i = objPopupDs.rowcount - 1; i > -1; i--) 
 		{
-			if (objPopupDs.getColumn(i, "lineDiv") == "colhide" ) {
+			if(objPopupDs.getColumn(i, "lineDiv") == "colhide" ) {
 				objPopupDs.deleteRow(i);
 			}
 		}
@@ -871,14 +871,14 @@ pForm._gfnMakeGridPopupMenu = function (objGrid, arrProp)
 				//objPopupDs.setColumn(j, "caption", this.gfnGetWord(sWordkey,"G"));
 				objPopupDs.setColumn(j, "caption", "Show All Column");
 			}
-			if( sMenu.indexOf(arrProp[i]) > -1 ){
+			if(sMenu.indexOf(arrProp[i]) > -1 ){
 				if(sMenu == "colhidefree") //show 컬럼은 기본 enable이 false. 숨겨져있는 컬럼이 존재하는 경우 리스트로 나와야 함.
 				{
 					objPopupDs.setColumn(j, "enableMenu", "false");								
 				}
 				
 				
-				if( objPopupDs.getColumn(j, "level") == 1){
+				if(objPopupDs.getColumn(j, "level") == 1){
 					var sUpMenu = objPopupDs.getColumn(j, "upmenu");
 					var nUpRow = objPopupDs.findRow("id", sUpMenu);
 					if(nUpRow > -1) objPopupDs.setColumn(nUpRow, "enableMenu", "true");
@@ -901,10 +901,10 @@ pForm._gfnMakeGridPopupMenu = function (objGrid, arrProp)
 	
 	//현재 gdsGridPopupMenu에 없는 컬럼임
 	var nFindRow = objPopupDs.findRow("id", "filterhead");
-	if(nFindRow>=0) {
+	if(nFindRow >= 0) {
 		var nCnt = objGrid.getFormatRowCount();
 		var nBodyCnt = 0;
-		for(var i=0;i<nCnt;i++) {
+		for(var i = 0; i <nCnt; i++) {
 			if(objGrid.getFormatRowProperty(i, "band") == "body") {
 				nBodyCnt++;
 				objGrid._bodyrowsize = objGrid.getFormatRowProperty(i, "size");

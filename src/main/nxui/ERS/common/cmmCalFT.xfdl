@@ -1,34 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="cmmCalFT" width="317" height="25" titletext="기간달력" onload="form_onload" ontimer="cmmCalFT_ontimer">
+  <Form id="cmmCalFT" width="317" height="28" titletext="기간달력" onload="form_onload" ontimer="cmmCalFT_ontimer">
     <Layouts>
-      <Layout height="25" mobileorientation="landscape" width="317">
+      <Layout height="28" mobileorientation="landscape" width="317">
         <Calendar id="calFrom" taborder="0" left="0" top="0" width="47.32%" dateformat="yyyy-MM-dd" bottom="0" popuptype="none" oneditclick="cal_oneditclick" ondropdown="cal_ondropdown"/>
         <Static id="staTerm" taborder="1" text="~" left="calFrom:0" top="0" width="17" bottom="0" cssclass="sta_WF_Center"/>
         <Calendar id="calTo" taborder="2" left="staTerm:0" top="0" dateformat="yyyy-MM-dd" bottom="0" right="0" popuptype="none" oneditclick="cal_oneditclick" ondropdown="cal_ondropdown"/>
-        <PopupDiv id="pdivCal" text="pdiv00" visible="false" left="3.00" top="33" height="293" width="415" onpopup="pdivCal_onpopup" cssclass="pdiv_WF_Cal">
+        <PopupDiv id="pdivCal" text="pdiv00" visible="false" left="3" top="33" height="205" width="324" onpopup="pdivCal_onpopup">
           <Layouts>
             <Layout>
-              <Calendar id="calFromM" taborder="0" left="10" top="20" width="200" dateformat="yyyy-MM-dd" type="monthonly" height="210" border="0px none"/>
-              <Calendar id="calToM" taborder="1" left="calFromM:5.00" top="20" dateformat="yyyy-MM-dd" type="monthonly" width="185" height="210" border="0px none"/>
-              <Button id="btnOk" taborder="2" text="확인" width="60" height="27" bottom="20" onclick="pdivCal_btnOk_onclick" right="95" cssclass="btn_POP_Yes"/>
-              <Button id="btnCancle" taborder="3" text="취소" left="btnOk:5.00" width="60" height="27" bottom="20" cssclass="btn_POP_No" onclick="pdivCal_btnCancle_onclick"/>
-              <Static id="staMsg" taborder="4" text="sta00" left="0" top="105" height="60" right="0" background="#ffffff" border="1px solid red" textAlign="center" cssclass="sta_WF_GTxt02" visible="false"/>
+              <Static id="staBg" taborder="0" left="0" top="0" cssclass="sta_WF_GBg01" right="0" bottom="0"/>
+              <Calendar id="calFromM" taborder="1" left="5" top="5" width="155" dateformat="yyyy-MM-dd" type="monthonly" bottom="38"/>
+              <Calendar id="calToM" taborder="2" left="calFromM:5" top="5" dateformat="yyyy-MM-dd" type="monthonly" width="155" bottom="38"/>
+              <Button id="btnOk" taborder="3" text="확인" width="50" height="28" bottom="5" left="110" onclick="pdivCal_btnOk_onclick"/>
+              <Button id="btnCancle" taborder="4" text="취소" left="btnOk:5" width="50" height="28" bottom="5" cssclass="btn_WF_Crud" onclick="pdivCal_btnCancle_onclick"/>
+              <Static id="staMsg" taborder="5" text="sta00" left="0" top="64" height="60" right="0" background="#ffffff" border="1px solid red" textAlign="center" cssclass="sta_WF_GTxt02" visible="false"/>
             </Layout>
           </Layouts>
         </PopupDiv>
       </Layout>
     </Layouts>
     <Script type="xscript5.1"><![CDATA[/**
-*  문화센터 파크 및 마권안내 홈페이지 재구축
+*  DevPACK
 *  @FileName 	cmmCalFT.xfdl
 *  @Creator 	TOBESOFT
-*  @CreateDate 	2020.12.03
-*  @Desction
+*  @CreateDate 	2020/12/03
+*  @Desction   
 ************** 소스 수정 이력 ***********************************************
 * Date					Modifier					Description
 *******************************************************************************
-* 2020.12.03			TOBESOFT					최초생성
+* 2020/12/03			TOBESOFT					최초생성
 *******************************************************************************
 */
 
@@ -41,7 +42,8 @@
 *******************************************************************************************************************************/
 this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 {
-	this.gfnFormOnload(obj); //필수함수
+	this.gfnFormOnload(obj,e); //필수함수
+	
 };
 /*******************************************************************************************************************************
  * 공통함수영역 (cfnSearch : 조회 / cfnSave : 저장 / cfnAdd : 신규 / cfnDel : 삭제 / cfnPrint : 인쇄..)
@@ -80,13 +82,10 @@ this.setToDate = function (v)
 
 this.setRequired = function(bValue)
 {
-	if(bValue)
-	{
+	if (bValue) {
 		this.calTo.set_cssclass("essential");
 		this.calFrom.set_cssclass("");
-	}
-	else
-	{
+	}else {
 		this.calTo.set_cssclass("");
 		this.calFrom.set_cssclass("");
 	}
@@ -109,7 +108,7 @@ this.fnShowMessage = function (sMsgId, arrArg)
 	
 	this.pdivCal.form.staMsg.set_text(sMsgTxt);
 	this.pdivCal.form.staMsg.set_visible(true);
-	this.setTimer(999, 1300);
+	this.setTimer(999, 3000);
 };
 /*******************************************************************************************************************************
  * 각 COMPONENT 별 EVENT 영역
@@ -134,7 +133,7 @@ this.pdivCal_onpopup = function(obj:nexacro.PopupDiv,e:nexacro.EventInfo)
 	var sTo   = this.calTo.value;
 	if(this.gfnIsNull(sFrom)) sFrom = this.gfnGetDate();
 	if(this.gfnIsNull(sTo)) sTo = this.gfnGetDate();
-
+	
 	this.pdivCal.form.calFromM.set_value(sFrom);
 	this.pdivCal.form.calToM.set_value(sTo);
 };
@@ -144,18 +143,15 @@ this.pdivCal_btnOk_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInf
 	var sFrom = this.pdivCal.form.calFromM.value;
 	var sTo = this.pdivCal.form.calToM.value;
 	
-	if(this.gfnIsNull(sFrom))
-	{
+	if( this.gfnIsNull(sFrom)){
 		this.fnShowMessage("msg.err.validator.required", ["시작"]);
 		return;
 	}
-	if(this.gfnIsNull(sTo))
-	{
+	if( this.gfnIsNull(sTo)){
 		this.fnShowMessage("msg.err.validator.required", ["종료"]);
 		return;
 	}
-	if(this.gfnGetDiffDate(sFrom, sTo) < 0)
-	{
+	if( this.gfnGetDiffDate(sFrom, sTo) < 0){
 		this.fnShowMessage("msg.err.validator.date.great");
 		return;
 	}
@@ -175,8 +171,7 @@ this.pdivCal_btnCancle_onclick = function(obj:nexacro.Button,e:nexacro.ClickEven
 
 this.cmmCalFT_ontimer = function(obj:nexacro.Form,e:nexacro.TimerEventInfo)
 {
-	if(e.timerid == 999)
-	{
+	if( e.timerid == 999){
 		this.pdivCal.form.staMsg.set_text("");
 		this.pdivCal.form.staMsg.set_visible(false);
 	}

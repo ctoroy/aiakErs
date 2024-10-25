@@ -1,5 +1,6 @@
 package example.nexacro.uiadapter.mapper;
 
+import example.nexacro.uiadapter.pojo.CmmBtnList;
 import example.nexacro.uiadapter.pojo.MenuList;
 
 import java.util.List;
@@ -24,5 +25,14 @@ import java.util.List;
  */
 public interface MenuListMapper {
 
-	public List<MenuList>           selectMenuList();
+	public List<MenuList> selectMenuList();
+	public void insertMenuList(MenuList menuList);
+	public void updateMenuList(MenuList menuList);
+	public void deleteMenuList(MenuList menuList);
+
+	public List<CmmBtnList> selectCmmBtnList(CmmBtnList cmmBtnList);
+	public void insertCmmBtnList(CmmBtnList cmmBtnList);
+	public void updateCmmBtnList(CmmBtnList cmmBtnList);
+	public void deleteCmmBtnList(CmmBtnList cmmBtnList);
+
 }

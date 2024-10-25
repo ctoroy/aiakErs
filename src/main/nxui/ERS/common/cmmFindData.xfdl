@@ -3,22 +3,22 @@
   <Form id="cmmFindData" width="370" height="288" titletext="그리드 내용 찾기" onload="form_onload" onkeyup="form_keyup">
     <Layouts>
       <Layout height="288" mobileorientation="landscape" width="370">
-        <Div id="divFind" taborder="0" text="div00" left="20" top="20" right="20" bottom="68">
+        <Div id="divFind" taborder="0" text="div00" left="25" top="20" right="25" bottom="68">
           <Layouts>
             <Layout>
-              <Static id="staBg00" taborder="0" left="0" top="0" height="35" cssclass="sta_WF_DetailBg" right="0"/>
-              <Static id="staBg01" taborder="1" left="0" top="staBg00:-1" height="35" cssclass="sta_WF_DetailBg" right="0"/>
-              <Static id="staBg02" taborder="2" left="0" top="staBg01:-1" height="35" cssclass="sta_WF_DetailBg" right="0"/>
-              <Static id="staBg03" taborder="3" left="0" top="staBg02:-1" height="35" cssclass="sta_WF_DetailBg" right="0"/>
-              <Static id="staBg05" taborder="4" left="0" top="staBg03:-1" cssclass="sta_WF_DetailBg" right="0" bottom="0"/>
-              <Static id="staTitle00" taborder="5" text="대상컬럼" left="0" top="0" width="108" height="35" cssclass="sta_WF_Label"/>
-              <Static id="staTitle01" taborder="6" text="찾을 문자열" left="0" top="staTitle00:-1" width="108" height="35" cssclass="sta_WF_Label"/>
-              <Static id="staTitle02" taborder="7" text="찾을 방향" left="0" top="staTitle01:-1" width="108" height="35" cssclass="sta_WF_Label"/>
-              <Static id="staTitle03" taborder="8" text="찾을 위치" left="0" top="staTitle02:-1" width="108" height="35" cssclass="sta_WF_Label"/>
+              <Static id="staBg00" taborder="0" left="0" top="0" height="34" cssclass="sta_WF_LabelBg" right="0"/>
+              <Static id="staBg01" taborder="1" left="0" top="staBg00:-1" height="34" cssclass="sta_WF_LabelBg" right="0"/>
+              <Static id="staBg02" taborder="2" left="0" top="staBg01:-1" height="34" cssclass="sta_WF_LabelBg" right="0"/>
+              <Static id="staBg03" taborder="3" left="0" top="staBg02:-1" height="34" cssclass="sta_WF_LabelBg" right="0"/>
+              <Static id="staBg05" taborder="4" left="0" top="staBg03:-1" cssclass="sta_WF_LabelBg" right="0" bottom="0"/>
+              <Static id="staTitle00" taborder="5" text="대상컬럼" left="0" top="0" width="108" height="34" cssclass="sta_WF_Label"/>
+              <Static id="staTitle01" taborder="6" text="찾을 문자열" left="0" top="staTitle00:-1" width="108" height="34" cssclass="sta_WF_Label"/>
+              <Static id="staTitle02" taborder="7" text="찾을 방향" left="0" top="staTitle01:-1" width="108" height="34" cssclass="sta_WF_Label"/>
+              <Static id="staTitle03" taborder="8" text="찾을 위치" left="0" top="staTitle02:-1" width="108" height="34" cssclass="sta_WF_Label"/>
               <Static id="staTitle05" taborder="9" text="찾을 조건" left="0" top="staTitle03:-1" width="108" cssclass="sta_WF_Label" bottom="0"/>
-              <Combo id="cboColumn" taborder="10" text="cbo00" left="staTitle00:4.00" top="5" height="25" right="4" innerdataset="dsColumnInfo" codecolumn="index" datacolumn="name"/>
-              <Edit id="edtFindTxt" taborder="11" left="staTitle01:4.00" top="cboColumn:9" height="25" right="4"/>
-              <Radio id="rdoDirection" taborder="12" left="staTitle02:4.00" top="edtFindTxt:9" height="25" right="4" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" value="next" text="다음" index="1">
+              <Combo id="cboColumn" taborder="10" text="cbo00" left="staTitle00:4" top="5" height="24" right="4" innerdataset="dsColumnInfo" codecolumn="index" datacolumn="name"/>
+              <Edit id="edtFindTxt" taborder="11" left="staTitle01:4" top="cboColumn:9" height="24" right="4"/>
+              <Radio id="rdoDirection" taborder="12" left="staTitle02:4" top="edtFindTxt:9" height="24" right="4" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" value="next" text="다음" index="1">
                 <Dataset id="innerdataset">
                   <ColumnInfo>
                     <Column id="codecolumn" size="256"/>
@@ -36,7 +36,7 @@
                   </Rows>
                 </Dataset>
               </Radio>
-              <Radio id="rdoPosition" taborder="13" left="staTitle03:4.00" top="rdoDirection:9" height="25" right="4" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" value="current" text="현재위치" index="0" onitemchanged="divFind_rdoPosition_onitemchanged">
+              <Radio id="rdoPosition" taborder="13" left="staTitle03:4" top="rdoDirection:9" height="24" right="4" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" value="current" text="현재위치" index="0" onitemchanged="divFind_rdoPosition_onitemchanged">
                 <Dataset id="innerdataset">
                   <ColumnInfo>
                     <Column id="codecolumn" size="256"/>
@@ -54,7 +54,7 @@
                   </Rows>
                 </Dataset>
               </Radio>
-              <Radio id="rdoCondition" taborder="14" left="staTitle05:4.00" top="rdoPosition:9" height="25" right="4" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" value="inclusion" text="포함" index="1">
+              <Radio id="rdoCondition" taborder="14" left="staTitle05:4" top="rdoPosition:9" height="24" right="4" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" direction="vertical" value="inclusion" text="포함" index="1">
                 <Dataset id="innerdataset">
                   <ColumnInfo>
                     <Column id="codecolumn" size="256"/>
@@ -72,24 +72,24 @@
                   </Rows>
                 </Dataset>
               </Radio>
-              <CheckBox id="chkGubun" taborder="15" text="대/소문자 구분" left="staTitle05:4" top="rdoCondition:9" width="123" height="25"/>
+              <CheckBox id="chkGubun" taborder="15" text="대/소문자 구분" left="staTitle05:4" top="rdoCondition:9" width="123" height="20"/>
             </Layout>
           </Layouts>
         </Div>
-        <Button id="btnCancel" taborder="1" text="취소" height="28" width="52" fittocontents="width" cssclass="btn_POP_No" right="25" bottom="20" onclick="btnConfirm_onclick"/>
-        <Button id="btnFind" taborder="2" text="찾기" height="28" width="52" fittocontents="width" right="btnCancel:3" bottom="20" onclick="btnFind_onclick" cssclass="btn_POP_Yes"/>
+        <Button id="btnCancel" taborder="1" text="취소" height="28" width="48" fittocontents="width" cssclass="btn_WF_Crud" right="25" bottom="20" onclick="btnConfirm_onclick"/>
+        <Button id="btnFind" taborder="2" text="찾기" height="28" width="50" fittocontents="width" right="btnCancel:3" bottom="20" onclick="btnFind_onclick"/>
       </Layout>
     </Layouts>
     <Script type="xscript5.1"><![CDATA[/**
-*  문화센터 파크 및 마권안내 홈페이지 재구축
+*  DevPACK
 *  @FileName 	cmmFindData.xfdl
 *  @Creator 	TOBESOFT
-*  @CreateDate 	2021.03.17
-*  @Desction
+*  @CreateDate 	2021/03/17
+*  @Desction   
 ************** 소스 수정 이력 ***********************************************
 * Date					Modifier					Description
 *******************************************************************************
-* 2021.03.17			TOBESOFT					최초생성
+* 2021/03/17			TOBESOFT					최초생성
 *******************************************************************************
 */
 
@@ -107,7 +107,7 @@ this.fvSelectType = "cell";
 *******************************************************************************************************************************/
 this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 {
-	this.gfnFormOnload(obj); //필수함수
+	this.gfnFormOnload(obj,e); //필수함수
 	
 	this.fvGrid 	  = this.getOwnerFrame().pvGrid;	
 	this.fvDs 		  = this.fvGrid.getBindDataset();

@@ -9,7 +9,7 @@
           <Layouts>
             <Layout>
               <Static id="staBg" taborder="0" left="0" top="0" cssclass="sta_WF_GBg01" text="" right="0" bottom="0"/>
-              <Grid id="grdMultiCombo" taborder="1" left="0" top="0" right="0" bottom="28" autofittype="col" onheadclick="pdvCbo_grdMultiCombo_onheadclick" oncellclick="pdvCbo_grdMultiCombo_oncellclick" cssclass="grd_WF_Cbo">
+              <Grid id="grdMultiCombo" taborder="1" left="0" top="0" right="0" bottom="28" autofittype="col" onheadclick="pdvCbo_grdMultiCombo_onheadclick" oncellclick="pdvCbo_grdMultiCombo_oncellclick">
                 <Formats>
                   <Format id="default">
                     <Columns>
@@ -50,15 +50,15 @@
       </Dataset>
     </Objects>
     <Script type="xscript5.1"><![CDATA[/**
-*  문화센터 파크 및 마권안내 홈페이지 재구축
+*  DevPACK
 *  @FileName 	cmmMultiCombo.xfdl
 *  @Creator 	TOBESOFT
-*  @CreateDate 	2020.12.11
+*  @CreateDate 	2020/12/02
 *  @Desction   
 ************** 소스 수정 이력 ***********************************************
 * Date					Modifier					Description
 *******************************************************************************
-* 2020.12.11			TOBESOFT					최초생성
+* 2020/12/02			TOBESOFT					최초생성
 *******************************************************************************
 */
 
@@ -142,7 +142,7 @@ this.setDataset = function (objDs, sCodeColumn, sDataColumn, sHeadName, sCallBac
 	this.callbackfunc 	   = sCallBack;
 
 	// chk 미사용 시 1건 선택
-	if(this.headname.indexOf("chk") == -1) {
+	if (this.headname.indexOf("chk") == -1) {	
 		this.multiCheck = false;
 		this.pdvCbo.form.grdMultiCombo.set_bottom(0);
 		this.pdvCbo.form.btnOk.set_visible(false);
@@ -151,16 +151,17 @@ this.setDataset = function (objDs, sCodeColumn, sDataColumn, sHeadName, sCallBac
 	//데이터셋에  chk컬럼 없을 경우 생성
 	this.comboinnerdataset.set_enableevent(false);
 	var oColInfo = this.comboinnerdataset.getColumnInfo("chk");
-	if(this.gfnIsNull(oColInfo)) {
+	if( this.gfnIsNull(oColInfo)) {
 		this.comboinnerdataset.addColumn("chk", "STRING");
 	}
 	
 	//checkbox값 세팅
-	var nIdx = this.comboinnerdataset.rowcount;
-	for(var j=0; j<nIdx; j++){
-		if(this.fvAll) { // 초기에 전체 선택이면
+	var nIdx = this.comboinnerdataset.getRowCount();
+	for (var j=0; j<nIdx; j++){
+		
+		if (this.fvAll) { // 초기에 전체 선택이면
 			this.comboinnerdataset.setColumn(j, "chk", 1);
-		} else {
+		}else { 	
 			this.comboinnerdataset.setColumn(j, "chk", 0);
 		}
 	}
@@ -201,25 +202,25 @@ this.fnSyncValue = function ()
 	var arrTextList  = [];
 	var arrValueList = [];
 	
-	if(this.multiCheck==false) {
+	if(this.multiCheck==false){
 		arrValueList.push(this.comboinnerdataset.getColumn(this.comboinnerdataset.rowposition, this.combocodecolumn));
 		arrTextList.push(this.comboinnerdataset.getColumn(this.comboinnerdataset.rowposition, this.combodatacolumn));
 		this.fnSetComboText(arrValueList, arrTextList);
 		return;
 	}
 
-	var nRowCount = this.comboinnerdataset.rowcount;
+	var nRowCount = this.comboinnerdataset.getRowCount();
 	var nChkCount = this.comboinnerdataset.getCaseCount("chk=='1'");
 	
-	if(nRowCount == nChkCount) {
+	if( nRowCount == nChkCount){
 		//전체선택
 		this.pdvCbo.form.grdMultiCombo.setCellProperty("head", 0, "text", 1);
-	} else {
+	}else{
 		this.pdvCbo.form.grdMultiCombo.setCellProperty("head", 0, "text", 0);
 	}
 	
 	// 초기에 전체 선택이면
-	for(var i=0; i<nRowCount; i++) {
+	for (var i=0; i<nRowCount; i++) {
 		var sChkValue = this.comboinnerdataset.getColumn(i, "chk");
 		if (sChkValue == "1") {
 			arrValueList.push(this.comboinnerdataset.getColumn(i, this.combocodecolumn));
@@ -241,14 +242,14 @@ this.fnSetComboText = function(arrValueList, arrTextList)
 	
 	if (this.gfnIsNull(sComboText)) {
 		this.edtCbo.set_value(null);
-	} else {
+	}else {
 		if (this.gfnIsNull(this.fvAllDisplay)) {
 			this.edtCbo.set_value(sComboText);
-		} else {
+		}else {
 			if (arrValueList.length == this.comboinnerdataset.rowcount) {
 				this.edtCbo.set_value(this.fvAllDisplay);
 				this.resetScroll();
-			} else {
+			}else {
 				this.edtCbo.set_value(sComboText);
 			}
 		}
@@ -263,8 +264,8 @@ this.fnInit = function ()
 {
 	var objDs = this.comboinnerdataset;
 	objDs.set_enableevent(false);
-	for(var i=0; i<objDs.rowcount; i++) {
-		objDs.setColumn(i, "chk", "0");
+	for (var i=0; i<objDs.rowcount; i++) {
+		objDs.setColumn(i, "chk", "0");			
 	}
 	objDs.set_enableevent(true);
 	
@@ -278,9 +279,9 @@ this.fnInit = function ()
 */
 this.setRequired = function(bValue)
 {
-	if(bValue) {
+	if (bValue) {
 		this.edtCbo.set_cssclass("essential");
-	} else {
+	}else {
 		this.edtCbo.set_cssclass("");
 	}
 };
@@ -317,21 +318,20 @@ this.getText = function()
 */
 this.setValue = function(sValue)
 {	
-	if(!this.comboinnerdataset) return;
 	// 선택된 값 초기화
 	this.fnInit();
 
-	if(this.gfnIsNull(sValue)) return;
+	if (this.gfnIsNull(sValue)) return;
 	
-	var nFindRow;
+	var nFindRow;	
 	var arrTextList = [];
 	var arrValueList = (""+sValue).split(",");
 	
 	var objDs = this.comboinnerdataset;
 	objDs.set_enableevent(false);
-	for(var i=0; i<arrValueList.length; i++) {
+	for (var i=0; i<arrValueList.length; i++) {
 		nFindRow = objDs.findRow(this.combocodecolumn, arrValueList[i]);
-		if(nFindRow != -1) {
+		if (nFindRow != -1) {
 			arrTextList.push(objDs.getColumn(nFindRow, this.combodatacolumn));
 			objDs.setColumn(nFindRow, "chk", "1");
 		}
@@ -352,8 +352,8 @@ this.fnSelectAll = function (bVal)
 	var objDs = this.comboinnerdataset;
 	
 	objDs.set_enableevent(false);
-	for(var i=0; i<objDs.rowcount; i++) {
-		objDs.setColumn(i, "chk", bVal);
+	for (var i=0; i<objDs.rowcount; i++) {
+		objDs.setColumn(i, "chk", bVal);			
 	}
 	objDs.set_enableevent(true);
 	
@@ -365,27 +365,28 @@ this.fnSelectAll = function (bVal)
 */
 this.fnOpenCombo = function()
 {	 
-	if(!this.comboinnerdataset || this.comboinnerdataset.rowcount <= 0) {
+	if (this.comboinnerdataset.getRowCount() <= 0) {
 		trace("멀티콤보에 표시할 Data가 없습니다. fnSetDataset으로 Dataset을 지정하세요!");
 		return;
 	}
 	else {
 		// PopupDiv width size 조정
-		if(!this.gfnIsNull(this.fvWidth)) {
+		if (!this.gfnIsNull(this.fvWidth)) {
 			this.pdvCbo.set_width(this.fvWidth);
 		}
 		this.fnSyncValue();
 		// pdv size 계산
-		var nRowCount = this.comboinnerdataset.rowcount;
+		var nRowCount = this.comboinnerdataset.getRowCount();
 		var nSize = this.displayrowcount;
-		if(nSize > nRowCount) nSize = nRowCount;
+		if (nSize > nRowCount) nSize = nRowCount;
 		var nHeight = this.fvHeadHeight + (this.fvRowHeight  * nSize) + 2 + 30;
 		this.pdvCbo.set_height(nHeight);
 
 		this.pdvCbo.trackPopupByComponent(this.edtCbo, 0, this.edtCbo.getOffsetHeight()-1);
+		
+		
 	}
 };
-
 /*******************************************************************************************************************************
  * 각 COMPONENT 별 EVENT 영역
 *******************************************************************************************************************************/
@@ -404,15 +405,15 @@ this.btnCbo_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 this.pdvCbo_grdMultiCombo_onheadclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
 {
 	
-	if(this.multiCheck==false) {
+	if(this.multiCheck==false){
 		return;
 	}
 	var nCell = e.cell;
-	if(nCell==0) {
+	if(nCell==0){
 		var bVal = obj.getCellProperty("head", nCell, "text");
-		if(bVal == "1") {
+		if( bVal == "1"){
 			bVal = "0";
-		} else {
+		}else{
 			bVal = "1";
 		}
 		this.fnSelectAll(bVal);
@@ -424,15 +425,15 @@ this.pdvCbo_grdMultiCombo_oncellclick = function(obj:nexacro.Grid,e:nexacro.Grid
 	var objDs = this.comboinnerdataset;
 
 	// chk 사용 미사용 시
-	if(this.multiCheck == false) {
+	if (this.multiCheck == false) {
 		var sVal = objDs.getColumn(e.row, this.combocodecolumn);
 		this.setValue(sVal);
 		this.pdvCbo.closePopup();
-	} else {
-		if(e.cell > 0) {
-			if(objDs.getColumn(e.row, "chk") == "1") {
+	}else{
+		if( e.cell > 0){
+			if (objDs.getColumn(e.row, "chk") == "1") {
 				objDs.setColumn(e.row, "chk", "0");
-			} else {
+			}else {
 				objDs.setColumn(e.row, "chk", "1");
 			}
 		}
@@ -445,7 +446,7 @@ this.pdvCbo_oncloseup = function(obj:nexacro.PopupDiv,e:nexacro.EventInfo)
 {
 	this.fnSyncValue();
 
-	if(!this.gfnIsNull(this.callbackfunc)) {
+	if (!this.gfnIsNull(this.callbackfunc)) {	
 		this.lookupFunc(this.callbackfunc).call(this.parent.name, this.edtCbo.uRetrunvalue, this.edtCbo.uReturntext); 
 	}
 };
@@ -455,6 +456,7 @@ this.pdvCbo_btnOk_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo
 	this.pdvCbo.closePopup();
 	this.edtCbo.setFocus();
 };
+
 ]]></Script>
   </Form>
 </FDL>

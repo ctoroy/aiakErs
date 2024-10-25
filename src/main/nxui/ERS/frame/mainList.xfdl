@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="main" width="1020" height="650" titletext="main" background="lightgreen">
+  <Form id="mainList" width="1280" height="650" titletext="mainList" background="lightgreen">
     <Layouts>
-      <Layout width="1020" height="650" screenid="Desktop_screen">
+      <Layout width="1280" height="650" screenid="Desktop_screen">
         <Static id="Static00" taborder="0" text="MAIN frame" left="39" top="20" width="241" height="60" font="normal 800 36px/normal &quot;Malgun Gothic&quot;" background="white"/>
         <Grid id="grdList" taborder="1" left="40" top="145" height="425" binddataset="dsList" autofittype="col" right="40">
           <Formats>

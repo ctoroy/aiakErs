@@ -28,11 +28,11 @@
             </Format>
           </Formats>
         </Grid>
-        <Button id="btnDown" taborder="1" top="22" cssclass="btn_WF_Down" height="25" width="29" right="25" onclick="btnDown_onclick"/>
-        <Button id="btnUp" taborder="2" height="25" cssclass="btn_WF_Up" top="22" onclick="btnUp_onclick" right="btnDown:5" width="29"/>
-        <Button id="btnFilterCancel" taborder="3" text="필터취소" top="22" height="25" fittocontents="width" width="90" right="btnUp:10" onclick="btnFilterCancel_onclick"/>
-        <Button id="btnClose" taborder="5" text="취소" fittocontents="width" height="25" cssclass="btn_POP_No" onclick="btnClose_onclick" bottom="14" width="52" right="20"/>
-        <Button id="btnSetFilter" taborder="4" text="확인" fittocontents="width" height="25" width="52" onclick="btnSetFilter_onclick" bottom="14" cssclass="btn_POP_Yes" right="btnClose:5"/>
+        <Button id="btnDown" taborder="1" top="22" cssclass="btn_WF_Down" height="29" width="29" right="25" onclick="btnDown_onclick"/>
+        <Button id="btnUp" taborder="2" height="29" cssclass="btn_WF_Up" top="22" onclick="btnUp_onclick" right="btnDown:5" width="29"/>
+        <Button id="btnFilterCancel" taborder="3" text="필터취소" top="22" height="28" fittocontents="width" width="90" right="btnUp:10" onclick="btnFilterCancel_onclick"/>
+        <Button id="btnSetFilter" taborder="4" text="확인" left="230" fittocontents="width" height="28" width="50" onclick="btnSetFilter_onclick" bottom="14"/>
+        <Button id="btnClose" taborder="5" text="취소" left="290" fittocontents="width" height="28" width="50" cssclass="btn_WF_Crud" onclick="btnClose_onclick" bottom="14"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -98,15 +98,15 @@
       </Dataset>
     </Objects>
     <Script type="xscript5.1"><![CDATA[/**
-*  문화센터 파크 및 마권안내 홈페이지 재구축
+*  DevPACK
 *  @FileName 	cmmGridFilter.xfdl
 *  @Creator 	TOBESOFT
-*  @CreateDate 	2020.12.02
+*  @CreateDate 	2020/12/02
 *  @Desction    그리드 필터를 수행할 공통팝업
 ************** 소스 수정 이력 ***********************************************
 * Date					Modifier					Description
 *******************************************************************************
-* 2020.12.02			TOBESOFT					최초생성
+* 2020/12/02			TOBESOFT					최초생성
 *******************************************************************************
 */
 
@@ -121,7 +121,7 @@ this.fvTargetDataset; //대상데이터셋 OBJECT
 /***********************************************************************************************/
 this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 {
-	this.gfnFormOnload(obj); //필수함수
+	this.gfnFormOnload(obj,e); //필수함수
 
 	this.fvTargetGrid = this.getOwnerFrame().pvGrid;
 	this.fvTargetDataset = this.fvTargetGrid.getBindDataset();

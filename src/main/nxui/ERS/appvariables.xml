@@ -715,7 +715,15 @@
         </Row>
       </Rows>
     </Dataset>
-    <Dataset id="gdsOpenMenu"/>
+    <Dataset id="gdsOpenMenu">
+      <ColumnInfo>
+        <Column id="winId" type="STRING" size="256"/>
+        <Column id="menuId" type="STRING" size="256"/>
+        <Column id="menuNm" type="STRING" size="256"/>
+        <Column id="menuUrl" type="STRING" size="256"/>
+        <Column id="prgmId" type="STRING" size="256"/>
+      </ColumnInfo>
+    </Dataset>
     <Dataset id="gdsGridPopupMenu"/>
     <Dataset id="gdsCmmnBtn"/>
     <Dataset id="gdsCommCode"/>

@@ -1,26 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="cmmConfirm" width="280" height="265" titletext="확인창" onload="form_onload">
+  <Form id="cmmConfirm" width="450" height="210" titletext="확인창" onload="form_onload">
     <Layouts>
-      <Layout height="265" mobileorientation="landscape" width="280">
-        <Static id="staBg" taborder="5" left="0" top="0" cssclass="sta_POP_MsgBg" right="0" text="" boxShadow="none" onclick="Static01_onclick" bottom="0"/>
-        <TextArea id="txtMsgContent" taborder="0" left="20" top="114" right="20" readonly="true" cssclass="txt_POP_Msg" height="76"/>
-        <Button id="btnOk" taborder="1" text="확인" top="220" left="57" fittocontents="width" height="25" width="50" onclick="btnOk_onclick" cssclass="btn_POP_Yes"/>
-        <Button id="btnCancel" taborder="2" text="취소" top="220" left="btnOk:3" fittocontents="width" height="25" width="50" onclick="btnCancel_onclick" cssclass="btn_POP_No"/>
-        <ImageViewer id="imgLink" taborder="3" left="113" top="30" width="54" height="54" image="url('theme://images/img_POP_Confirm.png')" text="" accessibilitylabel="알림 아이콘" stretch="fit" cssclass="img_WF_None"/>
-        <Button id="btnExtend" taborder="4" text="취소" top="220" fittocontents="width" height="25" width="50" onclick="btnExtend_onclick" left="btnCancel:3" visible="false" cssclass="btn_POP_No"/>
+      <Layout height="210" mobileorientation="landscape" width="450">
+        <TextArea id="txtMsgContent" taborder="0" left="90" top="20" right="20" readonly="true" bottom="48" cssclass="txt_POP_Text"/>
+        <Button id="btnOk" taborder="1" text="확인" top="172" left="139" fittocontents="width" height="28" width="50" onclick="btnOk_onclick" cssclass="btn_WF_Crud"/>
+        <Button id="btnCancel" taborder="2" text="취소" top="172" left="btnOk:3" fittocontents="width" height="28" width="50" onclick="btnCancel_onclick"/>
+        <ImageViewer id="imgLink" taborder="3" left="20" top="64" width="55" height="55" image="url('theme://images/img_POP_Confirm.png')" text="" accessibilitylabel="알림 아이콘" stretch="fit"/>
+        <Button id="btnExtend" taborder="4" text="취소" top="172" fittocontents="width" height="28" width="50" onclick="btnExtend_onclick" left="btnCancel:3" visible="false"/>
       </Layout>
     </Layouts>
     <Script type="xscript5.1"><![CDATA[/**
-*  문화센터 파크 및 마권안내 홈페이지 재구축
+*  DevPACK
 *  @FileName 	cmmConfirm.xfdl
 *  @Creator 	TOBESOFT
-*  @CreateDate 	2020.12.22
-*  @Desction
+*  @CreateDate 	2020/11/25
+*  @Desction   
 ************** 소스 수정 이력 ***********************************************
 * Date					Modifier					Description
 *******************************************************************************
-* 2020.12.22			송원창						최초생성
+* 2020/11/25			TOBESOFT					최초생성
 *******************************************************************************
 */
 
@@ -36,7 +35,7 @@ this.fvOptSize;
  ********************************************************************************/
 this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 {
-	this.gfnFormOnload(obj); //필수함수
+	this.gfnFormOnload(obj,e); //필수함수
 	
 	this.fvOptSize = this.getOwnerFrame().pOptSize;
 	
@@ -48,37 +47,34 @@ this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 	this.fvArrRtn    = this.getOwnerFrame().paramRtn;
 	
 	// 버튼 명칭 사용 시
-	if(!this.gfnIsNull(this.fvArrButton))
+	if (!this.gfnIsNull(this.fvArrButton)) 
 	{
 		// 확장 버튼 사용 안할 경우 안보임 처리
-		if(this.fvArrButton.length == 3) this.btnExtend.set_visible(true);
+		if (this.fvArrButton.length == 3) this.btnExtend.set_visible(true);
 		
-		for(var i = 0; i < this.fvArrButton.length; i++)
+		for (var i=0; i<this.fvArrButton.length; i++) 
 		{
-			if(i==0) this.btnOk.set_text(" " + this.fvArrButton[i] + " ");
-			if(i==1) this.btnCancel.set_text(" " + this.fvArrButton[i] + " ");
-			if(i==2) this.btnExtend.set_text(" " + this.fvArrButton[i] + " ");
+			if (i==0) this.btnOk.set_text(" " + this.fvArrButton[i] + " ");
+			if (i==1) this.btnCancel.set_text(" " + this.fvArrButton[i] + " ");
+			if (i==2) this.btnExtend.set_text(" " + this.fvArrButton[i] + " ");
 		}
 		this.resetScroll();
 		
 		var nSize = 0;
-		if(this.fvArrButton.length < 3)
+		if (this.fvArrButton.length < 3) 
 		{
 			nSize = this.btnOk.getOffsetWidth() + this.btnCancel.getOffsetWidth() + 5;
-		}
-		else
-		{
+		} else {
 			nSize = this.btnOk.getOffsetWidth() + this.btnCancel.getOffsetWidth() + this.btnExtend.getOffsetWidth() + 10;
 		}
 		
 		this.btnOk.move((this.width - nSize)/2, this.btnOk.top);
 		this.resetScroll();
-	}
-	else
+	} else  
 	{
 		var nSize = this.btnOk.getOffsetWidth() + this.btnCancel.getOffsetWidth() + 5;
 		this.btnOk.move((this.width - nSize)/2, this.btnOk.top);
-		this.resetScroll();
+		this.resetScroll();	
 	}
 	
 	this.btnOk.setFocus();
@@ -104,12 +100,11 @@ this.fnMsgSetting = function (sMsgContent)
 this.btnOk_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
 	// 버튼 명칭 사용 시
-	if(!this.gfnIsNull(this.fvArrButton))
+	if (!this.gfnIsNull(this.fvArrButton)) 
 	{
 		this.close(this.fvArrRtn[0]);
 	}
-	else
-	{
+	else {
 		this.close(true);
 	}
 };
@@ -120,11 +115,10 @@ this.btnOk_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 this.btnCancel_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
 	// 버튼 명칭 사용 시
-	if(!this.gfnIsNull(this.fvArrButton))
+	if (!this.gfnIsNull(this.fvArrButton)) 
 	{
 		this.close(this.fvArrRtn[1]);
-	}
-	else
+	} else 
 	{
 		this.close(false);
 	}

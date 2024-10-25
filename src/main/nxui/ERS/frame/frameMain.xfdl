@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="main" width="1020" height="650" titletext="main" background="lightgreen">
+  <Form id="frameMain" width="1280" height="650" titletext="frameMain" background="lightgreen">
     <Layouts>
-      <Layout width="1020" height="650" screenid="Desktop_screen">
-        <Static id="Static00" taborder="0" text="MAIN frame" left="39" top="20" width="241" height="60" font="normal 800 36px/normal &quot;Malgun Gothic&quot;" background="white"/>
+      <Layout width="1280" height="650" screenid="Desktop_screen">
+        <Static id="Static00" taborder="0" text="MAIN frame" left="9" top="20" width="241" height="60" font="normal 800 36px/normal &quot;Malgun Gothic&quot;" background="white"/>
         <Div id="divView" taborder="1" text="div00" left="20" top="100" right="0" bottom="0"/>
-        <Button id="btnMainList" taborder="2" text="메인 조회" left="290" top="25" width="120" height="50" onclick="btnMainList_onclick" background="coral"/>
-        <Button id="btnFileUpList" taborder="3" text="파일다운 업 조회" left="590" top="25" width="120" height="50" onclick="btnFileUpList_onclick" background="coral"/>
+        <Button id="btnMainList" taborder="2" text="메인 조회" left="260" top="20" width="120" height="50" onclick="btnMainList_onclick" background="coral"/>
+        <Button id="btnFileUpList" taborder="3" text="파일다운 업 조회" left="390" top="20" width="120" height="50" onclick="btnFileUpList_onclick" background="coral"/>
       </Layout>
     </Layouts>
     <Script type="xscript5.1"><![CDATA[/**
 *  AIA 비용관리시스템
-*  @FileName 	sampleScript.xfdl
+*  @FileName 	frameMain.xfdl
 *  @Creator 	마사회
 *  @CreateDate 	2020.11.25
 *  @Desction 
@@ -170,12 +170,12 @@ this.fnExcelImportCallback = function (sImportId, e)
 *******************************************************************************************************************************/
 this.btnMainList_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	this.divView.url = "frame::mainList.xfdl";
+	this.divView.url = "sample::mainList.xfdl";
 };
 
 this.btnFileUpList_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	this.divView.url = "frame::pattern03-FileUpDownloadTrans.xfdl";
+	this.divView.url = "sample::sampleFileUpDownloadTrans.xfdl";
 };
 ]]></Script>
     <Objects>

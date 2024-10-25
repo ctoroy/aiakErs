@@ -1,7 +1,9 @@
 package example.nexacro.uiadapter.web;
 
 import com.nexacro.uiadapter.boot.core.NexacroException;
+import com.nexacro.uiadapter.boot.core.annotation.ParamDataSet;
 import com.nexacro.uiadapter.boot.core.data.NexacroResult;
+import example.nexacro.uiadapter.pojo.CmmBtnList;
 import example.nexacro.uiadapter.pojo.MenuList;
 import example.nexacro.uiadapter.service.UiFrameService;
 import org.slf4j.Logger;
@@ -53,6 +55,43 @@ public class UiFrameController {
 		List<MenuList> menuList = uiFrameService.selectMenuList();
 		NexacroResult result = new NexacroResult();
 		result.addDataSet("MENULIST", menuList);
+
+		return result;
+	}
+
+	/**
+	 * 리스트 데이터 입력,수정,삭제
+	 * @param modifyList
+	 * @return
+	 */
+	@RequestMapping(value = "/saveMenuList.do")
+	public NexacroResult saveMenuList(@ParamDataSet(name = "MENULIST") List<MenuList> menuLists,
+									  @ParamDataSet(name = "CMMBTNLIST") List<CmmBtnList> cmmBtnLists) throws NexacroException{
+
+		uiFrameService.saveMenuList(menuLists);
+		uiFrameService.saveCmmBtnList(cmmBtnLists);
+
+		NexacroResult result = new NexacroResult();
+
+		return result;
+	}
+
+
+	/**
+	 *
+	 * <pre>
+	 * @desc 리스트 데이터 조회 - VO
+	 * @param
+	 * @return NexacroResult
+	 * @throws
+	 * </pre>
+	 */
+	@RequestMapping(value = "/selectCmmBtnList.do")
+	public NexacroResult selectCmmBtnList(@ParamDataSet(name = "dsMenuId", required = false) CmmBtnList searchVo) throws NexacroException{
+
+		List<CmmBtnList> cmmBtnList = uiFrameService.selectCmmBtnList(searchVo);
+		NexacroResult result = new NexacroResult();
+		result.addDataSet("CMMBTNLIST", cmmBtnList);
 
 		return result;
 	}

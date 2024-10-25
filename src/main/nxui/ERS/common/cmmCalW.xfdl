@@ -8,10 +8,10 @@
           <Layouts>
             <Layout>
               <Static id="staBg" taborder="0" left="0" top="0" cssclass="sta_WF_GBg01" right="0" bottom="0"/>
-              <Button id="btnPrev" taborder="1" height="29" cssclass="btn_WF_MoYCalPrev" left="0" top="5" width="29" onclick="pdivCal_btnPrev_onclick"/>
+              <Button id="btnPrev" taborder="1" height="29" cssclass="btn_WF_CalLeft" left="0" top="5" width="29" onclick="pdivCal_btnPrev_onclick"/>
               <Combo id="cboYear" taborder="2" text="2020" left="54" top="5" width="70" height="29" value="" index="-1" innerdataset="dsYear" codecolumn="year" datacolumn="year" onitemchanged="pdivCal_cboYear_onitemchanged"/>
               <Combo id="cboMonth" taborder="3" text="01" left="129" top="5" width="60" height="29" value="01" index="0" innerdataset="dsMonth" codecolumn="month" datacolumn="month" onitemchanged="pdivCal_cboMonth_onitemchanged"/>
-              <Button id="btnNext" taborder="4" top="5" cssclass="btn_WF_MoYCalNext" height="29" width="29" right="0" onclick="pdivCal_btnNext_onclick"/>
+              <Button id="btnNext" taborder="4" top="5" cssclass="btn_WF_CalRight" height="29" width="29" right="0" onclick="pdivCal_btnNext_onclick"/>
               <Grid id="grdCal" taborder="5" left="0" top="cboYear:5" right="0" autofittype="col" binddataset="dsCal" bottom="0" oncellclick="pdivCal_grdCal_oncellclick" selecttype="cell">
                 <Formats>
                   <Format id="default">
@@ -128,15 +128,15 @@
       </Dataset>
     </Objects>
     <Script type="xscript5.1"><![CDATA[/**
-*  문화센터 파크 및 마권안내 홈페이지 재구축
+*  DevPACK
 *  @FileName 	cmmCalW.xfdl
 *  @Creator 	TOBESOFT
-*  @CreateDate 	2020.12.03
-*  @Desction
+*  @CreateDate 	2020/12/03
+*  @Desction   
 ************** 소스 수정 이력 ***********************************************
 * Date					Modifier					Description
 *******************************************************************************
-* 2020.12.03			TOBESOFT					최초생성
+* 2020/12/03			TOBESOFT					최초생성
 *******************************************************************************
 */
 
@@ -160,7 +160,7 @@ this.fvIntNextMonth = -1;
 *******************************************************************************************************************************/
 this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 {
-	this.gfnFormOnload(obj); //필수함수
+	this.gfnFormOnload(obj,e); //필수함수
 	this.fnSetYear();
 };
 /*******************************************************************************************************************************
@@ -180,8 +180,7 @@ this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 *******************************************************************************************************************************/
 this.fnSetYear = function ()
 {
-	for(var i = 1900; i < 2050; i++)
-	{
+	for (var i = 1900; i < 2050; i++){
 		nRow = this.dsYear.addRow();
 		this.dsYear.setColumn(nRow, "year", i);
 	}
@@ -217,12 +216,9 @@ this.setDate = function (value)
 */
 this.setRequired = function(bValue)
 {
-	if(bValue)
-	{
+	if (bValue) {
 		this.calW.set_cssclass("essential");
-	}
-	else
-	{
+	}else {
 		this.calW.set_cssclass("");
 	}
 };
@@ -246,52 +242,50 @@ this.fnShowCalendarData = function(sYear, sMonth, sDay, bCmbProc, bType)
 
 	var sDate = sYear + sMonth + sDay;
 
-	if(sDate == "000")
-	{
-		var sToday = this.gfnGetDate();
-		sYear = sToday.substr(0, 4);
-		sMonth = sToday.substr(4, 2);
-		sDay = sToday.substr(6, 2);
-		sDate = sYear + sMonth + sDay;
+	if (sDate == "000"){
+	  var sToday = this.gfnGetDate();
+	  sYear = sToday.substr(0, 4);
+	  sMonth = sToday.substr(4, 2);
+	  sDay = sToday.substr(6, 2);
+	  sDate = sYear + sMonth + sDay;
 	}
 
 	this.fvIntThisYear  = parseInt(sYear);
 	this.fvIntThisMonth = parseInt(sMonth);
 	this.fvIntThisDay   = parseInt(sDay);
 
-	if(bType)
-	{
-		this.fvYear = this.fvIntThisYear;
-		this.fvMonth = this.fvIntThisMonth;
-		this.fvDay = this.fvIntThisDay;
+	if (bType){
+	  this.fvYear = this.fvIntThisYear;
+	  this.fvMonth = this.fvIntThisMonth;
+	  this.fvDay = this.fvIntThisDay;
 	}
 
-	if(bCmbProc)
+	if (bCmbProc)
 	{
-		this.pdivCal.form.cboYear.set_value(this.fvIntThisYear);
-		this.pdivCal.form.cboMonth.set_index(this.fvIntThisMonth - 1);
+	  this.pdivCal.form.cboYear.set_value(this.fvIntThisYear);
+	  this.pdivCal.form.cboMonth.set_index(this.fvIntThisMonth - 1);
 	}
 
-	switch(this.fvIntThisMonth)
+	switch (this.fvIntThisMonth)
 	{
-		case 1:
-			this.fvIntPrevYear = this.fvIntThisYear - 1;
-			this.fvIntPrevMonth = 12;
-			this.fvIntNextYear = this.fvIntThisYear;
-			this.fvIntNextMonth = 2;
-			break;
-		case 12:
-			this.fvIntPrevYear = this.fvIntThisYear;
-			this.fvIntPrevMonth = 11;
-			this.fvIntNextYear = this.fvIntThisYear + 1;
-			this.fvIntNextMonth = 1;
-			break;
-		default:
-			this.fvIntPrevYear = this.fvIntThisYear;
-			this.fvIntPrevMonth = parseInt(this.fvIntThisMonth) - 1;
-			this.fvIntNextYear = this.fvIntThisYear;
-			this.fvIntNextMonth = parseInt(this.fvIntThisMonth) + 1;
-			break;
+	  case 1:
+		this.fvIntPrevYear = this.fvIntThisYear - 1;
+		this.fvIntPrevMonth = 12;
+		this.fvIntNextYear = this.fvIntThisYear;
+		this.fvIntNextMonth = 2;
+		break;
+	  case 12:
+		this.fvIntPrevYear = this.fvIntThisYear;
+		this.fvIntPrevMonth = 11;
+		this.fvIntNextYear = this.fvIntThisYear + 1;
+		this.fvIntNextMonth = 1;
+		break;
+	  default:
+		this.fvIntPrevYear = this.fvIntThisYear;
+		this.fvIntPrevMonth = parseInt(this.fvIntThisMonth) - 1;
+		this.fvIntNextYear = this.fvIntThisYear;
+		this.fvIntNextMonth = parseInt(this.fvIntThisMonth) + 1;
+		break;
 	}
 
 	var d = new Date();
@@ -303,31 +297,31 @@ this.fnShowCalendarData = function(sYear, sMonth, sDay, bCmbProc, bType)
 	var stopFlag = 0;
 
 	// 4년마다 1번이면 (사로나누어 떨어지면)
-	if((this.fvIntThisYear % 4) == 0)
+	if ((this.fvIntThisYear % 4) == 0)
 	{
-		if((this.fvIntThisYear % 100) == 0)
+	  if ((this.fvIntThisYear % 100) == 0)
+	  {
+		if ((this.fvIntThisYear % 400) == 0)
 		{
-			if((this.fvIntThisYear % 400) == 0)
-			{
-				this.fvLastDays[intPrevMonth] = "29";
-			}
-			else
-				this.fvLastDays[1] = "28";
+		  this.fvLastDays[intPrevMonth] = "29";
 		}
 		else
-		{
-			this.fvLastDays[1] = "29";
-		}
+		  this.fvLastDays[1] = "28";
+	  }
+	  else
+	  {
+		this.fvLastDays[1] = "29";
+	  }
 	}
 	else
 	{
-		this.fvLastDays[1] = "28";
+	  this.fvLastDays[1] = "28";
 	}
 
 	var preStartDay = parseInt(this.fvLastDays[this.fvIntPrevMonth - 1]);
 
-	if(this.fvIntThisDay > parseInt(this.fvLastDays[this.fvIntThisMonth - 1]))
-		this.fvIntThisDay = this.fvLastDays[this.fvIntThisMonth - 1];
+	if (this.fvIntThisDay > parseInt(this.fvLastDays[this.fvIntThisMonth - 1]))
+	  this.fvIntThisDay = this.fvLastDays[this.fvIntThisMonth - 1];
 
 	var i, j;
 	var Day = 1;
@@ -337,7 +331,7 @@ this.fnShowCalendarData = function(sYear, sMonth, sDay, bCmbProc, bType)
 	var PreDay;
 
 	//일요일 일경우 7로 셋팅
-	if(seq == 0) seq = 7;
+	if (seq == 0) seq = 7;
 
 	//오늘일자
 	var today = this.gfnGetDate();
@@ -345,81 +339,81 @@ this.fnShowCalendarData = function(sYear, sMonth, sDay, bCmbProc, bType)
 	var nMonth = parseInt(today.substr(4, 2));
 	var nDay = parseInt(today.substr(6, 2));
 
-	for(i = 0; i < 6; i++)
-	{
-		if(stopFlag == 0)
+	for (i = 0; i < 6; i++)
+	{	
+	  if (stopFlag == 0)
+	  {
+		this.dsCal.addRow();
+		this.dsCal.setColumn(this.dsCal.rowposition, "d0", this.gfnCalculateWeek(this.fvIntThisYear, this.fvIntThisMonth, Day));
+		this.dsCal.setColumn(this.dsCal.rowposition, "css0", "CalendarWeekWeekColor");
+	  }
+	  for (j = 1; j < 8; j++)
+	  {
+		if (stopFlag == 1)
 		{
-			this.dsCal.addRow();
-			this.dsCal.setColumn(this.dsCal.rowposition, "d0", this.gfnCalculateWeek(this.fvIntThisYear, this.fvIntThisMonth, Day));
-			this.dsCal.setColumn(this.dsCal.rowposition, "css0", "CalendarWeekWeekColor");
+		  this.dsCal.setColumn(i, "css" + (j), "CalendarWeekGrayColor");
+		  this.dsCal.setColumn(i, "d" + (j), lastDay);
 		}
-		for(j = 1; j < 8; j++)
+		else
 		{
-			if(stopFlag == 1)
+		  if (i == 0)
+		  {
+			if (seq <= j)
 			{
-				this.dsCal.setColumn(i, "css" + (j), "CalendarWeekGrayColor");
-				this.dsCal.setColumn(i, "d" + (j), lastDay);
+			  if (j == 7) //일요일
+				this.dsCal.setColumn(i+1, "css" + (j), "CalendarWeekSunColor");
+			  else if (j == 6) //토요일
+				this.dsCal.setColumn(i, "css" + (j), "CalendarWeekSatColor");
+			  else
+				this.dsCal.setColumn(i, "css" + (j), "CalendarWeekDayColor");
+
+			  //오늘일자 표시
+			  if (nYear == this.pdivCal.form.cboYear.value && nMonth == this.pdivCal.form.cboMonth.value && nDay == Day)
+				this.dsCal.setColumn(i, "css" + (j), "CalendarWeekTodayColor");
+
+			  if (this.fvYear == this.fvIntThisYear && this.fvMonth == this.fvIntThisMonth && this.fvDay == Day)
+				this.dsCal.setColumn(i, "css" + (j), "CalendarWeekSelectColor");
+			  else
+				this.dsCal.setColumn(i, "css" + (j), null);
+
+			  this.dsCal.setColumn(i, "d" + (j), Day);
+			  Day++;
 			}
 			else
 			{
-				if(i == 0)
-				{
-					if(seq <= j)
-					{
-						if(j == 7) //일요일
-							this.dsCal.setColumn(i+1, "css" + (j), "CalendarWeekSunColor");
-						else if (j == 6) //토요일
-							this.dsCal.setColumn(i, "css" + (j), "CalendarWeekSatColor");
-						else
-							this.dsCal.setColumn(i, "css" + (j), "CalendarWeekDayColor");
-
-						//오늘일자 표시
-						if(nYear == this.pdivCal.form.cboYear.value && nMonth == this.pdivCal.form.cboMonth.value && nDay == Day)
-							this.dsCal.setColumn(i, "css" + (j), "CalendarWeekTodayColor");
-
-						if(this.fvYear == this.fvIntThisYear && this.fvMonth == this.fvIntThisMonth && this.fvDay == Day)
-							this.dsCal.setColumn(i, "css" + (j), "CalendarWeekSelectColor");
-						else
-							this.dsCal.setColumn(i, "css" + (j), null);
-
-						this.dsCal.setColumn(i, "d" + (j), Day);
-						Day++;
-					}
-					else
-					{
-						preDay = preStartDay - (seq - j - 1);
-						this.dsCal.setColumn(i, "css" + (j), "CalendarWeekGrayColor");
-						this.dsCal.setColumn(i, "d" + (j), preDay);
-					}
-				}
-				else
-				{
-					if(j == 7) //일요일
-						this.dsCal.setColumn(i+1, "css" + (j), "CalendarWeekSunColor");
-					else if(j == 6) //토요일
-						this.dsCal.setColumn(i, "css" + (j), "CalendarWeekSatColor");
-					else
-						this.dsCal.setColumn(i, "css" + (j), "CalendarWeekDayColor");
-
-					//오늘일자 표시
-					if (nYear == this.pdivCal.form.cboYear.value && nMonth == this.pdivCal.form.cboMonth.value && nDay == Day)
-						this.dsCal.setColumn(i, "css" + (j), "CalendarWeekSunColor");
-					if (this.fvYear == this.fvIntThisYear && this.fvMonth == this.fvIntThisMonth && this.fvDay == Day)
-						this.dsCal.setColumn(i, "css" + (j), "CalendarWeekSelectColor");
-					else
-						this.dsCal.setColumn(i, "css" + (j), null);
-
-					this.dsCal.setColumn(i, "d" + (j), Day);
-					Day++;
-				}
+			  preDay = preStartDay - (seq - j - 1);
+			  this.dsCal.setColumn(i, "css" + (j), "CalendarWeekGrayColor");
+			  this.dsCal.setColumn(i, "d" + (j), preDay);
 			}
+		  }
+		  else
+		  {
+			if (j == 7) //일요일
+			  this.dsCal.setColumn(i+1, "css" + (j), "CalendarWeekSunColor");
+			else if (j == 6) //토요일
+			  this.dsCal.setColumn(i, "css" + (j), "CalendarWeekSatColor");
+			else
+			  this.dsCal.setColumn(i, "css" + (j), "CalendarWeekDayColor");
 
-			if(parseInt(this.fvLastDays[this.fvIntThisMonth - 1]) < Day)
-			{
-				stopFlag = 1;
-				lastDay++;
-			}
+			//오늘일자 표시
+			if (nYear == this.pdivCal.form.cboYear.value && nMonth == this.pdivCal.form.cboMonth.value && nDay == Day)
+			  this.dsCal.setColumn(i, "css" + (j), "CalendarWeekSunColor");
+			if (this.fvYear == this.fvIntThisYear && this.fvMonth == this.fvIntThisMonth && this.fvDay == Day)
+			  this.dsCal.setColumn(i, "css" + (j), "CalendarWeekSelectColor");
+			else
+			  this.dsCal.setColumn(i, "css" + (j), null);
+
+			this.dsCal.setColumn(i, "d" + (j), Day);
+			Day++;
+		  }
 		}
+
+		if (parseInt(this.fvLastDays[this.fvIntThisMonth - 1]) < Day)
+		{
+		  stopFlag = 1;
+		  lastDay++;
+		}
+	  }
 	}
 	
 	var nGrdHeight = 37 + (this.dsCal.rowcount * 37 ) + 2;
@@ -449,8 +443,7 @@ this.calW_onchanged = function(obj:nexacro.Calendar,e:nexacro.ChangeEventInfo)
 this.pdivCal_onpopup = function(obj:nexacro.PopupDiv,e:nexacro.EventInfo)
 {
 	var sDate = this.calW.value;
-	if(this.gfnIsNull(sDate))
-	{
+	if(this.gfnIsNull(sDate)){
 		sDate = this.gfnGetDate();
 	}
 	
@@ -463,34 +456,31 @@ this.pdivCal_onpopup = function(obj:nexacro.PopupDiv,e:nexacro.EventInfo)
 
 this.pdivCal_btnPrev_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	if(this.pdivCal.form.cboMonth.index == 0)
-	{
-		this.pdivCal.form.cboMonth.set_index(this.pdivCal.form.cboMonth.getCount() - 1);
-		if(this.pdivCal.form.cboYear.index > 0)
-		{
-			this.pdivCalr.form.cboYear.set_index(this.pdivCal.form.cboYear.index - 1);
-		}
+	if (this.pdivCal.form.cboMonth.index == 0) {
+      this.pdivCal.form.cboMonth.set_index(this.pdivCal.form.cboMonth.getCount() - 1);
+      if (this.pdivCal.form.cboYear.index > 0)
+      {
+        this.pdivCalr.form.cboYear.set_index(this.pdivCal.form.cboYear.index - 1);
+      }
+    }else{
+      this.pdivCal.form.cboMonth.set_index(this.pdivCal.form.cboMonth.index - 1);
     }
-	else
-	{
-		this.pdivCal.form.cboMonth.set_index(this.pdivCal.form.cboMonth.index - 1);
-	}
-	this.fnShowCalendarData(this.pdivCal.form.cboYear.value, this.pdivCal.form.cboMonth.value, this.fvIntThisDay, true);
+    this.fnShowCalendarData(this.pdivCal.form.cboYear.value, this.pdivCal.form.cboMonth.value, this.fvIntThisDay, true);
 };
 
 this.pdivCal_btnNext_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	if(this.pdivCal.form.cboMonth.index >= (this.pdivCal.form.cboMonth.getCount() - 1))
+	 if (this.pdivCal.form.cboMonth.index >= (this.pdivCal.form.cboMonth.getCount() - 1))
     {
-		this.pdivCal.form.cboMonth.set_index(0);
-		if (this.pdivCal.form.cboYear.index < (this.pdivCal.form.cboYear.getCount() - 1))
-		{
-			this.pdivCal.form.cboYear.set_index(this.pdivCal.form.cboYear.index + 1);
-		}
-	}
-	else
-	{
-		this.pdivCal.form.cboMonth.set_index(this.pdivCal.form.cboMonth.index + 1);
+      this.pdivCal.form.cboMonth.set_index(0);
+      if (this.pdivCal.form.cboYear.index < (this.pdivCal.form.cboYear.getCount() - 1))
+      {
+        this.pdivCal.form.cboYear.set_index(this.pdivCal.form.cboYear.index + 1);
+      }
+    }
+    else
+    {
+      this.pdivCal.form.cboMonth.set_index(this.pdivCal.form.cboMonth.index + 1);
     }
     this.fnShowCalendarData(this.pdivCal.form.cboYear.value, this.pdivCal.form.cboMonth.value, this.fvIntThisDay, true);
 };
@@ -507,24 +497,18 @@ this.pdivCal_cboMonth_onitemchanged = function(obj:nexacro.Combo,e:nexacro.ItemC
 
 this.pdivCal_grdCal_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
 {
-	if(e.cell == 0 ) return;
+	if( e.cell == 0 ) return;
 	
 	var retval = "";
-	if(this.dsCal.getColumn(e.row, "css" + (e.cell)) == "CalendarWeekGrayColor")
-	{
-		if(e.row == 0)
-		{
-			retval = this.fvIntPrevYear.toString() + this.fvIntPrevMonth.toString().padLeft(2, '0') + this.dsCal.getColumn(e.row, "d" + (e.cell)).padLeft(2, '0');
-		}
-		else
-		{
-			retval = this.fvIntNextYear.toString() + this.fvIntNextMonth.toString().padLeft(2, '0') + this.dsCal.getColumn(e.row, "d" + (e.cell)).padLeft(2, '0');
-		}
-	}
-	else
-	{
-		retval = this.fvIntThisYear.toString() + this.fvIntThisMonth.toString().padLeft(2, '0') + this.dsCal.getColumn(e.row, "d" + (e.cell)).padLeft(2, '0');
-	}
+	if (this.dsCal.getColumn(e.row, "css" + (e.cell)) == "CalendarWeekGrayColor"){
+      if (e.row == 0){
+        retval = this.fvIntPrevYear.toString() + this.fvIntPrevMonth.toString().padLeft(2, '0') + this.dsCal.getColumn(e.row, "d" + (e.cell)).padLeft(2, '0');
+      } else {
+        retval = this.fvIntNextYear.toString() + this.fvIntNextMonth.toString().padLeft(2, '0') + this.dsCal.getColumn(e.row, "d" + (e.cell)).padLeft(2, '0');
+      }
+    }else{
+      retval = this.fvIntThisYear.toString() + this.fvIntThisMonth.toString().padLeft(2, '0') + this.dsCal.getColumn(e.row, "d" + (e.cell)).padLeft(2, '0');
+    }
 	this.calW.set_value(retval);
 	this.calW.uWeek = this.gfnDateToWeek(retval);
 	this.pdivCal.closePopup();

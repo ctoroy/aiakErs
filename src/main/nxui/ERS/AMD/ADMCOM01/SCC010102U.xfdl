@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="SCC010102U" width="1280" height="720" titletext="메뉴등록" onload="form_onload">
+    <Layouts>
+      <Layout height="720" horizontalgap="0" mobileorientation="landscape" spacing="0px" tabletemplate="1* / 1*" verticalgap="0" width="1280">
+        <Div id="divSearch" taborder="0" text="divSearch" left="0" top="0" height="70" right="0" border="1px solid">
+          <Layouts>
+            <Layout>
+              <Static id="staSysId" taborder="0" text="시스템ID" left="66" top="20" width="60" height="30" border="1px solid"/>
+              <Edit id="edtSysId" taborder="1" left="131" top="20" width="140" height="30"/>
+              <Static id="staSysNm" taborder="2" text="시스템명" left="366" top="20" width="60" height="30" border="1px solid"/>
+              <Edit id="edtSysNm" taborder="3" left="431" top="20" width="140" height="30"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="staMenuTitle" taborder="2" text="메뉴/프로그램 목록" left="0" top="divSearch:10" width="180" height="30" border="1px solid"/>
+        <Grid id="grdMenuList" taborder="1" left="0" top="staMenuTitle:10" height="270" right="0" autofittype="col" binddataset="dsMenuList" cellsizingtype="col" oncellclick="grdMenuList_oncellclick" treeusecheckbox="false" treeinitstatus="expand,all" autoenter="select">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="48"/>
+                <Column size="180"/>
+                <Column size="60"/>
+                <Column size="70"/>
+                <Column size="80"/>
+                <Column size="70"/>
+                <Column size="50"/>
+                <Column size="48"/>
+                <Column size="200"/>
+                <Column size="90"/>
+                <Column size="55"/>
+                <Column size="55"/>
+                <Column size="80"/>
+                <Column size="55"/>
+                <Column size="55"/>
+              </Columns>
+              <Rows>
+                <Row size="28" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox"/>
+                <Cell col="1" text="메뉴명"/>
+                <Cell col="2" text="시스템"/>
+                <Cell col="3" text="메뉴ID"/>
+                <Cell col="4" text="상위메뉴"/>
+                <Cell col="5" text="메뉴유형"/>
+                <Cell col="6" text="레벨"/>
+                <Cell col="7" text="순서"/>
+                <Cell col="8" text="메뉴위치"/>
+                <Cell col="9" text="프로그램ID"/>
+                <Cell col="10" text="타입"/>
+                <Cell col="11" text="사용여부"/>
+                <Cell col="12" text="호출파라미터"/>
+                <Cell col="13" text="출력여부"/>
+                <Cell col="14" text="공통여부"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk"/>
+                <Cell col="1" text="bind:menuNm" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'treeitemcontrol'" edittype="text" treelevel="bind:menuLvl" tooltiptext="bind:menuNm" border="0px none,1px solid #dbdee2,0px none,0px none"/>
+                <Cell col="2" edittype="text" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" text="bind:sysId"/>
+                <Cell col="3" text="bind:menuId" edittype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'text'  : 'none'" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'"/>
+                <Cell col="4" edittype="text" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" text="bind:highMenuId"/>
+                <Cell col="5" edittype="text" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" text="bind:menuTpcd"/>
+                <Cell col="6" textAlign="center" edittype="text" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" text="bind:menuLvl"/>
+                <Cell col="7" textAlign="center" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'text'" text="bind:sortSeq" edittype="text"/>
+                <Cell col="8" tooltiptext="bind:prgPath" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'text'" edittype="text" text="bind:prgPath"/>
+                <Cell col="9" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text" text="bind:prgId"/>
+                <Cell col="10" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text" text="bind:prgType"/>
+                <Cell col="11" text="bind:usyn"/>
+                <Cell col="12" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text" text="bind:callParam"/>
+                <Cell col="13" displaytype="checkboxcontrol" edittype="checkbox" text="bind:mgrUsyn" checkboxtruevalue="Y" checkboxfalsevalue="N"/>
+                <Cell col="14" displaytype="checkboxcontrol" edittype="checkbox" text="bind:comYn" checkboxfalsevalue="N" checkboxtruevalue="Y"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="staMenuTitle00" taborder="3" text="버튼목록" left="2" top="grdMenuList:10" width="180" height="30" border="1px solid"/>
+        <Grid id="grdMenuList00" taborder="4" left="0" top="staMenuTitle00:10" height="270" right="0" binddataset="dsCmmBtnList" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="66"/>
+                <Column size="170"/>
+                <Column size="170"/>
+                <Column size="170"/>
+                <Column size="170"/>
+                <Column size="170"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="text" text="사용여부"/>
+                <Cell col="1" text="순번"/>
+                <Cell col="2" text="코드"/>
+                <Cell col="3" text="버튼명"/>
+                <Cell col="4" text="호출함수"/>
+                <Cell col="5" text="클래스명"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:usyn" checkboxtruevalue="Y" checkboxfalsevalue="N"/>
+                <Cell col="1" text="bind:sortSeq" textAlign="center"/>
+                <Cell col="2" text="bind:btnId"/>
+                <Cell col="3" text="bind:btnNm"/>
+                <Cell col="4" text="bind:functionNm"/>
+                <Cell col="5" text="bind:cssNm"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn00" taborder="5" text="조회" left="610" top="11" width="120" height="50" onclick="cfnSearch" visible="false"/>
+        <Button id="btn01" taborder="6" text="추가" left="750" top="10" width="120" height="50" onclick="cfnAdd" visible="false"/>
+        <Button id="btn02" taborder="7" text="삭제" left="890" top="10" width="120" height="50" onclick="cfnDel" visible="false"/>
+        <Button id="btn03" taborder="8" text="저장" left="1030" top="10" width="120" height="50" onclick="cfnSave" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsCond">
+        <ColumnInfo>
+          <Column id="sysId" type="STRING" size="256"/>
+          <Column id="sysNm" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsMenuList" canrowposchange="dsMenuList_canrowposchange" onrowposchanged="dsMenuList_onrowposchanged">
+        <ColumnInfo>
+          <Column id="callParam" type="string" size="32"/>
+          <Column id="comYn" type="string" size="32"/>
+          <Column id="crtrId" type="string" size="32"/>
+          <Column id="highMenuId" type="string" size="32"/>
+          <Column id="chk" type="STRING" size="256"/>
+          <Column id="mdpsId" type="STRING" size="32"/>
+          <Column id="menuId" type="STRING" size="32"/>
+          <Column id="menuLvl" type="STRING" size="32"/>
+          <Column id="menuNm" type="STRING" size="32"/>
+          <Column id="menuTpcd" type="STRING" size="32"/>
+          <Column id="mgrUsyn" type="STRING" size="32"/>
+          <Column id="prgId" type="STRING" size="32"/>
+          <Column id="prgPath" type="STRING" size="32"/>
+          <Column id="prgType" type="STRING" size="32"/>
+          <Column id="rmk" type="STRING" size="32"/>
+          <Column id="sortSeq" type="INT" size="4"/>
+          <Column id="sysId" type="STRING" size="32"/>
+          <Column id="usyn" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsCmmBtnList"/>
+      <Dataset id="dsMenuId">
+        <ColumnInfo>
+          <Column id="menuId" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsCom">
+        <ColumnInfo>
+          <Column id="sortSeq" type="INT" size="4"/>
+          <Column id="menuId" type="STRING" size="32"/>
+          <Column id="btnId" type="STRING" size="32"/>
+          <Column id="btnNm" type="STRING" size="32"/>
+          <Column id="functionNm" type="STRING" size="32"/>
+          <Column id="cssNm" type="STRING" size="32"/>
+          <Column id="usyn" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="btnId">btnInit</Col>
+            <Col id="btnNm">초기화</Col>
+            <Col id="cssNm">btn__WF_init</Col>
+            <Col id="sortSeq">1</Col>
+            <Col id="functionNm">cfnSearch</Col>
+            <Col id="usyn">Y</Col>
+          </Row>
+          <Row>
+            <Col id="btnId">btnSearch</Col>
+            <Col id="btnNm">조회</Col>
+            <Col id="cssNm">btn_WF_search</Col>
+            <Col id="sortSeq">2</Col>
+            <Col id="functionNm">cfnSearch</Col>
+            <Col id="usyn">Y</Col>
+          </Row>
+          <Row>
+            <Col id="btnId">btnAdd</Col>
+            <Col id="btnNm">추가</Col>
+            <Col id="cssNm">btn_WF_add</Col>
+            <Col id="sortSeq">3</Col>
+            <Col id="functionNm">cfnAdd</Col>
+            <Col id="usyn">Y</Col>
+          </Row>
+          <Row>
+            <Col id="btnId">btnDel</Col>
+            <Col id="btnNm">삭제</Col>
+            <Col id="cssNm">btn_WF_del</Col>
+            <Col id="sortSeq">4</Col>
+            <Col id="functionNm">cfnDel</Col>
+            <Col id="usyn">Y</Col>
+          </Row>
+          <Row>
+            <Col id="btnId">btnSave</Col>
+            <Col id="btnNm">저장</Col>
+            <Col id="cssNm">btn_WF_save</Col>
+            <Col id="sortSeq">5</Col>
+            <Col id="functionNm">cfnSave</Col>
+            <Col id="usyn">Y</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.form.edtSysId" propid="value" datasetid="dsCond" columnid="sysId"/>
+      <BindItem id="item1" compid="divSearch.form.edtSysNm" propid="value" datasetid="dsCond" columnid="sysNm"/>
+    </Bind>
+    <Script type="xscript5.1"><![CDATA[/**
+*  AIA 비용관리시스템 시스템
+*  @FileName 	SCC01/SCC010102U.xfdl
+*  @Creator 	송원창
+*  @CreateDate 	2024.10.22
+*  @Desction 	메뉴 등록
+************** 소스 수정 이력 ***********************************************
+* Date					Modifier					Description
+*******************************************************************************
+* 2024.10.22			송원창						최초생성
+*******************************************************************************
+*/
+
+/*******************************************************************************************************************************
+ * FORM 변수 선언 영역
+*******************************************************************************************************************************/
+this.objApp = nexacro.getApplication();	//필수 application
+this.fvAddFlag = false;
+/*******************************************************************************************************************************
+ * FORM EVENT 영역(onload, onbeforeclose..)
+*******************************************************************************************************************************/
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnload(obj); //필수함수
+	this.fnInit();
+};
+
+//화면 load시 초기화
+this.fnInit = function()
+{
+	//this.fnSearchMyMenu();
+};
+
+//공통코드콤보설정(Combo/Grid)
+this.afterCommCodeLoad = function()
+{
+};
+
+//공통코드콤보설정 서버조회방식
+this.fnAfterCommCodeLoad = function()
+{
+};
+
+/*******************************************************************************************************************************
+ * 공통함수영역 (cfnSearch : 조회 / cfnAdd : 추가 / cfnSave : 저장 / cfnDel : 삭제 / cfnExecl : 엑셀.. / cfnPrint : 인쇄 / cfnHep : 도움말  / cfnClose : 화면 닫기전 체크)
+ * 추가 버튼은 prefix cfn 으로 시작하여 명칭을 만든다.
+*******************************************************************************************************************************/
+//조회
+this.cfnSearch = function(obj, e)
+{
+	this.fnSearchMyMenu();
+};
+
+//추가
+this.cfnAdd = function(obj, e)
+{
+	this.fnAdd();
+};
+
+//삭제
+this.cfnDel = function(obj, e)
+{
+	this.fnDel();
+};
+
+//저장
+this.cfnSave = function(obj, e)
+{
+	if(this.fvAddFlag)
+	{
+		this.dsMenuList.enableevent = false;
+		this.dsMenuList.filter("dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT");
+		var menuId = this.dsMenuList.getColumn(0, "menuId");
+		this.dsCmmBtnList.updatecontrol = false;
+		this.dsCmmBtnList.enableevent = false;
+		for(var i = 0; i < this.dsCmmBtnList.rowcount; i++)
+		{
+			this.dsCmmBtnList.setColumn(i, "menuId", menuId);
+			this.dsCmmBtnList.setRowType(i, Dataset.ROWTYPE_INSERT);
+		}
+		this.dsCmmBtnList.updatecontrol = true;
+		this.dsCmmBtnList.enableevent = true;
+		this.dsMenuList.filter("");
+		this.dsMenuList.enableevent = true;
+	}
+	
+	for(var i = 0; i < this.dsMenuList.rowcount; i++)
+	{
+		this.dsMenuList.setColumn(i, "sortSeq", i);
+	}
+	
+	this.fnSaveMyMenu();
+};
+
+//화면 닫기전 체크
+this.cfnClose = function()
+{
+	trace("업무화면에 수정 사항이 있으면  cfnClose 메소드를 추가 하세요.");
+	//return false;	//수정사항이 있을경우;
+};
+/*******************************************************************************************************************************
+ * Transaction 서비스호출 처리 영역
+*******************************************************************************************************************************/
+/**
+ * @description 마이메뉴 조회 트랜잭션
+ */
+this.fnSearchMyMenu = function()
+{
+	this.fnClearDataSet();	//버튼 목록 초기화
+	// 마이메뉴 조회
+	var sSvcId 		= "selectMenuList";
+	var sSvcUrl     = "selectMenuList.do";
+	var sInData     = "";
+	var sOutData    = "dsMenuList=MENULIST";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 		// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 		// trabsaction을 요청할 주소
+						sInData , 		// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 		// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 			// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  // 통신방법 정의 [생략가능]
+};
+
+/**
+ * @description 마이메뉴 조회 트랜잭션
+ */
+this.fnSaveMyMenu = function()
+{
+	// 마이메뉴 조회
+	var sSvcId 		= "saveMenuList";
+	var sSvcUrl     = "saveMenuList.do";
+	var sInData     = "MENULIST=dsMenuList:U CMMBTNLIST=dsCmmBtnList:U";
+	var sOutData    = "";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 		// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 		// trabsaction을 요청할 주소
+						sInData , 		// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 		// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 			// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  // 통신방법 정의 [생략가능]
+};
+
+/**
+ * @description 마이메뉴 조회 트랜잭션
+ */
+this.fnSearchCmmBtn = function()
+{
+	// 마이메뉴 조회
+	var sSvcId 		= "selectCmmBtnList";
+	var sSvcUrl     = "selectCmmBtnList.do";
+	var sInData     = "dsMenuId=dsMenuId";
+	var sOutData    = "dsCmmBtnList=CMMBTNLIST";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 		// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 		// trabsaction을 요청할 주소
+						sInData , 		// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 		// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 			// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  // 통신방법 정의 [생략가능]
+};
+/*******************************************************************************************************************************
+ * Callback 영역 (Transaction, popup, message..)
+*******************************************************************************************************************************/
+this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
+{
+	switch(sSvcId) 
+	{
+		case "selectMenuList":
+			if(this.dsMenuList.rowcount > 0)
+			{
+				this.dsMenuList.enableevent = false;
+				this.dsMenuList.addColumn("chk")
+				for(var i = 0; i < this.dsMenuList.rowcount; i++)
+				{
+					this.dsMenuList.setColumn(i, "chk", 0);
+				}
+				this.dsMenuList.applyChange();
+				this.dsMenuList.enableevent = true;
+			}
+			this.fvAddFlag = false;
+			break;
+		case "saveMenuList":
+			this.fnSearchMyMenu();
+			break;
+		case "selectCmmBtnList":
+			
+			break;	
+		
+		default:break;
+	} 
+};
+/*******************************************************************************************************************************
+ * 사용자 Function 영역
+*******************************************************************************************************************************/
+this.fnClearDataSet = function()
+{
+	this.dsCmmBtnList.clearData();
+};
+/*******************************************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+*******************************************************************************************************************************/
+
+this.grdMenuList_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	
+	if(e.col == 3 && !this.fvAddFlag)	//메뉴id 클릭시
+	{
+		this.fnClearDataSet();
+		var objDs = obj.getBindDataset();
+		if(objDs.rowcount ==  0) return;
+		
+		if(objDs.getRowType(objDs.rowposition) == Dataset.ROWTYPE_INSERT)
+		{
+			return;
+		}
+		
+		var nRow = obj.getTreeRow(e.row);
+		var nStat = obj.getTreeStatus(nRow);
+		
+		if(nStat == 3)
+		{
+			this.dsMenuId.setColumn(0, "menuId", objDs.getColumn(objDs.rowposition, "menuId"));
+			this.fnSearchCmmBtn();
+		}
+	}
+};
+
+this.fnAdd = function()
+{
+	if(!this.fvAddFlag)
+	{
+		this.fnClearDataSet();
+		//if(this.dsMenuList.rowcount == 0) return;
+		
+		var nRow = this.grdMenuList.currentrow;
+		var nStat = this.grdMenuList.getTreeStatus(nRow);
+		
+		//if(nStat == 3)
+		{
+			var rowpoi = this.dsMenuList.rowposition;
+			nRow = this.dsMenuList.insertRow(this.dsMenuList.rowposition+1);
+			this.dsMenuList.setColumn(nRow, "mgrUsyn", "Y");
+			this.dsMenuList.setColumn(nRow, "comYn", "Y");
+			this.dsCmmBtnList.copyData(this.dsCom);
+			
+		}
+		this.fvAddFlag = true;
+	}
+};
+
+this.fnDel = function()
+{
+	this.dsMenuList.enableevent = false;
+	this.dsMenuList.filter("chk == '1'");
+	if(this.dsMenuList.rowcount > 0)
+	{
+		this.fnClearDataSet();
+		for(var i = this.dsMenuList.rowcount - 1; i > -1; i--)
+		{
+			if (this.dsMenuList.getColumn(i, "chk") == "1" )
+			{
+				this.dsMenuList.deleteRow(i);
+			}
+		}
+		this.fvAddFlag = false;
+	}
+	this.dsMenuList.filter("");
+	this.dsMenuList.enableevent = true;
+};
+
+
+this.dsMenuList_canrowposchange = function(obj:nexacro.NormalDataset,e:nexacro.DSRowPosChangeEventInfo)
+{
+	
+};
+
+this.dsMenuList_onrowposchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSRowPosChangeEventInfo)
+{
+	if(obj.getRowType(e.oldrow) == Dataset.ROWTYPE_INSERT)
+	{
+		obj.rowposition = e.oldrow;
+	}
+};
+]]></Script>
+  </Form>
+</FDL>
