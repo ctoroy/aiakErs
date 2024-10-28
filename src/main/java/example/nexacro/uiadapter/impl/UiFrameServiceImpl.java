@@ -4,6 +4,7 @@ import com.nexacro.java.xapi.data.DataSet;
 import com.nexacro.uiadapter.boot.core.data.DataSetRowTypeAccessor;
 import example.nexacro.uiadapter.mapper.MenuListMapper;
 import example.nexacro.uiadapter.pojo.CmmBtnList;
+import example.nexacro.uiadapter.pojo.ComCode;
 import example.nexacro.uiadapter.pojo.MenuList;
 import example.nexacro.uiadapter.service.UiFrameService;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -32,6 +33,7 @@ public class UiFrameServiceImpl implements UiFrameService {
         return mapper.selectMenuList();
     }
 
+    @Override
     public void saveMenuList(List<MenuList> menuLists) {
         MenuListMapper mapper = sqlSession.getMapper(MenuListMapper.class);
 
@@ -62,6 +64,7 @@ public class UiFrameServiceImpl implements UiFrameService {
         return mapper.selectCmmBtnList(cmmBtnList);
     }
 
+    @Override
     public void saveCmmBtnList(List<CmmBtnList> cmmBtnLists) {
         MenuListMapper mapper = sqlSession.getMapper(MenuListMapper.class);
 
@@ -81,6 +84,57 @@ public class UiFrameServiceImpl implements UiFrameService {
                     mapper.updateCmmBtnList(cmmBtnList);
                 } else if (accessor.getRowType() == DataSet.ROW_TYPE_DELETED) {
                     mapper.deleteCmmBtnList(cmmBtnList);
+                }
+            }
+        }
+    }
+
+    @Override
+    public List<ComCode> selectComCodeList(ComCode comCode) {
+        MenuListMapper mapper = sqlSession.getMapper(MenuListMapper.class);
+        return mapper.selectComCodeList(comCode);
+    }
+
+    @Override
+    public void saveComCodeList(List<ComCode> codeList, List<ComCode> codeDetailList) {
+        MenuListMapper mapper = sqlSession.getMapper(MenuListMapper.class);
+
+        int size = codeList.size();
+        for (int i=0; i<size; i++) {
+            ComCode comCode = codeList.get(i);
+            if (comCode instanceof DataSetRowTypeAccessor) {
+                DataSetRowTypeAccessor accessor = (DataSetRowTypeAccessor) comCode;
+
+                if (accessor.getRowType() == DataSet.ROW_TYPE_INSERTED) {
+                    comCode.setCmnCd(comCode.getGrpCd());
+                    comCode.setCrtrId("skyteam");
+                    comCode.setMdpsId("skyteam");
+                    mapper.insertComCodeList(comCode);
+                } else if (accessor.getRowType() == DataSet.ROW_TYPE_UPDATED) {
+                    comCode.setMdpsId("skyteam");
+                    mapper.updateComCodeList(comCode);
+                } else if (accessor.getRowType() == DataSet.ROW_TYPE_DELETED) {
+                    mapper.deleteComCodeList(comCode);
+                }
+            }
+        }
+
+        size = codeDetailList.size();
+        for (int i=0; i<size; i++) {
+            ComCode comCodeDetail = codeDetailList.get(i);
+            if (comCodeDetail instanceof DataSetRowTypeAccessor) {
+                DataSetRowTypeAccessor accessor = (DataSetRowTypeAccessor) comCodeDetail;
+
+                if (accessor.getRowType() == DataSet.ROW_TYPE_INSERTED) {
+                    //cmmBtnList.setUsyn("Y");
+                    comCodeDetail.setCrtrId("skyteam");
+                    comCodeDetail.setMdpsId("skyteam");
+                    mapper.insertComCodeList(comCodeDetail);
+                } else if (accessor.getRowType() == DataSet.ROW_TYPE_UPDATED) {
+                    comCodeDetail.setMdpsId("skyteam");
+                    mapper.updateComCodeList(comCodeDetail);
+                } else if (accessor.getRowType() == DataSet.ROW_TYPE_DELETED) {
+                    mapper.deleteComCodeList(comCodeDetail);
                 }
             }
         }

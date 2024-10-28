@@ -1,6 +1,7 @@
 package example.nexacro.uiadapter.mapper;
 
 import example.nexacro.uiadapter.pojo.CmmBtnList;
+import example.nexacro.uiadapter.pojo.ComCode;
 import example.nexacro.uiadapter.pojo.MenuList;
 
 import java.util.List;
@@ -34,5 +35,10 @@ public interface MenuListMapper {
 	public void insertCmmBtnList(CmmBtnList cmmBtnList);
 	public void updateCmmBtnList(CmmBtnList cmmBtnList);
 	public void deleteCmmBtnList(CmmBtnList cmmBtnList);
+
+	public List<ComCode> selectComCodeList(ComCode comCode);
+	public void insertComCodeList(ComCode comCode);
+	public void updateComCodeList(ComCode comCode);
+	public void deleteComCodeList(ComCode comCode);
 
 }

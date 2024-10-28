@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="SCC010101U" width="1280" height="720" titletext="메뉴등록" onload="form_onload">
+    <Layouts>
+      <Layout height="720" horizontalgap="0" mobileorientation="landscape" spacing="0px" tabletemplate="1* / 1*" verticalgap="0" width="1280">
+        <Div id="divSearch" taborder="0" text="divSearch" left="0" top="0" height="70" right="0" border="1px solid">
+          <Layouts>
+            <Layout>
+              <Static id="staWord" taborder="0" text="검색어" left="66" top="20" width="60" height="30" border="1px solid"/>
+              <Edit id="edtWord" taborder="1" left="131" top="20" width="140" height="30"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="staMenuTitle" taborder="2" text="공통코드 그룹" left="0" top="divSearch:10" width="180" height="30" border="1px solid"/>
+        <Grid id="grdComCodeList" taborder="1" left="0" top="staMenuTitle:10" height="270" right="0" autofittype="col" binddataset="dsComCodeList" cellsizingtype="col" treeusecheckbox="false" treeinitstatus="expand,all" autoenter="select">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="48"/>
+                <Column size="48"/>
+                <Column size="100"/>
+                <Column size="160"/>
+                <Column size="100"/>
+                <Column size="55"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="28" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox"/>
+                <Cell col="1" text="순번"/>
+                <Cell col="2" text="그룹코드"/>
+                <Cell col="3" text="그룹코드명"/>
+                <Cell col="4" text="비고"/>
+                <Cell col="5" text="사용여부"/>
+                <Cell col="6" text="설정값1"/>
+                <Cell col="7" text="설정값2"/>
+                <Cell col="8" text="설정값3"/>
+                <Cell col="9" text="설정값4"/>
+                <Cell col="10" text="설정값5"/>
+                <Cell col="11" text="설정값6"/>
+                <Cell col="12" text="설정값7"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk"/>
+                <Cell col="1" text="bind:sortSeq" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="2" text="bind:grpCd" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="3" text="bind:cmnCdnm" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="4" text="bind:rmk" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="5" displaytype="checkboxcontrol" edittype="checkbox" checkboxtruevalue="Y" checkboxfalsevalue="N" text="bind:usyn"/>
+                <Cell col="6" text="bind:cdSettVl1" edittype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" expr="text"/>
+                <Cell col="7" text="bind:cdSettVl2" edittype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" expr="text"/>
+                <Cell col="8" text="bind:cdSettVl3" edittype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" expr="text"/>
+                <Cell col="9" text="bind:cdSettVl4" edittype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" expr="text"/>
+                <Cell col="10" text="bind:cdSettVl5" edittype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" expr="text"/>
+                <Cell col="11" text="bind:cdSettVl6" edittype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" expr="text"/>
+                <Cell col="12" text="bind:cdSettVl7" edittype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" expr="text"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="staMenuTitle00" taborder="3" text="공통코드 상세" left="2" top="grdComCodeList:10" width="180" height="30" border="1px solid"/>
+        <Grid id="grdComCodeDetailList" taborder="4" left="0" top="staMenuTitle00:10" height="270" right="0" binddataset="dsComCodeDetailList" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="48"/>
+                <Column size="48"/>
+                <Column size="100"/>
+                <Column size="160"/>
+                <Column size="120"/>
+                <Column size="70"/>
+                <Column size="55"/>
+                <Column size="55"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="28" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox"/>
+                <Cell col="1" text="순번"/>
+                <Cell col="2" text="공통코드"/>
+                <Cell col="3" text="공통코드명"/>
+                <Cell col="4" text="비고"/>
+                <Cell col="5" text="시스템ID"/>
+                <Cell col="6" text="정렬순서"/>
+                <Cell col="7" text="사용여부"/>
+                <Cell col="8" text="설정값1"/>
+                <Cell col="9" text="설정값2"/>
+                <Cell col="10" text="설정값3"/>
+                <Cell col="11" text="설정값4"/>
+                <Cell col="12" text="설정값5"/>
+                <Cell col="13" text="설정값6"/>
+                <Cell col="14" text="설정값7"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk"/>
+                <Cell col="1"/>
+                <Cell col="2"/>
+                <Cell col="3"/>
+                <Cell col="4"/>
+                <Cell col="5"/>
+                <Cell col="6"/>
+                <Cell col="7" displaytype="checkboxcontrol" edittype="checkbox" checkboxtruevalue="Y" checkboxfalsevalue="N"/>
+                <Cell col="8"/>
+                <Cell col="9"/>
+                <Cell col="10"/>
+                <Cell col="11"/>
+                <Cell col="12"/>
+                <Cell col="13"/>
+                <Cell col="14"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn00" taborder="5" text="조회" left="600" top="11" width="120" height="50" onclick="cfnSearch" visible="false"/>
+        <Button id="btn01" taborder="6" text="추가" left="750" top="10" width="120" height="50" onclick="cfnAdd" visible="false"/>
+        <Button id="btn02" taborder="7" text="삭제" left="890" top="10" width="120" height="50" onclick="cfnDel" visible="false"/>
+        <Button id="btn03" taborder="8" text="저장" left="1030" top="10" width="120" height="50" onclick="cfnSave" visible="false"/>
+        <Button id="btnInsert" taborder="9" text="신규" top="401" height="30" right="125" width="127" onclick="btnInsert_onclick"/>
+        <Button id="btnDelete" taborder="10" text="삭제" top="401" width="120" height="30" left="btnInsert:5" onclick="btnDelete_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsCond">
+        <ColumnInfo>
+          <Column id="grpCd" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsComCodeList">
+        <ColumnInfo>
+          <Column id="cdSettVl1" type="STRING" size="32"/>
+          <Column id="cdSettVl2" type="STRING" size="32"/>
+          <Column id="cdSettVl3" type="STRING" size="32"/>
+          <Column id="cdSettVl4" type="STRING" size="32"/>
+          <Column id="cdSettVl5" type="STRING" size="32"/>
+          <Column id="cdSettVl6" type="STRING" size="32"/>
+          <Column id="cdSettVl7" type="STRING" size="32"/>
+          <Column id="cmnCd" type="STRING" size="32"/>
+          <Column id="cmnCdnm" type="STRING" size="32"/>
+          <Column id="crtrId" type="STRING" size="32"/>
+          <Column id="grpCd" type="STRING" size="32"/>
+          <Column id="mdpsId" type="STRING" size="32"/>
+          <Column id="rmk" type="STRING" size="32"/>
+          <Column id="sortSeq" type="INT" size="4"/>
+          <Column id="sysId" type="STRING" size="32"/>
+          <Column id="usyn" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsComCodeDetailList">
+        <ColumnInfo>
+          <Column id="cdSettVl1" type="STRING" size="32"/>
+          <Column id="cdSettVl2" type="STRING" size="32"/>
+          <Column id="cdSettVl3" type="STRING" size="32"/>
+          <Column id="cdSettVl4" type="STRING" size="32"/>
+          <Column id="cdSettVl5" type="STRING" size="32"/>
+          <Column id="cdSettVl6" type="STRING" size="32"/>
+          <Column id="cdSettVl7" type="STRING" size="32"/>
+          <Column id="cmnCd" type="STRING" size="32"/>
+          <Column id="cmnCdnm" type="STRING" size="32"/>
+          <Column id="crtrId" type="STRING" size="32"/>
+          <Column id="grpCd" type="STRING" size="32"/>
+          <Column id="mdpsId" type="STRING" size="32"/>
+          <Column id="rmk" type="STRING" size="32"/>
+          <Column id="sortSeq" type="INT" size="4"/>
+          <Column id="sysId" type="STRING" size="32"/>
+          <Column id="usyn" type="STRING" size="32"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsMenuId">
+        <ColumnInfo>
+          <Column id="menuId" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/**
+*  AIA 비용관리시스템 시스템
+*  @FileName 	SCC01/SCC010102U.xfdl
+*  @Creator 	송원창
+*  @CreateDate 	2024.10.28
+*  @Desction 	공통코드
+************** 소스 수정 이력 ***********************************************
+* Date					Modifier					Description
+*******************************************************************************
+* 2024.10.28			송원창						최초생성
+*******************************************************************************
+*/
+
+/*******************************************************************************************************************************
+ * FORM 변수 선언 영역
+*******************************************************************************************************************************/
+this.objApp = nexacro.getApplication();	//필수 application
+/*******************************************************************************************************************************
+ * FORM EVENT 영역(onload, onbeforeclose..)
+*******************************************************************************************************************************/
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnload(obj); //필수함수
+	this.fnInit();
+};
+
+//화면 load시 초기화
+this.fnInit = function()
+{
+	//this.fnSearchMyMenu();
+};
+
+//공통코드콤보설정(Combo/Grid)
+this.afterCommCodeLoad = function()
+{
+};
+
+//공통코드콤보설정 서버조회방식
+this.fnAfterCommCodeLoad = function()
+{
+};
+
+/*******************************************************************************************************************************
+ * 공통함수영역 (cfnSearch : 조회 / cfnAdd : 추가 / cfnSave : 저장 / cfnDel : 삭제 / cfnExecl : 엑셀.. / cfnPrint : 인쇄 / cfnHep : 도움말  / cfnClose : 화면 닫기전 체크)
+ * 추가 버튼은 prefix cfn 으로 시작하여 명칭을 만든다.
+*******************************************************************************************************************************/
+//조회
+this.cfnSearch = function(obj, e)
+{
+	//this.fnClearDataSet();
+	this.fnSearchComCode();
+};
+
+//추가
+this.cfnAdd = function(obj, e)
+{
+	this.fnAdd();
+};
+
+//삭제
+this.cfnDel = function(obj, e)
+{
+	this.fnDel();
+};
+
+//저장
+this.cfnSave = function(obj, e)
+{
+	this.fnSaveMyMenu();
+};
+
+//화면 닫기전 체크
+this.cfnClose = function()
+{
+	trace("업무화면에 수정 사항이 있으면  cfnClose 메소드를 추가 하세요.");
+	//return false;	//수정사항이 있을경우;
+};
+/*******************************************************************************************************************************
+ * Transaction 서비스호출 처리 영역
+*******************************************************************************************************************************/
+/**
+ * @description 공통코드 조회 트랜잭션
+ */
+this.fnSearchComCode = function()
+{
+	
+	// 마이메뉴 조회
+	var sSvcId 		= "selectComCodeList";
+	var sSvcUrl     = "selectComCodeList.do";
+	var sInData     = "dsIn=dsCond";
+	var sOutData    = "dsComCodeList=COMCODELIST";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 		// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 		// trabsaction을 요청할 주소
+						sInData , 		// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 		// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 			// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  // 통신방법 정의 [생략가능]
+};
+
+/**
+ * @description 공통코드 조회 트랜잭션
+ */
+this.fnSearchComCodeDetail = function()
+{
+	
+	// 마이메뉴 조회
+	var sSvcId 		= "selectComCodeDetailList";
+	var sSvcUrl     = "selectComCodeDetailList.do";
+	var sInData     = "dsIn=dsCond";
+	var sOutData    = "dsComCodeDetailList=COMCODEDETAILLIST";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 		// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 		// trabsaction을 요청할 주소
+						sInData , 		// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 		// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 			// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  // 통신방법 정의 [생략가능]
+};
+
+/**
+ * @description 마이메뉴 조회 트랜잭션
+ */
+this.fnSaveMyMenu = function()
+{
+	// 마이메뉴 조회
+	var sSvcId 		= "saveMenuList";
+	var sSvcUrl     = "saveMenuList.do";
+	var sInData     = "MENULIST=dsMenuList:U";
+	var sOutData    = "";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 		// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 		// trabsaction을 요청할 주소
+						sInData , 		// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 		// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 			// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  // 통신방법 정의 [생략가능]
+};
+
+/**
+ * @description 마이메뉴 조회 트랜잭션
+ */
+this.fnSearchCmmBtn = function()
+{
+	// 마이메뉴 조회
+	var sSvcId 		= "selectCmmBtnList";
+	var sSvcUrl     = "selectCmmBtnList.do";
+	var sInData     = "dsComDetailCodeList=dsMenuId";
+	var sOutData    = "dsCmmBtnList=CMMBTNLIST";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 		// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 		// trabsaction을 요청할 주소
+						sInData , 		// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 		// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 			// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  // 통신방법 정의 [생략가능]
+};
+/*******************************************************************************************************************************
+ * Callback 영역 (Transaction, popup, message..)
+*******************************************************************************************************************************/
+this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
+{
+	switch(sSvcId) 
+	{
+		case "selectComCodeList":
+			this.fnAddCheckBox(this.grdComCodeList);
+			break;
+		case "selectComCodeDetailList":
+			this.fnAddCheckBox(this.grdComCodeDetailList);
+			break;
+			
+		case "saveMenuList":
+			this.fnSearchMyMenu();
+			break;
+		case "selectCmmBtnList":
+			if(this.dsCmmBtnList.rowcount > 0)
+			{
+				this.dsCmmBtnList.addColumn("chk")
+				for(var i = 0; i < this.dsCmmBtnList.rowcount; i++)
+				{
+					this.dsCmmBtnList.setColumn(i, "chk", 0);
+				}
+			}
+			break;	
+		
+		default:break;
+	} 
+};
+/*******************************************************************************************************************************
+ * 사용자 Function 영역
+*******************************************************************************************************************************/
+this.fnAddCheckBox = function(objGrid)
+{
+	var objDs = objGrid.getBindDataset();
+	if(objDs.rowcount > 0)
+	{
+		
+		objDs.enableevent = false;
+		objDs.addColumn("chk")
+		for(var i = 0; i < objDs.rowcount; i++)
+		{
+			objDs.setColumn(i, "chk", 0);
+		}
+		objDs.applyChange();
+		objDs.enableevent = true;
+	}
+};
+
+this.fnClearDataSet = function()
+{
+	this.dsComDetailCodeList.clearData();
+};
+
+this.fnAdd = function()
+{
+	this.fnClearDataSet();
+	this.dsComCodeList.addRow();
+};
+
+this.fnChkDel = function(objds)
+{
+	objds.enableevent = false;
+	objds.filter("chk == '1'");
+	if(objds.rowcount > 0)
+	{
+		for(var i = objds.rowcount - 1; i > -1; i--)
+		{
+			if (objds.getColumn(i, "chk") == "1" )
+			{
+				objds.deleteRow(i);
+			}
+		}
+	}
+	objds.filter("");
+	objds.enableevent = true;
+};
+
+
+
+/*******************************************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+*******************************************************************************************************************************/
+this.btnInsert_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.dsComCodeDetailList.addRow();
+};
+
+this.btnDelete_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fnChkDel(this.dsComCodeDetailList);
+};
+]]></Script>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.form.edtWord" propid="value" datasetid="dsCond" columnid="grpCd"/>
+    </Bind>
+  </Form>
+</FDL>

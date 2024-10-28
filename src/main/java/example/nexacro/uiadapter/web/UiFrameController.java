@@ -4,6 +4,7 @@ import com.nexacro.uiadapter.boot.core.NexacroException;
 import com.nexacro.uiadapter.boot.core.annotation.ParamDataSet;
 import com.nexacro.uiadapter.boot.core.data.NexacroResult;
 import example.nexacro.uiadapter.pojo.CmmBtnList;
+import example.nexacro.uiadapter.pojo.ComCode;
 import example.nexacro.uiadapter.pojo.MenuList;
 import example.nexacro.uiadapter.service.UiFrameService;
 import org.slf4j.Logger;
@@ -43,7 +44,7 @@ public class UiFrameController {
 	/**
 	 * 
 	 * <pre>
-	 * @desc 리스트 데이터 조회 - VO
+	 * @desc 메뉴 리스트 데이터 조회 - VO
 	 * @param  
 	 * @return NexacroResult
 	 * @throws 
@@ -60,7 +61,7 @@ public class UiFrameController {
 	}
 
 	/**
-	 * 리스트 데이터 입력,수정,삭제
+	 * 메뉴 리스트 데이터 입력,수정,삭제
 	 * @param modifyList
 	 * @return
 	 */
@@ -80,7 +81,7 @@ public class UiFrameController {
 	/**
 	 *
 	 * <pre>
-	 * @desc 리스트 데이터 조회 - VO
+	 * @desc 메뉴 공통 버튼 리스트 데이터 조회 - VO
 	 * @param
 	 * @return NexacroResult
 	 * @throws
@@ -92,6 +93,41 @@ public class UiFrameController {
 		List<CmmBtnList> cmmBtnList = uiFrameService.selectCmmBtnList(searchVo);
 		NexacroResult result = new NexacroResult();
 		result.addDataSet("CMMBTNLIST", cmmBtnList);
+
+		return result;
+	}
+
+	/**
+	 *
+	 * <pre>
+	 * @desc 공통 코드 리스트 데이터 조회 - VO
+	 * @param
+	 * @return NexacroResult
+	 * @throws
+	 * </pre>
+	 */
+	@RequestMapping(value = "/selectComCodeList.do")
+	public NexacroResult selectComCodeList(@ParamDataSet(name = "dsIn", required = false) ComCode searchVo) throws NexacroException{
+
+		List<ComCode> codeList = uiFrameService.selectComCodeList(searchVo);
+		NexacroResult result = new NexacroResult();
+		result.addDataSet("COMCODELIST", codeList);
+
+		return result;
+	}
+
+	/**
+	 * @desc 공통코드 리스트, 공통코드 상세 데이터 입력,수정,삭제
+	 * @param modifyList
+	 * @return
+	 */
+	@RequestMapping(value = "/saveComCodeList.do")
+	public NexacroResult saveComCodeList(@ParamDataSet(name = "COMCODELIST") List<ComCode> codeList,
+									  @ParamDataSet(name = "COMCODEDETAILLIST") List<ComCode> codeDetailList) throws NexacroException{
+
+		uiFrameService.saveComCodeList(codeList, codeDetailList);
+
+		NexacroResult result = new NexacroResult();
 
 		return result;
 	}

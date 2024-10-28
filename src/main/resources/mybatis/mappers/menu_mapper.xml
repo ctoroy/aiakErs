@@ -160,4 +160,98 @@
         DELETE FROM SCC_MENU_BTN
         WHERE MENU_ID = #{menuId}
     </delete>
+
+    <select id="selectComCodeList" parameterType="example.nexacro.uiadapter.pojo.ComCode" resultType="example.nexacro.uiadapter.pojo.ComCode">
+        SELECT
+            GRP_CD as grpCd,  -- // 그룹코드 -- PK
+            CMN_CD as cmnCd,  -- // 공통코드 -- PK
+            CMN_CDNM as cmnCdnm,  -- // 공통코드명
+            SYS_ID as sysId,  -- // 시스템 ID [ B:예산관리, S:시스템관리 ]
+
+            RMK	as rmk, -- // 비고
+            SORT_SEQ as sortSeq, -- // 순번
+            USYN as usyn, -- // 사용여부
+            CD_SETT_VL1	as cdSettVl1, -- // 참조1
+            CD_SETT_VL2	as cdSettVl2, -- // 참조2
+            CD_SETT_VL3	as cdSettVl3, -- // 참조3
+            CD_SETT_VL4	as cdSettVl4, -- // 참조4
+            CD_SETT_VL5	as cdSettVl5, -- // 참조5
+            CD_SETT_VL6	as cdSettVl6, -- // 참조6
+            CD_SETT_VL7	as cdSettVl7 -- // 참조7
+        FROM SCC_CMN_CD
+        WHERE 1=1
+            <if test="grpCd != null">
+                    AND GRP_CD LIKE '%' || #{grpCd} || '%'
+            </if>
+        ORDER BY SORT_SEQ;
+    </select>
+
+    <insert id="insertComCodeList" parameterType="example.nexacro.uiadapter.pojo.ComCode">
+        INSERT INTO SCC_CMN_CD (
+            GRP_CD,
+            CMN_CD,
+            CMN_CDNM,
+            SYS_ID,
+            RMK,
+            SORT_SEQ,
+            USYN,
+            CD_SETT_VL1,
+            CD_SETT_VL2,
+            CD_SETT_VL3,
+            CD_SETT_VL4,
+            CD_SETT_VL5,
+            CD_SETT_VL6,
+            CD_SETT_VL7,
+            CRTR_ID,
+            CRTR_DTTM,
+            MDPS_ID,
+            MDPS_DTTM
+        ) VALUES (
+                     #{grpCd},
+                     #{cmnCd},
+                     #{cmnCdnm},
+                     #{sysId},
+                     #{rmk},
+                     #{sortSeq},
+                     #{usyn},
+                     #{cdSettVl1},
+                     #{cdSettVl2},
+                     #{cdSettVl3},
+                     #{cdSettVl4},
+                     #{cdSettVl5},
+                     #{cdSettVl6},
+                     #{cdSettVl7},
+                     #{crtrId},
+                     now(),
+                     #{mdpsId},
+                     now()
+                 )
+    </insert>
+    <update id="updateComCodeList" parameterType="example.nexacro.uiadapter.pojo.CmmBtnList">
+        UPDATE SCC_CMN_CD
+        SET
+            GRP_CD = #{grpCd},
+            CMN_CD = #{cmnCd},
+            CMN_CDNM = #{cmnCdnm},
+            SYS_ID = #{sysId},
+            RMK = #{rmk},
+            SORT_SEQ = #{sortSeq},
+            USYN = #{usyn},
+            CD_SETT_VL1 = #{cdSettVl1},
+            CD_SETT_VL2 = #{cdSettVl2},
+            CD_SETT_VL3 = #{cdSettVl3},
+            CD_SETT_VL4 = #{cdSettVl4},
+            CD_SETT_VL5 = #{cdSettVl5},
+            CD_SETT_VL6 = #{cdSettVl6},
+            CD_SETT_VL7 = #{cdSettVl7},
+            MDPS_ID = #{mdpsId},
+            MDPS_DTTM = now()
+        WHERE
+            GRP_CD = #{grpCd} AND CMN_CD = #{cmnCd}
+    </update>
+    <delete id="deleteComCodeList" parameterType="example.nexacro.uiadapter.pojo.CmmBtnList">
+        DELETE FROM SCC_CMN_CD
+        WHERE
+            GRP_CD = #{grpCd} AND CMN_CD = #{cmnCd}
+    </delete>
 </mapper>
