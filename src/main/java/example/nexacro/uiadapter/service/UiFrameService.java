@@ -1,8 +1,8 @@
 package example.nexacro.uiadapter.service;
 
-import example.nexacro.uiadapter.pojo.CmmBtnList;
+import example.nexacro.uiadapter.pojo.CmmBtn;
 import example.nexacro.uiadapter.pojo.ComCode;
-import example.nexacro.uiadapter.pojo.MenuList;
+import example.nexacro.uiadapter.pojo.ComMenu;
 
 import java.util.List;
 
@@ -26,12 +26,13 @@ import java.util.List;
  */
 public interface UiFrameService {
 
-    List<MenuList> selectMenuList();
-    void saveMenuList(List<MenuList> menuLists);
+    List<ComMenu> selectMenuList();
+    void saveMenuList(List<ComMenu> comMenus);
 
-    List<CmmBtnList> selectCmmBtnList(CmmBtnList cmmBtnList);
-    void saveCmmBtnList(List<CmmBtnList> cmmBtnLists);
+    List<CmmBtn> selectCmmBtnList(CmmBtn cmmBtn);
+    void saveCmmBtnList(List<CmmBtn> cmmBtns);
 
     List<ComCode> selectComCodeList(ComCode comCode);
+    List<ComCode> selectComCodeDetailList(ComCode comCode);
     void saveComCodeList(List<ComCode> codeList, List<ComCode> codeDetailList);
 }

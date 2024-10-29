@@ -1,8 +1,8 @@
 package example.nexacro.uiadapter.mapper;
 
-import example.nexacro.uiadapter.pojo.CmmBtnList;
+import example.nexacro.uiadapter.pojo.CmmBtn;
 import example.nexacro.uiadapter.pojo.ComCode;
-import example.nexacro.uiadapter.pojo.MenuList;
+import example.nexacro.uiadapter.pojo.ComMenu;
 
 import java.util.List;
 
@@ -24,19 +24,20 @@ import java.util.List;
  * ------------------------------------------------
  * 2017. 11. 20.		TOBESOFT	최초작성
  */
-public interface MenuListMapper {
+public interface UiFrameMapper {
 
-	public List<MenuList> selectMenuList();
-	public void insertMenuList(MenuList menuList);
-	public void updateMenuList(MenuList menuList);
-	public void deleteMenuList(MenuList menuList);
+	public List<ComMenu> selectMenuList();
+	public void insertMenuList(ComMenu comMenu);
+	public void updateMenuList(ComMenu comMenu);
+	public void deleteMenuList(ComMenu comMenu);
 
-	public List<CmmBtnList> selectCmmBtnList(CmmBtnList cmmBtnList);
-	public void insertCmmBtnList(CmmBtnList cmmBtnList);
-	public void updateCmmBtnList(CmmBtnList cmmBtnList);
-	public void deleteCmmBtnList(CmmBtnList cmmBtnList);
+	public List<CmmBtn> selectCmmBtnList(CmmBtn cmmBtn);
+	public void insertCmmBtnList(CmmBtn cmmBtn);
+	public void updateCmmBtnList(CmmBtn cmmBtn);
+	public void deleteCmmBtnList(CmmBtn cmmBtn);
 
 	public List<ComCode> selectComCodeList(ComCode comCode);
+	public List<ComCode> selectComCodeDetailList(ComCode comCode);
 	public void insertComCodeList(ComCode comCode);
 	public void updateComCodeList(ComCode comCode);
 	public void deleteComCodeList(ComCode comCode);

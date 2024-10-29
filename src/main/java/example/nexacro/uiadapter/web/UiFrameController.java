@@ -3,9 +3,9 @@ package example.nexacro.uiadapter.web;
 import com.nexacro.uiadapter.boot.core.NexacroException;
 import com.nexacro.uiadapter.boot.core.annotation.ParamDataSet;
 import com.nexacro.uiadapter.boot.core.data.NexacroResult;
-import example.nexacro.uiadapter.pojo.CmmBtnList;
+import example.nexacro.uiadapter.pojo.CmmBtn;
 import example.nexacro.uiadapter.pojo.ComCode;
-import example.nexacro.uiadapter.pojo.MenuList;
+import example.nexacro.uiadapter.pojo.ComMenu;
 import example.nexacro.uiadapter.service.UiFrameService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,13 +25,13 @@ import java.util.List;
  * <pre>
  * 
  * @author  TOBESOFT
- * @since   2017. 11. 20.
+ * @since   2024. 10. 18.
  * @version 1.0
  * @see
  * =================== 변경 내역 ==================
- * 날짜			변경자		내용
+ * 날짜				변경자		내용
  * ------------------------------------------------
- * 2017. 11. 20.		TOBESOFT	최초작성
+ * 2024. 11. 20.	TOBESOFT	최초작성
  */
 @Controller
 public class UiFrameController {
@@ -53,9 +53,9 @@ public class UiFrameController {
     @RequestMapping(value = "/selectMenuList.do")
 	public NexacroResult selectMenuList() throws NexacroException{
 
-		List<MenuList> menuList = uiFrameService.selectMenuList();
+		List<ComMenu> comMenu = uiFrameService.selectMenuList();
 		NexacroResult result = new NexacroResult();
-		result.addDataSet("MENULIST", menuList);
+		result.addDataSet("MENULIST", comMenu);
 
 		return result;
 	}
@@ -66,10 +66,10 @@ public class UiFrameController {
 	 * @return
 	 */
 	@RequestMapping(value = "/saveMenuList.do")
-	public NexacroResult saveMenuList(@ParamDataSet(name = "MENULIST") List<MenuList> menuLists,
-									  @ParamDataSet(name = "CMMBTNLIST") List<CmmBtnList> cmmBtnLists) throws NexacroException{
+	public NexacroResult saveMenuList(@ParamDataSet(name = "MENULIST") List<ComMenu> comMenus,
+									  @ParamDataSet(name = "CMMBTNLIST") List<CmmBtn> cmmBtnLists) throws NexacroException{
 
-		uiFrameService.saveMenuList(menuLists);
+		uiFrameService.saveMenuList(comMenus);
 		uiFrameService.saveCmmBtnList(cmmBtnLists);
 
 		NexacroResult result = new NexacroResult();
@@ -88,11 +88,11 @@ public class UiFrameController {
 	 * </pre>
 	 */
 	@RequestMapping(value = "/selectCmmBtnList.do")
-	public NexacroResult selectCmmBtnList(@ParamDataSet(name = "dsMenuId", required = false) CmmBtnList searchVo) throws NexacroException{
+	public NexacroResult selectCmmBtnList(@ParamDataSet(name = "dsMenuId", required = false) CmmBtn searchVo) throws NexacroException{
 
-		List<CmmBtnList> cmmBtnList = uiFrameService.selectCmmBtnList(searchVo);
+		List<CmmBtn> cmmBtn = uiFrameService.selectCmmBtnList(searchVo);
 		NexacroResult result = new NexacroResult();
-		result.addDataSet("CMMBTNLIST", cmmBtnList);
+		result.addDataSet("CMMBTNLIST", cmmBtn);
 
 		return result;
 	}
@@ -112,6 +112,25 @@ public class UiFrameController {
 		List<ComCode> codeList = uiFrameService.selectComCodeList(searchVo);
 		NexacroResult result = new NexacroResult();
 		result.addDataSet("COMCODELIST", codeList);
+
+		return result;
+	}
+
+	/**
+	 *
+	 * <pre>
+	 * @desc 공통 코드 상세 리스트 데이터 조회 - VO
+	 * @param
+	 * @return NexacroResult
+	 * @throws
+	 * </pre>
+	 */
+	@RequestMapping(value = "/selectComCodeDetailList.do")
+	public NexacroResult selectComCodeDetailList(@ParamDataSet(name = "dsIn", required = false) ComCode searchVo) throws NexacroException{
+
+		List<ComCode> codeList = uiFrameService.selectComCodeDetailList(searchVo);
+		NexacroResult result = new NexacroResult();
+		result.addDataSet("COMCODEDETAILLIST", codeList);
 
 		return result;
 	}

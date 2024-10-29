@@ -12,7 +12,7 @@
           </Layouts>
         </Div>
         <Static id="staMenuTitle" taborder="2" text="공통코드 그룹" left="0" top="divSearch:10" width="180" height="30" border="1px solid"/>
-        <Grid id="grdComCodeList" taborder="1" left="0" top="staMenuTitle:10" height="270" right="0" autofittype="col" binddataset="dsComCodeList" cellsizingtype="col" treeusecheckbox="false" treeinitstatus="expand,all" autoenter="select">
+        <Grid id="grdComCodeList" taborder="1" left="0" top="staMenuTitle:10" height="270" right="0" autofittype="col" binddataset="dsComCodeList" cellsizingtype="col" treeusecheckbox="false" treeinitstatus="expand,all" autoenter="select" oncellclick="grdComCodeList_oncellclick">
           <Formats>
             <Format id="default">
               <Columns>
@@ -51,7 +51,7 @@
               </Band>
               <Band id="body">
                 <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk"/>
-                <Cell col="1" text="bind:sortSeq" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="1" expr="currow+1"/>
                 <Cell col="2" text="bind:grpCd" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
                 <Cell col="3" text="bind:cmnCdnm" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
                 <Cell col="4" text="bind:rmk" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
@@ -68,7 +68,7 @@
           </Formats>
         </Grid>
         <Static id="staMenuTitle00" taborder="3" text="공통코드 상세" left="2" top="grdComCodeList:10" width="180" height="30" border="1px solid"/>
-        <Grid id="grdComCodeDetailList" taborder="4" left="0" top="staMenuTitle00:10" height="270" right="0" binddataset="dsComCodeDetailList" autofittype="col">
+        <Grid id="grdComCodeDetailList" taborder="4" left="0" top="staMenuTitle00:10" height="270" right="0" binddataset="dsComCodeDetailList" autofittype="col" autoenter="select">
           <Formats>
             <Format id="default">
               <Columns>
@@ -111,20 +111,20 @@
               </Band>
               <Band id="body">
                 <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk"/>
-                <Cell col="1"/>
-                <Cell col="2"/>
-                <Cell col="3"/>
-                <Cell col="4"/>
-                <Cell col="5"/>
-                <Cell col="6"/>
-                <Cell col="7" displaytype="checkboxcontrol" edittype="checkbox" checkboxtruevalue="Y" checkboxfalsevalue="N"/>
-                <Cell col="8"/>
-                <Cell col="9"/>
-                <Cell col="10"/>
-                <Cell col="11"/>
-                <Cell col="12"/>
-                <Cell col="13"/>
-                <Cell col="14"/>
+                <Cell col="1" expr="currow+1"/>
+                <Cell col="2" text="bind:cmnCd" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="3" text="bind:cmnCdnm" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="4" text="bind:rmk" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="5" text="bind:sysId" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="6" text="bind:sortSeq" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="7" displaytype="checkboxcontrol" edittype="checkbox" checkboxtruevalue="Y" checkboxfalsevalue="N" text="bind:usyn"/>
+                <Cell col="8" text="bind:cdSettVl1" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="9" text="bind:cdSettVl2" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="10" text="bind:cdSettVl3" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="11" text="bind:cdSettVl4" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="12" text="bind:cdSettVl5" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="13" text="bind:cdSettVl6" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="14" text="bind:cdSettVl7" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
               </Band>
             </Format>
           </Formats>
@@ -244,8 +244,7 @@ this.fnAfterCommCodeLoad = function()
 //조회
 this.cfnSearch = function(obj, e)
 {
-	//this.fnClearDataSet();
-	this.fnSearchComCode();
+	this.fnSearch();
 };
 
 //추가
@@ -263,7 +262,7 @@ this.cfnDel = function(obj, e)
 //저장
 this.cfnSave = function(obj, e)
 {
-	this.fnSaveMyMenu();
+	this.fnSaveComCode();
 };
 
 //화면 닫기전 체크
@@ -289,12 +288,12 @@ this.fnSearchComCode = function()
 	var sArg      	= "";	
 	var sCallBackFnc = "fnCallback";
 	
-	this.gfnTransaction( sSvcId , 		// transaction을 구분하기 위한 svc id값
-						sSvcUrl , 		// trabsaction을 요청할 주소
-						sInData , 		// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
-						sOutData , 		// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
-						sArg, 			// 입력갑스로 보낼 arguments, strFormData="20120607"
-						sCallBackFnc);  // 통신방법 정의 [생략가능]
+	this.gfnTransaction( sSvcId , 	// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 			// trabsaction을 요청할 주소
+						sInData , 			// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 			// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 				// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  	// 통신방법 정의 [생략가능]
 };
 
 /**
@@ -311,54 +310,33 @@ this.fnSearchComCodeDetail = function()
 	var sArg      	= "";	
 	var sCallBackFnc = "fnCallback";
 	
-	this.gfnTransaction( sSvcId , 		// transaction을 구분하기 위한 svc id값
-						sSvcUrl , 		// trabsaction을 요청할 주소
-						sInData , 		// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
-						sOutData , 		// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
-						sArg, 			// 입력갑스로 보낼 arguments, strFormData="20120607"
-						sCallBackFnc);  // 통신방법 정의 [생략가능]
+	this.gfnTransaction( sSvcId , 	// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 			// trabsaction을 요청할 주소
+						sInData , 			// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 			// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 				// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  	// 통신방법 정의 [생략가능]
 };
 
 /**
  * @description 마이메뉴 조회 트랜잭션
  */
-this.fnSaveMyMenu = function()
+this.fnSaveComCode = function()
 {
 	// 마이메뉴 조회
-	var sSvcId 		= "saveMenuList";
-	var sSvcUrl     = "saveMenuList.do";
-	var sInData     = "MENULIST=dsMenuList:U";
+	var sSvcId 		= "saveComCodeList";
+	var sSvcUrl     = "saveComCodeList.do";
+	var sInData     = "COMCODELIST=dsComCodeList:U COMCODEDETAILLIST=dsComCodeDetailList:U";
 	var sOutData    = "";
 	var sArg      	= "";	
 	var sCallBackFnc = "fnCallback";
 	
-	this.gfnTransaction( sSvcId , 		// transaction을 구분하기 위한 svc id값
-						sSvcUrl , 		// trabsaction을 요청할 주소
-						sInData , 		// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
-						sOutData , 		// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
-						sArg, 			// 입력갑스로 보낼 arguments, strFormData="20120607"
-						sCallBackFnc);  // 통신방법 정의 [생략가능]
-};
-
-/**
- * @description 마이메뉴 조회 트랜잭션
- */
-this.fnSearchCmmBtn = function()
-{
-	// 마이메뉴 조회
-	var sSvcId 		= "selectCmmBtnList";
-	var sSvcUrl     = "selectCmmBtnList.do";
-	var sInData     = "dsComDetailCodeList=dsMenuId";
-	var sOutData    = "dsCmmBtnList=CMMBTNLIST";
-	var sArg      	= "";	
-	var sCallBackFnc = "fnCallback";
-	
-	this.gfnTransaction( sSvcId , 		// transaction을 구분하기 위한 svc id값
-						sSvcUrl , 		// trabsaction을 요청할 주소
-						sInData , 		// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
-						sOutData , 		// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
-						sArg, 			// 입력갑스로 보낼 arguments, strFormData="20120607"
-						sCallBackFnc);  // 통신방법 정의 [생략가능]
+	this.gfnTransaction( sSvcId , 	// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 			// trabsaction을 요청할 주소
+						sInData , 			// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 			// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 				// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  	// 통신방법 정의 [생략가능]
 };
 /*******************************************************************************************************************************
  * Callback 영역 (Transaction, popup, message..)
@@ -369,31 +347,26 @@ this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
 	{
 		case "selectComCodeList":
 			this.fnAddCheckBox(this.grdComCodeList);
+			this.fnComDetatil();
 			break;
 		case "selectComCodeDetailList":
 			this.fnAddCheckBox(this.grdComCodeDetailList);
 			break;
-			
-		case "saveMenuList":
-			this.fnSearchMyMenu();
+		case "saveComCodeList":
+			this.fnSearch();
 			break;
-		case "selectCmmBtnList":
-			if(this.dsCmmBtnList.rowcount > 0)
-			{
-				this.dsCmmBtnList.addColumn("chk")
-				for(var i = 0; i < this.dsCmmBtnList.rowcount; i++)
-				{
-					this.dsCmmBtnList.setColumn(i, "chk", 0);
-				}
-			}
-			break;	
-		
 		default:break;
 	} 
 };
 /*******************************************************************************************************************************
  * 사용자 Function 영역
 *******************************************************************************************************************************/
+this.fnSearch = function()
+{
+	this.dsCond.setColumn(0, "grpCd", this.divSearch.form.edtWord.value);
+	this.fnSearchComCode();
+};
+
 this.fnAddCheckBox = function(objGrid)
 {
 	var objDs = objGrid.getBindDataset();
@@ -413,7 +386,7 @@ this.fnAddCheckBox = function(objGrid)
 
 this.fnClearDataSet = function()
 {
-	this.dsComDetailCodeList.clearData();
+	this.dsComCodeDetailList.clearData();
 };
 
 this.fnAdd = function()
@@ -440,23 +413,33 @@ this.fnChkDel = function(objds)
 	objds.enableevent = true;
 };
 
-
+this.fnComDetatil = function()
+{
+	this.dsCond.setColumn(0, "grpCd", this.dsComCodeList.getColumn(this.dsComCodeList.rowposition, "grpCd"));
+	this.fnSearchComCodeDetail();
+};
 
 /*******************************************************************************************************************************
  * 각 COMPONENT 별 EVENT 영역
 *******************************************************************************************************************************/
 this.btnInsert_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	this.dsComCodeDetailList.addRow();
+	if(this.dsComCodeList.rowcount > 0)
+	{
+		var nRow = this.dsComCodeDetailList.addRow();
+		this.dsComCodeDetailList.setColumn(nRow, "grpCd", this.dsComCodeList.getColumn(this.dsComCodeList.rowposition, "grpCd"));
+	}
 };
 
 this.btnDelete_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
 	this.fnChkDel(this.dsComCodeDetailList);
 };
+
+this.grdComCodeList_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	this.fnComDetatil();
+};
 ]]></Script>
-    <Bind>
-      <BindItem id="item0" compid="divSearch.form.edtWord" propid="value" datasetid="dsCond" columnid="grpCd"/>
-    </Bind>
   </Form>
 </FDL>

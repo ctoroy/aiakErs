@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
  * ------------------------------------------------
  * 2017. 11. 20.		TOBESOFT	최초작성
  */
-public class MenuList extends NexacroBase {
+public class ComMenu extends NexacroBase {
     // Fields
     private String menuId;
     private String menuNm;

@@ -1,11 +1,10 @@
 package example.nexacro.uiadapter.impl;
 
 import com.nexacro.java.xapi.data.DataSet;
-import com.nexacro.uiadapter.boot.core.data.DataSetRowTypeAccessor;
-import example.nexacro.uiadapter.mapper.MenuListMapper;
-import example.nexacro.uiadapter.pojo.CmmBtnList;
+import example.nexacro.uiadapter.mapper.UiFrameMapper;
+import example.nexacro.uiadapter.pojo.CmmBtn;
 import example.nexacro.uiadapter.pojo.ComCode;
-import example.nexacro.uiadapter.pojo.MenuList;
+import example.nexacro.uiadapter.pojo.ComMenu;
 import example.nexacro.uiadapter.service.UiFrameService;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,115 +27,115 @@ public class UiFrameServiceImpl implements UiFrameService {
     private SqlSessionTemplate sqlSession;
     
     @Override
-    public List<MenuList> selectMenuList() {
-    	MenuListMapper mapper = sqlSession.getMapper(MenuListMapper.class);
+    public List<ComMenu> selectMenuList() {
+    	UiFrameMapper mapper = sqlSession.getMapper(UiFrameMapper.class);
         return mapper.selectMenuList();
     }
 
     @Override
-    public void saveMenuList(List<MenuList> menuLists) {
-        MenuListMapper mapper = sqlSession.getMapper(MenuListMapper.class);
+    public void saveMenuList(List<ComMenu> comMenus) {
+        UiFrameMapper mapper = sqlSession.getMapper(UiFrameMapper.class);
 
-        int size = menuLists.size();
-        for (int i=0; i<size; i++) {
-            MenuList menuList = menuLists.get(i);
-            if (menuList instanceof DataSetRowTypeAccessor) {
-                DataSetRowTypeAccessor accessor = (DataSetRowTypeAccessor) menuList;
-
-                if (accessor.getRowType() == DataSet.ROW_TYPE_INSERTED) {
-                    menuList.setUsyn("Y");
-                    menuList.setCrtrId("skyteam");
-                    menuList.setMdpsId("skyteam");
-                    mapper.insertMenuList(menuList);
-                } else if (accessor.getRowType() == DataSet.ROW_TYPE_UPDATED) {
-                    menuList.setMdpsId("skyteam");
-                    mapper.updateMenuList(menuList);
-                } else if (accessor.getRowType() == DataSet.ROW_TYPE_DELETED) {
-                    mapper.deleteMenuList(menuList);
-                }
+        comMenus.forEach(comMenu -> {
+            switch (comMenu.getRowType()) {
+                case DataSet.ROW_TYPE_INSERTED:
+                    comMenu.setUsyn("Y");
+                    comMenu.setCrtrId("skyteam");
+                    comMenu.setMdpsId("skyteam");
+                    mapper.insertMenuList(comMenu);
+                    break;
+                case DataSet.ROW_TYPE_UPDATED:
+                    comMenu.setMdpsId("skyteam");
+                    mapper.updateMenuList(comMenu);
+                    break;
+                case DataSet.ROW_TYPE_DELETED:
+                    mapper.deleteMenuList(comMenu);
+                    break;
+                default:
             }
-        }
+        });
     }
 
     @Override
-    public List<CmmBtnList> selectCmmBtnList(CmmBtnList cmmBtnList) {
-        MenuListMapper mapper = sqlSession.getMapper(MenuListMapper.class);
-        return mapper.selectCmmBtnList(cmmBtnList);
+    public List<CmmBtn> selectCmmBtnList(CmmBtn cmmBtn) {
+        UiFrameMapper mapper = sqlSession.getMapper(UiFrameMapper.class);
+        return mapper.selectCmmBtnList(cmmBtn);
     }
 
     @Override
-    public void saveCmmBtnList(List<CmmBtnList> cmmBtnLists) {
-        MenuListMapper mapper = sqlSession.getMapper(MenuListMapper.class);
+    public void saveCmmBtnList(List<CmmBtn> cmmBtns) {
+        UiFrameMapper mapper = sqlSession.getMapper(UiFrameMapper.class);
 
-        int size = cmmBtnLists.size();
-        for (int i=0; i<size; i++) {
-            CmmBtnList cmmBtnList = cmmBtnLists.get(i);
-            if (cmmBtnList instanceof DataSetRowTypeAccessor) {
-                DataSetRowTypeAccessor accessor = (DataSetRowTypeAccessor) cmmBtnList;
-
-                if (accessor.getRowType() == DataSet.ROW_TYPE_INSERTED) {
-                    //cmmBtnList.setUsyn("Y");
-                    cmmBtnList.setCrtrId("skyteam");
-                    cmmBtnList.setMdpsId("skyteam");
-                    mapper.insertCmmBtnList(cmmBtnList);
-                } else if (accessor.getRowType() == DataSet.ROW_TYPE_UPDATED) {
-                    cmmBtnList.setMdpsId("skyteam");
-                    mapper.updateCmmBtnList(cmmBtnList);
-                } else if (accessor.getRowType() == DataSet.ROW_TYPE_DELETED) {
-                    mapper.deleteCmmBtnList(cmmBtnList);
-                }
+        cmmBtns.forEach(cmmBtn -> {
+            switch (cmmBtn.getRowType()) {
+                case DataSet.ROW_TYPE_INSERTED:
+                    cmmBtn.setCrtrId("skyteam");
+                    cmmBtn.setMdpsId("skyteam");
+                    mapper.insertCmmBtnList(cmmBtn);
+                    break;
+                case DataSet.ROW_TYPE_UPDATED:
+                    cmmBtn.setMdpsId("skyteam");
+                    mapper.updateCmmBtnList(cmmBtn);
+                    break;
+                case DataSet.ROW_TYPE_DELETED:
+                    mapper.deleteCmmBtnList(cmmBtn);
+                    break;
+                default:
             }
-        }
+        });
     }
 
     @Override
     public List<ComCode> selectComCodeList(ComCode comCode) {
-        MenuListMapper mapper = sqlSession.getMapper(MenuListMapper.class);
+        UiFrameMapper mapper = sqlSession.getMapper(UiFrameMapper.class);
         return mapper.selectComCodeList(comCode);
     }
 
     @Override
+    public List<ComCode> selectComCodeDetailList(ComCode comCode) {
+        UiFrameMapper mapper = sqlSession.getMapper(UiFrameMapper.class);
+        return mapper.selectComCodeDetailList(comCode);
+    }
+
+    @Override
     public void saveComCodeList(List<ComCode> codeList, List<ComCode> codeDetailList) {
-        MenuListMapper mapper = sqlSession.getMapper(MenuListMapper.class);
+        UiFrameMapper mapper = sqlSession.getMapper(UiFrameMapper.class);
 
-        int size = codeList.size();
-        for (int i=0; i<size; i++) {
-            ComCode comCode = codeList.get(i);
-            if (comCode instanceof DataSetRowTypeAccessor) {
-                DataSetRowTypeAccessor accessor = (DataSetRowTypeAccessor) comCode;
-
-                if (accessor.getRowType() == DataSet.ROW_TYPE_INSERTED) {
+        codeList.forEach(comCode -> {
+            switch (comCode.getRowType()) {
+                case DataSet.ROW_TYPE_INSERTED:
                     comCode.setCmnCd(comCode.getGrpCd());
                     comCode.setCrtrId("skyteam");
                     comCode.setMdpsId("skyteam");
                     mapper.insertComCodeList(comCode);
-                } else if (accessor.getRowType() == DataSet.ROW_TYPE_UPDATED) {
+                    break;
+                case DataSet.ROW_TYPE_UPDATED:
                     comCode.setMdpsId("skyteam");
                     mapper.updateComCodeList(comCode);
-                } else if (accessor.getRowType() == DataSet.ROW_TYPE_DELETED) {
+                    break;
+                case DataSet.ROW_TYPE_DELETED:
                     mapper.deleteComCodeList(comCode);
-                }
+                    break;
+                default:
             }
-        }
+        });
 
-        size = codeDetailList.size();
-        for (int i=0; i<size; i++) {
-            ComCode comCodeDetail = codeDetailList.get(i);
-            if (comCodeDetail instanceof DataSetRowTypeAccessor) {
-                DataSetRowTypeAccessor accessor = (DataSetRowTypeAccessor) comCodeDetail;
-
-                if (accessor.getRowType() == DataSet.ROW_TYPE_INSERTED) {
-                    //cmmBtnList.setUsyn("Y");
-                    comCodeDetail.setCrtrId("skyteam");
-                    comCodeDetail.setMdpsId("skyteam");
-                    mapper.insertComCodeList(comCodeDetail);
-                } else if (accessor.getRowType() == DataSet.ROW_TYPE_UPDATED) {
-                    comCodeDetail.setMdpsId("skyteam");
-                    mapper.updateComCodeList(comCodeDetail);
-                } else if (accessor.getRowType() == DataSet.ROW_TYPE_DELETED) {
-                    mapper.deleteComCodeList(comCodeDetail);
-                }
+        codeDetailList.forEach(comCode -> {
+            switch (comCode.getRowType()) {
+                case DataSet.ROW_TYPE_INSERTED:
+                    comCode.setCrtrId("skyteam");
+                    comCode.setMdpsId("skyteam");
+                    mapper.insertComCodeList(comCode);
+                    break;
+                case DataSet.ROW_TYPE_UPDATED:
+                    comCode.setMdpsId("skyteam");
+                    mapper.updateComCodeList(comCode);
+                    break;
+                case DataSet.ROW_TYPE_DELETED:
+                    mapper.deleteComCodeList(comCode);
+                    break;
+                default:
             }
-        }
+        });
     }
 }

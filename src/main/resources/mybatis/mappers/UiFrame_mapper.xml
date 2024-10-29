@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="example.nexacro.uiadapter.mapper.MenuListMapper">
+<mapper namespace="example.nexacro.uiadapter.mapper.UiFrameMapper">
 	
     <!--  POJO -->
-     <select id="selectMenuList" parameterType="example.nexacro.uiadapter.pojo.MenuList" resultType="example.nexacro.uiadapter.pojo.MenuList">
+     <select id="selectMenuList" parameterType="example.nexacro.uiadapter.pojo.ComMenu" resultType="example.nexacro.uiadapter.pojo.ComMenu">
          SELECT
              MENU_ID as menuId,
              MENU_NM as menuNm,
@@ -28,7 +28,7 @@
          ORDER BY SORT_SEQ;
     </select>
 
-    <insert id="insertMenuList" parameterType="example.nexacro.uiadapter.pojo.MenuList">
+    <insert id="insertMenuList" parameterType="example.nexacro.uiadapter.pojo.ComMenu">
         INSERT INTO SCC_MENU (
             MENU_ID,
             MENU_NM,
@@ -72,7 +72,7 @@
         )
     </insert>
 
-    <update id="updateMenuList" parameterType="example.nexacro.uiadapter.pojo.MenuList">
+    <update id="updateMenuList" parameterType="example.nexacro.uiadapter.pojo.ComMenu">
         UPDATE SCC_MENU
         SET
             MENU_NM = #{menuNm},
@@ -95,12 +95,12 @@
 
     </update>
 
-    <delete id="deleteMenuList" parameterType="example.nexacro.uiadapter.pojo.MenuList">
+    <delete id="deleteMenuList" parameterType="example.nexacro.uiadapter.pojo.ComMenu">
         DELETE FROM SCC_MENU
         WHERE MENU_ID = #{menuId}
     </delete>
 
-    <select id="selectCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtnList" resultType="example.nexacro.uiadapter.pojo.CmmBtnList">
+    <select id="selectCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtn" resultType="example.nexacro.uiadapter.pojo.CmmBtn">
         SELECT
             MENU_ID as menuId,
             BTN_ID as btnId,
@@ -114,7 +114,7 @@
         order by sortSeq
     </select>
 
-    <insert id="insertCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtnList">
+    <insert id="insertCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtn">
         INSERT INTO SCC_MENU_BTN (
             MENU_ID,
             BTN_ID,
@@ -143,7 +143,7 @@
                      now()
                  )
     </insert>
-    <update id="updateCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtnList">
+    <update id="updateCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtn">
         UPDATE SCC_MENU_BTN
         SET
             MENU_ID = #{menuId},
@@ -156,7 +156,7 @@
             MDPS_DTTM = now()
         WHERE MENU_ID = #{menuId} AND BTN_ID = #{btnId}
     </update>
-    <delete id="deleteCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtnList">
+    <delete id="deleteCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtn">
         DELETE FROM SCC_MENU_BTN
         WHERE MENU_ID = #{menuId}
     </delete>
@@ -183,6 +183,32 @@
             <if test="grpCd != null">
                     AND GRP_CD LIKE '%' || #{grpCd} || '%'
             </if>
+            <if test="grpCd == null">
+                AND GRP_CD = CMN_CD
+            </if>
+        ORDER BY SORT_SEQ;
+    </select>
+
+    <select id="selectComCodeDetailList" parameterType="example.nexacro.uiadapter.pojo.ComCode" resultType="example.nexacro.uiadapter.pojo.ComCode">
+        SELECT
+        GRP_CD as grpCd,  -- // 그룹코드 -- PK
+        CMN_CD as cmnCd,  -- // 공통코드 -- PK
+        CMN_CDNM as cmnCdnm,  -- // 공통코드명
+        SYS_ID as sysId,  -- // 시스템 ID [ B:예산관리, S:시스템관리 ]
+
+        RMK	as rmk, -- // 비고
+        SORT_SEQ as sortSeq, -- // 순번
+        USYN as usyn, -- // 사용여부
+        CD_SETT_VL1	as cdSettVl1, -- // 참조1
+        CD_SETT_VL2	as cdSettVl2, -- // 참조2
+        CD_SETT_VL3	as cdSettVl3, -- // 참조3
+        CD_SETT_VL4	as cdSettVl4, -- // 참조4
+        CD_SETT_VL5	as cdSettVl5, -- // 참조5
+        CD_SETT_VL6	as cdSettVl6, -- // 참조6
+        CD_SETT_VL7	as cdSettVl7 -- // 참조7
+        FROM SCC_CMN_CD
+        WHERE 1=1
+            AND GRP_CD = #{grpCd} AND GRP_CD != CMN_CD
         ORDER BY SORT_SEQ;
     </select>
 
@@ -227,7 +253,7 @@
                      now()
                  )
     </insert>
-    <update id="updateComCodeList" parameterType="example.nexacro.uiadapter.pojo.CmmBtnList">
+    <update id="updateComCodeList" parameterType="example.nexacro.uiadapter.pojo.CmmBtn">
         UPDATE SCC_CMN_CD
         SET
             GRP_CD = #{grpCd},
@@ -249,7 +275,7 @@
         WHERE
             GRP_CD = #{grpCd} AND CMN_CD = #{cmnCd}
     </update>
-    <delete id="deleteComCodeList" parameterType="example.nexacro.uiadapter.pojo.CmmBtnList">
+    <delete id="deleteComCodeList" parameterType="example.nexacro.uiadapter.pojo.CmmBtn">
         DELETE FROM SCC_CMN_CD
         WHERE
             GRP_CD = #{grpCd} AND CMN_CD = #{cmnCd}

@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
  * ------------------------------------------------
  * 2017. 11. 20.		TOBESOFT	최초작성
  */
-public class CmmBtnList extends NexacroBase {
+public class CmmBtn extends NexacroBase {
     // Fields
     private String menuId;
     private String btnId;
