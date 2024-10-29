@@ -6,9 +6,9 @@
 	
     <!--  POJO -->
     <select id="select_depart" resultType="example.nexacro.uiadapter.pojo.departDto">
-        select * from tb_ers_department
+        select * from department_tb
     </select>
     <select id="select_employee" resultType="example.nexacro.uiadapter.pojo.employeeDto">
-        select * from tb_employee
+        select * from employee_tb
     </select>
 </mapper>
