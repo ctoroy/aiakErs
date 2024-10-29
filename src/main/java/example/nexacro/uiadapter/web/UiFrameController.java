@@ -24,14 +24,14 @@ import java.util.List;
  * @package com.nexacro.sample.uiadapter.spring.web
  * <pre>
  * 
- * @author  TOBESOFT
+ * @author  송원창
  * @since   2024. 10. 18.
  * @version 1.0
  * @see
  * =================== 변경 내역 ==================
  * 날짜				변경자		내용
  * ------------------------------------------------
- * 2024. 11. 20.	TOBESOFT	최초작성
+ * 2024. 10. 18.	송원창	최초작성
  */
 @Controller
 public class UiFrameController {
@@ -47,7 +47,6 @@ public class UiFrameController {
 	 * @desc 메뉴 리스트 데이터 조회 - VO
 	 * @param  
 	 * @return NexacroResult
-	 * @throws 
 	 * </pre>
 	 */
     @RequestMapping(value = "/selectMenuList.do")
@@ -61,9 +60,9 @@ public class UiFrameController {
 	}
 
 	/**
-	 * 메뉴 리스트 데이터 입력,수정,삭제
-	 * @param modifyList
-	 * @return
+	 * @desc 메뉴 리스트 데이터 입력,수정,삭제
+	 * @param
+	 * @return NexacroResult
 	 */
 	@RequestMapping(value = "/saveMenuList.do")
 	public NexacroResult saveMenuList(@ParamDataSet(name = "MENULIST") List<ComMenu> comMenus,
@@ -84,7 +83,6 @@ public class UiFrameController {
 	 * @desc 메뉴 공통 버튼 리스트 데이터 조회 - VO
 	 * @param
 	 * @return NexacroResult
-	 * @throws
 	 * </pre>
 	 */
 	@RequestMapping(value = "/selectCmmBtnList.do")
@@ -103,7 +101,6 @@ public class UiFrameController {
 	 * @desc 공통 코드 리스트 데이터 조회 - VO
 	 * @param
 	 * @return NexacroResult
-	 * @throws
 	 * </pre>
 	 */
 	@RequestMapping(value = "/selectComCodeList.do")
@@ -122,7 +119,6 @@ public class UiFrameController {
 	 * @desc 공통 코드 상세 리스트 데이터 조회 - VO
 	 * @param
 	 * @return NexacroResult
-	 * @throws
 	 * </pre>
 	 */
 	@RequestMapping(value = "/selectComCodeDetailList.do")
@@ -137,8 +133,8 @@ public class UiFrameController {
 
 	/**
 	 * @desc 공통코드 리스트, 공통코드 상세 데이터 입력,수정,삭제
-	 * @param modifyList
-	 * @return
+	 * @param
+	 * @return NexacroResult
 	 */
 	@RequestMapping(value = "/saveComCodeList.do")
 	public NexacroResult saveComCodeList(@ParamDataSet(name = "COMCODELIST") List<ComCode> codeList,

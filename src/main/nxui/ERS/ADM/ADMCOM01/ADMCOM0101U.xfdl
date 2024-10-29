@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="SCC010101U" width="1280" height="720" titletext="메뉴등록" onload="form_onload">
+  <Form id="ADMCOM0101U" width="1280" height="720" titletext="공통코드관리" onload="form_onload">
     <Layouts>
       <Layout height="720" horizontalgap="0" mobileorientation="landscape" spacing="0px" tabletemplate="1* / 1*" verticalgap="0" width="1280">
         <Div id="divSearch" taborder="0" text="divSearch" left="0" top="0" height="70" right="0" border="1px solid">

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="SCC010102U" width="1280" height="720" titletext="메뉴등록" onload="form_onload">
+  <Form id="ADMCOM0102U" width="1280" height="720" titletext="메뉴등록" onload="form_onload">
     <Layouts>
       <Layout height="720" horizontalgap="0" mobileorientation="landscape" spacing="0px" tabletemplate="1* / 1*" verticalgap="0" width="1280">
         <Div id="divSearch" taborder="0" text="divSearch" left="0" top="0" height="70" right="0" border="1px solid">
@@ -110,10 +110,10 @@
             </Format>
           </Formats>
         </Grid>
-        <Button id="btn00" taborder="5" text="조회" left="610" top="11" width="120" height="50" onclick="cfnSearch" visible="false"/>
+        <Button id="btn00" taborder="5" text="조회" left="610" top="11" width="120" height="50" onclick="cfnSearch"/>
         <Button id="btn01" taborder="6" text="추가" left="750" top="10" width="120" height="50" onclick="cfnAdd" visible="false"/>
         <Button id="btn02" taborder="7" text="삭제" left="890" top="10" width="120" height="50" onclick="cfnDel" visible="false"/>
-        <Button id="btn03" taborder="8" text="저장" left="1030" top="10" width="120" height="50" onclick="cfnSave" visible="false"/>
+        <Button id="btn03" taborder="8" text="저장" left="1030" top="10" width="120" height="50" onclick="cfnSave"/>
       </Layout>
     </Layouts>
     <Objects>

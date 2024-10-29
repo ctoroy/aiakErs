@@ -15,8 +15,8 @@ import java.util.List;
 /**
  * Test를 위한 ServiceImpl Sample Class
  *
- * @author Park SeongMin
- * @since 08.12.2015
+ * @author Song WonChang
+ * @since 10.18.2024
  * @version 1.0
  * @see
  */

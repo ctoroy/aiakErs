@@ -15,14 +15,14 @@ import java.time.LocalDateTime;
  * @package example.nexacro.uiadapter.pojo
  * <pre>
  * 
- * @author  TOBESOFT
- * @since   2017. 11. 20.
+ * @author  송원창
+ * @since   2024. 10. 18.
  * @version 1.0
  * @see
  * =================== 변경 내역 ==================
- * 날짜			변경자		내용
+ * 날짜			    변경자		내용
  * ------------------------------------------------
- * 2017. 11. 20.		TOBESOFT	최초작성
+ * 2024. 10. 18.	송원창	    최초작성
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

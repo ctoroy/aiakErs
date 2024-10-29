@@ -63,12 +63,15 @@
     <Service prefixid="common" type="form" url="./common/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
     <Service prefixid="sample" type="form" url="./sample/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
     <Service prefixid="SCC01" type="form" url="./SCC01/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
-    <Service prefixid="AMDCOM01" type="form" url="./AMD/ADMCOM01/" version="0" cachelevel="session" include_subdir="true" communicationversion="0"/>
-    <Service prefixid="AMDCOM02" type="form" url="./AMD/ADMCOM02/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
-    <Service prefixid="AMDCOM03" type="form" url="./AMD/ADMCOM03/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
-    <Service prefixid="AMDCOM09" type="form" url="./AMD/ADMCOM09/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
-    <Service prefixid="AMDCOM07" type="form" url="./AMD/ADMCOM07/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
-    <Service prefixid="AMDCOM08" type="form" url="./AMD/ADMCOM08/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
+    <Service prefixid="ADMCOM01" type="form" url="./ADM/ADMCOM01/" version="0" cachelevel="session" include_subdir="true" communicationversion="0"/>
+    <Service prefixid="ADMCOM02" type="form" url="./ADM/ADMCOM02/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
+    <Service prefixid="ADMCOM03" type="form" url="./ADM/ADMCOM03/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
+    <Service prefixid="ADMCOM09" type="form" url="./ADM/ADMCOM09/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
+    <Service prefixid="ADMCOM07" type="form" url="./ADM/ADMCOM07/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
+    <Service prefixid="ADMCOM08" type="form" url="./ADM/ADMCOM08/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
+    <Service prefixid="MNUBGT01" type="form" url="./MNU/MNUBGT01/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
+    <Service prefixid="MNUBGT02" type="form" url="./MNU/MNUBGT02/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
+    <Service prefixid="MNUBGT03" type="form" url="./MNU/MNUBGT03/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
   </Services>
   <Protocols/>
   <DeviceAdaptors/>
