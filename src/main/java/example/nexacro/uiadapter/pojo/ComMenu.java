@@ -2,6 +2,7 @@ package example.nexacro.uiadapter.pojo;
 
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.time.LocalDateTime;
 
@@ -23,6 +24,7 @@ import java.time.LocalDateTime;
  * ------------------------------------------------
  * 2017. 11. 20.		TOBESOFT	최초작성
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class ComMenu extends NexacroBase {
     // Fields
