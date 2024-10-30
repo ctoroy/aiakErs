@@ -1,5 +1,8 @@
 package example.nexacro.uiadapter.pojo;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.time.LocalDateTime;
 
 /**
@@ -20,6 +23,8 @@ import java.time.LocalDateTime;
  * ------------------------------------------------
  * 2024. 10. 18.	송원창	최초작성
  */
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class CmmBtn extends NexacroBase {
     // Fields
     private String menuId;
@@ -34,100 +39,4 @@ public class CmmBtn extends NexacroBase {
     private LocalDateTime crtrDttm;
     private String mdpsId;
     private LocalDateTime mdpsDttm;
-
-    public String getMenuId() {
-        return menuId;
-    }
-
-    public void setMenuId(String menuId) {
-        this.menuId = menuId;
-    }
-
-    public String getBtnId() {
-        return btnId;
-    }
-
-    public void setBtnId(String btnId) {
-        this.btnId = btnId;
-    }
-
-    public String getBtnNm() {
-        return btnNm;
-    }
-
-    public void setBtnNm(String btnNm) {
-        this.btnNm = btnNm;
-    }
-
-    public String getFunctionNm() {
-        return functionNm;
-    }
-
-    public void setFunctionNm(String functionNm) {
-        this.functionNm = functionNm;
-    }
-
-    public String getCssNm() {
-        return cssNm;
-    }
-
-    public void setCssNm(String cssNm) {
-        this.cssNm = cssNm;
-    }
-
-    public int getSortSeq() {
-        return sortSeq;
-    }
-
-    public void setSortSeq(int sortSeq) {
-        this.sortSeq = sortSeq;
-    }
-
-    public String getRmk() {
-        return rmk;
-    }
-
-    public void setRmk(String rmk) {
-        this.rmk = rmk;
-    }
-
-    public String getUsyn() {
-        return usyn;
-    }
-
-    public void setUsyn(String usyn) {
-        this.usyn = usyn;
-    }
-
-    public String getCrtrId() {
-        return crtrId;
-    }
-
-    public void setCrtrId(String crtrId) {
-        this.crtrId = crtrId;
-    }
-
-    public LocalDateTime getCrtrDttm() {
-        return crtrDttm;
-    }
-
-    public void setCrtrDttm(LocalDateTime crtrDttm) {
-        this.crtrDttm = crtrDttm;
-    }
-
-    public String getMdpsId() {
-        return mdpsId;
-    }
-
-    public void setMdpsId(String mdpsId) {
-        this.mdpsId = mdpsId;
-    }
-
-    public LocalDateTime getMdpsDttm() {
-        return mdpsDttm;
-    }
-
-    public void setMdpsDttm(LocalDateTime mdpsDttm) {
-        this.mdpsDttm = mdpsDttm;
-    }
 }

@@ -18,7 +18,7 @@ public class employeeDto extends NexacroBase {
     private String resign_yn = "";
     private String inserted_date = "";
     private String is_not_change_yn = "";
-    private String group_cd = "";
+    private String group = "";
     private Integer id = 0;
     private String created = "";
     private String modified = "";
