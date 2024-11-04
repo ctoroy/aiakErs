@@ -22,7 +22,7 @@ spring:
       location: ${java.io.tmpdir} # C:/Temp
   http:
     multipart:
-      enabled: false
+      enabled: true
   output:
     ansi:
       enabled: always
