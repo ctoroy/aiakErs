@@ -3,7 +3,7 @@
   <Form id="cmmAlert" width="450" height="210" titletext="알림창" onload="form_onload">
     <Layouts>
       <Layout height="210" mobileorientation="landscape" width="450">
-        <TextArea id="txtMsgContent" taborder="0" left="90" top="20" right="20" readonly="true" bottom="48" cssclass="txt_POP_Text"/>
+        <TextArea id="txtMsgContent" taborder="0" left="90" top="20" right="20" readonly="true" bottom="48" cssclass="txt_POP_Text" wordWrap="char"/>
         <Button id="btnOk" taborder="1" text="확인" fittocontents="width" height="28" width="50" onclick="btnOk_onclick" bottom="10" left="200" cssclass="btn_WF_Crud"/>
         <ImageViewer id="imgLink" taborder="2" left="20" top="64" width="53" height="53" text="" accessibilitylabel="알림 아이콘" image="url('theme://images/img_POP_Warning.png')" stretch="fit"/>
         <Button id="btnVoc" taborder="3" top="125" width="31" height="31" right="388" onclick="btnVoc_onclick" tooltiptext="VOC등록" cssclass="btn_MDI_Voc" visible="false"/>

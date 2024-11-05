@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ENV version="2.1">
-  <Environment themeid="theme::blue" datatyperule="2.0" filesecurelevel="all" networksecurelevel="all">
+  <Environment themeid="theme::blue" datatyperule="2.0" filesecurelevel="all" networksecurelevel="all" onerror="Environment_onerror">
     <ScreenDefinition>
       <Screen id="Desktop_screen" type="desktop"/>
     </ScreenDefinition>
@@ -12,4 +12,28 @@
     <Cookies/>
     <httpheader/>
   </Environment>
+  <Script type="xscript5.1"><![CDATA[
+this.Environment_onerror = function(obj:nexacro.Environment,e:nexacro.ErrorEventInfo)
+{
+	switch(e.statuscode)
+	{
+		case 10499:	//화면 로드 실패시
+			if(e.errorobj)
+			{
+				e.errorobj.gfnAlert("msg.general", [e.errormsg], "", function(id, msg) {
+					this.close();
+				});
+			}
+			break;
+		default:
+	}
+// 	trace("Environment_onerror errordata", e.errordata);
+// 	trace("Environment_onerror errormsg", e.errormsg);
+// 	trace("Environment_onerror errorobj", e.errorobj);
+// 	trace("Environment_onerror errortype", e.errortype);
+// 	trace("Environment_onerror eventid", e.eventid);
+// 	trace("Environment_onerror locationuri", e.locationuri);
+// 	trace("Environment_onerror requesturi", e.requesturi);
+// 	trace("Environment_onerror statuscode", e.statuscode);
+};]]></Script>
 </ENV>

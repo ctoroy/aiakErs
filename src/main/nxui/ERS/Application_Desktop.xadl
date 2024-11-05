@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ADL version="2.0">
-  <Application id="Application_Desktop" screenid="Desktop_screen" onload="Application_onload">
+  <Application id="Application_Desktop" screenid="Desktop_screen" onload="Application_onload" onerror="Application_onerror">
     <Layout>
       <MainFrame id="mainframe" left="0" top="0" width="1280" height="720" titletext="비용관리시스템" showcascadetitletext="false" showtitleicon="false" onsize="mainframe_onsize">
         <VFrameSet id="VFrameSet" separatesize="*,0,0" showtitlebar="false" showtitleicon="false" showcascadetitletext="false">
@@ -23,6 +23,7 @@
         </VFrameSet>
       </MainFrame>
     </Layout>
+    <Style url="xcssrc::richtexteditor.xcss"/>
   </Application>
   <Script type="xscript5.1"><![CDATA[/**
 *  AIA 비용관리시스템 시스템
@@ -167,13 +168,20 @@ this.mainframe_onsize = function(obj:nexacro.MainFrame,e:nexacro.SizeEventInfo)
 	var objFrame = nexacro.getPopupFrames();
 	var nLeft = 0;
 	var nTop = 0;
-	for(var i = objFrame.length-1; i >= 0; i--)	{
-		if(objFrame[i]._modaltype == "center") {
+	for(var i = objFrame.length-1; i >= 0; i--)
+	{
+		if(objFrame[i]._modaltype == "center")
+		{
 			nLeft = (nexacro.getApplication().mainframe.width - objFrame[i].width)/2;
 			nTop = (nexacro.getApplication().mainframe.height - objFrame[i].height)/2;
 			objFrame[i].move(nLeft, nTop);
 		}
 	}
+};
+
+this.Application_onerror = function(obj:nexacro.Application,e:nexacro.ErrorEventInfo)
+{
+	trace("Application_onerror ", e.errordata, e.errormsg, e.errorobj, e.errortype, e.eventid, e.locationuri, e.requesturi, e.statuscode);
 };
 ]]></Script>
 </ADL>

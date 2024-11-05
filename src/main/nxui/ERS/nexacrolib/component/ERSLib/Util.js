@@ -11,6 +11,7 @@
 *******************************************************************************
 ● gfnGetCurMenuId         : 현재 오픈되어 있는 메뉴 ID를 가져온다.
 ● gfnDsIsUpdated          : dataSet의 Row 중에서 변경된 내용이 있는지 여부
+● gfnGetUniqueId          : 유일한 ID 를 반환
 		//-----문자/숫자 관련 Util-----//
 ● gfnIsNull               : null값 확인
 ● gfnIsNotNull            : null값 확인
@@ -86,6 +87,8 @@
 
 var pForm = nexacro.Form.prototype;
 
+
+pForm.__ALPHA_CHAR_CODES = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, 101, 102];	//alphabet character code => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f]
 /**
 * @class 현재 오픈되어 있는 메뉴 ID를 가져온다. <br>
 * @param N/A
@@ -129,6 +132,84 @@ pForm.gfnDsIsUpdated = function (objDs)
 		}
 	}
 	return false;
+};
+
+/**
+ * 유일한 ID 를 반환
+ * @public
+ * @param {string=} prefix id 앞에 붙일 문자열
+ * @param {string=} separator id 생성시 구분용 문자(default: '-' ).
+ * @return {string} id
+ * @example
+ *
+ * trace(this.gfnGetUniqueId()); 
+ * // output : 3e52d1f6-f0d2-4970-a590-ba7656b07859
+ * 
+ * trace(this.gfnGetUniqueId("Button_")); 
+ * // output : Button_4e601da1-63f4-4cfa-849b-01b8a7f14d40
+ * 
+ * trace(this.gfnGetUniqueId("", "_")); 
+ * // output : 4e601da1_63f4_4cfa_849b_01b8a7f14d40
+ * 
+ * trace(this.gfnGetUniqueId("Button_", "_")); 
+ * // output : Button_4e601da1_63f4_4cfa_849b_01b8a7f14d40
+ * 
+ * @memberOf this
+ */
+pForm.gfnGetUniqueId = function(prefix, separator)
+{
+	if(this.gfnIsEmpty(prefix)) prefix = "";
+	if(this.gfnIsEmpty(separator)) {
+		separator = 45;
+	}
+	else
+	{
+		separator = separator.charCodeAt(0);
+	}
+	
+	var pThis = this,
+		charcode = pThis.__ALPHA_CHAR_CODES,
+		math = Math;
+	var seq = 0;
+	var seq0;
+	var tmpArray = new Array(36);
+	var idx = -1;
+	
+	while(seq < 8) 
+	{
+		tmpArray[++idx] = charcode[math.random() * 16 | 0];
+		seq++;
+	}
+	seq = 0;
+	while(seq < 3) 
+	{
+		tmpArray[++idx] = separator;//45 => "-", 95=> "_"
+		seq0 = 0;
+		while(seq0 < 4) 
+		{
+			tmpArray[++idx] = charcode[math.random() * 16  | 0];
+			seq0++;
+		}
+		seq++;
+	}
+	tmpArray[++idx] = separator; //45 => "-", 95=> "_"
+
+	var tmpStr = (new Date()).getTime();
+	tmpStr =("0000000" + tmpStr.toString(16)).substr(-8);
+	seq = 0;
+	while(seq < 8) 
+	{
+		tmpArray[++idx] = tmpStr.charCodeAt(seq);
+		seq++;
+	}
+	seq = 0;
+	while(seq < 4) 
+	{
+		tmpArray[++idx] = charcode[math.random() * 16 | 0];
+		seq++;
+	}
+	
+	return prefix + String.fromCharCode.apply(null, tmpArray);	
 };
 /************************************************************************************************
 * 문자/숫자 관련 Util
