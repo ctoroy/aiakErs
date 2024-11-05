@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="example.nexacro.uiadapter.mapper.UiFrameMapper">
+<mapper namespace="aia.ers.application.mapper.UiFrameMapper">
 	
     <!--  POJO -->
-     <select id="selectMenuList" parameterType="example.nexacro.uiadapter.pojo.ComMenu" resultType="example.nexacro.uiadapter.pojo.ComMenu">
+     <select id="selectMenuList" parameterType="aia.ers.application.pojo.ComMenu" resultType="aia.ers.application.pojo.ComMenu">
          SELECT
              MENU_ID as menuId,
              MENU_NM as menuNm,
@@ -28,7 +28,7 @@
          ORDER BY SORT_SEQ;
     </select>
 
-    <insert id="insertMenuList" parameterType="example.nexacro.uiadapter.pojo.ComMenu">
+    <insert id="insertMenuList" parameterType="aia.ers.application.pojo.ComMenu">
         INSERT INTO SCC_MENU (
             MENU_ID,
             MENU_NM,
@@ -72,7 +72,7 @@
         )
     </insert>
 
-    <update id="updateMenuList" parameterType="example.nexacro.uiadapter.pojo.ComMenu">
+    <update id="updateMenuList" parameterType="aia.ers.application.pojo.ComMenu">
         UPDATE SCC_MENU
         SET
             MENU_NM = #{menuNm},
@@ -95,12 +95,12 @@
 
     </update>
 
-    <delete id="deleteMenuList" parameterType="example.nexacro.uiadapter.pojo.ComMenu">
+    <delete id="deleteMenuList" parameterType="aia.ers.application.pojo.ComMenu">
         DELETE FROM SCC_MENU
         WHERE MENU_ID = #{menuId}
     </delete>
 
-    <select id="selectCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtn" resultType="example.nexacro.uiadapter.pojo.CmmBtn">
+    <select id="selectCmmBtnList" parameterType="aia.ers.application.pojo.CmmBtn" resultType="aia.ers.application.pojo.CmmBtn">
         SELECT
             MENU_ID as menuId,
             BTN_ID as btnId,
@@ -114,7 +114,7 @@
         order by sortSeq
     </select>
 
-    <insert id="insertCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtn">
+    <insert id="insertCmmBtnList" parameterType="aia.ers.application.pojo.CmmBtn">
         INSERT INTO SCC_MENU_BTN (
             MENU_ID,
             BTN_ID,
@@ -143,7 +143,7 @@
                      now()
                  )
     </insert>
-    <update id="updateCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtn">
+    <update id="updateCmmBtnList" parameterType="aia.ers.application.pojo.CmmBtn">
         UPDATE SCC_MENU_BTN
         SET
             MENU_ID = #{menuId},
@@ -156,12 +156,12 @@
             MDPS_DTTM = now()
         WHERE MENU_ID = #{menuId} AND BTN_ID = #{btnId}
     </update>
-    <delete id="deleteCmmBtnList" parameterType="example.nexacro.uiadapter.pojo.CmmBtn">
+    <delete id="deleteCmmBtnList" parameterType="aia.ers.application.pojo.CmmBtn">
         DELETE FROM SCC_MENU_BTN
         WHERE MENU_ID = #{menuId}
     </delete>
 
-    <select id="selectComCodeList" parameterType="example.nexacro.uiadapter.pojo.ComCode" resultType="example.nexacro.uiadapter.pojo.ComCode">
+    <select id="selectComCodeList" parameterType="aia.ers.application.pojo.ComCode" resultType="aia.ers.application.pojo.ComCode">
         SELECT
             GRP_CD as grpCd,  -- // 그룹코드 -- PK
             CMN_CD as cmnCd,  -- // 공통코드 -- PK
@@ -189,7 +189,7 @@
         ORDER BY SORT_SEQ;
     </select>
 
-    <select id="selectComCodeDetailList" parameterType="example.nexacro.uiadapter.pojo.ComCode" resultType="example.nexacro.uiadapter.pojo.ComCode">
+    <select id="selectComCodeDetailList" parameterType="aia.ers.application.pojo.ComCode" resultType="aia.ers.application.pojo.ComCode">
         SELECT
         GRP_CD as grpCd,  -- // 그룹코드 -- PK
         CMN_CD as cmnCd,  -- // 공통코드 -- PK
@@ -212,7 +212,7 @@
         ORDER BY SORT_SEQ;
     </select>
 
-    <insert id="insertComCodeList" parameterType="example.nexacro.uiadapter.pojo.ComCode">
+    <insert id="insertComCodeList" parameterType="aia.ers.application.pojo.ComCode">
         INSERT INTO SCC_CMN_CD (
             GRP_CD,
             CMN_CD,
@@ -253,7 +253,7 @@
                      now()
                  )
     </insert>
-    <update id="updateComCodeList" parameterType="example.nexacro.uiadapter.pojo.CmmBtn">
+    <update id="updateComCodeList" parameterType="aia.ers.application.pojo.CmmBtn">
         UPDATE SCC_CMN_CD
         SET
             GRP_CD = #{grpCd},
@@ -275,7 +275,7 @@
         WHERE
             GRP_CD = #{grpCd} AND CMN_CD = #{cmnCd}
     </update>
-    <delete id="deleteComCodeList" parameterType="example.nexacro.uiadapter.pojo.CmmBtn">
+    <delete id="deleteComCodeList" parameterType="aia.ers.application.pojo.CmmBtn">
         DELETE FROM SCC_CMN_CD
         WHERE
             GRP_CD = #{grpCd} AND CMN_CD = #{cmnCd}

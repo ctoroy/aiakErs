@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="example.nexacro.uiadapter.mapper.OrganizeMapper">
+<mapper namespace="aia.ers.application.mapper.OrganizeMapper">
 	
     <!--  POJO -->
-    <select id="select_depart" resultType="example.nexacro.uiadapter.pojo.departDto">
+    <select id="select_depart" resultType="aia.ers.application.pojo.departDto">
         select * from departement_tb
     </select>
-    <select id="select_employee" resultType="example.nexacro.uiadapter.pojo.employeeDto">
+    <select id="select_employee" resultType="aia.ers.application.pojo.employeeDto">
         select * from employee_tb
     </select>
 </mapper>

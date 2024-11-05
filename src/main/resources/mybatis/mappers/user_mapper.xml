@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="example.nexacro.uiadapter.mapper.UserMapper">
+<mapper namespace="aia.ers.application.mapper.UserMapper">
 
-	<select id="select_user_info" parameterType="example.nexacro.uiadapter.pojo.User" resultType="example.nexacro.uiadapter.pojo.User">
+	<select id="select_user_info" parameterType="aia.ers.application.pojo.User" resultType="aia.ers.application.pojo.User">
             SELECT
                 USER_ID ,
                 USER_NAME,
@@ -37,7 +37,7 @@
             </if>
     </select>
     
-    <select id="select_user_info_map" parameterType="java.util.Map" resultType="example.nexacro.uiadapter.pojo.User">
+    <select id="select_user_info_map" parameterType="java.util.Map" resultType="aia.ers.application.pojo.User">
             SELECT
                 USER_ID ,
                 USER_NAME,
@@ -70,7 +70,7 @@
             </if>
     </select>
     
-    <insert id="insert_user" parameterType="example.nexacro.uiadapter.pojo.User">
+    <insert id="insert_user" parameterType="aia.ers.application.pojo.User">
             INSERT INTO TB_USER (
                 USER_ID,
                 PASSWORD,
@@ -94,7 +94,7 @@
             )
     </insert>
     
-      <update id="update_user" parameterType="example.nexacro.uiadapter.pojo.User">
+      <update id="update_user" parameterType="aia.ers.application.pojo.User">
             UPDATE TB_USER 
             SET USER_NAME  = #{userName}
               , EN_NAME    = #{enName}
@@ -104,7 +104,7 @@
             WHERE USER_ID=#{userId}
     </update>
     
-    <delete id="delete_user" parameterType="example.nexacro.uiadapter.pojo.User">
+    <delete id="delete_user" parameterType="aia.ers.application.pojo.User">
             DELETE FROM TB_USER 
             WHERE USER_ID=#{userId}
     </delete>
