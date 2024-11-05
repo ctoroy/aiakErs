@@ -1,0 +1,73 @@
+﻿{
+    "version" : "24.0.0.1",
+    "runtime" :
+    {
+        "target" :
+        {
+            "os" : "windows"
+        },
+        "framework" :
+        [    
+        "./nexacrolib/framework/Framework.js"
+        ],
+        "component" :
+        [    
+        "./nexacrolib/component/CompBase.js",
+        "./nexacrolib/component/ComComp.js",
+        "./nexacrolib/component/Grid.js",
+        "./nexacrolib/component/ListView.js",
+        "./nexacrolib/component/DeviceAPI.js",
+        "./nexacrolib/component/MobileComp.js",
+        "./nexacrolib/component/ERSLib/Frame.js",
+        "./nexacrolib/component/ERSLib/Util.js",
+        "./nexacrolib/component/ERSLib/Comp.js",
+        "./nexacrolib/component/ERSLib/Transaction.js",
+        "./nexacrolib/component/ERSLib/Validation.js",
+        "./nexacrolib/component/ERSLib/Popup.js",
+        "./nexacrolib/component/ERSLib/File.js",
+        "./nexacrolib/component/ERSLib/Message.js",
+        "./nexacrolib/component/ERSLib/Grid.js",
+        "./nexacrolib/component/ERSLib/Excel.js",
+        "./nexacrolib/component/ERSLib/ExtLib.js",
+        "./nexacrolib/component/ERSLib/CompOverride.js"
+        ],
+        "environment" :
+        [    
+        {
+        "file":"./environment.xml.js"
+        }
+        ],
+        "screen" :
+        [    
+        {"id":"Desktop_screen","type":"desktop","filesecurelevel":"all","networksecurelevel":"all","themeid":"theme::blue"}
+        ],
+        "xadl" :
+        [
+        {
+        	"screenid":"Desktop_screen",
+        	"launch":"./Application_Desktop.xadl.js",
+        	"quickview":"./Application_Desktop.xadl.quickview.js",
+        	"form":[
+        				"./uiframe/frame/frameLogin.xfdl.js"
+        	]
+        }
+        ],  
+        "protocol" :
+        {
+            "adaptors" :
+            []
+        },
+        "resource" :
+        {
+
+        },
+		"deploy" :
+        {
+
+        },
+        "userfont" :
+        [
+
+        ]
+    }
+}
