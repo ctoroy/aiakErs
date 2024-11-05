@@ -30,7 +30,7 @@
     <logger name="org.springframework.web" level="DEBUG" />
     <logger name="com.nexacro.java" level="ERROR" />
     <logger name="com.nexacro.uiadapter.boot" level="DEBUG" />
-    <logger name="example.nexacro.uiadapter" level="DEBUG" />
+    <logger name="aia.ers.application" level="DEBUG" />
 
     <root level="INFO">         
         <appender-ref ref="console" />
