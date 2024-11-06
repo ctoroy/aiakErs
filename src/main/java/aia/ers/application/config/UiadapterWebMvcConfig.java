@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.nexacro.uiadapter.boot.dao.dbms.Postgre;
 import jakarta.servlet.MultipartConfigElement;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -241,7 +242,8 @@ public class UiadapterWebMvcConfig  implements WebMvcConfigurer, WebMvcRegistrat
         Map<String,Dbms> dbvendors = new HashMap<String,Dbms>();
         
         //프로젝트에서 사용하는 데이터베이스만 사용.
-        dbvendors.put("HSQL Database Engine", new Hsql());
+        dbvendors.put("POSGRES Database Engine", new Postgre());
+//        dbvendors.put("HSQL Database Engine", new Hsql());
         //dbvendors.put("Microsoft SQL Server", new Mssql());
         //dbvendors.put("Oracle", new Oracle());
         //dbvendors.put("MySQL", new Mysql());

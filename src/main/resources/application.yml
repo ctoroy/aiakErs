@@ -26,6 +26,10 @@ spring:
   output:
     ansi:
       enabled: always
+  mvc:
+    view:
+      prefix: ERS/
+      suffix: .do
 
 
   # messages 파일의 기본 이름 (콤마로 구분해서 사용 가능) (default messages)
