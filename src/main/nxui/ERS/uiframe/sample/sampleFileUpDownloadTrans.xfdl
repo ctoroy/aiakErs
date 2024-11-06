@@ -151,7 +151,7 @@
       </Dataset>
     </Objects>
     <Script type="xscript5.1"><![CDATA[/**
-*  nexacro 17 demo
+*  AIA 비용관리시스템 시스템
 *  @MenuPath    대메뉴 > 소메뉴
 *  @FileName    FileUpDown.xfdl
 *  @Creator     presales

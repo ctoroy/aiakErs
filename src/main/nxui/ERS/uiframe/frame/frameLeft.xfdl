@@ -37,7 +37,7 @@
                       <Row size="38"/>
                     </Rows>
                     <Band id="body">
-                      <Cell cssclass="cell_LF_Lev2" text="bind:menuNm" tooltiptext="bind:menuNm" displaytype="treeitemcontrol" edittype="tree" treelevel="bind:menuLvl"/>
+                      <Cell text="bind:menuNm" tooltiptext="bind:menuNm" displaytype="treeitemcontrol" edittype="tree" treelevel="bind:menuLvl" cssclass="expr:menuLvl == '0' ? 'cell_LF_Lev1' : 'cell_LF_Lev2'"/>
                     </Band>
                   </Format>
                   <Format id="btnFavoratie">
@@ -58,7 +58,7 @@
             </Layout>
           </Layouts>
         </Div>
-        <Grid id="grdFavoratie" taborder="3" left="410" top="315" right="-247" bottom="445" autofittype="col" treeusecheckbox="false" treeinitstatus="collapse,all" oncellclick="grdMenu_oncellclick" binddataset="dsMyMenu">
+        <Grid id="grdFavoratie" taborder="3" left="410" top="315" right="-247" bottom="445" autofittype="col" treeusecheckbox="false" treeinitstatus="collapse,all" oncellclick="grdMenu_oncellclick" binddataset="dsMyMenu" visible="false">
           <Formats>
             <Format id="default">
               <Columns>
@@ -224,8 +224,7 @@ this.fnCopyMenu = function()
 
 	//this.objApp.gdsMenu.appendData(this.objApp.Dataset0, true);
 	this.dsMenu.copyData(this.objApp.gdsMenu);
-
-	
+	//this.fnSetGridRowSize();
 };
 
 /**
@@ -233,18 +232,18 @@ this.fnCopyMenu = function()
 */
 this.fnSetGridRowSize = function()
 {
-	let objGrid = this.divLnb.form.grdMenu;
+	let objGrid = this.divList.form.grdMenu;
 	objGrid.set_enableredraw(false);
 
 	for(let i=0; i < this.dsMenu.rowcount; i++)
 	{
 		let grdRow = objGrid.getTreeRow(i);
 		let css = objGrid.getCellPropertyValue(grdRow, 0, "cssclass");
-
-		if(css == "cell_LF_Lev") {
+trace(css);
+		if(css == "cell_LF_Lev1") {
 			objGrid.setRealRowSize(grdRow,"50");
 		} else {
-			objGrid.setRealRowSize(grdRow,"25");
+			objGrid.setRealRowSize(grdRow,"38");
 		}
 	}
 	objGrid.set_enableredraw(true);

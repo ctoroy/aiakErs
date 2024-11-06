@@ -1,20 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="ADMCOM0102U" width="1280" height="720" titletext="메뉴등록" onload="form_onload">
+  <Form id="menuList" width="1527" height="828" titletext="New Form" onload="form_onload">
     <Layouts>
-      <Layout height="720" horizontalgap="0" mobileorientation="landscape" spacing="0px" tabletemplate="1* / 1*" verticalgap="0" width="1280">
-        <Div id="divSearch" taborder="0" text="divSearch" left="0" top="0" height="70" right="0" border="1px solid">
+      <Layout height="828" width="1527">
+        <Button id="btn00" taborder="0" text="btn00" left="540" top="42" width="120" height="50" onclick="btn00_onclick" visible="false"/>
+        <Button id="btn01" taborder="1" text="btn01" left="753" top="33" width="120" height="50" onclick="btn01_onclick" visible="false"/>
+        <Div id="divSearch" taborder="2" text="divSearch" left="0" top="0" height="52" right="30" cssclass="div_WF_Search">
           <Layouts>
             <Layout>
-              <Static id="staSysId" taborder="0" text="시스템ID" left="66" top="20" width="60" height="30" border="1px solid"/>
-              <Edit id="edtSysId" taborder="1" left="131" top="20" width="140" height="30"/>
-              <Static id="staSysNm" taborder="2" text="시스템명" left="366" top="20" width="60" height="30" border="1px solid"/>
-              <Edit id="edtSysNm" taborder="3" left="431" top="20" width="140" height="30"/>
+              <Static id="staSysId" taborder="0" text="시스템ID" left="0" top="13" width="90" height="24" cssclass="sta_WF_SchLabel"/>
+              <Edit id="edtSysId" taborder="1" left="100" top="13" width="140" height="24"/>
+              <Static id="staSysNm" taborder="2" text="시스템명" left="240" top="13" width="90" height="24" cssclass="sta_WF_SchLabel"/>
+              <Edit id="edtSysNm" taborder="3" left="330" top="13" width="140" height="24"/>
+              <Button id="btnSearch" taborder="4" text="조회" width="62" cssclass="btn_WF_Search" right="25" onclick="cfnSearch" height="36" bottom="7"/>
             </Layout>
           </Layouts>
         </Div>
-        <Static id="staMenuTitle" taborder="2" text="메뉴/프로그램 목록" left="0" top="divSearch:10" width="180" height="30" border="1px solid"/>
-        <Grid id="grdMenuList" taborder="1" left="0" top="staMenuTitle:10" height="270" right="0" autofittype="col" binddataset="dsMenuList" cellsizingtype="col" oncellclick="grdMenuList_oncellclick" treeusecheckbox="false" treeinitstatus="expand,all" autoenter="select">
+        <Static id="staMenuTitle" taborder="3" text="메뉴/프로그램 목록" left="0" top="60" width="180" height="38" cssclass="sta_WF_Title"/>
+        <Grid id="grdMenuList" taborder="4" left="0" top="98" right="30" autofittype="col" binddataset="dsMenuList" cellsizingtype="col" oncellclick="grdMenuList_oncellclick" treeusecheckbox="false" treeinitstatus="expand,all" autoenter="select" bottom="240">
           <Formats>
             <Format id="default">
               <Columns>
@@ -26,6 +29,7 @@
                 <Column size="70"/>
                 <Column size="50"/>
                 <Column size="48"/>
+                <Column size="48"/>
                 <Column size="200"/>
                 <Column size="90"/>
                 <Column size="55"/>
@@ -35,7 +39,7 @@
                 <Column size="55"/>
               </Columns>
               <Rows>
-                <Row size="28" band="head"/>
+                <Row size="32" band="head"/>
                 <Row size="28"/>
               </Rows>
               <Band id="head">
@@ -47,13 +51,14 @@
                 <Cell col="5" text="메뉴유형"/>
                 <Cell col="6" text="레벨"/>
                 <Cell col="7" text="순서"/>
-                <Cell col="8" text="메뉴위치"/>
-                <Cell col="9" text="프로그램ID"/>
-                <Cell col="10" text="타입"/>
-                <Cell col="11" text="사용여부"/>
-                <Cell col="12" text="호출파라미터"/>
-                <Cell col="13" text="출력여부"/>
-                <Cell col="14" text="공통여부"/>
+                <Cell col="8"/>
+                <Cell col="9" text="메뉴위치"/>
+                <Cell col="10" text="프로그램ID"/>
+                <Cell col="11" text="타입"/>
+                <Cell col="12" text="사용여부"/>
+                <Cell col="13" text="호출파라미터"/>
+                <Cell col="14" text="출력여부"/>
+                <Cell col="15" text="공통여부"/>
               </Band>
               <Band id="body">
                 <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk"/>
@@ -63,20 +68,21 @@
                 <Cell col="4" edittype="text" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" text="bind:highMenuId"/>
                 <Cell col="5" edittype="text" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" text="bind:menuTpcd"/>
                 <Cell col="6" textAlign="center" edittype="text" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" text="bind:menuLvl"/>
-                <Cell col="7" textAlign="center" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'text'" text="bind:sortSeq" edittype="text"/>
-                <Cell col="8" tooltiptext="bind:prgPath" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'text'" edittype="text" text="bind:prgPath"/>
-                <Cell col="9" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text" text="bind:prgId"/>
-                <Cell col="10" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text" text="bind:prgType"/>
-                <Cell col="11" text="bind:usyn"/>
-                <Cell col="12" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text" text="bind:callParam"/>
-                <Cell col="13" displaytype="checkboxcontrol" edittype="checkbox" text="bind:mgrUsyn" checkboxtruevalue="Y" checkboxfalsevalue="N"/>
-                <Cell col="14" displaytype="checkboxcontrol" edittype="checkbox" text="bind:comYn" checkboxfalsevalue="N" checkboxtruevalue="Y"/>
+                <Cell col="7" textAlign="center" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" text="bind:sortSeq" edittype="text"/>
+                <Cell col="8" expr="dataset.getRowType(currow)"/>
+                <Cell col="9" tooltiptext="bind:prgPath" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'text'" edittype="text" text="bind:prgPath"/>
+                <Cell col="10" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text" text="bind:prgId"/>
+                <Cell col="11" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text" text="bind:prgType"/>
+                <Cell col="12" text="bind:usyn"/>
+                <Cell col="13" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text" text="bind:callParam"/>
+                <Cell col="14" displaytype="checkboxcontrol" edittype="checkbox" text="bind:mgrUsyn" checkboxtruevalue="Y" checkboxfalsevalue="N"/>
+                <Cell col="15" displaytype="checkboxcontrol" edittype="checkbox" text="bind:comYn" checkboxfalsevalue="N" checkboxtruevalue="Y"/>
               </Band>
             </Format>
           </Formats>
         </Grid>
-        <Static id="staMenuTitle00" taborder="3" text="버튼목록" left="2" top="grdMenuList:10" width="180" height="30" border="1px solid"/>
-        <Grid id="grdMenuList00" taborder="4" left="0" top="staMenuTitle00:10" height="270" right="0" binddataset="dsCmmBtnList" autofittype="col">
+        <Static id="staMenuTitle00" taborder="5" text="버튼목록" width="180" height="38" cssclass="sta_WF_Title" bottom="194" left="0"/>
+        <Grid id="grdMenuList00" taborder="6" left="0" right="30" binddataset="dsCmmBtnList" autofittype="col" bottom="0" height="194">
           <Formats>
             <Format id="default">
               <Columns>
@@ -88,8 +94,8 @@
                 <Column size="170"/>
               </Columns>
               <Rows>
-                <Row size="24" band="head"/>
-                <Row size="24"/>
+                <Row size="32" band="head"/>
+                <Row size="28"/>
               </Rows>
               <Band id="head">
                 <Cell displaytype="text" text="사용여부"/>
@@ -110,10 +116,16 @@
             </Format>
           </Formats>
         </Grid>
-        <Button id="btn00" taborder="5" text="조회" left="610" top="11" width="120" height="50" onclick="cfnSearch"/>
-        <Button id="btn01" taborder="6" text="추가" left="750" top="10" width="120" height="50" onclick="cfnAdd" visible="false"/>
-        <Button id="btn02" taborder="7" text="삭제" left="890" top="10" width="120" height="50" onclick="cfnDel" visible="false"/>
-        <Button id="btn03" taborder="8" text="저장" left="1030" top="10" width="120" height="50" onclick="cfnSave"/>
+        <Div id="divGridBtn" taborder="7" text="Div01" top="67" height="24" width="251" right="30">
+          <Layouts>
+            <Layout>
+              <Button id="btnAdd" taborder="1" text="행추가" top="0" width="77" height="24" cssclass="btn_WF_Add" left="94" onclick="divCmmnBtn_btnAdd_onclick"/>
+              <Button id="btnDel" taborder="0" text="행삭제" top="0" width="77" height="24" left="174" cssclass="btn_WF_Delete" onclick="divCmmnBtn_btnDel_onclick"/>
+              <Button id="btnExcelUp" taborder="2" top="0" width="44" height="24" cssclass="btn_WF_ExcelUp" left="47"/>
+              <Button id="btnExcelDown" taborder="3" top="0" width="44" height="24" cssclass="btn_WF_ExcelDown" left="0"/>
+            </Layout>
+          </Layouts>
+        </Div>
       </Layout>
     </Layouts>
     <Objects>
@@ -126,7 +138,7 @@
           <Row/>
         </Rows>
       </Dataset>
-      <Dataset id="dsMenuList" canrowposchange="dsMenuList_canrowposchange" onrowposchanged="dsMenuList_onrowposchanged">
+      <Dataset id="dsMenuList" onrowposchanged="dsMenuList_onrowposchanged">
         <ColumnInfo>
           <Column id="callParam" type="string" size="32"/>
           <Column id="comYn" type="string" size="32"/>
@@ -211,10 +223,6 @@
         </Rows>
       </Dataset>
     </Objects>
-    <Bind>
-      <BindItem id="item0" compid="divSearch.form.edtSysId" propid="value" datasetid="dsCond" columnid="sysId"/>
-      <BindItem id="item1" compid="divSearch.form.edtSysNm" propid="value" datasetid="dsCond" columnid="sysNm"/>
-    </Bind>
     <Script type="xscript5.1"><![CDATA[/**
 *  AIA 비용관리시스템 시스템
 *  @FileName 	SCC01/SCC010102U.xfdl
@@ -389,17 +397,7 @@ this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
 	switch(sSvcId) 
 	{
 		case "selectMenuList":
-			if(this.dsMenuList.rowcount > 0)
-			{
-				this.dsMenuList.enableevent = false;
-				this.dsMenuList.addColumn("chk")
-				for(var i = 0; i < this.dsMenuList.rowcount; i++)
-				{
-					this.dsMenuList.setColumn(i, "chk", 0);
-				}
-				this.dsMenuList.applyChange();
-				this.dsMenuList.enableevent = true;
-			}
+			this.fnAddCheckBox(this.grdMenuList);
 			this.fvAddFlag = false;
 			break;
 		case "saveMenuList":
@@ -419,32 +417,21 @@ this.fnClearDataSet = function()
 {
 	this.dsCmmBtnList.clearData();
 };
-/*******************************************************************************************************************************
- * 각 COMPONENT 별 EVENT 영역
-*******************************************************************************************************************************/
 
-this.grdMenuList_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+this.fnAddCheckBox = function(objGrid)
 {
-	
-	if(e.col == 3 && !this.fvAddFlag)	//메뉴id 클릭시
+	var objDs = objGrid.getBindDataset();
+	if(objDs.rowcount > 0)
 	{
-		this.fnClearDataSet();
-		var objDs = obj.getBindDataset();
-		if(objDs.rowcount ==  0) return;
 		
-		if(objDs.getRowType(objDs.rowposition) == Dataset.ROWTYPE_INSERT)
+		objDs.enableevent = false;
+		objDs.addColumn("chk")
+		for(var i = 0; i < objDs.rowcount; i++)
 		{
-			return;
+			objDs.setColumn(i, "chk", 0);
 		}
-		
-		var nRow = obj.getTreeRow(e.row);
-		var nStat = obj.getTreeStatus(nRow);
-		
-		if(nStat == 3)
-		{
-			this.dsMenuId.setColumn(0, "menuId", objDs.getColumn(objDs.rowposition, "menuId"));
-			this.fnSearchCmmBtn();
-		}
+		objDs.applyChange();
+		objDs.enableevent = true;
 	}
 };
 
@@ -490,11 +477,43 @@ this.fnDel = function()
 	this.dsMenuList.filter("");
 	this.dsMenuList.enableevent = true;
 };
+/*******************************************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+*******************************************************************************************************************************/
 
-
-this.dsMenuList_canrowposchange = function(obj:nexacro.NormalDataset,e:nexacro.DSRowPosChangeEventInfo)
+this.grdMenuList_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
 {
 	
+	if(e.col == 3 && !this.fvAddFlag)	//메뉴id 클릭시
+	{
+		this.fnClearDataSet();
+		var objDs = obj.getBindDataset();
+		if(objDs.rowcount ==  0) return;
+		
+		if(objDs.getRowType(objDs.rowposition) == Dataset.ROWTYPE_INSERT)
+		{
+			return;
+		}
+		
+		var nRow = obj.getTreeRow(e.row);
+		var nStat = obj.getTreeStatus(nRow);
+		
+		if(nStat == 3)
+		{
+			this.dsMenuId.setColumn(0, "menuId", objDs.getColumn(objDs.rowposition, "menuId"));
+			this.fnSearchCmmBtn();
+		}
+	}
+};
+
+this.divCmmnBtn_btnAdd_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fnAdd();
+};
+
+this.divCmmnBtn_btnDel_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fnDel();
 };
 
 this.dsMenuList_onrowposchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSRowPosChangeEventInfo)
@@ -503,7 +522,10 @@ this.dsMenuList_onrowposchanged = function(obj:nexacro.NormalDataset,e:nexacro.D
 	{
 		obj.rowposition = e.oldrow;
 	}
-};
-]]></Script>
+};]]></Script>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.form.edtSysId" propid="value" datasetid="dsCond" columnid="sysId"/>
+      <BindItem id="item1" compid="divSearch.form.edtSysNm" propid="value" datasetid="dsCond" columnid="sysNm"/>
+    </Bind>
   </Form>
 </FDL>
