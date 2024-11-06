@@ -3,10 +3,15 @@ package aia.ers.application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 // 일반 실행 형식
 public class UiadapterApplication {
+
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		return builder.sources(UiadapterApplication.class);
+	}
 
 // War 파일로 배포형식
 //public class UiadapterApplication extends SpringBootServletInitializer{
