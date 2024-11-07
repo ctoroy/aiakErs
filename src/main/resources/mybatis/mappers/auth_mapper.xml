@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="aia.ers.application.mapper.AuthMapper">
+
+    <!-- 권한코드조회 -->
+    <select id="selectAuthCodeList" parameterType="aia.ers.application.pojo.Auth" resultType="aia.ers.application.pojo.Auth">
+        SELECT AUTH_ID      AS authId
+             , AUTH_NM      AS authNm
+             , RMAK         AS rmak
+             , AUTH_CLSSFC  AS authClssfc
+             , USE_YN       AS useYn
+             , CRETR_ID     AS cretrId
+             , CRET_DTTM    AS cretDttm
+             , MDFR_ID      AS mdfrId
+             , MDF_DTTM     AS mdfDttm
+          FROM AUTH_GRP
+         WHERE AUTH_CLSSFC = #{authClssfc}
+           <if test="searchText != null">
+           AND ( AUTH_ID LIKE concat('%', #{searchText} , '%')
+                 OR AUTH_NM LIKE concat('%', #{searchText}, '%') )
+           </if>
+         ORDER BY AUTH_ID ASC
+    </select>
+
+    <!-- 권한코드체크 -->
+    <select id="selectAuthCodeChk" parameterType="aia.ers.application.pojo.Auth" resultType="int">
+        SELECT COUNT(AUTH_ID) AS authCnt
+          FROM AUTH_GRP
+         WHERE AUTH_ID = #{authId}
+    </select>
+    <!-- 권한코드등록 -->
+    <insert id="insertAuthCodeList" parameterType="aia.ers.application.pojo.Auth">
+        INSERT INTO AUTH_GRP
+             ( AUTH_ID
+             , AUTH_NM
+             , RMAK
+             , AUTH_CLSSFC
+             , USE_YN
+             , CRETR_ID
+             , CRET_DTTM
+             , MDFR_ID
+             , MDF_DTTM
+             )
+        VALUES ( #{authId}
+               , #{authNm}
+               , #{rmak}
+               , #{authClssfc}
+               , #{useYn}
+               , #{cretrId}
+               , now()
+               , #{mdfrId}
+               , now()
+             )
+    </insert>
+
+    <!-- 권한코드수정 -->
+    <update id="updateAuthCodeList" parameterType="aia.ers.application.pojo.Auth">
+        UPDATE AUTH_GRP
+           SET AUTH_NM = #{authNm}
+             , RMAK = #{rmak}
+             , USE_YN = #{useYn}
+             , MDFR_ID = #{mdfrId}
+             , MDF_DTTM = now()
+         WHERE AUTH_ID = #{authId}
+    </update>
+
+    <!-- 권한코드삭제 -->
+    <delete id="deleteAuthCodeList" parameterType="aia.ers.application.pojo.Auth">
+        DELETE FROM AUTH_GRP
+        WHERE AUTH_ID = #{authId}
+    </delete>
+</mapper>

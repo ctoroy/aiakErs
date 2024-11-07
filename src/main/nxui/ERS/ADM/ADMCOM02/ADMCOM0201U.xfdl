@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="ADMCOM0201U" width="1280" height="720" titletext="권한코드등록" onload="form_onload">
+    <Layouts>
+      <Layout height="720" horizontalgap="0" mobileorientation="landscape" spacing="0px" tabletemplate="1* / 1*" verticalgap="0" width="1280">
+        <Div id="divSearch" taborder="0" text="divSearch" left="0" top="0" height="70" right="0" border="1px solid">
+          <Layouts>
+            <Layout>
+              <Static id="staWord" taborder="0" text="검색어" left="20" top="20" width="60" height="30" border="1px solid"/>
+              <Edit id="edtWord" taborder="1" left="staWord:10" top="20" width="140" height="30"/>
+              <Static id="staAuthClssfc" taborder="2" text="권한타입" left="edtWord:50" top="20" width="60" height="30" border="1px solid"/>
+              <Combo id="cboAuthClssfc" taborder="3" text="권한" left="staAuthClssfc:10" top="20" width="80" height="30" innerdataset="dsAuthClssfc" codecolumn="code" datacolumn="data" index="0" value="R"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="staMenuTitle" taborder="2" text="권한코드목록" left="0" top="divSearch:10" width="180" height="30" border="1px solid"/>
+        <Grid id="grdAuthCodeList" taborder="1" left="0" top="staMenuTitle:10" right="0" autofittype="col" binddataset="dsAuthCodeList" cellsizingtype="col" treeusecheckbox="false" treeinitstatus="expand,all" autoenter="select" bottom="0">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="48"/>
+                <Column size="48"/>
+                <Column size="100"/>
+                <Column size="250"/>
+                <Column size="400"/>
+                <Column size="100"/>
+                <Column size="120"/>
+                <Column size="120"/>
+                <Column size="120"/>
+                <Column size="120"/>
+              </Columns>
+              <Rows>
+                <Row size="28" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox"/>
+                <Cell col="1" text="순번"/>
+                <Cell col="2" text="권한코드"/>
+                <Cell col="3" text="권한명"/>
+                <Cell col="4" text="비고"/>
+                <Cell col="5" text="사용여부"/>
+                <Cell col="6" text="등록자"/>
+                <Cell col="7" text="등록일"/>
+                <Cell col="8" text="수정자"/>
+                <Cell col="9" text="수정일"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk"/>
+                <Cell col="1" expr="currow+1"/>
+                <Cell col="2" text="bind:authId" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'text'  : 'none'" editmaxlength="10" editimemode="alpha" editinputmode="upper" editinputtype="alpha,digit" textAlign="center"/>
+                <Cell col="3" text="bind:authNm" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text" textAlign="center"/>
+                <Cell col="4" text="bind:rmak" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
+                <Cell col="5" displaytype="combocontrol" edittype="combo" text="bind:useYn" combodataset="dsUseYn" combocodecol="code" combodatacol="data" textAlign="center"/>
+                <Cell col="6" text="bind:cretrId" displaytype="text" textAlign="center"/>
+                <Cell col="7" text="bind:cretDttm" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'none'  : 'date'" textAlign="center" calendardateformat="yyyy-MM-dd"/>
+                <Cell col="8" text="bind:mdfrId" displaytype="text" textAlign="center"/>
+                <Cell col="9" text="bind:mdfDttm" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'none'  : 'date'" textAlign="center" calendardateformat="yyyy-MM-dd"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btnSearch" taborder="3" text="조회" left="600" top="11" width="120" height="50" onclick="cfnSearch" visible="false"/>
+        <Button id="btn01" taborder="4" text="추가" left="750" top="10" width="120" height="50" onclick="cfnAdd" visible="false"/>
+        <Button id="btn02" taborder="5" text="삭제" left="890" top="10" width="120" height="50" onclick="cfnDel" visible="true"/>
+        <Button id="btn03" taborder="6" text="저장" left="1030" top="10" width="120" height="50" onclick="cfnSave" visible="false"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsCond">
+        <ColumnInfo>
+          <Column id="searchText" type="STRING" size="256"/>
+          <Column id="authClssfc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsAuthCodeList">
+        <ColumnInfo>
+          <Column id="authId" type="STRING" size="10"/>
+          <Column id="authNm" type="STRING" size="4000"/>
+          <Column id="rmak" type="STRING" size="4000"/>
+          <Column id="authClssfc" type="STRING" size="2"/>
+          <Column id="useYn" type="STRING" size="1"/>
+          <Column id="cretrId" type="STRING" size="50"/>
+          <Column id="cretDttm" type="DATE" size="255"/>
+          <Column id="mdfrId" type="STRING" size="50"/>
+          <Column id="mdfDttm" type="STRING" size="255"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsUseYn">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">Y</Col>
+            <Col id="data">사용</Col>
+          </Row>
+          <Row>
+            <Col id="code">N</Col>
+            <Col id="data">미사용</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsAuthClssfc">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">R</Col>
+            <Col id="data">권한</Col>
+          </Row>
+          <Row>
+            <Col id="code">D</Col>
+            <Col id="data">부서</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/**
+*  AIA 비용관리시스템 시스템
+*  @FileName 	SCC01/SCC0201U.xfdl
+*  @Creator 	강성호
+*  @CreateDate 	2024.11.06
+*  @Desction 	권한코드등록
+************** 소스 수정 이력 ***********************************************
+* Date					Modifier					Description
+*******************************************************************************
+* 2024.11.06			강성호						최초생성
+*******************************************************************************
+*/
+
+/*******************************************************************************************************************************
+ * FORM 변수 선언 영역
+*******************************************************************************************************************************/
+this.objApp = nexacro.getApplication();	//필수 application
+/*******************************************************************************************************************************
+ * FORM EVENT 영역(onload, onbeforeclose..)
+*******************************************************************************************************************************/
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnload(obj); //필수함수
+	this.fnInit();
+};
+
+//화면 load시 초기화
+this.fnInit = function()
+{
+	this.fnSearch();
+};
+
+/*******************************************************************************************************************************
+ * 공통함수영역 (cfnSearch : 조회 / cfnAdd : 추가 / cfnSave : 저장 / cfnDel : 삭제 / cfnExecl : 엑셀.. / cfnPrint : 인쇄 / cfnHep : 도움말  / cfnClose : 화면 닫기전 체크)
+ * 추가 버튼은 prefix cfn 으로 시작하여 명칭을 만든다.
+*******************************************************************************************************************************/
+//조회
+this.cfnSearch = function(obj, e)
+{
+	this.fnSearch();
+};
+
+//추가
+this.cfnAdd = function(obj, e)
+{
+	this.fnAdd();
+};
+
+//삭제
+this.cfnDel = function(obj, e)
+{
+	this.fnDel(this.dsAuthCodeList);
+};
+
+//저장
+this.cfnSave = function(obj, e)
+{
+	this.fnSaveAuthCode();
+};
+
+//화면 닫기전 체크
+this.cfnClose = function()
+{
+	trace("업무화면에 수정 사항이 있으면  cfnClose 메소드를 추가 하세요.");
+	//return false;	//수정사항이 있을경우;
+};
+/*******************************************************************************************************************************
+ * Transaction 서비스호출 처리 영역
+*******************************************************************************************************************************/
+/**
+ * @description 권한코드 조회 트랜잭션
+ */
+this.fnSearchAuthCode = function()
+{
+	// 마이메뉴 조회
+	var sSvcId 		= "selectAuthCodeList";
+	var sSvcUrl     = "selectAuthCodeList.do";
+	var sInData     = "dsIn=dsCond";
+	var sOutData    = "dsAuthCodeList=AUTHCODELIST";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 	// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 			// trabsaction을 요청할 주소
+						sInData , 			// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 			// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 				// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  	// 통신방법 정의 [생략가능]
+};
+
+/**
+ * @description 마이메뉴 조회 트랜잭션
+ */
+this.fnSaveAuthCode = function()
+{
+	// 마이메뉴 조회
+	var sSvcId 		= "saveAuthCodeList";
+	var sSvcUrl     = "saveAuthCodeList.do";
+	var sInData     = "AUTHCODELIST=dsAuthCodeList:U";
+	var sOutData    = "";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 	// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 			// trabsaction을 요청할 주소
+						sInData , 			// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 			// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 				// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  	// 통신방법 정의 [생략가능]
+};
+/*******************************************************************************************************************************
+ * Callback 영역 (Transaction, popup, message..)
+*******************************************************************************************************************************/
+this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
+{
+	switch(sSvcId) 
+	{
+		case "selectAuthCodeList":
+			this.fnAddCheckBox(this.grdAuthCodeList);
+			break;
+		case "saveAuthCodeList":
+			this.fnSearchAuthCode();
+			break;
+		default:break;
+	} 
+};
+/*******************************************************************************************************************************
+ * 사용자 Function 영역
+*******************************************************************************************************************************/
+this.fnSearch = function()
+{
+	this.dsCond.setColumn(0, "searchText", this.divSearch.form.edtWord.value);
+	this.dsCond.setColumn(0, "authClssfc", this.divSearch.form.cboAuthClssfc.value);
+	this.fnSearchAuthCode();
+};
+
+this.fnAddCheckBox = function(objGrid)
+{
+	var objDs = objGrid.getBindDataset();
+	if(objDs.rowcount > 0)
+	{
+		objDs.enableevent = false;
+		objDs.addColumn("chk")
+		for(var i = 0; i < objDs.rowcount; i++)
+		{
+			objDs.setColumn(i, "chk", 0);
+		}
+		objDs.applyChange();
+		objDs.enableevent = true;
+	}
+};
+
+this.fnAdd = function()
+{
+	var row = this.dsAuthCodeList.addRow();
+	this.dsAuthCodeList.setColumn(row, 'useYn', 'Y');
+	this.dsAuthCodeList.setColumn(row, 'authClssfc', this.divSearch.form.cboAuthClssfc.value);
+};
+
+this.fnDel = function(objds)
+{
+	objds.enableevent = false;
+	objds.filter("chk == '1'");
+	if(objds.rowcount > 0)
+	{
+		for(var i = objds.rowcount - 1; i > -1; i--)
+		{
+			if (objds.getColumn(i, "chk") == "1" )
+			{
+				objds.deleteRow(i);
+			}
+		}
+	}
+	objds.filter("");
+	objds.enableevent = true;
+};
+
+/*******************************************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+*******************************************************************************************************************************/
+
+]]></Script>
+  </Form>
+</FDL>
