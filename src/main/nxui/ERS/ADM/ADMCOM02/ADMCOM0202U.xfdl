@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="ADMCOM0201U" width="1280" height="720" titletext="권한코드등록" onload="form_onload">
+  <Form id="ADMCOM0202U" width="1280" height="720" titletext="권한그룹별 메뉴관리" onload="form_onload">
     <Layouts>
       <Layout height="720" horizontalgap="0" mobileorientation="landscape" spacing="0px" tabletemplate="1* / 1*" verticalgap="0" width="1280">
         <Div id="divSearch" taborder="0" text="divSearch" left="0" top="0" height="70" right="0" border="1px solid">
@@ -14,11 +14,10 @@
           </Layouts>
         </Div>
         <Static id="staMenuTitle" taborder="2" text="권한코드목록" left="0" top="divSearch:10" width="180" height="30" border="1px solid"/>
-        <Grid id="grdAuthCodeList" taborder="1" left="0" top="staMenuTitle:10" right="0" autofittype="col" binddataset="dsAuthCodeList" cellsizingtype="col" treeusecheckbox="false" treeinitstatus="expand,all" autoenter="select" bottom="0">
+        <Grid id="grdAuthCodeList" taborder="1" left="0" top="staMenuTitle:10" right="0" autofittype="col" binddataset="dsAuthCodeList" cellsizingtype="col" autoenter="select" height="270">
           <Formats>
             <Format id="default">
               <Columns>
-                <Column size="48"/>
                 <Column size="48"/>
                 <Column size="100"/>
                 <Column size="250"/>
@@ -34,28 +33,61 @@
                 <Row size="28"/>
               </Rows>
               <Band id="head">
-                <Cell displaytype="checkboxcontrol" edittype="checkbox"/>
-                <Cell col="1" text="순번"/>
-                <Cell col="2" text="권한코드"/>
-                <Cell col="3" text="권한명"/>
-                <Cell col="4" text="비고"/>
-                <Cell col="5" text="사용여부"/>
-                <Cell col="6" text="등록자"/>
-                <Cell col="7" text="등록일"/>
-                <Cell col="8" text="수정자"/>
-                <Cell col="9" text="수정일"/>
+                <Cell text="순번"/>
+                <Cell col="1" text="권한코드"/>
+                <Cell col="2" text="권한명"/>
+                <Cell col="3" text="비고"/>
+                <Cell col="4" text="사용여부"/>
+                <Cell col="5" text="등록자"/>
+                <Cell col="6" text="등록일"/>
+                <Cell col="7" text="수정자"/>
+                <Cell col="8" text="수정일"/>
               </Band>
               <Band id="body">
-                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk"/>
-                <Cell col="1" expr="currow+1"/>
-                <Cell col="2" text="bind:authId" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'text'  : 'none'" editmaxlength="10" editimemode="alpha" editinputmode="upper" editinputtype="alpha,digit" textAlign="center"/>
-                <Cell col="3" text="bind:authNm" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text" textAlign="center"/>
-                <Cell col="4" text="bind:rmak" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text"/>
-                <Cell col="5" displaytype="combocontrol" edittype="combo" text="bind:useYn" combodataset="dsUseYn" combocodecol="code" combodatacol="data" textAlign="center"/>
-                <Cell col="6" text="bind:cretrId" displaytype="text" textAlign="center"/>
-                <Cell col="7" text="bind:cretDttm" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'none'  : 'date'" textAlign="center" calendardateformat="yyyy-MM-dd"/>
-                <Cell col="8" text="bind:mdfrId" displaytype="text" textAlign="center"/>
-                <Cell col="9" text="bind:mdfDttm" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'none'  : 'date'" textAlign="center" calendardateformat="yyyy-MM-dd"/>
+                <Cell expr="currow+1"/>
+                <Cell col="1" text="bind:authId" displaytype="text" editmaxlength="10" editimemode="alpha" editinputmode="upper" editinputtype="alpha,digit" textAlign="center"/>
+                <Cell col="2" text="bind:authNm" displaytype="text" textAlign="center"/>
+                <Cell col="3" text="bind:rmak" displaytype="text"/>
+                <Cell col="4" displaytype="combotext" text="bind:useYn" combodataset="dsUseYn" combocodecol="code" combodatacol="data" textAlign="center"/>
+                <Cell col="5" text="bind:cretrId" displaytype="text" textAlign="center"/>
+                <Cell col="6" text="bind:cretDttm" textAlign="center" calendardateformat="yyyy-MM-dd" displaytype="date"/>
+                <Cell col="7" text="bind:mdfrId" displaytype="text" textAlign="center"/>
+                <Cell col="8" text="bind:mdfDttm" displaytype="date" textAlign="center" calendardateformat="yyyy-MM-dd"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="staMenuTitle00" taborder="3" text="메뉴목록" left="2" top="400" width="180" height="30" border="1px solid"/>
+        <Grid id="grdAuthMenuList" taborder="4" left="0" top="staMenuTitle00:10" right="0" autofittype="col" binddataset="dsAuthMenuList" cellsizingtype="col" treeinitstatus="expand,all" autoenter="select" bottom="0" treeusecheckbox="false">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="48"/>
+                <Column size="400"/>
+                <Column size="150"/>
+                <Column size="150"/>
+                <Column size="120"/>
+                <Column size="120"/>
+              </Columns>
+              <Rows>
+                <Row size="28" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1" text="메뉴"/>
+                <Cell col="2" text="메뉴코드"/>
+                <Cell col="3" text="메뉴구분"/>
+                <Cell col="4" text="출력여부"/>
+                <Cell col="5" text="사용여부"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="expr:mnuTpCd=='프로그램' ? 'checkboxcontrol':'none'" edittype="expr:mnuTpCd=='프로그램' ? 'checkbox':'none'" checkboxfalsevalue="N" checkboxtruevalue="Y" text="bind:authUseYn"/>
+                <Cell col="1" text="bind:mnuNm" displaytype="treeitemcontrol" textAlign="left" treelevel="bind:mnuLvlSize" edittype="tree" treecheck="bind:authUseYn" treestate="bind:mnuLvlSize" checkboxfalsevalue="N" checkboxtruevalue="Y"/>
+                <Cell col="2" text="bind:mnuId" displaytype="text" textAlign="center"/>
+                <Cell col="3" text="bind:mnuTpCd" displaytype="text"/>
+                <Cell col="4" text="bind:mnuPrintYn" displaytype="combotext" textAlign="center" combodataset="dsMnuPrintYn" combocodecol="code" combodatacol="data"/>
+                <Cell col="5" text="bind:useYn" displaytype="combotext" textAlign="center" calendardateformat="yyyy-MM-dd" combodataset="dsUseYn" combocodecol="code" combodatacol="data"/>
               </Band>
             </Format>
           </Formats>
@@ -72,7 +104,7 @@
           <Row/>
         </Rows>
       </Dataset>
-      <Dataset id="dsAuthCodeList">
+      <Dataset id="dsAuthCodeList" onrowposchanged="dsAuthCodeList_onrowposchanged">
         <ColumnInfo>
           <Column id="authId" type="STRING" size="10"/>
           <Column id="authNm" type="STRING" size="4000"/>
@@ -117,17 +149,61 @@
           </Row>
         </Rows>
       </Dataset>
+      <Dataset id="dsAuthMenuList" oncolumnchanged="dsAuthMenuList_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="authUseYn" type="STRING" size="1"/>
+          <Column id="mnuId" type="STRING" size="50"/>
+          <Column id="mnuNm" type="STRING" size="50"/>
+          <Column id="sysId" type="STRING" size="50"/>
+          <Column id="upMnuId" type="STRING" size="50"/>
+          <Column id="mnuTpCd" type="STRING" size="10"/>
+          <Column id="mnuLvlSize" type="INT" size="10"/>
+          <Column id="prgmId" type="STRING" size="50"/>
+          <Column id="prgmPathNm" type="STRING" size="500"/>
+          <Column id="prgmTypeNm" type="STRING" size="10"/>
+          <Column id="smmnParmtNm" type="STRING" size="20"/>
+          <Column id="sortSeq" type="STRING" size="10"/>
+          <Column id="authYn" type="STRING" size="1"/>
+          <Column id="rmak" type="STRING" size="4000"/>
+          <Column id="useYn" type="STRING" size="1"/>
+          <Column id="mnuPrintYn" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsMnuPrintYn">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">Y</Col>
+            <Col id="data">출력</Col>
+          </Row>
+          <Row>
+            <Col id="code">N</Col>
+            <Col id="data">미출력</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsAuthId">
+        <ColumnInfo>
+          <Column id="authId" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
     </Objects>
     <Script type="xscript5.1"><![CDATA[/**
 *  AIA 비용관리시스템 시스템
-*  @FileName 	ADMCOM02/ADMCOM0201U.xfdl
+*  @FileName 	ADMCOM02/ADMCOM0202U.xfdl
 *  @Creator 	강성호
-*  @CreateDate 	2024.11.06
-*  @Desction 	권한코드등록
+*  @CreateDate 	2024.11.07
+*  @Desction 	권한그룹별 메뉴관리
 ************** 소스 수정 이력 ***********************************************
 * Date					Modifier					Description
 *******************************************************************************
-* 2024.11.06			강성호						최초생성
+* 2024.11.07			강성호						최초생성
 *******************************************************************************
 */
 
@@ -160,22 +236,10 @@ this.cfnSearch = function(obj, e)
 	this.fnSearch();
 };
 
-//추가
-this.cfnAdd = function(obj, e)
-{
-	this.fnAdd();
-};
-
-//삭제
-this.cfnDel = function(obj, e)
-{
-	this.fnDel(this.dsAuthCodeList);
-};
-
 //저장
 this.cfnSave = function(obj, e)
 {
-	this.fnSaveAuthCode();
+	this.fnSaveAuthMenuList();
 };
 
 //화면 닫기전 체크
@@ -209,14 +273,35 @@ this.fnSearchAuthCodeList = function()
 };
 
 /**
- * @description 권한코드 저장 트랜잭션
+ * @description 권한별 메뉴조회 트랜잭션
  */
-this.fnSaveAuthCode = function()
+this.fnSearchAuthMenuList = function()
 {
 	// 마이메뉴 조회
-	var sSvcId 		= "saveAuthCodeList";
-	var sSvcUrl     = "saveAuthCodeList.do";
-	var sInData     = "AUTHCODELIST=dsAuthCodeList:U";
+	var sSvcId 		= "selectAuthMenuList";
+	var sSvcUrl     = "selectAuthMenuList.do";
+	var sInData     = "dsIn=dsAuthId";
+	var sOutData    = "dsAuthMenuList=AUTHMENULIST";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 	// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 			// trabsaction을 요청할 주소
+						sInData , 			// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 			// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 				// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  	// 통신방법 정의 [생략가능]
+};
+
+/**
+ * @description 권한별 메뉴저장 트랜잭션
+ */
+this.fnSaveAuthMenuList = function()
+{
+	// 마이메뉴 조회
+	var sSvcId 		= "saveAuthMenuList";
+	var sSvcUrl     = "saveAuthMenuList.do";
+	var sInData     = "AUTHMENULIST=dsAuthMenuList:U";
 	var sOutData    = "";
 	var sArg      	= "";	
 	var sCallBackFnc = "fnCallback";
@@ -236,7 +321,8 @@ this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
 	switch(sSvcId) 
 	{
 		case "selectAuthCodeList":
-			this.fnAddCheckBox(this.grdAuthCodeList);
+			break;
+		case "selectAuthMenuList":
 			break;
 		case "saveAuthCodeList":
 			this.fnSearchAuthCodeList();
@@ -254,51 +340,28 @@ this.fnSearch = function()
 	this.fnSearchAuthCodeList();
 };
 
-this.fnAddCheckBox = function(objGrid)
-{
-	var objDs = objGrid.getBindDataset();
-	if(objDs.rowcount > 0)
-	{
-		objDs.enableevent = false;
-		objDs.addColumn("chk")
-		for(var i = 0; i < objDs.rowcount; i++)
-		{
-			objDs.setColumn(i, "chk", 0);
-		}
-		objDs.applyChange();
-		objDs.enableevent = true;
-	}
-};
-
-this.fnAdd = function()
-{
-	var row = this.dsAuthCodeList.addRow();
-	this.dsAuthCodeList.setColumn(row, 'useYn', 'Y');
-	this.dsAuthCodeList.setColumn(row, 'authClssfc', this.divSearch.form.cboAuthClssfc.value);
-};
-
-this.fnDel = function(objds)
-{
-	objds.enableevent = false;
-	objds.filter("chk == '1'");
-	if(objds.rowcount > 0)
-	{
-		for(var i = objds.rowcount - 1; i > -1; i--)
-		{
-			if (objds.getColumn(i, "chk") == "1" )
-			{
-				objds.deleteRow(i);
-			}
-		}
-	}
-	objds.filter("");
-	objds.enableevent = true;
-};
-
 /*******************************************************************************************************************************
  * 각 COMPONENT 별 EVENT 영역
 *******************************************************************************************************************************/
 
+this.dsAuthCodeList_onrowposchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSRowPosChangeEventInfo)
+{
+	var authId = obj.getColumn(e.newrow, 'authId');
+	this.dsAuthId.setColumn(0, 'authId', authId);
+	this.fnSearchAuthMenuList();
+};
+
+this.dsAuthMenuList_oncolumnchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSColChangeEventInfo)
+{
+	var mRow = this.dsAuthCodeList.rowposition;
+	var authId = this.dsAuthCodeList.getColumn(mRow, 'authId');
+	var oldAuthUseYn = obj.getOrgColumn(e.row, 'authUseYn');
+	var authUseYn = obj.getColumn(e.row, 'authUseYn');
+	
+	if( oldAuthUseYn == 'N' && authUseYn == 'Y' ){
+		obj.setColumn(e.row, 'authId', authId);
+	}
+};
 ]]></Script>
   </Form>
 </FDL>

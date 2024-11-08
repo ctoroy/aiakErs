@@ -69,4 +69,37 @@ public class AuthController {
 
 		return result;
 	}
+
+  /**
+   *
+   * <pre>
+   * @desc 권한그룹별메뉴조회 - VO
+   * @param
+   * @return NexacroResult
+   * </pre>
+   */
+  @RequestMapping(value = "/selectAuthMenuList.do")
+  public NexacroResult selectAuthMenuList(@ParamDataSet(name = "dsIn", required = false) Auth searchVo) throws NexacroException{
+
+    List<Auth> authMenuList = authService.selectAuthMenuList(searchVo);
+    NexacroResult result = new NexacroResult();
+    result.addDataSet("AUTHMENULIST", authMenuList);
+
+    return result;
+  }
+
+  /**
+   * @desc 권한별프로그램관리 입력,삭제
+   * @param
+   * @return NexacroResult
+   */
+  @RequestMapping(value = "/saveAuthMenuList.do")
+  public NexacroResult saveAuthMenuList(@ParamDataSet(name = "AUTHMENULIST") List<Auth> authMenuList) throws NexacroException{
+
+    authService.saveAuthMenuList(authMenuList);
+
+    NexacroResult result = new NexacroResult();
+
+    return result;
+  }
 }

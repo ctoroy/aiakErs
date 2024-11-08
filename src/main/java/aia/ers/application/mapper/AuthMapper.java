@@ -21,9 +21,12 @@ import java.util.List;
  * 2024. 11. 06.	강성호		최초작성
  */
 public interface AuthMapper {
-    public List<Auth> selectAuthCodeList(Auth auth);
-    public int selectAuthCodeChk(Auth auth);
-    public void insertAuthCodeList(Auth user);
-    public void updateAuthCodeList(Auth user);
-    public void deleteAuthCodeList(Auth user);
+    public List<Auth> selectAuthCodeList(Auth params);
+    public int selectAuthCodeChk(Auth params);
+    public void insertAuthCodeList(Auth authCode);
+    public void updateAuthCodeList(Auth authCode);
+    public void deleteAuthCodeList(Auth authCode);
+    public List<Auth> selectAuthMenuList(Auth params);
+    public void insertAuthPrgmMngmList(Auth authPrgmMngm);
+    public void deleteAuthPrgmMngmList(Auth authPrgmMngm);
 }

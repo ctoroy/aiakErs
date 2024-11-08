@@ -32,12 +32,24 @@ public class AuthServiceImpl implements AuthService {
     @Autowired
     private SqlSessionTemplate sqlSession;
 
+    /**
+     *
+     * @desc 권한코드 리스트 데이터 조회 - VO
+     * @param Auth params
+     * @return List<Auth>
+     */
     @Override
-    public List<Auth> selectAuthCodeList(Auth auth) {
+    public List<Auth> selectAuthCodeList(Auth params) {
     	AuthMapper mapper = sqlSession.getMapper(AuthMapper.class);
-        return mapper.selectAuthCodeList(auth);
+        return mapper.selectAuthCodeList(params);
     }
 
+    /**
+     *
+     * @desc 권한코드 리스트 데이터 입력,수정,삭제
+     * @param List<Auth> authList
+     * @return
+     */
     @Override
     public void saveAuthCodeList(List<Auth> authCodeList){
         AuthMapper mapper = sqlSession.getMapper(AuthMapper.class);
@@ -59,6 +71,44 @@ public class AuthServiceImpl implements AuthService {
                     break;
                 case DataSet.ROW_TYPE_DELETED:
                     mapper.deleteAuthCodeList(authCode);
+                    break;
+                default:
+            }
+        });
+    }
+
+    /**
+     *
+     * @desc 권한그룹별메뉴조회
+     * @param Auth params
+     * @return List<Auth>
+     */
+    @Override
+    public List<Auth> selectAuthMenuList(Auth params) {
+        AuthMapper mapper = sqlSession.getMapper(AuthMapper.class);
+        return mapper.selectAuthMenuList(params);
+    }
+
+    /**
+     *
+     * @desc 권한별프로그램관리 입력,삭제
+     * @param List<Auth> authMenuList
+     * @return
+     */
+    @Override
+    public void saveAuthMenuList(List<Auth> authMenuList){
+        AuthMapper mapper = sqlSession.getMapper(AuthMapper.class);
+        authMenuList.forEach(authPrgmMngm -> {
+            switch (authPrgmMngm.getRowType()) {
+                case DataSet.ROW_TYPE_UPDATED:
+                    String authUseYn = authPrgmMngm.getAuthUseYn();
+                    if( "Y".equals(authUseYn) ){
+                        authPrgmMngm.setCretrId("ksh");
+                        authPrgmMngm.setMdfrId("ksh");
+                        mapper.insertAuthPrgmMngmList(authPrgmMngm);
+                    } else {
+                        mapper.deleteAuthPrgmMngmList(authPrgmMngm);
+                    }
                     break;
                 default:
             }

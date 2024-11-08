@@ -10,7 +10,7 @@ import java.util.List;
  * @desc
  * @package aia.ers.application.service
  * <pre>
- * 
+ *
  * @author  강성호
  * @since   2024. 11. 06.
  * @version 1.0
@@ -22,6 +22,35 @@ import java.util.List;
  */
 public interface AuthService {
 
-    List<Auth> selectAuthCodeList(Auth auth);
-    void saveAuthCodeList(List<Auth> authList);
+    /**
+     *
+     * @desc 권한코드 리스트 데이터 조회 - VO
+     * @param Auth params
+     * @return List<Auth>
+     */
+    List<Auth> selectAuthCodeList(Auth params);
+
+    /**
+     *
+     * @desc 권한코드 리스트 데이터 입력,수정,삭제
+     * @param List<Auth> authList
+     * @return
+     */
+    void saveAuthCodeList(List<Auth> authCodeList);
+
+    /**
+     *
+     * @desc 권한그룹별메뉴조회
+     * @param Auth params
+     * @return List<Auth>
+     */
+    List<Auth> selectAuthMenuList(Auth params);
+
+    /**
+     *
+     * @desc 권한별프로그램관리 입력,삭제
+     * @param List<Auth> authMenuList
+     * @return
+     */
+    void saveAuthMenuList(List<Auth> authMenuList);
 }

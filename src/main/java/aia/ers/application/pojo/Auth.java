@@ -35,4 +35,17 @@ public class Auth extends NexacroBase {
     private String cretDttm;        //생성일시
     private String mdfrId;          //수정자아이디
     private String mdfDttm;         //수정일시
+    private String mnuId;           //메뉴ID
+    private String mnuNm;           //메뉴명
+    private String sysId;           //시스템ID
+    private String upMnuId;         //상위메뉴ID
+    private String mnuTpCd;         //메뉴유형코드
+    private int mnuLvlSize;         //메뉴레벨크기
+    private String authUseYn;       //메뉴권한사용여부
+    private String prgmId;          //프로그램아이디
+    private String prgmPathNm;      //프로그램경로명
+    private String prgmTypeNm;      //프로그램타입명
+    private String smmnParmtNm;     //호출파라미터명
+    private String sortSeq;         //정렬순번
+    private String mnuPrintYn;      //메뉴출력여부
 }

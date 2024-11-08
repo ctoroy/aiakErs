@@ -10,7 +10,7 @@
              , AUTH_NM      AS authNm
              , RMAK         AS rmak
              , AUTH_CLSSFC  AS authClssfc
-             , USE_YN       AS useYn
+             , COALESCE(NULLIF(USE_YN,''),'N')       AS useYn
              , CRETR_ID     AS cretrId
              , CRET_DTTM    AS cretDttm
              , MDFR_ID      AS mdfrId
@@ -30,6 +30,7 @@
           FROM AUTH_GRP
          WHERE AUTH_ID = #{authId}
     </select>
+
     <!-- 권한코드등록 -->
     <insert id="insertAuthCodeList" parameterType="aia.ers.application.pojo.Auth">
         INSERT INTO AUTH_GRP
@@ -71,4 +72,116 @@
         DELETE FROM AUTH_GRP
         WHERE AUTH_ID = #{authId}
     </delete>
+
+    <!-- 권한그룹별메뉴조회 -->
+    <select id="selectAuthMenuList" parameterType="aia.ers.application.pojo.Auth" resultType="aia.ers.application.pojo.Auth">
+        WITH RECURSIVE MENU_LIST( MNU_ID
+                                , MNU_NM
+                                , SYS_ID
+                                , UP_MNU_ID
+                                , MNU_TP_CD
+                                , MNU_LVL_SIZE
+                                , PRGM_ID
+                                , PRGM_PATH_NM
+                                , PRGM_TYPE_NM
+                                , SMMN_PARMT_NM
+                                , SORT_SEQ
+                                , RMAK
+                                , USE_YN
+                                , MNU_PRINT_YN
+                                , MNU_PATH
+                                , CYCLE
+            ) AS ( SELECT T1.MNU_ID
+                        , T1.MNU_NM
+                        , T1.SYS_ID
+                        , T1.UP_MNU_ID
+                        , T1.MNU_TP_CD
+                        , T1.MNU_LVL_SIZE
+                        , T1.PRGM_ID
+                        , T1.PRGM_PATH_NM
+                        , T1.PRGM_TYPE_NM
+                        , T1.SMMN_PARMT_NM
+                        , T1.SORT_SEQ
+                        , T1.RMAK
+                        , T1.USE_YN
+                        , T1.MNU_PRINT_YN
+                        , ARRAY[ T1.MNU_ID::TEXT ]
+                        , FALSE
+                     FROM SYS_MNU T1
+                    WHERE T1.UP_MNU_ID = '00000000'
+                    UNION ALL
+                   SELECT T1.MNU_ID
+                        , T1.MNU_NM
+                        , T1.SYS_ID
+                        , T1.UP_MNU_ID
+                        , T1.MNU_TP_CD
+                        , T1.MNU_LVL_SIZE
+                        , T1.PRGM_ID
+                        , T1.PRGM_PATH_NM
+                        , T1.PRGM_TYPE_NM
+                        , T1.SMMN_PARMT_NM
+                        , T1.SORT_SEQ
+                        , T1.RMAK
+                        , T1.USE_YN
+                        , T1.MNU_PRINT_YN
+                        , MNU_PATH || T1.MNU_ID::TEXT
+                        , T1.MNU_ID = ANY(MNU_PATH)
+                     FROM SYS_MNU T1
+                        , MENU_LIST T2
+                    WHERE T1.UP_MNU_ID = T2.MNU_ID
+                      AND NOT CYCLE
+             )
+        SELECT CASE WHEN APM.MNU_ID IS NULL
+                    THEN 'N'
+                    ELSE 'Y'
+                END             AS authUseYn
+             , ML.MNU_ID        AS mnuId
+             , ML.MNU_NM        AS mnuNm
+             , APM.AUTH_ID        AS authId
+             , ML.SYS_ID        AS sysId
+             , ML.UP_MNU_ID     AS upMnuId
+             , ML.MNU_TP_CD     AS mnuTpCd
+             , ML.MNU_LVL_SIZE  AS mnuLvlSize
+             , ML.PRGM_ID       AS prgmId
+             , ML.PRGM_PATH_NM  AS prgmPathNm
+             , ML.PRGM_TYPE_NM  AS prgmTypeNm
+             , ML.SMMN_PARMT_NM AS smmnParmtNm
+             , ML.SORT_SEQ      AS sortSeq
+             , ML.RMAK          AS rmak
+             , COALESCE(NULLIF(ML.USE_YN,''),'N')        AS useYn
+             , COALESCE(NULLIF(ML.MNU_PRINT_YN,''),'N')  AS mnuPrintYn
+          FROM MENU_LIST ML
+          LEFT OUTER JOIN AUTH_PRGM_MNGM APM
+            ON ML.MNU_ID = APM.MNU_ID
+           AND APM.AUTH_ID = #{authId}
+         ORDER BY ML.MNU_PATH
+    </select>
+
+    <!-- 권한별프로그램관리 등록 -->
+    <insert id="insertAuthPrgmMngmList" parameterType="aia.ers.application.pojo.Auth">
+        INSERT INTO AUTH_PRGM_MNGM
+             ( MNU_ID
+             , AUTH_ID
+             , CRETR_ID
+             , CRET_DTTM
+             , MDFR_ID
+             , MDF_DTTM
+             )
+        VALUES
+             ( #{mnuId}
+             , #{authId}
+             , #{cretrId}
+             , now()
+             , #{mdfrId}
+             , now()
+             )
+    </insert>
+
+    <!-- 권한별프로그램관리 삭제 -->
+    <delete id="deleteAuthPrgmMngmList" parameterType="aia.ers.application.pojo.Auth">
+        DELETE FROM AUTH_PRGM_MNGM
+         WHERE MNU_ID = #{mnuId}
+           AND AUTH_ID = #{authId}
+    </delete>
+
 </mapper>
