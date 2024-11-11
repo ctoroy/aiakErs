@@ -11,10 +11,10 @@
         {
             this.set_name("frameLeft");
             this.set_titletext("frameLeft");
-            this.set_background("blue");
+            this.set_cssclass("frm_LF_Bg");
             if (Form == this.constructor)
             {
-                this._setFormPosition(320,720);
+                this._setFormPosition(363,910);
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
@@ -31,70 +31,136 @@
             obj = new Dataset("dsMyMenu", this);
             obj._setContents("<ColumnInfo><Column id=\"PRGM_FULL_PATH\" type=\"STRING\" size=\"32\"/><Column id=\"SORT_ORDR\" type=\"BIGDECIMAL\" size=\"16\"/><Column id=\"MENU_ID\" type=\"STRING\" size=\"32\"/><Column id=\"MENU_NM_EN\" type=\"STRING\" size=\"32\"/><Column id=\"MENU_NM\" type=\"STRING\" size=\"32\"/><Column id=\"PRGM_ID\" type=\"STRING\" size=\"32\"/><Column id=\"PRGM_PATH\" type=\"STRING\" size=\"32\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
+
+
+            obj = new Dataset("dsFavorite", this);
+            obj._setContents("");
+            this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Static("Static00","35","0","191","60",null,null,null,null,null,null,this);
+            obj = new Div("divFavoratie","811","124","200","150",null,null,null,null,null,null,this);
             obj.set_taborder("0");
-            obj.set_text("LEFT frame");
-            obj.set_font("normal 800 36px/normal \"Malgun Gothic\"");
-            obj.set_background("white");
-            this.addChild(obj.name, obj);
-
-            obj = new Grid("grdMenu","48","100",null,null,"0","0",null,null,null,null,this);
-            obj.set_taborder("1");
-            obj.set_autofittype("col");
-            obj.set_treeusecheckbox("false");
-            obj.set_treeinitstatus("collapse,all");
-            obj.set_binddataset("dsMenu");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"195\"/></Columns><Rows><Row size=\"30\"/></Rows><Band id=\"body\"><Cell text=\"bind:menuNm\" treelevel=\"bind:menuLvl\" displaytype=\"treeitemcontrol\" edittype=\"tree\"/></Band></Format></Formats>");
-            this.addChild(obj.name, obj);
-
-            obj = new Div("divFavoratie","381","124","200","150",null,null,null,null,null,null,this);
-            obj.set_taborder("2");
             obj.set_text("div00");
             obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("grdFavoratie","0","0",null,null,"0","0",null,null,null,null,this.divFavoratie.form);
+            obj = new Div("divLeftMenu","0","0","58",null,null,"0",null,null,null,null,this);
+            obj.set_taborder("1");
+            obj.set_text("div00");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("staMenuBg","0","0","58",null,null,"0",null,null,null,null,this.divLeftMenu.form);
+            obj.set_taborder("1");
+            obj.set_cssclass("sta_LF_Bg");
+            this.divLeftMenu.addChild(obj.name, obj);
+
+            obj = new Button("bntOrganization","0","84","58","84",null,null,null,null,null,null,this.divLeftMenu.form);
             obj.set_taborder("0");
+            obj.set_text("편성");
+            obj.set_cssclass("btn_LF_Menu02");
+            this.divLeftMenu.addChild(obj.name, obj);
+
+            obj = new Button("btnOperation","0","168","58","84",null,null,null,null,null,null,this.divLeftMenu.form);
+            obj.set_taborder("2");
+            obj.set_text("운영");
+            obj.set_cssclass("btn_LF_Menu03");
+            this.divLeftMenu.addChild(obj.name, obj);
+
+            obj = new Button("btnManagment","0","252","58","84",null,null,null,null,null,null,this.divLeftMenu.form);
+            obj.set_taborder("3");
+            obj.set_text("관리");
+            obj.set_cssclass("btn_LF_Menu04");
+            this.divLeftMenu.addChild(obj.name, obj);
+
+            obj = new Button("btnFavoratie","0","336","58","84",null,null,null,null,null,null,this.divLeftMenu.form);
+            obj.set_taborder("4");
+            obj.set_text("북마크");
+            obj.set_cssclass("btn_LF_Menu05");
+            this.divLeftMenu.addChild(obj.name, obj);
+
+            obj = new Button("btnSetting","14",null,"28","24",null,"71",null,null,null,null,this.divLeftMenu.form);
+            obj.set_taborder("5");
+            obj.set_cssclass("btn_LF_Set");
+            this.divLeftMenu.addChild(obj.name, obj);
+
+            obj = new Button("btnLogOut","14",null,"28","24",null,"25",null,null,null,null,this.divLeftMenu.form);
+            obj.set_taborder("6");
+            obj.set_cssclass("btn_LF_Logout");
+            this.divLeftMenu.addChild(obj.name, obj);
+
+            obj = new Button("btnAllSearch","0","0","58","84",null,null,null,null,null,null,this.divLeftMenu.form);
+            obj.set_taborder("7");
+            obj.set_text("검색");
+            obj.set_cssclass("btn_LF_Menu01S");
+            this.divLeftMenu.addChild(obj.name, obj);
+
+            obj = new Div("divList","58","0",null,null,"0","0",null,null,null,null,this);
+            obj.set_taborder("2");
+            this.addChild(obj.name, obj);
+
+            obj = new Edit("edtSearch","25","12","255","28",null,null,null,null,null,null,this.divList.form);
+            obj.set_taborder("0");
+            obj.set_cssclass("edi_LF_Sch");
+            this.divList.addChild(obj.name, obj);
+
+            obj = new Button("btnSearch","233","14","30","24",null,null,null,null,null,null,this.divList.form);
+            obj.set_taborder("1");
+            obj.set_cssclass("btn_LF_Sch");
+            this.divList.addChild(obj.name, obj);
+
+            obj = new Grid("grdMenu","25","50",null,null,"25","2",null,null,null,null,this.divList.form);
+            obj.set_taborder("2");
+            obj.set_autofittype("col");
+            obj.set_treeusecheckbox("false");
+            obj.set_treeinitstatus("collapse,all");
+            obj.set_binddataset("dsMenu");
+            obj.set_cssclass("grd_LF_Menu");
+            obj.set_treeuseline("false");
+            obj.set_formatid("default");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"250\"/></Columns><Rows><Row size=\"38\"/></Rows><Band id=\"body\"><Cell cssclass=\"cell_LF_Lev2\" text=\"bind:menuNm\" tooltiptext=\"bind:menuNm\" displaytype=\"treeitemcontrol\" edittype=\"tree\" treelevel=\"bind:menuLvl\"/></Band></Format><Format id=\"btnFavoratie\"><Columns><Column size=\"199\"/><Column size=\"48\"/></Columns><Rows><Row size=\"38\"/></Rows><Band id=\"body\"><Cell text=\"bind:menuNm\" tooltiptext=\"bind:menuNm\" displaytype=\"treeitemcontrol\" edittype=\"tree\" treelevel=\"bind:menuLvl\"/><Cell col=\"1\" cssclass=\"cell_LF_Delete\" displaytype=\"buttoncontrol\" edittype=\"button\"/></Band></Format></Formats>");
+            this.divList.addChild(obj.name, obj);
+
+            obj = new Grid("grdFavoratie","410","315",null,null,"-247","445",null,null,null,null,this);
+            obj.set_taborder("3");
             obj.set_autofittype("col");
             obj.set_treeusecheckbox("false");
             obj.set_treeinitstatus("collapse,all");
             obj.set_binddataset("dsMyMenu");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"195\"/></Columns><Rows><Row size=\"30\"/></Rows><Band id=\"body\"><Cell text=\"bind:menuNm\" treelevel=\"bind:menuLv\" tooltiptext=\"bind:menuNm\"/></Band></Format></Formats>");
-            this.divFavoratie.addChild(obj.name, obj);
-
-            obj = new Button("btnSearch","0","100","48","50",null,null,null,null,null,null,this);
-            obj.set_taborder("3");
-            obj.set_text("검색");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn00_00","0","153","48","50",null,null,null,null,null,null,this);
-            obj.set_taborder("4");
-            obj.set_text("편성");
+            obj = new PopupDiv("pdivSearchList","403","43","255","200",null,null,null,null,null,null,this);
+            obj.set_text("PopupDiv00");
+            obj.set_visible("false");
+            obj.set_cssclass("pdiv_LF_Sch");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnOper","0","213","48","50",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
-            obj.set_text("운영");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btnMgnt","0","273","48","50",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
-            obj.set_text("관리");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btnFavoratie","0","333","48","50",null,null,null,null,null,null,this);
-            obj.set_taborder("7");
-            obj.set_text("북마크");
-            this.addChild(obj.name, obj);
+            obj = new Grid("grdSearchList","0","0",null,null,"0","0",null,null,null,null,this.pdivSearchList.form);
+            obj.set_taborder("0");
+            obj.set_autofittype("col");
+            obj.set_binddataset("dsMenuSearch");
+            obj.set_cssclass("grd_LF_Sch");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"235\"/></Columns><Rows><Row size=\"28\"/></Rows><Band id=\"body\"><Cell text=\"bind:menuNm\" tooltiptext=\"bind:menuNm\" displaytype=\"decoratetext\" textAlign=\"left\"/></Band></Format></Formats>");
+            this.pdivSearchList.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this.divFavoratie.form
             obj = new Layout("default","",0,0,this.divFavoratie.form,function(p){});
             this.divFavoratie.form.addLayout(obj.name, obj);
 
+            //-- Default Layout : this.divLeftMenu.form
+            obj = new Layout("default","",0,0,this.divLeftMenu.form,function(p){});
+            this.divLeftMenu.form.addLayout(obj.name, obj);
+
+            //-- Default Layout : this.divList.form
+            obj = new Layout("default","",0,0,this.divList.form,function(p){});
+            this.divList.form.addLayout(obj.name, obj);
+
+            //-- Default Layout : this.pdivSearchList.form
+            obj = new Layout("default","",0,0,this.pdivSearchList.form,function(p){});
+            this.pdivSearchList.form.addLayout(obj.name, obj);
+
             //-- Default Layout : this
-            obj = new Layout("default","Desktop_screen",320,720,this,function(p){});
+            obj = new Layout("default","Desktop_screen",363,910,this,function(p){});
             this.addLayout(obj.name, obj);
             
             // BindItem Information
@@ -156,12 +222,12 @@
         this.fnSearchMyMenu = function()
         {
         	// 마이메뉴 조회
-        	var sSvcId 		= "searchMyMenu";
-        	var sSvcUrl   	= "searchMyMenu.do";
-        	var sInData     = "";
-        	var sOutData    = "gdsMyMenu=dsList";
-        	var sArg      	= "";
-        	var sCallBackFnc = "fnCallback";
+        	let sSvcId 		= "searchMyMenu";
+        	let sSvcUrl   	= "searchMyMenu.do";
+        	let sInData     = "";
+        	let sOutData    = "gdsMyMenu=dsList";
+        	let sArg      	= "";
+        	let sCallBackFnc = "fnCallback";
 
         	this.gfnTransaction( sSvcId , 		// transaction을 구분하기 위한 svc id값
         						sSvcUrl , 		// trabsaction을 요청할 주소
@@ -177,12 +243,12 @@
         this.fnSaveMyMenu = function()
         {
         	// 마이메뉴 저장
-        	var sSvcId   	= "saveMyMenu";
-        	var sSvcUrl   	= "saveMyMenu.do";
-        	var sInData     = "dsList=dsMyMenu:U";
-        	var sOutData    = "";
-        	var sArg      	= "";
-        	var sCallBackFnc = "fnCallback";
+        	let sSvcId   	= "saveMyMenu";
+        	let sSvcUrl   	= "saveMyMenu.do";
+        	let sInData     = "dsList=dsMyMenu:U";
+        	let sOutData    = "";
+        	let sArg      	= "";
+        	let sCallBackFnc = "fnCallback";
 
         	this.gfnTransaction(sSvcId , 		// transaction을 구분하기 위한 svc id값
         						sSvcUrl , 		// trabsaction을 요청할 주소
@@ -232,13 +298,13 @@
         */
         this.fnSetGridRowSize = function()
         {
-        	var objGrid = this.divLnb.form.grdMenu;
+        	let objGrid = this.divLnb.form.grdMenu;
         	objGrid.set_enableredraw(false);
 
-        	for(var i=0; i < this.dsMenu.rowcount; i++)
+        	for(let i=0; i < this.dsMenu.rowcount; i++)
         	{
-        		var grdRow = objGrid.getTreeRow(i);
-        		var css = objGrid.getCellPropertyValue(grdRow, 0, "cssclass");
+        		let grdRow = objGrid.getTreeRow(i);
+        		let css = objGrid.getCellPropertyValue(grdRow, 0, "cssclass");
 
         		if(css == "cell_LF_Lev") {
         			objGrid.setRealRowSize(grdRow,"50");
@@ -277,11 +343,11 @@
         */
         this.fnSetRecentMenuDs = function(sMenuId)
         {
-        	var nRow = this.dsRecentMenu.findRow(this.FRAME_MENUCOLUMNS.menuId, sMenuId);
+        	let nRow = this.dsRecentMenu.findRow(this.FRAME_MENUCOLUMNS.menuId, sMenuId);
         	if(nRow < 0)
         	{
         		nRow		= this.dsMenuList.findRow(this.FRAME_MENUCOLUMNS.menuId, sMenuId);
-        		var sMenuNm = this.dsMenuList.getColumn(nRow, this.FRAME_MENUCOLUMNS.menuNm);
+        		let sMenuNm = this.dsMenuList.getColumn(nRow, this.FRAME_MENUCOLUMNS.menuNm);
 
         		nRow = this.dsRecentMenu.addRow();
         		this.dsRecentMenu.setColumn(nRow, this.FRAME_MENUCOLUMNS.menuId, sMenuId);
@@ -294,22 +360,57 @@
         */
         this.fnMenuVisible = function()
         {
-        	var visibleFlag = this.fvMenuStatus == "close" ? false : true;
-        	this.grdMenu.visible = visibleFlag;
-        	this.Static00.visible = visibleFlag;
+        	let visibleFlag = this.fvMenuStatus == "close" ? false : true;
+        	this.divList.visible = visibleFlag;
         	this.resetScroll();
         };
 
-
-        this.fnMenuVisible2 = function()
+        /**
+         * @description 메뉴 visible2
+        */
+        this.fnMenuVisible2 = function(v)
         {
-        	this.fvMenuStatus == "open"
-        	this.objApp.gvHFS.set_separatesize("320,*");
-        	this.objApp.gvFrmMdi.form.btnLeftMenuShowHide.cssclass = "btn_MDI_MenuClose";
-        	this.grdMenu.visible = true;
-        	this.Static00.visible = true;
+        	let format;
+        	if(v.id != "btnFavoratie")
+        	{
+        		bindDs = "dsMenu"
+        		format = "default";
+        	}
+        	else
+        	{
+        		this.dsFavorite.copyData(this.dsMenu);
+        		bindDs = "dsFavorite"
+        		format = "btnFavoratie";
+        	}
+
+        	this.divList.form.grdMenu.binddataset = bindDs;
+        	this.divList.form.grdMenu.formatid = format;
+        	this.fvMenuStatus = "open"
+        	this.objApp.gvHFS.set_separatesize("363,*");
+        	this.objApp.gvFrmMdi.form.btnLeftMenuShowHide.cssclass = "btn_LF_Close";
+        	this.divList.visible = true;
         	this.resetScroll();
-        }
+        };
+
+        /**
+         * @description 대메뉴 css 변경
+        */
+        this.fnCssclassChange = function(v)
+        {
+        	let bntList = {
+        					"btnAllSearch":		"btn_LF_Menu01",
+        					"bntOrganization":	"btn_LF_Menu02",
+        					"btnOperation":		"btn_LF_Menu03",
+        					"btnManagment":		"btn_LF_Menu04",
+        					"btnFavoratie":		"btn_LF_Menu05"
+        					};
+        	let comp = this.divLeftMenu.form.components;
+
+        	for(list in bntList)
+        	{
+        		list != v.id ? comp[list].cssclass = bntList[list] : comp[list].cssclass = bntList[list]+"S";
+            }
+        };
         /*******************************************************************************************************************************
          * 각 COMPONENT 별 EVENT 영역
         *******************************************************************************************************************************/
@@ -337,19 +438,19 @@
         	// Tree 이미지 클릭시 리턴
         	if(e.clickitem == "treeitembutton") return;
 
-        	var nRow = obj.getTreeRow(e.row);
+        	let nRow = obj.getTreeRow(e.row);
 
-        	var nStat = obj.getTreeStatus(nRow);
+        	let nStat = obj.getTreeStatus(nRow);
 
         	// 자식이 없으면
         	if((nStat^1) != 2) obj.setTreeStatus(nRow ,nStat^1);
 
         	if(nStat == 3)
         	{
-        		var objDs = obj.getBindDataset();
+        		let objDs = obj.getBindDataset();
         		// Click시 해당 메뉴 호출
-        		var sMenuId  = objDs.getColumn(objDs.rowposition, this.FRAME_MENUCOLUMNS.menuId);
-        		var sPageUrl = objDs.getColumn(objDs.rowposition, this.FRAME_MENUCOLUMNS.menuUrl);
+        		let sMenuId  = objDs.getColumn(objDs.rowposition, this.FRAME_MENUCOLUMNS.menuId);
+        		let sPageUrl = objDs.getColumn(objDs.rowposition, this.FRAME_MENUCOLUMNS.menuUrl);
 
         		if(!(this.gfnIsNull(sMenuId) || this.gfnIsNull(sPageUrl))) {
         			// 메뉴 화면 호출
@@ -363,12 +464,12 @@
         */
         this.divFavoratie_grdFavoratie_divRecent_grdRecent_oncellclick = function(obj,e)
         {
-        	var nCellIdx = e.cell;
+        	let nCellIdx = e.cell;
 
-        	var objDs = obj.getBindDataset();
+        	let objDs = obj.getBindDataset();
 
         	// 선택한 메뉴 아이디
-        	var sMenuId = objDs.getColumn(objDs.rowposition, this.FRAME_MENUCOLUMNS.menuId);
+        	let sMenuId = objDs.getColumn(objDs.rowposition, this.FRAME_MENUCOLUMNS.menuId);
 
         	if (nCellIdx == 0) {
         		if(this.fvMyMenuEdit) return;
@@ -389,44 +490,97 @@
         	// 메인으로 이동
         	this.gfnSetMain();
         };
-        this.btnSearch_onclick = function(obj,e)
+
+
+        /**
+         * @description 대메뉴 클릭
+        */
+        this.divLeftMenu_onclick = function(obj,e)
         {
-        	this.fnMenuVisible2();
+        	this.fnCssclassChange(obj);
+        	this.fnMenuVisible2(obj);
         };
 
-        this.btn00_00_onclick = function(obj,e)
+        /**
+         * @description 세팅
+        */
+        this.divLeftMenu_btnSetting_onclick = function(obj,e)
         {
-        	this.fnMenuVisible2();
+
         };
 
-        this.btnOper_onclick = function(obj,e)
+        /**
+         * @description 로그아웃
+        */
+        this.divLeftMenu_btnLogOut_onclick = function(obj,e)
         {
-        	this.fnMenuVisible2();
+
         };
 
-        this.btnMgnt_onclick = function(obj,e)
+        this.pdivSearchList_grdSearchList_oncellclick = function(obj,e)
         {
-        	this.fnMenuVisible2();
+        	let objDs = obj.getBindDataset();
+
+        	// 선택한 메뉴 아이디
+        	let sMenuId = objDs.getColumn(objDs.rowposition, this.FRAME_MENUCOLUMNS.menuId);
+        	this.fnFormOpen(sMenuId);
+        	this.pdivSearchList.closePopup();
         };
 
-        this.btnFavoratie_onclick = function(obj,e)
+        this.divList_edtSearch_onkeyup = function(obj,e)
         {
-        	this.fnMenuVisible2();
+        	if(e.keycode == 13)
+        	{
+        		this.divList.form.btnSearch.click();
+        	}
         };
 
+        this.divList_btnSearch_onclick = function(obj,e)
+        {
+        	this.dsMenuSearch.clearData();
+        	this.dsMenuSearch.copyData(this.dsMenu);
+        	this.dsMenuSearch.rowposition = -1;
+        	let oEdit = this.divList.form.edtSearch;
+        	let filterstr;
+
+        	this.dsMenuSearch.set_enableevent(false);
+        	if(!this.gfnIsNull(oEdit.value))
+        	{
+        		filterstr = this.FRAME_MENUCOLUMNS.menuNm + ".indexOf('" + oEdit.value + "') > -1";
+        	}
+        	else
+        	{
+        		filterstr = "";
+        	}
+
+        	this.dsMenuSearch.filterstr = filterstr;
+        	let nm;
+        	for(let i = 0; i < this.dsMenuSearch.rowcount; i++)
+        	{
+        		nm = this.gfnReplaceAll(this.dsMenuSearch.getColumn(i, this.FRAME_MENUCOLUMNS.menuNm), oEdit.value, "<fc v='red'>"+oEdit.value+"</fc>");
+        		this.dsMenuSearch.setColumn(i, this.FRAME_MENUCOLUMNS.menuNm, nm);
+        	}
+        	this.dsMenuSearch.set_enableevent(true);
+        	this.pdivSearchList.trackPopupByComponent(oEdit, 0, oEdit.getOffsetHeight()+5)
+        };
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.form_onload,this);
-            this.grdMenu.addEventHandler("oncellclick",this.grdMenu_oncellclick,this);
-            this.divFavoratie.form.grdFavoratie.addEventHandler("oncellclick",this.grdMenu_oncellclick,this);
-            this.btnSearch.addEventHandler("onclick",this.btnSearch_onclick,this);
-            this.btn00_00.addEventHandler("onclick",this.btn00_00_onclick,this);
-            this.btnOper.addEventHandler("onclick",this.btnOper_onclick,this);
-            this.btnMgnt.addEventHandler("onclick",this.btnMgnt_onclick,this);
-            this.btnFavoratie.addEventHandler("onclick",this.btnFavoratie_onclick,this);
+            this.divLeftMenu.form.bntOrganization.addEventHandler("onclick",this.divLeftMenu_onclick,this);
+            this.divLeftMenu.form.btnOperation.addEventHandler("onclick",this.divLeftMenu_onclick,this);
+            this.divLeftMenu.form.btnManagment.addEventHandler("onclick",this.divLeftMenu_onclick,this);
+            this.divLeftMenu.form.btnFavoratie.addEventHandler("onclick",this.divLeftMenu_onclick,this);
+            this.divLeftMenu.form.btnSetting.addEventHandler("onclick",this.divLeftMenu_btnSetting_onclick,this);
+            this.divLeftMenu.form.btnLogOut.addEventHandler("onclick",this.divLeftMenu_btnLogOut_onclick,this);
+            this.divLeftMenu.form.btnAllSearch.addEventHandler("onclick",this.divLeftMenu_onclick,this);
+            this.divList.form.edtSearch.addEventHandler("onkeyup",this.divList_edtSearch_onkeyup,this);
+            this.divList.form.btnSearch.addEventHandler("onclick",this.divList_btnSearch_onclick,this);
+            this.divList.form.grdMenu.addEventHandler("oncellclick",this.grdMenu_oncellclick,this);
+            this.grdFavoratie.addEventHandler("oncellclick",this.grdMenu_oncellclick,this);
+            this.pdivSearchList.form.grdSearchList.addEventHandler("oncellclick",this.pdivSearchList_grdSearchList_oncellclick,this);
         };
         this.loadIncludeScript("frameLeft.xfdl");
         this.loadPreloadList();

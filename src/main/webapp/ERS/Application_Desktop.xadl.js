@@ -79,7 +79,7 @@
             	return;
         
             // frame
-            var mainframe = this.createMainFrame("mainframe","0","0","1280","720",null,null,this);
+            var mainframe = this.createMainFrame("mainframe","0","0","1920","953",null,null,this);
             mainframe.set_titletext("비용관리시스템");
             mainframe.set_showcascadetitletext("false");
             mainframe.set_showtitleicon("false");
@@ -120,7 +120,7 @@
             frame0.addChild(frame2.name, frame2);
 
             var frame3 = new HFrameSet("HFrameSet",null,null,null,null,null,null,frame0);
-            frame3.set_separatesize("260,*");
+            frame3.set_separatesize("363,*");
             frame3.set_showcascadetitletext("false");
             frame3.set_showtitlebar("false");
             frame3.set_showtitleicon("false");

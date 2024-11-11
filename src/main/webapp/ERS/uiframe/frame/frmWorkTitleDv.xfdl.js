@@ -39,50 +39,72 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Button("btnMyMenu","0","11","32","31",null,null,null,null,null,null,this);
-            obj.set_taborder("0");
-            obj.set_cssclass("btn_WF_Bookmark");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("staNavi","btnMyMenu:-7","4","255","44",null,null,null,null,null,null,this);
-            obj.set_cssclass("sta_WF_Location");
-            obj.set_taborder("1");
+            obj = new Static("staTitle","0","9","140","39",null,null,null,null,null,null,this);
+            obj.set_taborder("6");
+            obj.set_text("경비 예산 조회");
+            obj.set_cssclass("sta_WF_TitleLocation");
             obj.set_fittocontents("width");
-            obj.set_usedecorate("true");
             this.addChild(obj.name, obj);
 
-            obj = new Div("divAddBtn","staNavi:0","12",null,"28","351",null,null,null,null,null,this);
-            obj.set_taborder("2");
+            obj = new Div("divAddBtn","601","12",null,"28","15",null,null,null,null,null,this);
+            obj.set_taborder("0");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnInit",null,"9","67","28","280",null,null,null,null,null,this);
-            obj.set_taborder("3");
+            obj = new Button("btnInit",null,"9","67","28","-230",null,null,null,null,null,this);
+            obj.set_taborder("1");
             obj.set_text("초기화");
             obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch",null,"9","67","28","210",null,null,null,null,null,this);
-            obj.set_taborder("4");
+            obj = new Button("btnSearch",null,"9","67","28","-300",null,null,null,null,null,this);
+            obj.set_taborder("2");
             obj.set_text("조회");
             obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnAdd",null,"9","67","28","140",null,null,null,null,null,this);
-            obj.set_taborder("5");
+            obj = new Button("btnAdd",null,"9","67","28","-370",null,null,null,null,null,this);
+            obj.set_taborder("3");
             obj.set_text("추가");
             obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnDel",null,"9","67","28","70",null,null,null,null,null,this);
-            obj.set_taborder("6");
+            obj = new Button("btnDel",null,"9","67","28","-440",null,null,null,null,null,this);
+            obj.set_taborder("4");
             obj.set_text("삭제");
             obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSave",null,"9","67","28","0",null,null,null,null,null,this);
-            obj.set_taborder("7");
+            obj = new Button("btnSave",null,"9","67","28","-510",null,null,null,null,null,this);
+            obj.set_taborder("5");
             obj.set_text("저장");
             obj.set_visible("false");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnMyMenu","staTitle:10","11","32","31",null,null,null,null,null,null,this);
+            obj.set_taborder("7");
+            obj.set_cssclass("btn_WF_Bookmark");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btn_02","btnMyMenu:3","15","24","24",null,null,null,null,null,null,this);
+            obj.set_taborder("8");
+            obj.set_cssclass("btn_WF_Open");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btn_03","btn_02:3","15","24","24",null,null,null,null,null,null,this);
+            obj.set_taborder("9");
+            obj.set_cssclass("btn_WF_Reload");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btn_04","btn_03:3","15","24","24",null,null,null,null,null,null,this);
+            obj.set_taborder("10");
+            obj.set_cssclass("btn_WF_Save");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("staNavi","btn_04:10","4","255","44",null,null,null,null,null,null,this);
+            obj.set_taborder("11");
+            obj.set_fittocontents("width");
+            obj.set_usedecorate("true");
+            obj.set_cssclass("sta_WF_Location");
             this.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this.divAddBtn
@@ -659,12 +681,12 @@
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.form_onload,this);
-            this.btnMyMenu.addEventHandler("onclick",this.btnMyMenu_onclick,this);
             this.btnInit.addEventHandler("onclick",this.btnCmmn_onclick,this);
             this.btnSearch.addEventHandler("onclick",this.btnCmmn_onclick,this);
             this.btnAdd.addEventHandler("onclick",this.btnCmmn_onclick,this);
             this.btnDel.addEventHandler("onclick",this.btnCmmn_onclick,this);
             this.btnSave.addEventHandler("onclick",this.btnCmmn_onclick,this);
+            this.btnMyMenu.addEventHandler("onclick",this.btnMyMenu_onclick,this);
         };
         this.loadIncludeScript("frmWorkTitleDv.xfdl");
         this.loadPreloadList();

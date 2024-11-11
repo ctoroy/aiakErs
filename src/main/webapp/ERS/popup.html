@@ -15,7 +15,62 @@
 
 	
 	<!-- USERFONT_STYLE : userfont style setting (value of userfontid property in Environment. crate contents contained in xfont file specified userfontid property in Environment) -->
+    <style id="userfont">
+        @font-face {
+          font-family: 'SpoqaHanSansNeo-Thin';
+          font-weight: 300;
+          src: url(./_resource_/_font_/SpoqaHanSansNeo-Thin.eot);
+          src: url(./_resource_/_font_/SpoqaHanSansNeo-Thin.eot?#iefix) format('embedded-opentype'),
+               url(./_resource_/_font_/SpoqaHanSansNeo-Thin.woff) format('woff'),
+               url(./_resource_/_font_/SpoqaHanSansNeo-Thin.ttf) format('truetype'),
+               url(./_resource_/_font_/Spoqa Han Sans Neo Thin.woff2) format('woff2'),
+               url(./_resource_/_font_/Spoqa Han Sans Neo Thin.otf) format('opentype');
+        }
 
+        @font-face {
+          font-family: 'SpoqaHanSansNeo-Light';
+          font-weight: 400;
+          src: url(./_resource_/_font_/SpoqaHanSansNeo-Light.eot);
+          src: url(./_resource_/_font_/SpoqaHanSansNeo-Light.eot?#iefix) format('embedded-opentype'),
+               url(./_resource_/_font_/SpoqaHanSansNeo-Light.woff) format('woff'),
+               url(./_resource_/_font_/SpoqaHanSansNeo-Light.ttf) format('truetype'),
+               url(./_resource_/_font_/Spoqa Han Sans Neo Light.woff2) format('woff2'),
+               url(./_resource_/_font_/Spoqa Han Sans Neo Light.otf) format('opentype');
+        }
+
+        @font-face {
+        font-family: 'SpoqaHanSansNeo-Regular';
+        font-weight: 500;
+        src: url(./_resource_/_font_/SpoqaHanSansNeo-Regular.eot);
+        src: url(./_resource_/_font_/SpoqaHanSansNeo-Regular.eot?#iefix) format('embedded-opentype'),
+             url(./_resource_/_font_/SpoqaHanSansNeo-Regular.woff) format('woff'),
+             url(./_resource_/_font_/SpoqaHanSansNeo-Regular.ttf) format('truetype'),
+             url(./_resource_/_font_/Spoqa Han Sans Neo Regular.woff2) format('woff2'),
+             url(./_resource_/_font_/Spoqa Han Sans Neo Regular.otf) format('opentype');
+        }
+
+        @font-face {
+        font-family: 'SpoqaHanSansNeo-Medium';
+        font-weight: 700;
+        src: url(./_resource_/_font_/SpoqaHanSansNeo-Medium.eot);
+        src: url(./_resource_/_font_/SpoqaHanSansNeo-Medium.eot?#iefix) format('embedded-opentype'),
+             url(./_resource_/_font_/SpoqaHanSansNeo-Medium.woff) format('woff'),
+             url(./_resource_/_font_/SpoqaHanSansNeo-Medium.ttf) format('truetype'),
+             url(./_resource_/_font_/Spoqa Han Sans Neo Medium.woff2) format('woff2'),
+             url(./_resource_/_font_/Spoqa Han Sans Neo Medium.otf) format('opentype');
+        }
+
+        @font-face {
+        font-family: 'SpoqaHanSansNeo-Bold';
+        font-weight: 800;
+        src: url(./_resource_/_font_/SpoqaHanSansNeo-Bold.eot);
+        src: url(./_resource_/_font_/SpoqaHanSansNeo-Bold.eot?#iefix) format('embedded-opentype'),
+             url(./_resource_/_font_/SpoqaHanSansNeo-Bold.woff) format('woff'),
+             url(./_resource_/_font_/SpoqaHanSansNeo-Bold.ttf) format('truetype'),
+             url(./_resource_/_font_/Spoqa Han Sans Neo Bold.woff2) format('woff2'),
+             url(./_resource_/_font_/Spoqa Han Sans Neo Bold.otf) format('opentype');
+        }
+        </style>
 	
 	<!-- FRAMEWORK_LIBRARY : framework lodaing path (list of scripts files in the Framework.json file) -->
     <script src="./nexacrolib/framework/Framework.js"></script>
@@ -72,7 +127,7 @@
 			})();
 		/* create internal iframe */
 		/* USERFONT_INFORMATION : userfontid property is specified in the Environment */
-		nexacro._preparePopupFrame(window, document, urlParams);
+		nexacro._preparePopupFrame(window, document, urlParams, [{family:'SpoqaHanSansNeo-Thin', weight:300},{family:'SpoqaHanSansNeo-Light', weight:400},{family:'SpoqaHanSansNeo-Regular', weight:500},{family:'SpoqaHanSansNeo-Medium', weight:700},{family:'SpoqaHanSansNeo-Bold', weight:800}]);
   }
 	</script>
 </body>

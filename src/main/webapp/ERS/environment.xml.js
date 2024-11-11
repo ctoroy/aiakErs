@@ -3,10 +3,11 @@ if (nexacro.Environment)
     var env = nexacro._environment = new nexacro.Environment();
     env.on_init = function ()
     {
-        this.set_themeid("theme::blue");
+        this.set_themeid("theme::ers");
         this.set_datatyperule("2.0");
         this.set_filesecurelevel("all");
         this.set_networksecurelevel("all");
+        this.set_userfontid("font::SpoqaHanSansNeo.xfont");
     };
     env.on_initEvent = function ()
     {

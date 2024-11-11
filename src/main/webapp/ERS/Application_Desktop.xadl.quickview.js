@@ -80,7 +80,7 @@
             	return;
             
             // frame
-            var mainframe = this.createMainFrame("mainframe","0","0","1280","720",null,null,this);
+            var mainframe = this.createMainFrame("mainframe","0","0","1920","953",null,null,this);
             mainframe.set_titletext("비용관리시스템");
             mainframe.set_showcascadetitletext("false");
             mainframe.set_showtitleicon("false");

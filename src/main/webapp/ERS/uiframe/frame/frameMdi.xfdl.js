@@ -13,7 +13,7 @@
             this.set_titletext("frameMdi");
             if (Form == this.constructor)
             {
-                this._setFormPosition(1280,40);
+                this._setFormPosition(1920,43);
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
@@ -37,53 +37,54 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Button("btnLeftMenuShowHide","260","0","30","40",null,null,null,null,null,null,this);
-            obj.set_taborder("0");
-            obj.set_cssclass("btn_MDI_MenuClose");
+            obj = new Static("staMidBg","0","0",null,"43","0",null,null,null,null,null,this);
+            obj.set_taborder("7");
+            obj.set_cssclass("sta_TF_Bg");
+            obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnHome","20","50","42","42",null,null,null,null,null,null,this);
+            obj = new Button("btnLeftMenuShowHide","320","0","43","43",null,null,null,null,null,null,this);
+            obj.set_taborder("0");
+            obj.set_cssclass("btn_LF_Close");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnHome","393","7","40","36",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_cssclass("btn_MDI_Home");
-            obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new Div("divTab","290","0",null,"40","94",null,null,null,null,null,this);
+            obj = new Div("divTab","btnHome:0","0",null,null,"188","0",null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("");
             obj.set_formscrollbartype("none none");
             obj.set_formscrolltype("none");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnPreMdi","divTab:5","6","18","31",null,null,null,null,null,null,this);
+            obj = new Button("btnPreMdi","divTab:5","6","32","31",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_tooltiptext("이전 화면목록으로");
-            obj.set_cssclass("btn_MDI_Prev");
-            obj.set_text("P");
+            obj.set_cssclass("btn_MDI_Left");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnNexMdi","btnPreMdi:0","6","18","31",null,null,null,null,null,null,this);
+            obj = new Button("btnNexMdi","btnPreMdi:5","6","32","31",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_tooltiptext("다음 화면목록으로");
-            obj.set_cssclass("btn_MDI_Next");
-            obj.set_text("N");
+            obj.set_cssclass("btn_MDI_Right");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnList","btnNexMdi:0","6","23","31",null,null,null,null,null,null,this);
+            obj = new Button("btnList","btnNexMdi:10","6","32","31",null,null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_tooltiptext("열린메뉴");
             obj.set_cssclass("btn_MDI_List");
-            obj.set_text("list");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnCloseAll","btnList:0","6","23","31",null,null,null,null,null,null,this);
+            obj = new Button("btnCloseAll","btnList:10","6","32","31",null,null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_tooltiptext("전체닫기");
             obj.set_cssclass("btn_MDI_CloseAll");
-            obj.set_text("X");
             this.addChild(obj.name, obj);
 
-            obj = new PopupDiv("pdvOpenMenu","790","42","245","200",null,null,null,null,null,null,this);
+            obj = new PopupDiv("pdvOpenMenu","1580","43","255","200",null,null,null,null,null,null,this);
             obj.set_visible("false");
             obj.set_cssclass("pdiv_MDI_Bg");
             this.addChild(obj.name, obj);
@@ -95,10 +96,10 @@
             obj.set_cssclass("grd_MDI_List");
             obj.set_scrollbardecbuttonsize("0");
             obj.set_scrollbarincbuttonsize("0");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/></Columns><Rows><Row size=\"28\"/></Rows><Band id=\"body\"><Cell text=\"bind:menuNm\" tooltiptext=\"bind:menuNm\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"193\"/><Column size=\"48\"/></Columns><Rows><Row size=\"28\"/></Rows><Band id=\"body\"><Cell text=\"bind:menuNm\" tooltiptext=\"bind:menuNm\" textAlign=\"left\"/><Cell col=\"1\" displaytype=\"buttoncontrol\" edittype=\"button\" cssclass=\"cell_TF_Delete\"/></Band></Format></Formats>");
             this.pdvOpenMenu.addChild(obj.name, obj);
 
-            obj = new PopupDiv("pdvContextMenu","140","42","180","48",null,null,null,null,null,null,this);
+            obj = new PopupDiv("pdvContextMenu","480","43","180","48",null,null,null,null,null,null,this);
             obj.set_visible("false");
             obj.set_cssclass("grd_MDI_List");
             this.addChild(obj.name, obj);
@@ -111,12 +112,59 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/></Columns><Rows><Row size=\"24\"/></Rows><Band id=\"body\"><Cell text=\"bind:name\"/></Band></Format></Formats>");
             this.pdvContextMenu.addChild(obj.name, obj);
 
-            obj = new Static("Static00","0","0","191",null,null,"0",null,null,null,null,this);
-            obj.set_taborder("7");
+            obj = new Static("staLeftBg01","0","0","58","43",null,null,null,null,null,null,this);
+            obj.set_taborder("8");
+            obj.set_cssclass("sta_LF_Bg");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("staLeftBg02","34","0","30","43",null,null,null,null,null,null,this);
+            obj.set_taborder("9");
+            obj.set_cssclass("sta_TF_LogoBg");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("staLeftLogo","64","0","30","43",null,null,null,null,null,null,this);
+            obj.set_taborder("10");
+            obj.set_cssclass("sta_TF_Logo");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("staTitle","101","0","70","43",null,null,null,null,null,null,this);
+            obj.set_taborder("12");
+            obj.set_cssclass("sta_TF_LogoTxt");
             obj.set_text("ERS");
-            obj.set_font("normal 800 34px/normal \"Malgun Gothic\"");
-            obj.set_background("white");
-            obj.set_color("red");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnLeftMenuShowHide00","320","50","43","43",null,null,null,null,null,null,this);
+            obj.set_taborder("13");
+            obj.set_cssclass("btn_LF_Open");
+            obj.set_visible("false");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btnHome00","393","47","40","36",null,null,null,null,null,null,this);
+            obj.set_taborder("14");
+            obj.set_cssclass("btn_MDI_HomeS");
+            obj.set_visible("false");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button00_01","0","137","184","36",null,null,null,null,null,null,this);
+            obj.set_taborder("14");
+            obj.set_cssclass("btn_TF_MenuS");
+            obj.set_text("페이지타이틀");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button00","156","146","20","20",null,null,null,null,null,null,this);
+            obj.set_taborder("15");
+            obj.set_cssclass("btn_MDI_TabClose");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button00_01_00","188","137","184","36",null,null,null,null,null,null,this);
+            obj.set_taborder("16");
+            obj.set_cssclass("btn_TF_Menu");
+            obj.set_text("페이지타이틀");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button00_00","344","146","20","20",null,null,null,null,null,null,this);
+            obj.set_taborder("17");
+            obj.set_cssclass("btn_MDI_TabClose");
             this.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this.divTab.form
@@ -132,7 +180,7 @@
             this.pdvContextMenu.form.addLayout(obj.name, obj);
 
             //-- Default Layout : this
-            obj = new Layout("default","Desktop_screen",1280,40,this,function(p){});
+            obj = new Layout("default","Desktop_screen",1920,43,this,function(p){});
             this.addLayout(obj.name, obj);
             
             // BindItem Information
@@ -167,11 +215,11 @@
         *******************************************************************************************************************************/
         this.fvFirstGap = 0;
         this.fvBtnGap = 0;
-        this.fvTabHeight = 40;
+        this.fvTabHeight = 36;
         this.fvTabExtraRightGap = 25;
         this.fvExtraWidth = 34;
         this.fvExtraTop = 8;
-        this.fvExtraHeight = 40;
+        this.fvExtraHeight = 36;
         this.fvExtraBtnPrefix = "EXTRA_";
         this.fvTabBtnPrefix = "TAB_";
         this.bClose;
@@ -347,11 +395,17 @@
         		// 화면버튼 디자인 설정
         		var sCurWinId = this.objApp.gvFrsWork.getActiveFrame().name;
         		this.fnSetActive(this.fvTabBtnPrefix + sCurWinId.name);
+
+        		// 메인버튼 디자인 설정
+        		this.btnHome.set_cssclass("btn_MDI_Home");
         	}
         	else
         	{
         		// 메인일때 정렬 사용못함
         		//this.fnSetEnableArrange(false);
+
+        		// 메인버튼 디자인 설정
+        		this.btnHome.set_cssclass("btn_MDI_HomeS");
 
         		// 화면버튼 디자인 설정
         		this.fnSetActiveBtn("btnHome");
@@ -402,12 +456,12 @@
 
         		if(sTabId == this.dsTab.getColumn(i, "tabId"))
         		{
-        			objTab.set_cssclass("btn_MDI_TabS");
+        			objTab.set_cssclass("btn_TF_MenuS");
         			this.fnShowTabBtn(i);
         		}
         		else
         		{
-        			objTab.set_cssclass("btn_MDI_Tab");
+        			objTab.set_cssclass("btn_TF_Menu");
         		}
         	}
         };
@@ -600,7 +654,7 @@
         	if(this.gfnIsNull(this.fnFindObj(sTabID)))
         	{
         		objTab = new Button();
-        		objTab.init(sTabID, this.fnGetLeft(sTabID), 0, 130, this.fvTabHeight, null, null);
+        		objTab.init(sTabID, this.fnGetLeft(sTabID), 7, 130, this.fvTabHeight, null, null);
         		this.divTab.addChild(objTab.name, objTab);
         	}
 
@@ -608,7 +662,7 @@
         	objTab.set_tooltiptext(sTabName);
         	objTab.set_textAlign("left");
         	//objTab.set_padding("0px 10px 0px 15px");
-        	objTab.set_cssclass("btn_MDI_TabS");
+        	objTab.set_cssclass("btn_TF_Menu");
         	var nCompWidth = this.gfnGetTextSize(sTabName)[0]+ 25 + this.fvExtraWidth;
         	objTab.set_width(nCompWidth);
         	objTab.show();
@@ -620,11 +674,11 @@
         	if(this.fnFindObj(sExBtnId) == null)
         	{
         		objBtn = new Button();
-        		objBtn.init(sExBtnId, objTab.getOffsetRight() - this.fvExtraWidth, 0, objTab.getOffsetRight() - this.fvTabExtraRightGap + this.fvExtraWidth - (objTab.getOffsetRight() - this.fvTabExtraRightGap), this.fvExtraTop + this.fvExtraHeight - this.fvExtraTop);
+        		objBtn.init(sExBtnId, objTab.getOffsetRight() - this.fvExtraWidth, 7, objTab.getOffsetRight() - this.fvTabExtraRightGap + this.fvExtraWidth - (objTab.getOffsetRight() - this.fvTabExtraRightGap), this.fvExtraTop + this.fvExtraHeight - this.fvExtraTop, null, null);
 
         		this.divTab.addChild(sExBtnId, objBtn);
-        		objBtn.set_cssclass("btn_MDI_Close");
-        		objBtn.set_cursor("pointer");
+        		objBtn.set_cssclass("btn_MDI_TabClose");
+        		//objBtn.set_cursor("pointer");
         		objBtn.show();
 
         		objBtn.setEventHandler("onclick", this.btnExtra_onclick, this);
@@ -1134,7 +1188,7 @@
          */
         this.btnLeftMenuShowHide_onclick = function(obj,e)
         {
-        	if(obj.cssclass == "btn_MDI_MenuOpen")
+        	if(obj.cssclass == "btn_LF_Open")
         	{
         		this.gfnShowLeftFrame();
         	}
@@ -1150,16 +1204,18 @@
         this.pdvOpenMenu_grdOpenMenu_oncellclick = function(obj,e)
         {
         	var objDs = obj.getBindDataset();
-
+        	var sMenuId = objDs.getColumn(e.row, this.FRAME_MENUCOLUMNS.menuId);
+        	var objArgs = null;
         	// 메뉴명 클릭 시
         	if(obj.getBindCellIndex("body", this.FRAME_MENUCOLUMNS.title) == e.cell)
         	{
-        		var sMenuId = objDs.getColumn(e.row, this.FRAME_MENUCOLUMNS.menuId);
-        		var objArgs = null;
-
         		this.objApp.gvFrmLeft.form.fnFormOpen(sMenuId, objArgs);
         	}
-
+        	else if(e.cell == 1)
+        	{
+        		this.fnCloseMenu(sMenuId);
+        		this.bClose = true;
+        	}
         	this.pdvOpenMenu.closePopup();
         };
 
@@ -1391,6 +1447,8 @@
             this.pdvContextMenu.addEventHandler("onpopup",this.pdvContextMenu_onpopup,this);
             this.pdvContextMenu.form.grdContextMenu.addEventHandler("oncellclick",this.pdvContextMenu_grdContextMenu_oncellclick,this);
             this.pdvContextMenu.form.grdContextMenu.addEventHandler("onsetfocus",this.pdvContextMenu_grdContextMenu_onsetfocus,this);
+            this.btnLeftMenuShowHide00.addEventHandler("onclick",this.btnLeftMenuShowHide_onclick,this);
+            this.btnHome00.addEventHandler("onclick",this.btnHome_onclick,this);
         };
         this.loadIncludeScript("frameMdi.xfdl");
         this.loadPreloadList();

@@ -39,7 +39,7 @@
         ],
         "screen" :
         [    
-        {"id":"Desktop_screen","type":"desktop","filesecurelevel":"all","networksecurelevel":"all","themeid":"theme::blue"}
+        {"id":"Desktop_screen","type":"desktop","filesecurelevel":"all","networksecurelevel":"all","themeid":"theme::ers"}
         ],
         "xadl" :
         [
@@ -67,7 +67,31 @@
         },
         "userfont" :
         [
-
+        {
+            "font-family" : "SpoqaHanSansNeo-Thin",
+            "font-weight" : "300",
+            "local-font-family" : "Spoqa Han Sans Neo Thin"
+        },
+        {
+            "font-family" : "SpoqaHanSansNeo-Light",
+            "font-weight" : "400",
+            "local-font-family" : "Spoqa Han Sans Neo Light"
+        },
+        {
+            "font-family" : "SpoqaHanSansNeo-Regular",
+            "font-weight" : "500",
+            "local-font-family" : "Spoqa Han Sans Neo Regular"
+        },
+        {
+            "font-family" : "SpoqaHanSansNeo-Medium",
+            "font-weight" : "700",
+            "local-font-family" : "Spoqa Han Sans Neo Medium"
+        },
+        {
+            "font-family" : "SpoqaHanSansNeo-Bold",
+            "font-weight" : "800",
+            "local-font-family" : "Spoqa Han Sans Neo Bold"
+        }
         ]
     }
 }

@@ -20,29 +20,29 @@
 
             
             // UI Components Initialize
-            obj = new Static("Static00","229","0","251","50",null,null,null,null,null,null,this);
-            obj.set_taborder("0");
-            obj.set_text("WORK frame");
-            obj.set_font("normal 800 36px/normal \"Malgun Gothic\"");
-            obj.set_background("white");
-            obj.set_opacity("50%");
-            this.addChild(obj.name, obj);
-
             obj = new Div("divTitle","20","0",null,"52","70",null,"980",null,null,null,this);
-            obj.set_taborder("1");
+            obj.set_taborder("0");
             obj.set_text("");
             obj.set_url("frame::frmWorkTitleDv.xfdl");
             obj.set_formscrolltype("none");
             this.addChild(obj.name, obj);
 
             obj = new Div("divWork","20","52",null,null,"0","20","1048",null,null,null,this);
-            obj.set_taborder("2");
+            obj.set_taborder("1");
             obj.set_cssclass("div_WF_Frame");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnClose","divTitle:3","9","67","28",null,null,null,null,null,null,this);
-            obj.set_taborder("3");
+            obj.set_taborder("2");
             obj.set_text("닫기");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00","229","60","251","50",null,null,null,null,null,null,this);
+            obj.set_taborder("3");
+            obj.set_text("WORK frame");
+            obj.set_font("normal 800 36px/normal \"Malgun Gothic\"");
+            obj.set_background("white");
+            obj.set_opacity("50%");
             this.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this.divTitle
@@ -149,7 +149,7 @@
         /**
          * @description 화면 닫기
          */
-        this.form_onclose = function(obj, e)
+        this.form_onclose = function(obj,e)
         {
         	if(nexacro._quickview_formurl) return;
         	try
@@ -401,7 +401,6 @@
 
         	this.bClose = true;
         };
-
         });
         
         // Regist UI Components Event
