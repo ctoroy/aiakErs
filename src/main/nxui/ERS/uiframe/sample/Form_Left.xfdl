@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Left" width="363" height="910" titletext="Form_Left" cssclass="frm_LF_Bg">
+    <Layouts>
+      <Layout width="363" height="910" screenid="Desktop_screen">
+        <Div id="Div00" taborder="0" left="0" top="0" right="0" bottom="0" text="">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" left="0" top="0" width="58" bottom="0" cssclass="sta_LF_Bg"/>
+              <Button id="btn_01" taborder="1" text="검색" left="0" top="0" width="58" height="84" cssclass="btn_LF_Menu01"/>
+              <Button id="btn_02" taborder="2" text="편성" left="0" top="84" width="58" height="84" cssclass="btn_LF_Menu02S"/>
+              <Button id="btn_03" taborder="3" text="운영" left="0" top="168" width="58" height="84" cssclass="btn_LF_Menu03"/>
+              <Button id="btn_04" taborder="4" text="관리" left="0" top="252" width="58" height="84" cssclass="btn_LF_Menu04"/>
+              <Button id="btn_05" taborder="5" text="북마크" left="0" top="336" width="58" height="84" cssclass="btn_LF_Menu05"/>
+              <Button id="Button00" taborder="6" left="14" width="28" height="24" cssclass="btn_LF_Set" bottom="71"/>
+              <Button id="Button00_00" taborder="7" left="14" width="28" height="24" cssclass="btn_LF_Logout" bottom="25"/>
+              <Edit id="Edit00" taborder="8" left="83" top="12" width="255" height="28" cssclass="edi_LF_Sch"/>
+              <Button id="Button01" taborder="9" left="295" top="14" width="30" height="24" cssclass="btn_LF_Sch"/>
+              <Grid id="Grid00" taborder="10" left="83" top="52" binddataset="ds_menu" treeuseline="false" treeusecheckbox="false" treeuseimage="true" treeinitstatus="expand,all" cssclass="grd_LF_Menu" extendsizetype="row" autofittype="col" autosizingtype="row" oncellclick="Grid00_oncellclick" bottom="0" right="25" treeusebutton="use">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="199"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="38"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell text="bind:data" displaytype="treeitemcontrol" edittype="tree" treelevel="bind:lev" cssclass="cell_LF_Lev2"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Grid id="Grid00_00" taborder="1" left="393" top="52" binddataset="ds_fav" treeuseline="false" treeusecheckbox="false" treeuseimage="true" treeinitstatus="expand,all" cssclass="grd_LF_Menu" extendsizetype="row" autofittype="col" autosizingtype="row" oncellclick="Grid00_oncellclick" bottom="0" treeusebutton="use" width="255" visible="false">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="199"/>
+                <Column size="48"/>
+              </Columns>
+              <Rows>
+                <Row size="38"/>
+              </Rows>
+              <Band id="body">
+                <Cell text="bind:data" displaytype="treeitemcontrol" edittype="tree" treelevel="bind:lev"/>
+                <Cell col="1" displaytype="buttoncontrol" edittype="button" cssclass="cell_LF_Delete"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <PopupDiv id="PopupDiv00" text="PopupDiv00" visible="false" left="713" top="43" width="255" height="200" cssclass="pdiv_LF_Sch">
+          <Layouts>
+            <Layout>
+              <Grid id="Grid00" taborder="0" left="0" top="0" right="0" bottom="0" autofittype="col" binddataset="ds_sch" oncellclick="pdvOpenMenu_grdOpenMenu_oncellclick" cssclass="grd_LF_Sch">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell text="bind:Column1" tooltiptext="bind:Column1" displaytype="decoratetext" edittype="text" textAlign="left"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_menu">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="url" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+          <Column id="lev" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="data">템플릿</Col>
+            <Col id="lev">0</Col>
+          </Row>
+          <Row>
+            <Col id="data">Single-Detail</Col>
+            <Col id="lev">1</Col>
+            <Col id="id">Temp01</Col>
+            <Col id="url">design::template/Temp01.xfdl</Col>
+          </Row>
+          <Row>
+            <Col id="data">List-Detail 01</Col>
+            <Col id="lev">1</Col>
+            <Col id="id">Temp02</Col>
+            <Col id="url">design::template/Temp02.xfdl</Col>
+          </Row>
+          <Row>
+            <Col id="data">List-Detail 02</Col>
+            <Col id="lev">2</Col>
+            <Col id="id">Temp03</Col>
+            <Col id="url">design::template/Temp03.xfdl</Col>
+          </Row>
+          <Row>
+            <Col id="data">Master-Detail 01Master-Detail 01Master-Detail 01Master-Detail 01</Col>
+            <Col id="id">Temp04</Col>
+            <Col id="url">design::template/Temp04.xfdl</Col>
+            <Col id="lev">3</Col>
+          </Row>
+          <Row>
+            <Col id="data">Master-Detail 02</Col>
+            <Col id="id">Temp05</Col>
+            <Col id="url">design::template/Temp05.xfdl</Col>
+            <Col id="lev">3</Col>
+          </Row>
+          <Row>
+            <Col id="data">Shuttle</Col>
+            <Col id="id">Temp06</Col>
+            <Col id="url">design::template/Temp06.xfdl</Col>
+            <Col id="lev">2</Col>
+          </Row>
+          <Row>
+            <Col id="data">Tab</Col>
+            <Col id="id">Temp07</Col>
+            <Col id="url">design::template/Temp07.xfdl</Col>
+            <Col id="lev">3</Col>
+          </Row>
+          <Row>
+            <Col id="data">Popup</Col>
+            <Col id="id">Temp08</Col>
+            <Col id="url">design::template/Temp08.xfdl</Col>
+            <Col id="lev">3</Col>
+          </Row>
+          <Row>
+            <Col id="data">두번째메뉴</Col>
+            <Col id="lev">0</Col>
+          </Row>
+          <Row>
+            <Col id="data">세번째뎁스메뉴</Col>
+            <Col id="lev">1</Col>
+          </Row>
+          <Row>
+            <Col id="data">세번째뎁스메뉴영역</Col>
+            <Col id="lev">1</Col>
+          </Row>
+          <Row>
+            <Col id="lev">0</Col>
+            <Col id="data">두번째뎁스메뉴</Col>
+          </Row>
+          <Row>
+            <Col id="lev">1</Col>
+            <Col id="data">세번째뎁스메뉴</Col>
+          </Row>
+          <Row>
+            <Col id="lev">1</Col>
+            <Col id="data">세번째뎁스메뉴영역</Col>
+          </Row>
+          <Row>
+            <Col id="lev">0</Col>
+            <Col id="data">두번째뎁스메뉴</Col>
+          </Row>
+          <Row>
+            <Col id="lev">1</Col>
+            <Col id="data">세번째뎁스메뉴</Col>
+          </Row>
+          <Row>
+            <Col id="lev">1</Col>
+            <Col id="data">세번째뎁스메뉴영역</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_fav">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="id">Temp01</Col>
+            <Col id="data">즐겨찾기메뉴</Col>
+          </Row>
+          <Row>
+            <Col id="id">Temp02</Col>
+            <Col id="data">즐겨찾기메뉴</Col>
+          </Row>
+          <Row>
+            <Col id="id">Temp03</Col>
+            <Col id="data">즐겨찾기메뉴</Col>
+          </Row>
+          <Row>
+            <Col id="id">Temp04</Col>
+            <Col id="data">즐겨찾기메뉴</Col>
+          </Row>
+          <Row>
+            <Col id="id">Temp05</Col>
+            <Col id="data">즐겨찾기메뉴</Col>
+          </Row>
+          <Row>
+            <Col id="id">Temp06</Col>
+            <Col id="data">즐겨찾기메뉴</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_sch">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">&lt;fc v='red'&gt;가나&lt;/fc&gt;다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">가나다라</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">8</Col>
+            <Col id="Column1">가나다라마</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">9</Col>
+            <Col id="Column1">가나다라마</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

@@ -2,12 +2,12 @@
 <ADL version="2.0">
   <Application id="Application_Desktop" screenid="Desktop_screen" onload="Application_onload" onerror="Application_onerror">
     <Layout>
-      <MainFrame id="mainframe" left="0" top="0" width="1280" height="720" titletext="비용관리시스템" showcascadetitletext="false" showtitleicon="false" onsize="mainframe_onsize">
+      <MainFrame id="mainframe" left="0" top="0" width="1920" height="953" titletext="비용관리시스템" showcascadetitletext="false" showtitleicon="false" onsize="mainframe_onsize">
         <VFrameSet id="VFrameSet" separatesize="*,0,0" showtitlebar="false" showtitleicon="false" showcascadetitletext="false">
           <Frames>
             <ChildFrame id="FR_LOGIN" formurl="frame::frameLogin.xfdl" showcascadetitletext="false" showtitlebar="false" showtitleicon="false" dragmovetype="none"/>
             <ChildFrame id="FR_MDI" showtitlebar="false" showtitleicon="false" showcascadetitletext="false" dragmovetype="none"/>
-            <HFrameSet id="HFrameSet" separatesize="260,*" showcascadetitletext="false" showtitlebar="false" showtitleicon="false">
+            <HFrameSet id="HFrameSet" separatesize="363,*" showcascadetitletext="false" showtitlebar="false" showtitleicon="false">
               <Frames>
                 <ChildFrame id="FR_LEFT" showtitlebar="false" showtitleicon="false" dragmovetype="none"/>
                 <VFrameSet id="VFrameSet1" separatesize="*,0,0" showcascadetitletext="false" showtitlebar="false" showtitleicon="false">

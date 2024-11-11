@@ -1,10 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="frameLeft" width="320" height="720" titletext="frameLeft" background="blue" onload="form_onload">
+  <Form id="frameLeft" width="363" height="910" titletext="frameLeft" onload="form_onload" cssclass="frm_LF_Bg">
     <Layouts>
-      <Layout width="320" height="720" screenid="Desktop_screen">
-        <Static id="Static00" taborder="0" text="LEFT frame" left="35" top="0" width="191" height="60" font="normal 800 36px/normal &quot;Malgun Gothic&quot;" background="white"/>
-        <Grid id="grdMenu" taborder="1" left="48" top="100" right="0" bottom="0" autofittype="col" treeusecheckbox="false" treeinitstatus="collapse,all" binddataset="dsMenu" oncellclick="grdMenu_oncellclick">
+      <Layout width="363" height="910" screenid="Desktop_screen">
+        <Div id="divFavoratie" taborder="0" text="div00" left="811" top="124" width="200" height="150" visible="false">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Div id="divLeftMenu" taborder="1" text="div00" left="0" top="0" bottom="0" width="58">
+          <Layouts>
+            <Layout>
+              <Static id="staMenuBg" taborder="1" left="0" top="0" width="58" bottom="0" cssclass="sta_LF_Bg"/>
+              <Button id="bntOrganization" taborder="0" text="편성" left="0" top="84" width="58" height="84" cssclass="btn_LF_Menu02" onclick="divLeftMenu_onclick"/>
+              <Button id="btnOperation" taborder="2" text="운영" left="0" top="168" width="58" height="84" cssclass="btn_LF_Menu03" onclick="divLeftMenu_onclick"/>
+              <Button id="btnManagment" taborder="3" text="관리" left="0" top="252" width="58" height="84" cssclass="btn_LF_Menu04" onclick="divLeftMenu_onclick"/>
+              <Button id="btnFavoratie" taborder="4" text="북마크" left="0" top="336" width="58" height="84" cssclass="btn_LF_Menu05" onclick="divLeftMenu_onclick"/>
+              <Button id="btnSetting" taborder="5" left="14" width="28" height="24" cssclass="btn_LF_Set" bottom="71" onclick="divLeftMenu_btnSetting_onclick"/>
+              <Button id="btnLogOut" taborder="6" left="14" width="28" height="24" cssclass="btn_LF_Logout" bottom="25" onclick="divLeftMenu_btnLogOut_onclick"/>
+              <Button id="btnAllSearch" taborder="7" text="검색" left="0" top="0" width="58" height="84" cssclass="btn_LF_Menu01S" onclick="divLeftMenu_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="divList" taborder="2" left="58" top="0" bottom="0" right="0">
+          <Layouts>
+            <Layout>
+              <Edit id="edtSearch" taborder="0" left="25" top="12" width="255" height="28" cssclass="edi_LF_Sch" onkeyup="divList_edtSearch_onkeyup"/>
+              <Button id="btnSearch" taborder="1" left="233" top="14" width="30" height="24" cssclass="btn_LF_Sch" onclick="divList_btnSearch_onclick"/>
+              <Grid id="grdMenu" taborder="2" left="25" top="50" bottom="2" autofittype="col" treeusecheckbox="false" treeinitstatus="collapse,all" binddataset="dsMenu" oncellclick="grdMenu_oncellclick" cssclass="grd_LF_Menu" treeuseline="false" right="25" formatid="default">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="250"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="38"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell cssclass="cell_LF_Lev2" text="bind:menuNm" tooltiptext="bind:menuNm" displaytype="treeitemcontrol" edittype="tree" treelevel="bind:menuLvl"/>
+                    </Band>
+                  </Format>
+                  <Format id="btnFavoratie">
+                    <Columns>
+                      <Column size="199"/>
+                      <Column size="48"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="38"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell text="bind:menuNm" tooltiptext="bind:menuNm" displaytype="treeitemcontrol" edittype="tree" treelevel="bind:menuLvl"/>
+                      <Cell col="1" cssclass="cell_LF_Delete" displaytype="buttoncontrol" edittype="button"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Grid id="grdFavoratie" taborder="3" left="410" top="315" right="-247" bottom="445" autofittype="col" treeusecheckbox="false" treeinitstatus="collapse,all" oncellclick="grdMenu_oncellclick" binddataset="dsMyMenu">
           <Formats>
             <Format id="default">
               <Columns>
@@ -14,37 +68,32 @@
                 <Row size="30"/>
               </Rows>
               <Band id="body">
-                <Cell text="bind:menuNm" treelevel="bind:menuLvl" displaytype="treeitemcontrol" edittype="tree"/>
+                <Cell text="bind:menuNm" treelevel="bind:menuLv" tooltiptext="bind:menuNm"/>
               </Band>
             </Format>
           </Formats>
         </Grid>
-        <Div id="divFavoratie" taborder="2" text="div00" left="381" top="124" width="200" height="150" visible="false">
+        <PopupDiv id="pdivSearchList" text="PopupDiv00" visible="false" left="403" top="43" width="255" height="200" cssclass="pdiv_LF_Sch">
           <Layouts>
             <Layout>
-              <Grid id="grdFavoratie" taborder="0" left="0" top="0" right="0" bottom="0" autofittype="col" treeusecheckbox="false" treeinitstatus="collapse,all" oncellclick="grdMenu_oncellclick" binddataset="dsMyMenu">
+              <Grid id="grdSearchList" taborder="0" left="0" top="0" right="0" bottom="0" autofittype="col" binddataset="dsMenuSearch" cssclass="grd_LF_Sch" oncellclick="pdivSearchList_grdSearchList_oncellclick">
                 <Formats>
                   <Format id="default">
                     <Columns>
-                      <Column size="195"/>
+                      <Column size="235"/>
                     </Columns>
                     <Rows>
-                      <Row size="30"/>
+                      <Row size="28"/>
                     </Rows>
                     <Band id="body">
-                      <Cell text="bind:menuNm" treelevel="bind:menuLv" tooltiptext="bind:menuNm"/>
+                      <Cell text="bind:menuNm" tooltiptext="bind:menuNm" displaytype="decoratetext" textAlign="left"/>
                     </Band>
                   </Format>
                 </Formats>
               </Grid>
             </Layout>
           </Layouts>
-        </Div>
-        <Button id="btnSearch" taborder="3" text="검색" left="0" top="100" width="48" height="50" onclick="btnSearch_onclick"/>
-        <Button id="btn00_00" taborder="4" text="편성" left="0" top="153" width="48" height="50" onclick="btn00_00_onclick"/>
-        <Button id="btnOper" taborder="5" text="운영" left="0" top="213" width="48" height="50" onclick="btnOper_onclick"/>
-        <Button id="btnMgnt" taborder="6" text="관리" left="0" top="273" width="48" height="50" onclick="btnMgnt_onclick"/>
-        <Button id="btnFavoratie" taborder="7" text="북마크" left="0" top="333" width="48" height="50" onclick="btnFavoratie_onclick"/>
+        </PopupDiv>
       </Layout>
     </Layouts>
     <Objects>
@@ -61,6 +110,7 @@
           <Column id="PRGM_PATH" type="STRING" size="32"/>
         </ColumnInfo>
       </Dataset>
+      <Dataset id="dsFavorite"/>
     </Objects>
     <Script type="xscript5.1"><![CDATA[/**
 *  AIA 비용관리 시스템
@@ -107,12 +157,12 @@ this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 this.fnSearchMyMenu = function()
 {
 	// 마이메뉴 조회
-	var sSvcId 		= "searchMyMenu";
-	var sSvcUrl   	= "searchMyMenu.do";
-	var sInData     = "";
-	var sOutData    = "gdsMyMenu=dsList";
-	var sArg      	= "";	
-	var sCallBackFnc = "fnCallback";
+	let sSvcId 		= "searchMyMenu";
+	let sSvcUrl   	= "searchMyMenu.do";
+	let sInData     = "";
+	let sOutData    = "gdsMyMenu=dsList";
+	let sArg      	= "";	
+	let sCallBackFnc = "fnCallback";
 	
 	this.gfnTransaction( sSvcId , 		// transaction을 구분하기 위한 svc id값
 						sSvcUrl , 		// trabsaction을 요청할 주소
@@ -128,12 +178,12 @@ this.fnSearchMyMenu = function()
 this.fnSaveMyMenu = function()
 {
 	// 마이메뉴 저장
-	var sSvcId   	= "saveMyMenu";
-	var sSvcUrl   	= "saveMyMenu.do";
-	var sInData     = "dsList=dsMyMenu:U";
-	var sOutData    = "";
-	var sArg      	= "";	
-	var sCallBackFnc = "fnCallback";
+	let sSvcId   	= "saveMyMenu";
+	let sSvcUrl   	= "saveMyMenu.do";
+	let sInData     = "dsList=dsMyMenu:U";
+	let sOutData    = "";
+	let sArg      	= "";	
+	let sCallBackFnc = "fnCallback";
 	
 	this.gfnTransaction(sSvcId , 		// transaction을 구분하기 위한 svc id값
 						sSvcUrl , 		// trabsaction을 요청할 주소
@@ -183,13 +233,13 @@ this.fnCopyMenu = function()
 */
 this.fnSetGridRowSize = function()
 {
-	var objGrid = this.divLnb.form.grdMenu;
+	let objGrid = this.divLnb.form.grdMenu;
 	objGrid.set_enableredraw(false);
 
-	for(var i=0; i < this.dsMenu.rowcount; i++)
+	for(let i=0; i < this.dsMenu.rowcount; i++)
 	{
-		var grdRow = objGrid.getTreeRow(i);
-		var css = objGrid.getCellPropertyValue(grdRow, 0, "cssclass");
+		let grdRow = objGrid.getTreeRow(i);
+		let css = objGrid.getCellPropertyValue(grdRow, 0, "cssclass");
 
 		if(css == "cell_LF_Lev") {
 			objGrid.setRealRowSize(grdRow,"50");
@@ -228,11 +278,11 @@ this.fnFormOpen = function (sMenuId, objParam)
 */
 this.fnSetRecentMenuDs = function(sMenuId)
 {
-	var nRow = this.dsRecentMenu.findRow(this.FRAME_MENUCOLUMNS.menuId, sMenuId);
+	let nRow = this.dsRecentMenu.findRow(this.FRAME_MENUCOLUMNS.menuId, sMenuId);
 	if(nRow < 0)
 	{
 		nRow		= this.dsMenuList.findRow(this.FRAME_MENUCOLUMNS.menuId, sMenuId);
-		var sMenuNm = this.dsMenuList.getColumn(nRow, this.FRAME_MENUCOLUMNS.menuNm);
+		let sMenuNm = this.dsMenuList.getColumn(nRow, this.FRAME_MENUCOLUMNS.menuNm);
 		
 		nRow = this.dsRecentMenu.addRow();
 		this.dsRecentMenu.setColumn(nRow, this.FRAME_MENUCOLUMNS.menuId, sMenuId);
@@ -245,22 +295,57 @@ this.fnSetRecentMenuDs = function(sMenuId)
 */
 this.fnMenuVisible = function()
 {
-	var visibleFlag = this.fvMenuStatus == "close" ? false : true;
-	this.grdMenu.visible = visibleFlag;
-	this.Static00.visible = visibleFlag;
+	let visibleFlag = this.fvMenuStatus == "close" ? false : true;
+	this.divList.visible = visibleFlag;
 	this.resetScroll();
 };
 
-
-this.fnMenuVisible2 = function()
+/**
+ * @description 메뉴 visible2
+*/
+this.fnMenuVisible2 = function(v)
 {
-	this.fvMenuStatus == "open"
-	this.objApp.gvHFS.set_separatesize("320,*");
-	this.objApp.gvFrmMdi.form.btnLeftMenuShowHide.cssclass = "btn_MDI_MenuClose";
-	this.grdMenu.visible = true;
-	this.Static00.visible = true;
+	let format;
+	if(v.id != "btnFavoratie")
+	{
+		bindDs = "dsMenu"
+		format = "default";
+	}
+	else
+	{
+		this.dsFavorite.copyData(this.dsMenu);
+		bindDs = "dsFavorite"
+		format = "btnFavoratie";
+	}
+	
+	this.divList.form.grdMenu.binddataset = bindDs;
+	this.divList.form.grdMenu.formatid = format;
+	this.fvMenuStatus = "open"
+	this.objApp.gvHFS.set_separatesize("363,*");
+	this.objApp.gvFrmMdi.form.btnLeftMenuShowHide.cssclass = "btn_LF_Close";
+	this.divList.visible = true;
 	this.resetScroll();
-}
+};
+
+/**
+ * @description 대메뉴 css 변경
+*/
+this.fnCssclassChange = function(v)
+{
+	let bntList = {
+					"btnAllSearch":		"btn_LF_Menu01",
+					"bntOrganization":	"btn_LF_Menu02",
+					"btnOperation":		"btn_LF_Menu03",
+					"btnManagment":		"btn_LF_Menu04",
+					"btnFavoratie":		"btn_LF_Menu05"
+					};
+	let comp = this.divLeftMenu.form.components;
+	
+	for(list in bntList)
+	{
+		list != v.id ? comp[list].cssclass = bntList[list] : comp[list].cssclass = bntList[list]+"S";
+    }
+};
 /*******************************************************************************************************************************
  * 각 COMPONENT 별 EVENT 영역
 *******************************************************************************************************************************/
@@ -288,19 +373,19 @@ this.grdMenu_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInf
 	// Tree 이미지 클릭시 리턴
 	if(e.clickitem == "treeitembutton") return;
 	
-	var nRow = obj.getTreeRow(e.row);
+	let nRow = obj.getTreeRow(e.row);
 	
-	var nStat = obj.getTreeStatus(nRow);
+	let nStat = obj.getTreeStatus(nRow);
 
 	// 자식이 없으면
 	if((nStat^1) != 2) obj.setTreeStatus(nRow ,nStat^1);
 	
 	if(nStat == 3)
 	{
-		var objDs = obj.getBindDataset();
+		let objDs = obj.getBindDataset();
 		// Click시 해당 메뉴 호출
-		var sMenuId  = objDs.getColumn(objDs.rowposition, this.FRAME_MENUCOLUMNS.menuId);
-		var sPageUrl = objDs.getColumn(objDs.rowposition, this.FRAME_MENUCOLUMNS.menuUrl);
+		let sMenuId  = objDs.getColumn(objDs.rowposition, this.FRAME_MENUCOLUMNS.menuId);
+		let sPageUrl = objDs.getColumn(objDs.rowposition, this.FRAME_MENUCOLUMNS.menuUrl);
 		
 		if(!(this.gfnIsNull(sMenuId) || this.gfnIsNull(sPageUrl))) {
 			// 메뉴 화면 호출
@@ -314,12 +399,12 @@ this.grdMenu_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInf
 */
 this.divFavoratie_grdFavoratie_divRecent_grdRecent_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
 {
-	var nCellIdx = e.cell;
+	let nCellIdx = e.cell;
 	
-	var objDs = obj.getBindDataset();
+	let objDs = obj.getBindDataset();
 	
 	// 선택한 메뉴 아이디
-	var sMenuId = objDs.getColumn(objDs.rowposition, this.FRAME_MENUCOLUMNS.menuId);
+	let sMenuId = objDs.getColumn(objDs.rowposition, this.FRAME_MENUCOLUMNS.menuId);
 	
 	if (nCellIdx == 0) {
 		if(this.fvMyMenuEdit) return;
@@ -340,30 +425,78 @@ this.btnHome_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 	// 메인으로 이동
 	this.gfnSetMain();
 };
-this.btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+
+
+/**
+ * @description 대메뉴 클릭
+*/
+this.divLeftMenu_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	this.fnMenuVisible2();
+	this.fnCssclassChange(obj);
+	this.fnMenuVisible2(obj);
 };
 
-this.btn00_00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+/**
+ * @description 세팅
+*/
+this.divLeftMenu_btnSetting_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	this.fnMenuVisible2();
+	
 };
 
-this.btnOper_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+/**
+ * @description 로그아웃
+*/
+this.divLeftMenu_btnLogOut_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	this.fnMenuVisible2();
+	
 };
 
-this.btnMgnt_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+this.pdivSearchList_grdSearchList_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
 {
-	this.fnMenuVisible2();
+	let objDs = obj.getBindDataset();
+	
+	// 선택한 메뉴 아이디
+	let sMenuId = objDs.getColumn(objDs.rowposition, this.FRAME_MENUCOLUMNS.menuId);
+	this.fnFormOpen(sMenuId);
+	this.pdivSearchList.closePopup();
 };
 
-this.btnFavoratie_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+this.divList_edtSearch_onkeyup = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
 {
-	this.fnMenuVisible2();
+	if(e.keycode == 13)
+	{
+		this.divList.form.btnSearch.click();
+	}
 };
-]]></Script>
+
+this.divList_btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.dsMenuSearch.clearData();
+	this.dsMenuSearch.copyData(this.dsMenu);
+	this.dsMenuSearch.rowposition = -1;
+	let oEdit = this.divList.form.edtSearch;
+	let filterstr;
+
+	this.dsMenuSearch.set_enableevent(false);
+	if(!this.gfnIsNull(oEdit.value))
+	{
+		filterstr = this.FRAME_MENUCOLUMNS.menuNm + ".indexOf('" + oEdit.value + "') > -1";
+	}
+	else
+	{
+		filterstr = "";
+	}
+	
+	this.dsMenuSearch.filterstr = filterstr;
+	let nm;
+	for(let i = 0; i < this.dsMenuSearch.rowcount; i++)
+	{
+		nm = this.gfnReplaceAll(this.dsMenuSearch.getColumn(i, this.FRAME_MENUCOLUMNS.menuNm), oEdit.value, "<fc v='red'>"+oEdit.value+"</fc>");
+		this.dsMenuSearch.setColumn(i, this.FRAME_MENUCOLUMNS.menuNm, nm);
+	}
+	this.dsMenuSearch.set_enableevent(true);
+	this.pdivSearchList.trackPopupByComponent(oEdit, 0, oEdit.getOffsetHeight()+5)
+};]]></Script>
   </Form>
 </FDL>

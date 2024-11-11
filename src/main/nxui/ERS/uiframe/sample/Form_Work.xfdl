@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Work" width="1557" height="887" titletext="Form_Work" cssclass="frm_WF_Frame">
+    <Layouts>
+      <Layout width="1557" height="887" screenid="Desktop_screen">
+        <Static id="Static00" taborder="0" text="w30" left="0" top="0" width="30" bottom="0" cssclass="sta_WF_GSize" visible="false"/>
+        <Div id="Div00" taborder="1" text="Div00" left="30" top="0" height="49" right="0" url="sample::Workcomm.xfdl"/>
+        <Div id="Div01" taborder="2" text="Div01" left="30" top="49" url="sample::경비예산입력.xfdl" right="0" bottom="10"/>
+        <Static id="Static00_00" taborder="3" text="h10" left="30" bottom="0" cssclass="sta_WF_GSize" visible="false" height="10" right="0"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Top" width="1920" height="43" titletext="Form_Top">
+    <Layouts>
+      <Layout width="1920" height="43" screenid="Desktop_screen">
+        <Static id="Static00_01" taborder="13" left="0" top="0" height="43" right="0" cssclass="sta_TF_Bg"/>
+        <Static id="Static00" taborder="0" left="0" top="0" width="58" height="43" cssclass="sta_LF_Bg"/>
+        <Static id="Static00_00" taborder="1" left="34" top="0" width="30" height="43" cssclass="sta_TF_LogoBg"/>
+        <Static id="Static00_00_00" taborder="2" left="64" top="0" width="30" height="43" cssclass="sta_TF_Logo"/>
+        <Static id="Static00_00_00_00" taborder="3" left="101" top="0" width="70" height="43" cssclass="sta_TF_LogoTxt" text="ERS"/>
+        <Button id="Button00" taborder="4" left="320" top="0" width="43" height="43" cssclass="btn_LF_Close"/>
+        <Button id="Button00_00" taborder="5" left="320" top="50" width="43" height="43" cssclass="btn_LF_Open" visible="false"/>
+        <Button id="Button00_01" taborder="6" left="393" width="40" height="36" cssclass="btn_MDI_Home" top="7"/>
+        <Button id="Button00_01_00" taborder="7" left="393" width="40" height="36" cssclass="btn_MDI_HomeS" top="47" visible="false"/>
+        <Div id="Div00" taborder="8" left="Button00_01:0" top="0" height="43" right="183" text="">
+          <Layouts>
+            <Layout>
+              <Button id="Button00_01" taborder="0" left="0" width="184" height="36" cssclass="btn_TF_MenuS" top="7" text="페이지타이틀"/>
+              <Button id="Button00" taborder="1" left="Button00_01:-28" top="16" width="20" height="20" cssclass="btn_MDI_TabClose"/>
+              <Static id="Static00" taborder="2" left="186" top="18" width="1" height="17" cssclass="sta_MDI_Line"/>
+              <Button id="Button00_01_00" taborder="3" left="188" width="184" height="36" cssclass="btn_TF_Menu" top="7" text="페이지타이틀"/>
+              <Button id="Button00_00" taborder="4" left="344" top="16" width="20" height="20" cssclass="btn_MDI_TabClose"/>
+              <Static id="Static00_00" taborder="5" left="374" top="18" width="1" height="17" cssclass="sta_MDI_Line"/>
+              <Button id="Button00_01_00_00" taborder="6" left="376" width="184" height="36" cssclass="btn_TF_Menu" top="7" text="페이지타이틀"/>
+              <Button id="Button00_00_00" taborder="7" left="532" top="16" width="20" height="20" cssclass="btn_MDI_TabClose"/>
+              <Static id="Static00_00_00" taborder="8" left="562" top="18" width="1" height="17" cssclass="sta_MDI_Line"/>
+              <Button id="Button00_01_00_00_00" taborder="9" left="564" width="184" height="36" cssclass="btn_TF_Menu" top="7" text="페이지타이틀"/>
+              <Button id="Button00_00_00_00" taborder="10" left="720" top="16" width="20" height="20" cssclass="btn_MDI_TabClose"/>
+              <Static id="Static00_00_00_00" taborder="11" left="750" top="18" width="1" height="17" cssclass="sta_MDI_Line"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="Button01" taborder="9" top="6" width="32" height="31" right="30" cssclass="btn_MDI_CloseAll"/>
+        <Button id="Button01_00" taborder="10" top="6" width="32" height="31" right="70" cssclass="btn_MDI_List"/>
+        <Button id="Button01_00_00" taborder="11" top="6" width="32" height="31" right="110" cssclass="btn_MDI_Right"/>
+        <Button id="Button01_00_00_00" taborder="12" top="6" width="32" height="31" right="150" cssclass="btn_MDI_Left"/>
+        <PopupDiv id="PopupDiv00" text="PopupDiv00" visible="false" top="43" width="255" height="200" cssclass="pdiv_MDI_Bg" right="30">
+          <Layouts>
+            <Layout>
+              <Grid id="Grid00" taborder="0" left="0" top="0" right="0" bottom="0" autofittype="col" binddataset="ds_mdi" oncellclick="pdvOpenMenu_grdOpenMenu_oncellclick" cssclass="grd_MDI_List">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="201"/>
+                      <Column size="48"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="28"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell text="bind:Column1" tooltiptext="bind:Column1" textAlign="left"/>
+                      <Cell col="1" displaytype="buttoncontrol" edittype="button" cssclass="cell_TF_Delete"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_mdi">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column0">1</Col>
+            <Col id="Column1">페이지타이틀</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">2</Col>
+            <Col id="Column1">페이지타이틀</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">3</Col>
+            <Col id="Column1">페이지타이틀</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">4</Col>
+            <Col id="Column1">페이지타이틀</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">5</Col>
+            <Col id="Column1">페이지타이틀</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">6</Col>
+            <Col id="Column1">페이지타이틀</Col>
+          </Row>
+          <Row>
+            <Col id="Column0">7</Col>
+            <Col id="Column1">페이지타이틀</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

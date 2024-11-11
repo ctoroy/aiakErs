@@ -3,14 +3,14 @@
   <Form id="frameWork" width="1280" height="650" titletext="frameWork" onload="form_onload">
     <Layouts>
       <Layout width="1280" height="650" screenid="Desktop_screen">
-        <Static id="Static00" taborder="0" text="WORK frame" left="229" top="0" width="251" height="50" font="normal 800 36px/normal &quot;Malgun Gothic&quot;" background="white" opacity="50%"/>
-        <Div id="divTitle" taborder="1" left="20" top="0" height="52" text="" url="frame::frmWorkTitleDv.xfdl" formscrolltype="none" minwidth="980" maxwidth="" right="70"/>
-        <Div id="divWork" taborder="2" left="20" top="52" bottom="20" maxwidth="" cssclass="div_WF_Frame" minwidth="1048" right="0">
+        <Div id="divTitle" taborder="0" left="20" top="0" height="52" text="" url="frame::frmWorkTitleDv.xfdl" formscrolltype="none" minwidth="980" maxwidth="" right="70"/>
+        <Div id="divWork" taborder="1" left="20" top="52" bottom="20" maxwidth="" cssclass="div_WF_Frame" minwidth="1048" right="0">
           <Layouts>
             <Layout/>
           </Layouts>
         </Div>
-        <Button id="btnClose" taborder="3" text="닫기" top="9" width="67" height="28" left="divTitle:3" onclick="btnClose_onclick"/>
+        <Button id="btnClose" taborder="2" text="닫기" top="9" width="67" height="28" left="divTitle:3" onclick="btnClose_onclick"/>
+        <Static id="Static00" taborder="3" text="WORK frame" left="229" top="60" width="251" height="50" font="normal 800 36px/normal &quot;Malgun Gothic&quot;" background="white" opacity="50%"/>
       </Layout>
     </Layouts>
     <Script type="xscript5.1"><![CDATA[/**
@@ -91,7 +91,7 @@ this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 /**
  * @description 화면 닫기
  */
-this.form_onclose = function(obj:Form, e:nexacro.CloseEventInfo)
+this.form_onclose = function(obj:nexacro.Form,e:nexacro.CloseEventInfo)
 {
 	if(nexacro._quickview_formurl) return;
 	try
@@ -203,8 +203,8 @@ this.fnSetOwnFrameArgu = function(objForm)
 	this.fvMenuUrl			= this.gfnGetArgument(this.FRAME_MENUCOLUMNS.menuUrl);
 	this.fvPrgmId			= this.gfnGetArgument(this.FRAME_MENUCOLUMNS.prgmId);
 	this.fvObjArgs   		= this.gfnGetArgument(this.FRAME_MENUCOLUMNS.param);
-	this.fvMenuHelpFlag			= this.gfnGetArgument(this.FRAME_MENUCOLUMNS.prgmHelpFlag);
-	this.fvPrgmNm				= this.gfnGetArgument(this.FRAME_MENUCOLUMNS.prgmNm);
+	this.fvMenuHelpFlag		= this.gfnGetArgument(this.FRAME_MENUCOLUMNS.prgmHelpFlag);
+	this.fvPrgmNm			= this.gfnGetArgument(this.FRAME_MENUCOLUMNS.prgmNm);
 	this.fvMenuArgs   		= this.gfnGetArgument("menuParam");
 	this.fvMenuNavi 		= this.gfnGetArgument("menuNavi");	
 	this.fvSearchScopeCd	= this.gfnGetArgument("searchScopeCd");	
@@ -236,7 +236,9 @@ this.fnSetDivTitle = function(vTitle)
 	// 공통버튼 사용 여부
 	if(this.objApp.gvIsComBtnUse) {
 		// 공통버튼 권한 세팅
-		this.divTitle.form.fnSetAuthBtn(this.fvButtonAuth);
+		//this.divTitle.form.fnSetAuthBtn(this.fvButtonAuth);
+		this.divTitle.form.fnSetAuthBtn(this.fvMenuId);
+		
 	}
 };
 
@@ -340,7 +342,6 @@ this.btnClose_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 	this.objApp.gvFrmMdi.form.fnCloseMenu(this.fvMenuId);
 
 	this.bClose = true;
-};
-]]></Script>
+};]]></Script>
   </Form>
 </FDL>

@@ -169,24 +169,25 @@ this.btn_preview_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
 	var content = this.div_editor.form.getContent();
 	
+	var option ={'titlebar': true, 'width': 800, 'height':710, 'resize': true};
 	
-	this.gfnOpenPopup("preview", "sample::richtexteditor_previewsample.xfdl", {'content': content});
+	this.gfnOpenPopup("preview", "sample::richtexteditor_previewsample.xfdl", {'content': content},"", option);
 	
-	if(this.gfnIsEmpty(content))
-	{
-		alert("미리보기 내용이 없습니다.");
-		return;
-	}
-	
-	var child = new ChildFrame();
-	child.init("preview", 0, 0, 800, 630);
-	child.set_formurl("sample::richtexteditor_previewsample.xfdl");
-	child.set_openalign("center middle");
-	
-	var arg = {
-		'content': content
-	}
-	child.showModal(this.getOwnerFrame(), arg);
+// 	if(this.gfnIsEmpty(content))
+// 	{
+// 		alert("미리보기 내용이 없습니다.");
+// 		return;
+// 	}
+// 	
+// 	var child = new ChildFrame();
+// 	child.init("preview", 0, 0, 800, 630);
+// 	child.set_formurl("sample::richtexteditor_previewsample.xfdl");
+// 	child.set_openalign("center middle");
+// 	
+// 	var arg = {
+// 		'content': content
+// 	}
+// 	child.showModal(this.getOwnerFrame(), arg);
 };]]></Script>
   </Form>
 </FDL>

@@ -3,19 +3,71 @@
   <Form id="frmWorkTitleDv" width="995" height="52" titletext="WorkFrameTitle" scrolltype="none" scrollbartype="none none" onload="form_onload">
     <Layouts>
       <Layout height="52" width="995">
-        <Button id="btnMyMenu" taborder="0" left="0" top="11" width="32" height="31" cssclass="btn_WF_Bookmark" onclick="btnMyMenu_onclick"/>
-        <Static id="staNavi" taborder="1" left="btnMyMenu:-7" top="4" height="44" width="255" fittocontents="width" usedecorate="true"/>
-        <Div id="divAddBtn" taborder="2" top="12" height="28" maxwidth="" left="staNavi:0" right="351"/>
-        <Button id="btnInit" taborder="3" text="초기화" top="9" width="67" height="28" right="280" onclick="btnCmmn_onclick"/>
-        <Button id="btnSearch" taborder="4" text="조회" top="9" width="67" height="28" right="210" onclick="btnCmmn_onclick"/>
-        <Button id="btnAdd" taborder="5" text="추가" top="9" width="67" height="28" right="140" onclick="btnCmmn_onclick"/>
-        <Button id="btnDel" taborder="6" text="삭제" top="9" width="67" height="28" right="70" onclick="btnCmmn_onclick"/>
-        <Button id="btnSave" taborder="7" text="저장" top="9" width="67" height="28" right="0" onclick="btnCmmn_onclick"/>
+        <Static id="staTitle" taborder="6" text="경비 예산 조회" left="0" top="9" width="140" cssclass="sta_WF_TitleLocation" fittocontents="width" height="39"/>
+        <Div id="divAddBtn" taborder="0" top="12" height="28" maxwidth="" left="601" right="15"/>
+        <Button id="btnInit" taborder="1" text="초기화" top="9" width="67" height="28" right="-230" onclick="btnCmmn_onclick" visible="false"/>
+        <Button id="btnSearch" taborder="2" text="조회" top="9" width="67" height="28" right="-300" onclick="btnCmmn_onclick" visible="false"/>
+        <Button id="btnAdd" taborder="3" text="추가" top="9" width="67" height="28" right="-370" onclick="btnCmmn_onclick" visible="false"/>
+        <Button id="btnDel" taborder="4" text="삭제" top="9" width="67" height="28" right="-440" onclick="btnCmmn_onclick" visible="false"/>
+        <Button id="btnSave" taborder="5" text="저장" top="9" width="67" height="28" right="-510" onclick="btnCmmn_onclick" visible="false"/>
+        <Button id="btnMyMenu" taborder="7" left="staTitle:10" top="11" width="32" height="31" cssclass="btn_WF_Bookmark" onclick="btnMyMenu_onclick"/>
+        <Button id="btn_02" taborder="8" left="btnMyMenu:3" top="15" width="24" height="24" cssclass="btn_WF_Open"/>
+        <Button id="btn_03" taborder="9" left="btn_02:3" top="15" width="24" height="24" cssclass="btn_WF_Reload"/>
+        <Button id="btn_04" taborder="10" left="btn_03:3" top="15" width="24" height="24" cssclass="btn_WF_Save"/>
+        <Static id="staNavi" taborder="11" left="btn_04:10" top="4" height="44" width="255" fittocontents="width" usedecorate="true" cssclass="sta_WF_Location"/>
       </Layout>
     </Layouts>
-    <InitValue>
-      <Static id="staNavi" cssclass="sta_WF_Location"/>
-    </InitValue>
+    <Objects>
+      <Dataset id="dsBtnSeq">
+        <ColumnInfo>
+          <Column id="btnId" type="string" size="50"/>
+          <Column id="btnNm" type="string" size="50"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="btnId">btnInit</Col>
+            <Col id="btnNm">초기화</Col>
+          </Row>
+          <Row>
+            <Col id="btnId">btnSearch</Col>
+            <Col id="btnNm">조회</Col>
+          </Row>
+          <Row>
+            <Col id="btnId">btnAdd</Col>
+            <Col id="btnNm">추가</Col>
+          </Row>
+          <Row>
+            <Col id="btnId">btnDel</Col>
+            <Col id="btnNm">삭제</Col>
+          </Row>
+          <Row>
+            <Col id="btnId">btnSave</Col>
+            <Col id="btnNm">저장</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsAddBtn">
+        <ColumnInfo>
+          <Column id="SYTM_FLAG_CD" type="STRING" size="256"/>
+          <Column id="MENU_ID" type="STRING" size="256"/>
+          <Column id="BTTN_ID" type="STRING" size="256"/>
+          <Column id="SORT_CD" type="STRING" size="256"/>
+          <Column id="SORT_ORDR" type="STRING" size="256"/>
+          <Column id="BTTN_NM" type="STRING" size="256"/>
+          <Column id="BTTN_ENGL_NM" type="STRING" size="256"/>
+          <Column id="BTTN_STYLE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsMenuId">
+        <ColumnInfo>
+          <Column id="menuId" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsCmmBtnList"/>
+    </Objects>
     <Script type="xscript5.1"><![CDATA[/**
 *  AIA 비용관리 시스템
 *  @FileName 	frmWorkTitleDv.xfdl
@@ -89,12 +141,41 @@ this.form_onsize = function(obj:nexacro.Form,e:nexacro.SizeEventInfo)
 /*******************************************************************************************************************************
  * Transaction 서비스호출 처리 영역
 *******************************************************************************************************************************/
-
+/**
+ * @description 마이메뉴 조회 트랜잭션
+ */
+this.fnSearchCmmBtn = function()
+{
+	// 마이메뉴 조회
+	var sSvcId 		= "selectCmmBtnList";
+	var sSvcUrl     = "selectCmmBtnList.do";
+	var sInData     = "dsMenuId=dsMenuId";
+	var sOutData    = "dsCmmBtnList=CMMBTNLIST";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 		// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 		// trabsaction을 요청할 주소
+						sInData , 		// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 		// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 			// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  // 통신방법 정의 [생략가능]
+};
 
 /*******************************************************************************************************************************
  * Callback 영역 (Transaction, popup, message..)
 *******************************************************************************************************************************/
-
+this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
+{
+	switch(sSvcId) 
+	{
+		case "selectCmmBtnList":
+			this.fnSetAuthBtn1();
+			break;	
+		
+		default:break;
+	} 
+};
 
 /*******************************************************************************************************************************
  * 사용자 Function 영역
@@ -160,11 +241,19 @@ this.fnVisibleCmmBtn = function(v)
 	}
 };
 
+this.fnSetAuthBtn = function(v)
+{
+	this.dsMenuId.setColumn(0, "menuId", v);
+	this.fnSearchCmmBtn();
+};
+
 /**
  * @description  폼권한에 따른 공통버튼 셋팅
 */
-this.fnSetAuthBtn = function(sAuth)
+this.fnSetAuthBtn1 = function(sAuth)
 {
+	this.dsBtnSeq.copyData(this.dsCmmBtnList);
+	
 	var nRight = 0; // right기준값
 	var nGap = 3;    // 버튼사이 폭
 	var nFindRow;
@@ -176,20 +265,20 @@ this.fnSetAuthBtn = function(sAuth)
 
 		if(this.gfnIsNull(objBtn))
 		{
-			//nFindRow = this.dsBtnSeq.findRow("btnId", this.fvObjArray[i]);
-			//if(nFindRow != -1) this.dsBtnSeq.deleteRow(nFindRow);
+			nFindRow = this.dsBtnSeq.findRow("btnId", this.fvObjArray[i]);
+			if(nFindRow != -1) this.dsBtnSeq.deleteRow(nFindRow);
 		} 
 		else
 		{
-			if(sAuth.substr(i, 1) == "1")
+			if(this.dsCmmBtnList.getColumn(i, "usyn") == "Y")
 			{
 				objBtn.set_visible(true);
 			} 
 			else
 			{
 				objBtn.set_visible(false);
-				//nFindRow = this.dsBtnSeq.findRow("btnId", this.fvObjArray[i]);
-				//if(nFindRow != -1) this.dsBtnSeq.deleteRow(nFindRow);
+				nFindRow = this.dsBtnSeq.findRow("btnId", this.fvObjArray[i]);
+				if(nFindRow != -1) this.dsBtnSeq.deleteRow(nFindRow);
 			}
 		}
 	}
@@ -525,47 +614,5 @@ this.btnMyMenu_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 	this.fnSetBookmarkCss(obj);
 };
 ]]></Script>
-    <Objects>
-      <Dataset id="dsBtnSeq">
-        <ColumnInfo>
-          <Column id="btnId" type="string" size="50"/>
-          <Column id="btnNm" type="string" size="50"/>
-        </ColumnInfo>
-        <Rows>
-          <Row>
-            <Col id="btnId">btnInit</Col>
-            <Col id="btnNm">초기화</Col>
-          </Row>
-          <Row>
-            <Col id="btnId">btnSearch</Col>
-            <Col id="btnNm">조회</Col>
-          </Row>
-          <Row>
-            <Col id="btnId">btnAdd</Col>
-            <Col id="btnNm">추가</Col>
-          </Row>
-          <Row>
-            <Col id="btnId">btnDel</Col>
-            <Col id="btnNm">삭제</Col>
-          </Row>
-          <Row>
-            <Col id="btnId">btnSave</Col>
-            <Col id="btnNm">저장</Col>
-          </Row>
-        </Rows>
-      </Dataset>
-      <Dataset id="dsAddBtn">
-        <ColumnInfo>
-          <Column id="SYTM_FLAG_CD" type="STRING" size="256"/>
-          <Column id="MENU_ID" type="STRING" size="256"/>
-          <Column id="BTTN_ID" type="STRING" size="256"/>
-          <Column id="SORT_CD" type="STRING" size="256"/>
-          <Column id="SORT_ORDR" type="STRING" size="256"/>
-          <Column id="BTTN_NM" type="STRING" size="256"/>
-          <Column id="BTTN_ENGL_NM" type="STRING" size="256"/>
-          <Column id="BTTN_STYLE" type="STRING" size="256"/>
-        </ColumnInfo>
-      </Dataset>
-    </Objects>
   </Form>
 </FDL>

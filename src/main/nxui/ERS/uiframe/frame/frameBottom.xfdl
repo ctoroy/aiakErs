@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="frameBottom" width="1280" height="30" titletext="frameBottom" background="yellow">
+  <Form id="frameBottom" width="1280" height="23" titletext="frameBottom" background="yellow">
     <Layouts>
-      <Layout width="1280" height="30" screenid="Desktop_screen">
-        <Static id="Static00" taborder="0" text="BOTTOM frame" left="285" top="0" width="191" font="26px/normal &quot;Malgun Gothic&quot;" background="white" bottom="0"/>
+      <Layout width="1280" height="23" screenid="Desktop_screen">
+        <Static id="Static00_00" taborder="0" text="조회가 완료되었습니다." left="30" top="0" width="680" height="23" cssclass="sta_BF_Info"/>
+        <Static id="Static00_00_00" taborder="1" text="&lt;fc v='#000000'&gt;홍길동&lt;/fc&gt;님 오늘도 희망찬 하루 되세요! " top="0" width="250" height="23" right="109" fittocontents="width" cssclass="sta_BF_User" usedecorate="true"/>
+        <Static id="Static00_00_00_00" taborder="2" text="2024-10-07" top="0" width="80" height="23" left="Static00_00_00:0" cssclass="sta_BF_Date"/>
       </Layout>
     </Layouts>
   </Form>

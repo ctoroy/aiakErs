@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Temp02" width="1527" height="828" titletext="경비예산입력" cssclass="frm_WF_Frame" onload="form_onload">
+    <Layouts>
+      <Layout height="828" width="1527">
+        <Div id="divSearch" taborder="0" left="0" top="0" height="50" cssclass="div_WF_Search" text="" right="30">
+          <Layouts>
+            <Layout>
+              <Static id="sta00" taborder="0" text="예산년도" left="0" top="12" width="96" height="24" cssclass="sta_WF_SchLabelEssential" fittocontents="width"/>
+              <Static id="sta01" taborder="1" text="기준년월" left="218" top="12" width="86" height="24" cssclass="sta_WF_SchLabel"/>
+              <Edit id="edt00" taborder="2" left="639" top="12" width="140" height="24" value="Strategic Planning" text="Strategic Planning" readonly="true"/>
+              <Button id="btnSearch" taborder="3" text="조회" width="62" cssclass="btn_WF_Search" right="20" bottom="8" height="32"/>
+              <Edit id="edt04" taborder="4" left="537" top="12" width="100" height="24" cssclass="edt_WF_Search" value="9400" text="9400"/>
+              <Button id="btn02" taborder="5" left="609" top="12" width="28" height="24" cssclass="btn_WF_EdiSch"/>
+              <Combo id="cbo04" taborder="6" left="88" width="120" height="24" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" index="-1" text="" top="12" accessibilityenable="true" cssclass="essential" readonly="false">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">1</Col>
+                      <Col id="datacolumn">2023</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">2</Col>
+                      <Col id="datacolumn">2024</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">3</Col>
+                      <Col id="datacolumn">2025</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
+              <Calendar id="calM" taborder="7" left="307" top="12" dateformat="yyyy-MM" editformat="yyyy-MM" ondropdown="calM_ondropdown" oneditclick="calM_oneditclick" enable="true" readonly="false" width="120" height="24" popuptype="none"/>
+              <Static id="sta01_00" taborder="8" text="코스트센터" left="437" top="12" width="106" height="24" cssclass="sta_WF_SchLabel"/>
+              <Static id="sta01_00_00" taborder="9" text="단위" left="789" top="12" width="76" height="24" cssclass="sta_WF_SchLabel"/>
+              <Edit id="edt04_00" taborder="10" left="854" top="12" width="80" height="24" cssclass="edi_WF_Search" value="천원" text="천원" readonly="true"/>
+              <Static id="sta04" taborder="11" left="79" top="14" width="10" height="21" cssclass="sta_WF_GSize" visible="false" text="W10"/>
+              <Static id="sta04_00" taborder="12" left="208" top="14" width="10" height="21" cssclass="sta_WF_GSize" visible="false" text="W10"/>
+              <Static id="sta04_00_00" taborder="13" left="427" top="14" width="10" height="21" cssclass="sta_WF_GSize" visible="false" text="W10"/>
+              <Static id="sta04_00_00_00" taborder="14" left="779" top="14" width="10" height="21" cssclass="sta_WF_GSize" visible="false" text="W10"/>
+              <Static id="sta04_00_01" taborder="15" left="297" top="14" width="10" height="21" cssclass="sta_WF_GSize" visible="false" text="W10"/>
+              <Static id="sta04_00_01_00" taborder="16" left="527" top="14" width="10" height="21" cssclass="sta_WF_GSize" visible="false" text="W10"/>
+              <Static id="sta04_00_00_00_00" taborder="17" left="844" top="14" width="10" height="21" cssclass="sta_WF_GSize" visible="false" text="W10"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="sta00" taborder="1" text="경비 예산 조회" left="0" top="50" width="342" height="38" cssclass="sta_WF_Title"/>
+        <Static id="sta04" taborder="2" left="140" top="50" width="30" height="38" cssclass="sta_WF_GSize" visible="false" text="H38"/>
+        <Static id="sta04_00" taborder="3" top="0" width="30" cssclass="sta_WF_GSize" visible="false" text="W30" right="0" bottom="0"/>
+        <Tab id="Tab00" taborder="4" tabindex="0" left="0" onchanged="Tab00_onchanged" top="88" right="30" bottom="0">
+          <Tabpages>
+            <Tabpage id="Tabpage1" text="TOTAL">
+              <Layouts>
+                <Layout>
+                  <Grid id="grdList" taborder="1" left="0" binddataset="ds0" bottom="42" autofittype="col" right="0" top="38" summarytype="top">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="160"/>
+                          <Column size="70"/>
+                          <Column size="70"/>
+                          <Column size="70"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="70"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="70"/>
+                          <Column size="70"/>
+                          <Column size="70"/>
+                          <Column size="70"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="32" band="head"/>
+                          <Row size="32" band="head"/>
+                          <Row size="32" band="head"/>
+                          <Row size="28"/>
+                          <Row size="28" band="summ"/>
+                          <Row size="28" band="summ"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell rowspan="3" text="경비 예산 항목" cssclass="cell_bg01"/>
+                          <Cell col="1" rowspan="3" text="Items" cssclass="cell_bg01"/>
+                          <Cell col="2" rowspan="3" text="2023&#13;&#10;Total&#13;&#10;Act" cssclass="cell_bg01"/>
+                          <Cell col="3" rowspan="3" text="2024&#13;&#10;Budget&#13;&#10;(전용 후)" cssclass="cell_bg01"/>
+                          <Cell col="4" colspan="12" cssclass="cell_bg01" text="FY 2024"/>
+                          <Cell col="16" rowspan="3" cssclass="cell_bg01" text="2024&#13;&#10;A+F"/>
+                          <Cell col="17" colspan="5" cssclass="cell_bg01" text="FY 2025"/>
+                          <Cell col="22" rowspan="3" cssclass="cell_bg01" text="2025&#13;&#10;Budget"/>
+                          <Cell col="23" rowspan="3" cssclass="cell_bg01" text="2024F&#13;&#10;VS&#13;&#10;2023A"/>
+                          <Cell col="24" rowspan="3" cssclass="cell_bg01" text="2024F&#13;&#10;VS&#13;&#10;2023B(T)"/>
+                          <Cell col="25" rowspan="3" cssclass="cell_bg01" text="2025B&#13;&#10;VS&#13;&#10;2024F"/>
+                          <Cell row="1" col="4" text="Act" cssclass="cell_WF_Point01"/>
+                          <Cell row="1" col="5" text="Act" cssclass="cell_WF_Point01"/>
+                          <Cell row="1" col="6" text="Act" cssclass="cell_WF_Point01"/>
+                          <Cell row="1" col="7" text="Act" cssclass="cell_WF_Point01"/>
+                          <Cell row="1" col="8" text="Act" cssclass="cell_WF_Point01"/>
+                          <Cell row="1" col="9" text="Act" cssclass="cell_WF_Point01"/>
+                          <Cell row="1" col="10" text="Fcst" cssclass="cell_WF_Point02"/>
+                          <Cell row="1" col="11" text="Fcst" cssclass="cell_WF_Point02"/>
+                          <Cell row="1" col="12" text="Fcst" cssclass="cell_WF_Point02"/>
+                          <Cell row="1" col="13" text="Fcst" cssclass="cell_WF_Point02"/>
+                          <Cell row="1" col="14" text="Fcst" cssclass="cell_WF_Point02"/>
+                          <Cell row="1" col="15" text="Fcst" cssclass="cell_WF_Point02"/>
+                          <Cell row="1" col="17" text="Bud" cssclass="cell_WF_Point03"/>
+                          <Cell row="1" col="18" text="Bud" cssclass="cell_WF_Point03"/>
+                          <Cell row="1" col="19" text="Bud" cssclass="cell_WF_Point03"/>
+                          <Cell row="1" col="20" text="Bud" cssclass="cell_WF_Point03"/>
+                          <Cell row="1" col="21" text="Bud" cssclass="cell_WF_Point03"/>
+                          <Cell row="2" col="4" text="Jan"/>
+                          <Cell row="2" col="5" text="Feb"/>
+                          <Cell row="2" col="6" text="Mar"/>
+                          <Cell row="2" col="7" text="Apr"/>
+                          <Cell row="2" col="8" text="May"/>
+                          <Cell row="2" col="9" text="Jun"/>
+                          <Cell row="2" col="10" text="Jul"/>
+                          <Cell row="2" col="11" text="Aug"/>
+                          <Cell row="2" col="12" text="Sep"/>
+                          <Cell row="2" col="13" text="Oct"/>
+                          <Cell row="2" col="14" text="Nov"/>
+                          <Cell row="2" col="15" text="Dec"/>
+                          <Cell row="2" col="17" text="Jan"/>
+                          <Cell row="2" col="18" text="Feb"/>
+                          <Cell row="2" col="19" text="Mar"/>
+                          <Cell row="2" col="20" text="..."/>
+                          <Cell row="2" col="21" text="Dec"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell/>
+                          <Cell col="1"/>
+                          <Cell col="2"/>
+                          <Cell col="3"/>
+                          <Cell col="4"/>
+                          <Cell col="5"/>
+                          <Cell col="6"/>
+                          <Cell col="7"/>
+                          <Cell col="8"/>
+                          <Cell col="9"/>
+                          <Cell col="10"/>
+                          <Cell col="11"/>
+                          <Cell col="12"/>
+                          <Cell col="13"/>
+                          <Cell col="14"/>
+                          <Cell col="15"/>
+                          <Cell col="16"/>
+                          <Cell col="17"/>
+                          <Cell col="18"/>
+                          <Cell col="19"/>
+                          <Cell col="20"/>
+                          <Cell col="21"/>
+                          <Cell col="22"/>
+                          <Cell col="23"/>
+                          <Cell col="24"/>
+                          <Cell col="25"/>
+                        </Band>
+                        <Band id="summary">
+                          <Cell textAlign="center"/>
+                          <Cell col="1"/>
+                          <Cell col="2"/>
+                          <Cell col="3"/>
+                          <Cell col="4"/>
+                          <Cell col="5"/>
+                          <Cell col="6"/>
+                          <Cell col="7"/>
+                          <Cell col="8"/>
+                          <Cell col="9"/>
+                          <Cell col="10"/>
+                          <Cell col="11"/>
+                          <Cell col="12"/>
+                          <Cell col="13"/>
+                          <Cell col="14"/>
+                          <Cell col="15"/>
+                          <Cell col="16"/>
+                          <Cell col="17"/>
+                          <Cell col="18"/>
+                          <Cell col="19"/>
+                          <Cell col="20"/>
+                          <Cell col="21"/>
+                          <Cell col="22"/>
+                          <Cell col="23"/>
+                          <Cell col="24"/>
+                          <Cell col="25"/>
+                          <Cell row="1" textAlign="center" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="1" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="2" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="3" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="4" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="5" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="6" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="7" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="8" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="9" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="10" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="11" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="12" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="13" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="14" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="15" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="16" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="17" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="18" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="19" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="20" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="21" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="22" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="23" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="24" cssclass="cell_WF_Sum01"/>
+                          <Cell row="1" col="25" cssclass="cell_WF_Sum01"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                  <Static id="staTotal" taborder="0" text="총 &lt;fc v='#d31145'&gt;270&lt;/fc&gt;건" top="10" width="55" height="24" usedecorate="true" right="330" fittocontents="width" cssclass="sta_WF_Total"/>
+                  <Static id="staUnit" taborder="2" text="(단위: 천원)" left="staTotal:5" top="10" height="24" usedecorate="true" fittocontents="width" right="261" cssclass="sta_WF_Total"/>
+                  <Div id="divCmmnBtn" taborder="3" text="Div01" top="7" width="251" height="24" left="staUnit:10">
+                    <Layouts>
+                      <Layout>
+                        <Button id="btnAdd" taborder="1" text="행추가" top="0" width="77" height="24" cssclass="btn_WF_Add" left="94"/>
+                        <Button id="btnDel" taborder="0" text="행삭제" top="0" width="77" height="24" left="174" cssclass="btn_WF_Delete"/>
+                        <Button id="btnExcelUp" taborder="2" top="0" width="44" height="24" cssclass="btn_WF_ExcelUp" left="47"/>
+                        <Button id="btnExcelDown" taborder="3" top="0" width="44" height="24" cssclass="btn_WF_ExcelDown" left="0"/>
+                      </Layout>
+                    </Layouts>
+                  </Div>
+                  <Static id="sta04" taborder="4" width="100" height="7" cssclass="sta_WF_GSize" visible="false" text="H7" top="0" right="-4"/>
+                  <Static id="sta04_00" taborder="5" width="400" height="7" cssclass="sta_WF_GSize" visible="false" text="H7" top="31" right="-4"/>
+                  <Button id="btn_05" taborder="6" text="제출" width="57" height="32" cssclass="btn_WF_Custom" bottom="0" right="0"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage2" text="업무추진비">
+              <Layouts>
+                <Layout>
+                  <Static id="staTotal" taborder="0" text="총 &lt;fc v='#d31145'&gt;270&lt;/fc&gt;건" top="10" width="55" height="24" usedecorate="true" right="330" fittocontents="width" cssclass="sta_WF_Total"/>
+                  <Static id="staUnit" taborder="1" text="(단위: 천원)" left="staTotal:5" top="10" height="24" usedecorate="true" fittocontents="width" right="261" cssclass="sta_WF_Total"/>
+                  <Div id="divCmmnBtn" taborder="2" text="Div01" top="7" width="251" height="24" left="staUnit:10">
+                    <Layouts>
+                      <Layout>
+                        <Button id="btnAdd" taborder="1" text="행추가" top="0" width="77" height="24" cssclass="btn_WF_Add" left="94"/>
+                        <Button id="btnDel" taborder="0" text="행삭제" top="0" width="77" height="24" left="174" cssclass="btn_WF_Delete"/>
+                        <Button id="btnExcelUp" taborder="2" top="0" width="44" height="24" cssclass="btn_WF_ExcelUp" left="47"/>
+                        <Button id="btnExcelDown" taborder="3" top="0" width="44" height="24" cssclass="btn_WF_ExcelDown" left="0"/>
+                      </Layout>
+                    </Layouts>
+                  </Div>
+                  <Grid id="grdList" taborder="3" left="0" binddataset="ds0" bottom="0" autofittype="col" right="0" top="38" summarytype="top">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="100"/>
+                          <Column size="100"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="48"/>
+                          <Column size="70"/>
+                          <Column size="70"/>
+                          <Column size="70"/>
+                          <Column size="70"/>
+                          <Column size="70"/>
+                          <Column size="70"/>
+                          <Column size="70"/>
+                          <Column size="70"/>
+                          <Column size="70"/>
+                          <Column size="70"/>
+                          <Column size="70"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="32" band="head"/>
+                          <Row size="32" band="head"/>
+                          <Row size="32" band="head"/>
+                          <Row size="28"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell rowspan="2" colspan="2" cssclass="cell_bg01" text="코스트 센터"/>
+                          <Cell col="2" rowspan="2" colspan="3" text="2024 Total HC" cssclass="cell_bg01"/>
+                          <Cell col="5" rowspan="2" colspan="3" text="2025 Total HC" cssclass="cell_bg01"/>
+                          <Cell col="8" rowspan="3" text="2023&#13;&#10;Total&#13;&#10;Act" cssclass="cell_bg01"/>
+                          <Cell col="9" rowspan="3" text="2024&#13;&#10;Budget&#13;&#10;(Orginal)" cssclass="cell_bg01"/>
+                          <Cell col="10" rowspan="3" cssclass="cell_bg01" text="2024&#13;&#10;Budget&#13;&#10;(전용 후)"/>
+                          <Cell col="11" rowspan="3" cssclass="cell_bg01" text="2024F&#13;&#10;FCST"/>
+                          <Cell col="12" text="2025" cssclass="cell_bg01"/>
+                          <Cell col="13" text="2025" cssclass="cell_bg01"/>
+                          <Cell col="14" text="2025" cssclass="cell_bg01"/>
+                          <Cell col="15" text="2025" cssclass="cell_bg01"/>
+                          <Cell col="16" text="2025" cssclass="cell_bg01"/>
+                          <Cell col="17" rowspan="3" cssclass="cell_bg01" text="2025&#13;&#10;Total&#13;&#10;Bud"/>
+                          <Cell col="18" rowspan="3" cssclass="cell_bg01" text="Remarks"/>
+                          <Cell row="1" col="12" text="50k/M"/>
+                          <Cell row="1" col="13" text="50k/Q"/>
+                          <Cell row="1" col="14"/>
+                          <Cell row="1" col="15" text="150K or 50"/>
+                          <Cell row="1" col="16" text="100K"/>
+                          <Cell row="2" text="코드"/>
+                          <Cell row="2" col="1" text="명"/>
+                          <Cell row="2" col="2" text="Total"/>
+                          <Cell row="2" col="3" text="EXCO"/>
+                          <Cell row="2" col="4" text="FL"/>
+                          <Cell row="2" col="5" text="Total"/>
+                          <Cell row="2" col="6" text="EXCO"/>
+                          <Cell row="2" col="7" text="FL"/>
+                          <Cell row="2" col="12" text="Team"/>
+                          <Cell row="2" col="13" text="WorkShop"/>
+                          <Cell row="2" col="14" text="Etc."/>
+                          <Cell row="2" col="15" text="EXCO"/>
+                          <Cell row="2" col="16" text="FL"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell/>
+                          <Cell col="1"/>
+                          <Cell col="2"/>
+                          <Cell col="3"/>
+                          <Cell col="4"/>
+                          <Cell col="5"/>
+                          <Cell col="6"/>
+                          <Cell col="7"/>
+                          <Cell col="8"/>
+                          <Cell col="9"/>
+                          <Cell col="10"/>
+                          <Cell col="11"/>
+                          <Cell col="12"/>
+                          <Cell col="13"/>
+                          <Cell col="14"/>
+                          <Cell col="15"/>
+                          <Cell col="16"/>
+                          <Cell col="17"/>
+                          <Cell col="18"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage3" text="일반 접대비">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage4" text="시내 교통비">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage5" text="야근 교통비">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage6" text="국내 출장비">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage7" text="해외 출장비">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="Tabpage8" text="Foreign Visitor">
+              <Layouts>
+                <Layout/>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds0">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[]]></Script>
+  </Form>
+</FDL>

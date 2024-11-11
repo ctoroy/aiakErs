@@ -154,7 +154,7 @@ pForm.gfnSetMain = function(bInit)
 	objApp.gvFrameStat	= "main";
 	
 	// Layout
-	objApp.gvVFS.set_separatesize("0,42,*");
+	objApp.gvVFS.set_separatesize("0,43,*");
 	
 	// Mdi Frame 위치 설정(top || bottom)
 	if(objApp.gvMdiFramePos == "top")
@@ -163,7 +163,7 @@ pForm.gfnSetMain = function(bInit)
 	}
 	else if(objApp.gvMdiFramePos == "bottom")
 	{
-		objApp.gvVFS1.set_separatesize("0,*,0,42");
+		objApp.gvVFS1.set_separatesize("0,*,0,43");
 	}
  	if(bInit == false)
 	{
@@ -191,11 +191,11 @@ pForm.gfnSetSub = function()
 	// Mdi Frame 위치 설정(top || bottom)
 	if (objApp.gvMdiFramePos == "top")
 	{
-		objApp.gvVFS1.set_separatesize("0,*,0");
+		objApp.gvVFS1.set_separatesize("0,*,23");
 	}
 	else if(objApp.gvMdiFramePos == "bottom")
 	{
-		objApp.gvVFS1.set_separatesize("0,0,*,42");
+		objApp.gvVFS1.set_separatesize("0,0,*,43");
 	}
 
  	objApp.gvFrmMdi.form.fnSetStyle("sub");
@@ -253,8 +253,8 @@ pForm.gfnShowLeftFrame = function ()
 {
 	var objApp = nexacro.getApplication();
 
-	objApp.gvHFS.set_separatesize("320,*");
-	objApp.gvFrmMdi.form.btnLeftMenuShowHide.cssclass = "btn_MDI_MenuClose";
+	objApp.gvHFS.set_separatesize("363,*");
+	objApp.gvFrmMdi.form.btnLeftMenuShowHide.cssclass = "btn_LF_Close";
 	objApp.gvFrmLeft.form.fvMenuStatus = "open";
 	objApp.gvFrmLeft.form.fnMenuVisible();
 	
@@ -270,8 +270,8 @@ pForm.gfnHideLeftFrame = function ()
 {
 	var objApp = nexacro.getApplication();
 
-	objApp.gvHFS.set_separatesize("50,*");
-	objApp.gvFrmMdi.form.btnLeftMenuShowHide.cssclass = "btn_MDI_MenuOpen";
+	objApp.gvHFS.set_separatesize("58,*");
+	objApp.gvFrmMdi.form.btnLeftMenuShowHide.cssclass = "btn_LF_Open";
 	objApp.gvFrmLeft.form.fvMenuStatus = "close";
 	objApp.gvFrmLeft.form.fnMenuVisible();
 };
@@ -435,9 +435,9 @@ pForm.gfnNewMdi = function(objDs, nRow, objParam, bReload)
 
 	this.gfnSetOpenMenuDs(sWinId, sMenuId, sMenuNm, sMenuUrl, sPrgmId);		// 열린메뉴 화면 삽입
 
-	var objNewWin = new ChildFrame;
+	var objNewWin = new ChildFrame();
 
-	objNewWin.init(sWinId, 0, 0, objApp.gvFrsWork.getOffsetWidth() - 0, objApp.gvFrsWork.getOffsetHeight() - 0);
+	objNewWin.init(sWinId, 0, 0, objApp.gvFrsWork.getOffsetWidth() - 0, objApp.gvFrsWork.getOffsetHeight() - 0, null, null);
 	objApp.gvFrsWork.addChild(sWinId, objNewWin);
 
 	//objNewWin.set_tooltiptext(sWinId);
@@ -630,8 +630,8 @@ pForm.gfnSetWorkMode = function (status)
 	var objApp = nexacro.getApplication();
 	
 	if(this.gfnIsNull(objApp.gvVFS.status)) objApp.gvVFS.status = "0,50,*";
-	if(this.gfnIsNull(objApp.gvHFS.status)) objApp.gvHFS.status = "320,*";
-	if(this.gfnIsNull(objApp.gvVFS1.status)) objApp.gvVFS1.status = "42,0,*,0";
+	if(this.gfnIsNull(objApp.gvHFS.status)) objApp.gvHFS.status = "363,*";
+	if(this.gfnIsNull(objApp.gvVFS1.status)) objApp.gvVFS1.status = "43,0,*,0";
 	
 	if(status == "normal")
 	{

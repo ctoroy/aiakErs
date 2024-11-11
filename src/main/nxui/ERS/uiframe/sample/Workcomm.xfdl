@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Comm" width="1527" height="49" titletext="Form_Work">
+    <Layouts>
+      <Layout width="1527" height="49" screenid="Desktop_screen">
+        <Static id="Static00" taborder="0" text="경비 예산 조회" left="0" top="9" width="190" cssclass="sta_WF_TitleLocation" fittocontents="width" height="39"/>
+        <Button id="btn_01" taborder="3" left="Static00:10" width="24" height="24" cssclass="btn_WF_BookmarkS" top="15"/>
+        <Button id="btn_02" taborder="2" left="btn_01:3" top="15" width="24" height="24" cssclass="btn_WF_Open"/>
+        <Button id="btn_03" taborder="4" left="btn_02:3" top="15" width="24" height="24" cssclass="btn_WF_Reload"/>
+        <Button id="btn_04" taborder="6" left="btn_03:3" top="15" width="24" height="24" cssclass="btn_WF_Save"/>
+        <Static id="Static00_00" taborder="1" text="1Depth  &gt;  2Depth  &gt;  3Depth  &gt;  현재화면" left="btn_04:10" top="6" width="380" height="43" cssclass="sta_WF_Location"/>
+        <Static id="Static00_01" taborder="5" text="w30" top="0" width="30" bottom="0" cssclass="sta_WF_GSize" visible="false" right="0"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

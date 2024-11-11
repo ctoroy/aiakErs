@@ -5,7 +5,7 @@
     <Layouts>
       <Layout>
         <WebBrowser id="web_preview" left="5" top="8" taborder="0" style="border:1px solid gray ;" onloadcompleted="web_preview_onloadcompleted" onusernotify="web_preview_onusernotify" right="5" bottom="32" border="1px solid gray"/>
-        <Button id="Button00" taborder="1" text="Close" left="699" top="571" width="96" height="26" onclick="Button00_onclick"/>
+        <Button id="Button00" taborder="1" text="Close" width="96" height="26" onclick="Button00_onclick" right="5" bottom="3"/>
       </Layout>
     </Layouts>
     <Script type="xscript5.1"><![CDATA[this.fvUrl = "http://localhost:8080/uiadapter/ERS/";
