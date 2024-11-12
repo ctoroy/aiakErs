@@ -1,5 +1,6 @@
 package aia.ers.application.web;
 
+import aia.ers.application.pojo.Artc;
 import aia.ers.application.pojo.Emp;
 import aia.ers.application.pojo.departDto;
 import aia.ers.application.pojo.employeeDto;
@@ -49,4 +50,13 @@ public class CommonController {
         return result;
     }
 
+    @RequestMapping(value = "/selectArtcList.do")
+    public NexacroResult selectArtcList(@ParamDataSet(name = "dsIn", required = false) Artc searchVo) throws NexacroException {
+
+        List<Artc> artcList = organizeService.selectArtcList(searchVo);
+        NexacroResult result = new NexacroResult();
+        result.addDataSet("ARTCLIST", artcList);
+
+        return result;
+    }
 }

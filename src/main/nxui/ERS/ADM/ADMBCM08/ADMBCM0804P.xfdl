@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="ADMBCM0804P" width="850" height="500" titletext="항목코드정보" onload="ADMBCM0804P_onload">
+    <Layouts>
+      <Layout height="500" mobileorientation="landscape" width="850">
+        <Static id="staEmpList" taborder="0" text="아이템코드 정보" left="25" top="78" width="342" height="38" cssclass="sta_WF_Title"/>
+        <Grid id="grdArtcList" taborder="1" left="20" top="116" right="20" bottom="62" autofittype="col" oncelldblclick="grdList_oncelldblclick" binddataset="dsArtcList">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="150"/>
+                <Column size="100"/>
+                <Column size="150"/>
+                <Column size="150"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="32" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="예산년도"/>
+                <Cell col="1" text="코스트센터코드"/>
+                <Cell col="2" text="코스트센터명"/>
+                <Cell col="3" text="항목코드"/>
+                <Cell col="4" text="항목명"/>
+                <Cell col="5" text="프로젝트구분명"/>
+                <Cell col="6" text="사용여부"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:bdgYear" displaytype="normal" textAlign="center"/>
+                <Cell col="1" text="bind:cstCntrCd" displaytype="normal" textAlign="center"/>
+                <Cell col="2" text="bind:cstCntrCdNm" displaytype="normal" textAlign="center"/>
+                <Cell col="3" text="bind:artcCd" displaytype="normal" combodataset="dsRgntnYn" combocodecol="code" combodatacol="data" textAlign="center"/>
+                <Cell col="4" displaytype="normal" textAlign="center" text="bind:artcCdNm"/>
+                <Cell col="5" displaytype="normal" textAlign="center" text="bind:pjtClssfc"/>
+                <Cell col="6" displaytype="checkboxcontrol" textAlign="center" text="bind:useYn"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static04" taborder="2" left="165" top="70" width="30" height="46" cssclass="sta_WF_GSize" visible="false" text="H46"/>
+        <Static id="Static04_00" taborder="3" left="20" top="0" height="20" cssclass="sta_WF_GSize" visible="false" text="H20" right="20"/>
+        <Static id="Static04_01" taborder="4" left="0" top="0" width="20" cssclass="sta_WF_GSize" visible="false" text="W 20" bottom="0"/>
+        <Static id="Static04_01_00" taborder="5" top="0" width="20" cssclass="sta_WF_GSize" visible="false" text="W 20" bottom="0" right="0"/>
+        <Button id="btnClose" taborder="7" text="취소" height="32" width="57" right="20" bottom="20" onclick="btnClose_onclick" cssclass="btn_WF_Popup02"/>
+        <Button id="btnConfirm" taborder="6" text="확인" height="32" width="57" cssclass="btn_WF_Popup" right="80" bottom="20" onclick="btnConfirm_onclick"/>
+        <Static id="Static04_00_00" taborder="8" left="20" height="20" cssclass="sta_WF_GSize" visible="false" text="H20" bottom="0" right="20"/>
+        <Static id="Static04_00_00_00" taborder="9" left="730" width="30" height="10" cssclass="sta_WF_GSize" visible="false" text="H10" bottom="52"/>
+        <Div id="divSearch" taborder="10" left="20" top="20" height="50" cssclass="div_WF_Search" text="" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="staBdgYear" taborder="0" text="예산년도" left="0" top="12" width="86" height="24" cssclass="sta_WF_SchLabel"/>
+              <Button id="btnSearch" taborder="1" text="조회" width="62" cssclass="btn_WF_Search" right="20" bottom="8" height="32" onclick="divSearch_btnSearch_onclick"/>
+              <Spin id="spnBdgYear" taborder="4" left="staBdgYear:10" top="12" width="160" height="24"/>
+              <Static id="staArtcCdNm" taborder="2" text="항목코드(명)" left="spnBdgYear:10" top="12" width="106" height="24" cssclass="sta_WF_SchLabel"/>
+              <Edit id="edtArtcCdNm" taborder="3" left="staArtcCdNm:10" top="12" width="160" height="24" cssclass="edt_WF_Search" text=""/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="sta04_01" taborder="11" left="20" top="70" width="90" height="8" cssclass="sta_WF_GSize" visible="false" text="H8"/>
+        <Static id="sta04_00_00" taborder="12" width="400" height="7" cssclass="sta_WF_GSize" visible="false" text="H7" top="109" right="24"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsArtcList">
+        <ColumnInfo>
+          <Column id="bdgYear" type="STRING" size="4"/>
+          <Column id="cstCntrCd" type="STRING" size="4"/>
+          <Column id="cstCntrCdNm" type="STRING" size="3000"/>
+          <Column id="artcCd" type="STRING" size="10"/>
+          <Column id="artcCdNm" type="STRING" size="3000"/>
+          <Column id="pjtClssfc" type="STRING" size="6"/>
+          <Column id="useYn" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsArtcCond">
+        <ColumnInfo>
+          <Column id="searchText" type="STRING" size="256"/>
+          <Column id="bdgYear" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsRtnArtcInfo">
+        <ColumnInfo>
+          <Column id="bdgYear" type="STRING" size="4"/>
+          <Column id="cstCntrCd" type="STRING" size="4"/>
+          <Column id="cstCntrCdNm" type="STRING" size="3000"/>
+          <Column id="artcCd" type="STRING" size="10"/>
+          <Column id="artcCdNm" type="STRING" size="3000"/>
+          <Column id="pjtClssfc" type="STRING" size="6"/>
+          <Column id="useYn" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/**
+*  항목코드정보
+*  @FileName 	ADMBCM08/ADMBCM0804P.xfdl
+*  @Creator 	이중섭
+*  @CreateDate 	2024.11.12
+*  @Desction    항목코드정보 화면
+************** 소스 수정 이력 ***********************************************
+* Date					Modifier					Description
+*******************************************************************************
+* 2021/01/05			TOBESOFT					최초생성
+*******************************************************************************
+*/
+
+/*******************************************************************************************************************************
+ * FORM 변수 선언 영역
+*******************************************************************************************************************************/
+this.fvSearch = "";	// 부모에서 넘긴 검색조건
+ 
+/*******************************************************************************************************************************
+ * FORM EVENT 영역(onload, onbeforeclose..)
+*******************************************************************************************************************************/
+this.ADMBCM0804P_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnload(obj,e); //필수함수
+	
+	// 초기화
+	this.fnPopupInit();
+};
+
+/*******************************************************************************************************************************
+ * 공통함수영역 (cfnSearch : 조회 / cfnSave : 저장 / cfnAdd : 신규 / cfnDel : 삭제 / cfnPrint : 인쇄..)
+*******************************************************************************************************************************/
+
+/*******************************************************************************************************************************
+ * Transaction 서비스호출 처리 영역
+*******************************************************************************************************************************/
+/**
+ * @description 사원 조회 트랜잭션
+ */
+this.fnSearchArtcList = function()
+{
+	// 마이메뉴 조회
+	var sSvcId 		= "selectArtcList";
+	var sSvcUrl     = "selectArtcList.do";
+	var sInData     = "dsIn=dsArtcCond";
+	var sOutData    = "dsArtcList=ARTCLIST";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 	// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 			// trabsaction을 요청할 주소
+						sInData , 			// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 			// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 				// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  	// 통신방법 정의 [생략가능]
+};
+/*******************************************************************************************************************************
+ * Callback 영역 (Transaction, popup, message..)
+*******************************************************************************************************************************/
+this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
+{
+	switch(sSvcId) 
+	{
+		case "selectArtcList":
+			break;
+		default:break;
+	} 
+};
+/*******************************************************************************************************************************
+ * 사용자 Function 영역
+*******************************************************************************************************************************/
+/**
+ * @description 초기화
+*/
+this.fnPopupInit = function()
+{
+	this.dsArtcList.clearData();
+	this.dsArtcCond.setColumn(0,'bdgYear',new Date().getFullYear());
+}
+/*******************************************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+*******************************************************************************************************************************/
+/**
+ * @description 취소 버튼 클릭 이벤트
+*/
+this.btnClose_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.gfnClosePopup(null);
+};
+
+/**
+ * @description 확인 버튼 클릭 이벤트
+*/
+this.btnConfirm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fnReturn();
+};
+
+/**
+ * @description 그리드셀 더블클릭 이벤트
+*/
+this.grdList_oncelldblclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	this.fnReturn();
+};
+
+this.fnReturn = function(){
+	var nRow = this.dsArtcList.rowposition;
+	this.dsRtnArtcInfo.clearData();
+	this.dsRtnArtcInfo.addRow();
+	this.dsRtnArtcInfo.copyRow(0, this.dsArtcList, nRow);
+	this.gfnClosePopup(this.dsRtnArtcInfo.saveJSON());
+}
+
+this.divSearch_btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fnSearchArtcList();
+};
+]]></Script>
+    <Bind>
+      <BindItem id="item0" compid="divSearch.form.spnBdgYear" propid="value" datasetid="dsArtcCond" columnid="bdgYear"/>
+      <BindItem id="item1" compid="divSearch.form.edtArtcCdNm" propid="value" datasetid="dsArtcCond" columnid="searchText"/>
+    </Bind>
+  </Form>
+</FDL>
