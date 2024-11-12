@@ -59,11 +59,12 @@
     <Service prefixid="extlib" type="resource" url="./_extlib_/" version="0" cachelevel="session" include_subdir="true"/>
     <Service prefixid="svcUrl" type="JSP" version="0" cachelevel="none" include_subdir="false" communicationversion="0" url="http://localhost:8080/uiadapter/"/>
     <Service prefixid="ESRlib" type="js" url="./nexacrolib/component/ERSLib/" version="0" cachelevel="none" include_subdir="false" communicationversion="0"/>
-    <Service prefixid="richtexteditorLib" type="file" url="./richtexteditorLib/" version="0" cachelevel="session" include_subdir="true" communicationversion="0"/>
+    <Service prefixid="richtexteditorLib" type="file" url="./richtexteditorLib/" version="0" cachelevel="none" include_subdir="true" communicationversion="0"/>
+    <Service prefixid="design" type="form" url="./design/" version="0" cachelevel="none" include_subdir="true" communicationversion="0"/>
+    <Service prefixid="sample" type="form" url="./uiframe/sample/" version="0" cachelevel="none" include_subdir="false" communicationversion="0"/>
+    <Service prefixid="richtexteditor" type="form" url="./richtexteditor/" version="0" cachelevel="none" include_subdir="false" communicationversion="0"/>
     <Service prefixid="frame" type="form" url="./uiframe/frame/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
     <Service prefixid="common" type="form" url="./uiframe/common/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
-    <Service prefixid="sample" type="form" url="./uiframe/sample/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
-    <Service prefixid="richtexteditor" type="form" url="./richtexteditor/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
     <Service prefixid="SCC01" type="form" url="./SCC01/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
     <Service prefixid="ADMBCM08" type="form" url="./ADM/ADMBCM08/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
     <Service prefixid="ADMCOM01" type="form" url="./ADM/ADMCOM01/" version="0" cachelevel="session" include_subdir="true" communicationversion="0"/>

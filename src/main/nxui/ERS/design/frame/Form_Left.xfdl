@@ -64,7 +64,7 @@
                       <Row size="28"/>
                     </Rows>
                     <Band id="body">
-                      <Cell text="bind:Column1" tooltiptext="bind:Column1" displaytype="decoratetext" edittype="text" textAlign="left"/>
+                      <Cell text="bind:Column1" tooltiptext="bind:Column1" displaytype="decoratetext" textAlign="left"/>
                     </Band>
                   </Format>
                 </Formats>

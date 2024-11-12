@@ -3,18 +3,18 @@
   <Form id="frmWorkTitleDv" width="995" height="52" titletext="WorkFrameTitle" scrolltype="none" scrollbartype="none none" onload="form_onload">
     <Layouts>
       <Layout height="52" width="995">
-        <Static id="staTitle" taborder="6" text="경비 예산 조회" left="0" top="9" width="140" cssclass="sta_WF_TitleLocation" fittocontents="width" height="39"/>
+        <Static id="staTitle" taborder="6" text="경비 예산 조회" left="0" top="9" width="130" cssclass="sta_WF_TitleLocation" fittocontents="width" height="39"/>
         <Div id="divAddBtn" taborder="0" top="12" height="28" maxwidth="" left="601" right="15"/>
-        <Button id="btnInit" taborder="1" text="초기화" top="9" width="67" height="28" right="-230" onclick="btnCmmn_onclick" visible="false"/>
-        <Button id="btnSearch" taborder="2" text="조회" top="9" width="67" height="28" right="-300" onclick="btnCmmn_onclick" visible="false"/>
-        <Button id="btnAdd" taborder="3" text="추가" top="9" width="67" height="28" right="-370" onclick="btnCmmn_onclick" visible="false"/>
-        <Button id="btnDel" taborder="4" text="삭제" top="9" width="67" height="28" right="-440" onclick="btnCmmn_onclick" visible="false"/>
-        <Button id="btnSave" taborder="5" text="저장" top="9" width="67" height="28" right="-510" onclick="btnCmmn_onclick" visible="false"/>
+        <Button id="btnInit00" taborder="1" text="초기화" top="9" width="67" height="28" right="280" onclick="btnCmmn_onclick"/>
+        <Button id="btnSearch" taborder="2" text="조회" top="9" width="67" height="28" right="210" onclick="btnCmmn_onclick"/>
+        <Button id="btnAdd" taborder="3" text="추가" top="9" width="67" height="28" right="140" onclick="btnCmmn_onclick"/>
+        <Button id="btnDel" taborder="4" text="삭제" top="9" width="67" height="28" right="70" onclick="btnCmmn_onclick"/>
+        <Button id="btnSave00" taborder="5" text="저장" top="9" width="67" height="28" right="0" onclick="btnCmmn_onclick"/>
         <Button id="btnMyMenu" taborder="7" left="staTitle:10" top="11" width="32" height="31" cssclass="btn_WF_Bookmark" onclick="btnMyMenu_onclick"/>
-        <Button id="btn_02" taborder="8" left="btnMyMenu:3" top="15" width="24" height="24" cssclass="btn_WF_Open"/>
-        <Button id="btn_03" taborder="9" left="btn_02:3" top="15" width="24" height="24" cssclass="btn_WF_Reload"/>
-        <Button id="btn_04" taborder="10" left="btn_03:3" top="15" width="24" height="24" cssclass="btn_WF_Save"/>
-        <Static id="staNavi" taborder="11" left="btn_04:10" top="4" height="44" width="255" fittocontents="width" usedecorate="true" cssclass="sta_WF_Location"/>
+        <Button id="btnOpen" taborder="8" left="btnMyMenu:3" top="15" width="24" height="24" cssclass="btn_WF_Open" onclick="btnOpen_onclick"/>
+        <Button id="btnInit" taborder="9" left="btnOpen:3" top="15" width="24" height="24" cssclass="btn_WF_Reload" onclick="btnCmmn_onclick"/>
+        <Button id="btnSave" taborder="10" left="btnInit:3" top="15" width="24" height="24" cssclass="btn_WF_Save" onclick="btnCmmn_onclick"/>
+        <Static id="staNavi" taborder="11" left="btnSave:10" top="4" height="44" width="255" fittocontents="width" usedecorate="true" cssclass="sta_WF_Location"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -170,7 +170,7 @@ this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
 	switch(sSvcId) 
 	{
 		case "selectCmmBtnList":
-			this.fnSetAuthBtn1();
+			//this.fnSetAuthBtn1();
 			break;	
 		
 		default:break;
@@ -193,11 +193,11 @@ this.fnSetMyMenuBtn = function ()
 
 	if(nRow < 0)
 	{
-		this.btnMyMenu.set_cssclass("btn_WF_Favo");
+		this.btnMyMenu.set_cssclass("btn_WF_Bookmark");
 	}
 	else
 	{
-		this.btnMyMenu.set_cssclass("btn_WF_FavoS");
+		this.btnMyMenu.set_cssclass("btn_WF_BookmarkS");
 	}
 };
 
@@ -555,8 +555,10 @@ this.btnCmmn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
  */
 this.btnMyMenu_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
+	this.gfnAlert("msg.general", ["즐겨찾기 개발중................. "]);
+	return;
 	var bIsMymenu = false;
-	if(this.btnMyMenu.cssclass == "btn_WF_FavoS")	bIsMymenu = true;
+	if(this.btnMyMenu.cssclass == "btn_WF_BookmarkS")	bIsMymenu = true;
 
 	var objDs = this.objApp.gvFrmLeft.form.dsMyMenu;
 	var objMenuDs = this.objApp.gdsMenu;
@@ -612,6 +614,14 @@ this.btnMyMenu_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 
 	// 북마크버튼 css 변경
 	this.fnSetBookmarkCss(obj);
+};
+
+this.btnOpen_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	//this.gfnAlert("msg.general", ["팝업창 개발중................. "]);
+	var arg = this.objApp.gvFrsWork.getActiveFrame().arguments;
+	var sPopId = arg.MENU_ID;
+	this.gfnSetOpenPopup(sPopId, "", arg);
 };
 ]]></Script>
   </Form>

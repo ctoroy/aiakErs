@@ -1,12 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="frameBottom" width="1280" height="23" titletext="frameBottom" background="yellow">
+  <Form id="frameBottom" width="1280" height="23" titletext="frameBottom" onload="form_onload">
     <Layouts>
       <Layout width="1280" height="23" screenid="Desktop_screen">
-        <Static id="Static00_00" taborder="0" text="조회가 완료되었습니다." left="30" top="0" width="680" height="23" cssclass="sta_BF_Info"/>
-        <Static id="Static00_00_00" taborder="1" text="&lt;fc v='#000000'&gt;홍길동&lt;/fc&gt;님 오늘도 희망찬 하루 되세요! " top="0" width="250" height="23" right="109" fittocontents="width" cssclass="sta_BF_User" usedecorate="true"/>
-        <Static id="Static00_00_00_00" taborder="2" text="2024-10-07" top="0" width="80" height="23" left="Static00_00_00:0" cssclass="sta_BF_Date"/>
+        <Static id="staInfo" taborder="0" left="30" top="0" width="680" height="23" cssclass="sta_BF_Info" text="N/A"/>
+        <Static id="staDate" taborder="2" text="2024-10-07" top="0" width="80" height="23" cssclass="sta_BF_Date" fittocontents="width" right="29"/>
+        <Static id="staUserInfo" taborder="1" text="&lt;fc v='#000000'&gt;홍길동&lt;/fc&gt;님 오늘도 희망찬 하루 되세요! " top="0" width="250" height="23" right="staDate:5" fittocontents="width" cssclass="sta_BF_User" usedecorate="true"/>
       </Layout>
     </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+/**
+*  AIA 비용관리시스템 시스템
+*  @FileName 	sampleScript.xfdl
+*  @Creator 	AIA
+*  @CreateDate 	2024.10.21
+*  @Desction 
+************** 소스 수정 이력 ***********************************************
+* Date					Modifier					Description
+*******************************************************************************
+* 2024.10.21			AIA						최초생성
+*******************************************************************************
+*/
+
+/*******************************************************************************************************************************
+ * FORM 변수 선언 영역
+*******************************************************************************************************************************/
+this.objApp = nexacro.getApplication();	//필수 application
+/*******************************************************************************************************************************
+ * FORM EVENT 영역(onload, onbeforeclose..)
+*******************************************************************************************************************************/
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.fnInit();
+};
+
+/**
+ * @description 화면 load시 초기화
+ */
+this.fnInit = function()
+{
+	this.staDate.text = this.gfnGetDate("", "-");
+	this.resetScroll();
+};
+
+/*******************************************************************************************************************************
+ * 공통함수영역 (cfnInit : 초기화 / cfnSearch : 조회 / cfnAdd : 추가 / cfnDel : 삭제 / cfnSave : 저장 / cfnClose : 화면 닫기전 체크)
+ * 추가 버튼은 prefix cfn 으로 시작하여 명칭을 만든다.
+*******************************************************************************************************************************/
+
+
+/*******************************************************************************************************************************
+ * Transaction 서비스호출 처리 영역
+*******************************************************************************************************************************/
+
+/*******************************************************************************************************************************
+ * Callback 영역 (Transaction, popup, message..)
+*******************************************************************************************************************************/
+
+/*******************************************************************************************************************************
+ * 사용자 Function 영역
+*******************************************************************************************************************************/
+/**
+ * @description 상태 메시지
+ */
+this.fnStatusMsg = function(v)
+{
+	this.staInfo.text = v;
+};
+
+/**
+ * @description 사용자 정보
+ */
+this.fnUserInfro = function(v)
+{
+	this.staUserInfo.text = v;
+};
+/*******************************************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+*******************************************************************************************************************************/
+
+]]></Script>
   </Form>
 </FDL>

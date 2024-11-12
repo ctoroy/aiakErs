@@ -4,7 +4,11 @@
     <Layouts>
       <Layout width="1280" height="650" screenid="Desktop_screen">
         <Static id="Static00" taborder="0" text="MAIN frame" left="9" top="20" width="241" height="60" font="normal 800 36px/normal &quot;Malgun Gothic&quot;" background="white"/>
-        <Div id="divView" taborder="1" text="div00" left="20" top="100" right="0" bottom="0"/>
+        <Div id="divView" taborder="1" text="div00" left="20" top="100" right="0" bottom="0">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
         <Button id="btnMainList" taborder="2" text="메인 조회" left="260" top="20" width="120" height="50" onclick="btnMainList_onclick" background="coral"/>
         <Button id="btnFileUpList" taborder="3" text="파일다운 업 조회" left="390" top="20" width="120" height="50" onclick="btnFileUpList_onclick" background="coral"/>
       </Layout>

@@ -65,10 +65,10 @@
         <Static id="staTitle" taborder="12" left="101" top="0" width="70" cssclass="sta_TF_LogoTxt" text="ERS" height="43"/>
         <Button id="btnLeftMenuShowHide00" taborder="13" left="320" top="50" width="43" height="43" cssclass="btn_LF_Open" onclick="btnLeftMenuShowHide_onclick" visible="false"/>
         <Button id="btnHome00" taborder="14" top="47" width="40" cssclass="btn_MDI_HomeS" height="36" left="393" onclick="btnHome_onclick" visible="false"/>
-        <Button id="Button00_01" taborder="14" left="0" width="184" height="36" cssclass="btn_TF_MenuS" top="137" text="페이지타이틀"/>
-        <Button id="Button00" taborder="15" left="156" top="146" width="20" height="20" cssclass="btn_MDI_TabClose"/>
-        <Button id="Button00_01_00" taborder="16" left="188" width="184" height="36" cssclass="btn_TF_Menu" top="137" text="페이지타이틀"/>
-        <Button id="Button00_00" taborder="17" left="344" top="146" width="20" height="20" cssclass="btn_MDI_TabClose"/>
+        <Button id="Button00_01" taborder="14" left="0" width="184" height="36" cssclass="btn_TF_MenuS" top="137" text="페이지타이틀" visible="false"/>
+        <Button id="Button00" taborder="15" left="156" top="146" width="20" height="20" cssclass="btn_MDI_TabClose" visible="false"/>
+        <Button id="Button00_01_00" taborder="16" left="188" width="184" height="36" cssclass="btn_TF_Menu" top="137" text="페이지타이틀" visible="false"/>
+        <Button id="Button00_00" taborder="17" left="344" top="146" width="20" height="20" cssclass="btn_MDI_TabClose" visible="false"/>
       </Layout>
     </Layouts>
     <Script type="xscript5.1"><![CDATA[/**
@@ -1039,7 +1039,7 @@ this.btnList_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 
     if(this.objApp.gdsOpenMenu.rowcount > 0)
 	{
-		this.pdvOpenMenu.trackPopupByComponent(obj, 0, obj.height);
+		this.pdvOpenMenu.trackPopupByComponent(obj, -nWidth+parseInt(obj.width), obj.height);
 	
 		this.pdvOpenMenu.form.grdOpenMenu.setFocus();
 		this.pdvOpenMenu.form.grdOpenMenu.selectCell(0, 0, true);
