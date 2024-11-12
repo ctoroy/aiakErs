@@ -38,4 +38,25 @@
                )
         </if>
     </select>
+
+    <!-- 항목코드목록 조회 -->
+    <select id="selectArtcList" parameterType="aia.ers.application.pojo.Artc" resultType="aia.ers.application.pojo.Artc">
+        SELECT AM.BDG_YEAR        AS bdgYear      /* 예산년도 */
+        , AM.CST_CNTR_CD          AS cstCntrCd    /* 코스트센터코드 */
+        , ''                      AS cstCntrCdNm  /* 코스트센터코드명 */
+        , AM.ARTC_CD              AS artcCd       /* 항목코드 */
+        , ''                      AS artcCdNm     /* 항목코드명 */
+        , AM.PJT_CLSSFC           AS pjtClssfc    /* 프로젝트구분 */
+        , AM.USE_YN               AS useYn        /* 사용여부 */
+        FROM ARTC_MNGM AM
+        WHERE 1=1
+        <if test="bdgYear != null and bdgYear !=''">
+            AND AM.BDG_YEAR = #{bdgYear}
+        </if>
+        <if test="searchText != null and searchText !=''">
+            AND ( AM.ARTC_CD LIKE CONCAT('%', #{searchText}, '%')
+            OR AM.ARTC_CD LIKE CONCAT('%', #{searchText}, '%')   /* 공통코드함수 생기면 코드명검색으로 바꿔줘야함 */
+            )
+        </if>
+    </select>
 </mapper>
