@@ -52,7 +52,7 @@
             obj.set_background("coral");
             this.addChild(obj.name, obj);
             // Layout Functions
-            //-- Default Layout : this.divView
+            //-- Default Layout : this.divView.form
             obj = new Layout("default","",0,0,this.divView.form,function(p){});
             this.divView.form.addLayout(obj.name, obj);
 

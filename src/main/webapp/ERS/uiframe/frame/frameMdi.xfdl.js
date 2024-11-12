@@ -149,22 +149,26 @@
             obj.set_taborder("14");
             obj.set_cssclass("btn_TF_MenuS");
             obj.set_text("페이지타이틀");
+            obj.set_visible("false");
             this.addChild(obj.name, obj);
 
             obj = new Button("Button00","156","146","20","20",null,null,null,null,null,null,this);
             obj.set_taborder("15");
             obj.set_cssclass("btn_MDI_TabClose");
+            obj.set_visible("false");
             this.addChild(obj.name, obj);
 
             obj = new Button("Button00_01_00","188","137","184","36",null,null,null,null,null,null,this);
             obj.set_taborder("16");
             obj.set_cssclass("btn_TF_Menu");
             obj.set_text("페이지타이틀");
+            obj.set_visible("false");
             this.addChild(obj.name, obj);
 
             obj = new Button("Button00_00","344","146","20","20",null,null,null,null,null,null,this);
             obj.set_taborder("17");
             obj.set_cssclass("btn_MDI_TabClose");
+            obj.set_visible("false");
             this.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this.divTab.form
@@ -1165,7 +1169,7 @@
 
             if(this.objApp.gdsOpenMenu.rowcount > 0)
         	{
-        		this.pdvOpenMenu.trackPopupByComponent(obj, 0, obj.height);
+        		this.pdvOpenMenu.trackPopupByComponent(obj, -nWidth+parseInt(obj.width), obj.height);
 
         		this.pdvOpenMenu.form.grdOpenMenu.setFocus();
         		this.pdvOpenMenu.form.grdOpenMenu.selectCell(0, 0, true);

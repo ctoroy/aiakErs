@@ -9,8 +9,8 @@
         
         this.on_create = function()
         {
-            this.set_name("ADMCOM0202U");
-            this.set_titletext("권한그룹별 메뉴관리");
+            this.set_name("ADMCOM0203U");
+            this.set_titletext("권한별사용자관리");
             if (Form == this.constructor)
             {
                 this._setFormPosition(1280,720);
@@ -37,44 +37,56 @@
             this.addChild(obj.name, obj);
 
 
-            obj = new Dataset("dsAuthMenuList", this);
-            obj._setContents("<ColumnInfo><Column id=\"authUseYn\" type=\"STRING\" size=\"1\"/><Column id=\"mnuId\" type=\"STRING\" size=\"50\"/><Column id=\"mnuNm\" type=\"STRING\" size=\"50\"/><Column id=\"sysId\" type=\"STRING\" size=\"50\"/><Column id=\"upMnuId\" type=\"STRING\" size=\"50\"/><Column id=\"mnuTpCd\" type=\"STRING\" size=\"10\"/><Column id=\"mnuLvlSize\" type=\"INT\" size=\"10\"/><Column id=\"prgmId\" type=\"STRING\" size=\"50\"/><Column id=\"prgmPathNm\" type=\"STRING\" size=\"500\"/><Column id=\"prgmTypeNm\" type=\"STRING\" size=\"10\"/><Column id=\"smmnParmtNm\" type=\"STRING\" size=\"20\"/><Column id=\"sortSeq\" type=\"STRING\" size=\"10\"/><Column id=\"authYn\" type=\"STRING\" size=\"1\"/><Column id=\"rmak\" type=\"STRING\" size=\"4000\"/><Column id=\"useYn\" type=\"STRING\" size=\"1\"/><Column id=\"mnuPrintYn\" type=\"STRING\" size=\"1\"/></ColumnInfo>");
+            obj = new Dataset("dsAuthUsrMngmList", this);
+            obj._setContents("<ColumnInfo><Column id=\"deptNm\" type=\"STRING\" size=\"256\"/><Column id=\"authId\" type=\"STRING\" size=\"10\"/><Column id=\"authNm\" type=\"STRING\" size=\"256\"/><Column id=\"empNo\" type=\"STRING\" size=\"30\"/><Column id=\"empNm\" type=\"STRING\" size=\"256\"/><Column id=\"rmak\" type=\"STRING\" size=\"4000\"/><Column id=\"useYn\" type=\"STRING\" size=\"1\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
-            obj = new Dataset("dsMnuPrintYn", this);
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"data\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">Y</Col><Col id=\"data\">출력</Col></Row><Row><Col id=\"code\">N</Col><Col id=\"data\">미출력</Col></Row></Rows>");
-            this.addChild(obj.name, obj);
-
-
-            obj = new Dataset("dsAuthId", this);
+            obj = new Dataset("dsSubCond", this);
             obj._setContents("<ColumnInfo><Column id=\"authId\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row/></Rows>");
+            this.addChild(obj.name, obj);
+
+
+            obj = new Dataset("dsAuthUsrMngm", this);
+            obj._setContents("<ColumnInfo><Column id=\"deptNm\" type=\"STRING\" size=\"256\"/><Column id=\"authId\" type=\"STRING\" size=\"10\"/><Column id=\"authNm\" type=\"STRING\" size=\"256\"/><Column id=\"empNo\" type=\"STRING\" size=\"30\"/><Column id=\"empNm\" type=\"STRING\" size=\"256\"/><Column id=\"rmak\" type=\"STRING\" size=\"4000\"/><Column id=\"useYn\" type=\"STRING\" size=\"1\"/></ColumnInfo>");
+            this.addChild(obj.name, obj);
+
+
+            obj = new Dataset("dsEmpInfo", this);
+            obj._setContents("<ColumnInfo><Column id=\"deptNm\" type=\"STRING\" size=\"256\"/><Column id=\"authId\" type=\"STRING\" size=\"10\"/><Column id=\"authNm\" type=\"STRING\" size=\"256\"/><Column id=\"empNo\" type=\"STRING\" size=\"30\"/><Column id=\"empNm\" type=\"STRING\" size=\"256\"/><Column id=\"rmak\" type=\"STRING\" size=\"4000\"/><Column id=\"useYn\" type=\"STRING\" size=\"1\"/></ColumnInfo>");
+            this.addChild(obj.name, obj);
+
+
+            obj = new Dataset("dsRtnEmpInfo", this);
+            obj._setContents("<ColumnInfo><Column id=\"empNo\" type=\"STRING\" size=\"30\"/><Column id=\"empEngNm\" type=\"STRING\" size=\"2000\"/><Column id=\"empNm\" type=\"STRING\" size=\"200\"/><Column id=\"deptRlNm\" type=\"STRING\" size=\"200\"/><Column id=\"lcetNo\" type=\"STRING\" size=\"600\"/><Column id=\"emalAddr\" type=\"STRING\" size=\"200\"/><Column id=\"grad\" type=\"STRING\" size=\"10\"/><Column id=\"dutyTtlNm\" type=\"STRING\" size=\"200\"/><Column id=\"rgntnYn\" type=\"STRING\" size=\"1\"/><Column id=\"chgYn\" type=\"STRING\" size=\"1\"/><Column id=\"grpName\" type=\"STRING\" size=\"50\"/><Column id=\"idNm\" type=\"STRING\" size=\"100\"/><Column id=\"deptCd\" type=\"STRING\" size=\"9\"/><Column id=\"deptNm\" type=\"STRING\" size=\"4000\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Div("divSearch","0","0",null,"70","0",null,null,null,null,null,this);
+            obj = new Div("divSearch","0","0",null,"50","0",null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("divSearch");
-            obj.set_border("1px solid");
+            obj.set_cssclass("div_WF_Search");
             this.addChild(obj.name, obj);
 
-            obj = new Static("staWord","20","20","60","30",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("staWord","0","12","60","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("0");
             obj.set_text("검색어");
-            obj.set_border("1px solid");
+            obj.set_cssclass("sta_WF_SchLabelEssential");
+            obj.set_fittocontents("width");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Edit("edtWord","staWord:10","20","140","30",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Edit("edtWord","staWord:10","12","140","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("1");
+            obj.set_cssclass("edt_WF_Search");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("staAuthClssfc","edtWord:50","20","60","30",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("staAuthClssfc","edtWord:10","12","60","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("2");
             obj.set_text("권한타입");
-            obj.set_border("1px solid");
+            obj.set_cssclass("sta_WF_SchLabelEssential");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Combo("cboAuthClssfc","staAuthClssfc:10","20","80","30",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Combo("cboAuthClssfc","staAuthClssfc:10","12","80","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("3");
             obj.set_innerdataset("dsAuthClssfc");
             obj.set_codecolumn("code");
@@ -84,36 +96,38 @@
             obj.set_index("0");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("staMenuTitle","0","divSearch:10","180","30",null,null,null,null,null,null,this);
+            obj = new Static("staAuthCodeTitle","0","divSearch:8","180","38",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("권한코드목록");
-            obj.set_border("1px solid");
+            obj.set_cssclass("sta_WF_Title");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("grdAuthCodeList","0","staMenuTitle:10",null,"270","0",null,null,null,null,null,this);
+            obj = new Grid("grdAuthCodeList","0","staAuthCodeTitle:10","500",null,null,"0",null,null,null,null,this);
             obj.set_taborder("1");
-            obj.set_autofittype("col");
+            obj.set_autofittype("none");
             obj.set_binddataset("dsAuthCodeList");
             obj.set_cellsizingtype("col");
-            obj.set_autoenter("select");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"100\"/><Column size=\"250\"/><Column size=\"400\"/><Column size=\"100\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"120\"/></Columns><Rows><Row size=\"28\" band=\"head\"/><Row size=\"28\"/></Rows><Band id=\"head\"><Cell text=\"순번\"/><Cell col=\"1\" text=\"권한코드\"/><Cell col=\"2\" text=\"권한명\"/><Cell col=\"3\" text=\"비고\"/><Cell col=\"4\" text=\"사용여부\"/><Cell col=\"5\" text=\"등록자\"/><Cell col=\"6\" text=\"등록일\"/><Cell col=\"7\" text=\"수정자\"/><Cell col=\"8\" text=\"수정일\"/></Band><Band id=\"body\"><Cell expr=\"currow+1\"/><Cell col=\"1\" text=\"bind:authId\" displaytype=\"text\" editmaxlength=\"10\" editimemode=\"alpha\" editinputmode=\"upper\" editinputtype=\"alpha,digit\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:authNm\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:rmak\" displaytype=\"text\"/><Cell col=\"4\" displaytype=\"combotext\" text=\"bind:useYn\" combodataset=\"dsUseYn\" combocodecol=\"code\" combodatacol=\"data\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:cretrId\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:cretDttm\" textAlign=\"center\" calendardateformat=\"yyyy-MM-dd\" displaytype=\"date\"/><Cell col=\"7\" text=\"bind:mdfrId\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:mdfDttm\" displaytype=\"date\" textAlign=\"center\" calendardateformat=\"yyyy-MM-dd\"/></Band></Format></Formats>");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("staMenuTitle00","2","400","180","30",null,null,null,null,null,null,this);
-            obj.set_taborder("3");
-            obj.set_text("메뉴목록");
-            obj.set_border("1px solid");
-            this.addChild(obj.name, obj);
-
-            obj = new Grid("grdAuthMenuList","0","staMenuTitle00:10",null,null,"0","0",null,null,null,null,this);
-            obj.set_taborder("4");
-            obj.set_autofittype("col");
-            obj.set_binddataset("dsAuthMenuList");
-            obj.set_cellsizingtype("col");
+            obj.set_treeusecheckbox("false");
             obj.set_treeinitstatus("expand,all");
             obj.set_autoenter("select");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"100\"/><Column size=\"150\"/><Column size=\"200\"/></Columns><Rows><Row size=\"32\" band=\"head\"/><Row size=\"28\"/></Rows><Band id=\"head\"><Cell text=\"순번\"/><Cell col=\"1\" text=\"권한코드\"/><Cell col=\"2\" text=\"권한명\"/><Cell col=\"3\" text=\"비고\"/></Band><Band id=\"body\"><Cell expr=\"currow+1\"/><Cell col=\"1\" text=\"bind:authId\" displaytype=\"text\" editmaxlength=\"10\" editimemode=\"alpha\" editinputmode=\"upper\" editinputtype=\"alpha,digit\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:authNm\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:rmak\" displaytype=\"text\"/></Band></Format></Formats>");
+            this.addChild(obj.name, obj);
+
+            obj = new Grid("grdAuthUsrList","grdAuthCodeList:20","106",null,null,"0","0",null,null,null,null,this);
+            obj.set_taborder("3");
+            obj.set_autofittype("col");
+            obj.set_binddataset("dsAuthUsrMngmList");
+            obj.set_cellsizingtype("col");
             obj.set_treeusecheckbox("false");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"30\"/><Column size=\"400\"/><Column size=\"150\"/><Column size=\"150\"/><Column size=\"120\"/><Column size=\"120\"/></Columns><Rows><Row size=\"28\" band=\"head\"/><Row size=\"28\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"메뉴\"/><Cell col=\"2\" text=\"메뉴코드\"/><Cell col=\"3\" text=\"메뉴구분\"/><Cell col=\"4\" text=\"출력여부\"/><Cell col=\"5\" text=\"사용여부\"/></Band><Band id=\"body\"><Cell displaytype=\"expr:mnuTpCd==&apos;프로그램&apos; ? &apos;checkboxcontrol&apos;:&apos;none&apos;\" edittype=\"expr:mnuTpCd==&apos;프로그램&apos; ? &apos;checkbox&apos;:&apos;none&apos;\" checkboxfalsevalue=\"N\" checkboxtruevalue=\"Y\" text=\"bind:authUseYn\"/><Cell col=\"1\" text=\"bind:mnuNm\" displaytype=\"treeitemcontrol\" textAlign=\"left\" treelevel=\"bind:mnuLvlSize\" edittype=\"tree\" treecheck=\"bind:authUseYn\" treestate=\"bind:mnuLvlSize\" checkboxfalsevalue=\"N\" checkboxtruevalue=\"Y\"/><Cell col=\"2\" text=\"bind:mnuId\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:mnuTpCd\" displaytype=\"text\"/><Cell col=\"4\" text=\"bind:mnuPrintYn\" displaytype=\"combotext\" textAlign=\"center\" combodataset=\"dsMnuPrintYn\" combocodecol=\"code\" combodatacol=\"data\"/><Cell col=\"5\" text=\"bind:useYn\" displaytype=\"combotext\" textAlign=\"center\" calendardateformat=\"yyyy-MM-dd\" combodataset=\"dsUseYn\" combocodecol=\"code\" combodatacol=\"data\"/></Band></Format></Formats>");
+            obj.set_treeinitstatus("expand,all");
+            obj.set_autoenter("select");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"48\"/><Column size=\"150\"/><Column size=\"150\"/><Column size=\"150\"/><Column size=\"200\"/></Columns><Rows><Row size=\"32\" band=\"head\"/><Row size=\"28\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"순번\"/><Cell col=\"2\" text=\"부서명\"/><Cell col=\"3\" text=\"권한명\"/><Cell col=\"4\" text=\"사원명\"/><Cell col=\"5\" text=\"비고\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" checkboxfalsevalue=\"N\" checkboxtruevalue=\"Y\" text=\"bind:useYn\"/><Cell col=\"1\" expr=\"currow+1\"/><Cell col=\"2\" text=\"bind:deptNm\" displaytype=\"text\" edittype=\"none\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:authNm\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"4\" text=\"bind:empNm\" displaytype=\"text\"/><Cell col=\"5\" text=\"bind:rmak\" displaytype=\"editcontrol\" edittype=\"text\" editmaxlength=\"4000\"/></Band></Format></Formats>");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("staAuthUsrTitle","grdAuthCodeList:20","divSearch:8","180","38",null,null,null,null,null,null,this);
+            obj.set_taborder("4");
+            obj.set_text("사용자목록");
+            obj.set_cssclass("sta_WF_Title");
             this.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this.divSearch.form
@@ -142,17 +156,17 @@
         };
         
         // User Script
-        this.registerScript("ADMCOM0202U.xfdl", function() {
+        this.registerScript("ADMCOM0203U.xfdl", function() {
         /**
         *  AIA 비용관리시스템 시스템
-        *  @FileName 	ADMCOM02/ADMCOM0202U.xfdl
+        *  @FileName 	ADMCOM02/ADMCOM0203U.xfdl
         *  @Creator 	강성호
-        *  @CreateDate 	2024.11.07
-        *  @Desction 	권한그룹별 메뉴관리
+        *  @CreateDate 	2024.11.11
+        *  @Desction 	권한별 사용자관리
         ************** 소스 수정 이력 ***********************************************
         * Date					Modifier					Description
         *******************************************************************************
-        * 2024.11.07			강성호						최초생성
+        * 2024.11.11			강성호						최초생성
         *******************************************************************************
         */
 
@@ -185,10 +199,22 @@
         	this.fnSearch();
         };
 
+        //추가
+        this.cfnAdd = function(obj, e)
+        {
+        	this.fnAdd();
+        };
+
+        //삭제
+        this.cfnDel = function(obj, e)
+        {
+        	this.fnDel(this.dsAuthUsrMngmList);
+        };
+
         //저장
         this.cfnSave = function(obj, e)
         {
-        	this.fnSaveAuthMenuList();
+        	this.fnSaveAuthUsrList();
         };
 
         //화면 닫기전 체크
@@ -222,15 +248,15 @@
         };
 
         /**
-         * @description 권한별 메뉴조회 트랜잭션
+         * @description 권한별 사용자 조회 트랜잭션
          */
-        this.fnSearchAuthMenuList = function()
+        this.fnSearchAuthUsr = function()
         {
         	// 마이메뉴 조회
-        	var sSvcId 		= "selectAuthMenuList";
-        	var sSvcUrl     = "selectAuthMenuList.do";
-        	var sInData     = "dsIn=dsAuthId";
-        	var sOutData    = "dsAuthMenuList=AUTHMENULIST";
+        	var sSvcId 		= "selectAuthUsrMngm";
+        	var sSvcUrl     = "selectAuthUsrMngm.do";
+        	var sInData     = "dsIn=dsEmpInfo";
+        	var sOutData    = "dsAuthUsrMngm=AUTHUSRMNGM";
         	var sArg      	= "";
         	var sCallBackFnc = "fnCallback";
 
@@ -243,14 +269,35 @@
         };
 
         /**
-         * @description 권한별 메뉴저장 트랜잭션
+         * @description 권한별 사용자 조회 트랜잭션
          */
-        this.fnSaveAuthMenuList = function()
+        this.fnSearchAuthUsrList = function()
         {
         	// 마이메뉴 조회
-        	var sSvcId 		= "saveAuthMenuList";
-        	var sSvcUrl     = "saveAuthMenuList.do";
-        	var sInData     = "AUTHMENULIST=dsAuthMenuList:U";
+        	var sSvcId 		= "selectAuthUsrMngmList";
+        	var sSvcUrl     = "selectAuthUsrMngmList.do";
+        	var sInData     = "dsIn=dsSubCond";
+        	var sOutData    = "dsAuthUsrMngmList=AUTHUSRMNGMLIST";
+        	var sArg      	= "";
+        	var sCallBackFnc = "fnCallback";
+
+        	this.gfnTransaction( sSvcId , 	// transaction을 구분하기 위한 svc id값
+        						sSvcUrl , 			// trabsaction을 요청할 주소
+        						sInData , 			// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+        						sOutData , 			// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+        						sArg, 				// 입력갑스로 보낼 arguments, strFormData="20120607"
+        						sCallBackFnc);  	// 통신방법 정의 [생략가능]
+        };
+
+        /**
+         * @description 권한별 사용자 저장 트랜잭션
+         */
+        this.fnSaveAuthUsrList = function()
+        {
+        	// 마이메뉴 조회
+        	var sSvcId 		= "saveAuthUsrList";
+        	var sSvcUrl     = "saveAuthUsrMngmList.do";
+        	var sInData     = "AUTHUSRMNGMLIST=dsAuthUsrMngmList:U";
         	var sOutData    = "";
         	var sArg      	= "";
         	var sCallBackFnc = "fnCallback";
@@ -269,14 +316,27 @@
         {
         	switch(sSvcId)
         	{
-        		case "selectAuthCodeList":
+        		case "selectAuthUsrMngm":
+        			if( this.dsAuthUsrMngm.getRowCount() > 0 ){
+        				var authNm = this.dsAuthUsrMngm.getColumn(0, 'authNm');
+        				var msg = authNm + ' 권한에 등록된 사원입니다. 확인 후 진행바랍니다.';
+        				this.alert(msg);
+        			} else {
+        				this.fnUsrAdd();
+        			}
         			break;
-        		case "selectAuthMenuList":
-        			break;
-        		case "saveAuthCodeList":
-        			this.fnSearchAuthCodeList();
+        		case "saveAuthUsrList":
+        			this.fnSearchAuthUsrList();
         			break;
         		default:break;
+        	}
+        };
+
+        this.fnPopupCallback = function(strId, rtnObj)
+        {
+        	this.dsEmpInfo.loadJSON(rtnObj);
+        	if( this.dsEmpInfo.getRowCount() > 0 ){
+        		this.fnSearchAuthUsr();
         	}
         };
         /*******************************************************************************************************************************
@@ -289,27 +349,54 @@
         	this.fnSearchAuthCodeList();
         };
 
+        this.fnAdd = function()
+        {
+        	this.gfnOpenPopup("ADMBCM0805P", "ADMBCM08::ADMBCM0805P.xfdl", null, "fnPopupCallback");
+        };
+
+        this.fnDel = function(objds)
+        {
+        	objds.enableevent = false;
+        	objds.filter("useYn == 'Y'");
+        	if(objds.rowcount > 0)
+        	{
+        		for(var i = objds.rowcount - 1; i > -1; i--)
+        		{
+        			if (objds.getColumn(i, "useYn") == "Y" )
+        			{
+        				objds.deleteRow(i);
+        			}
+        		}
+        	}
+        	objds.filter("");
+        	objds.enableevent = true;
+        };
+
+        this.fnUsrAdd = function(){
+        	var mRow = this.dsAuthCodeList.rowposition;
+        	var authId = this.dsAuthCodeList.getColumn(mRow, 'authId');
+        	var authNm = this.dsAuthCodeList.getColumn(mRow, 'authNm');
+        	var empNo = this.dsEmpInfo.getColumn(0, 'empNo');
+        	var empNm = this.dsEmpInfo.getColumn(0, 'empNm');
+        	var deptNm = this.dsEmpInfo.getColumn(0, 'deptNm');
+
+        	var nRow = this.dsAuthUsrMngmList.addRow();
+        	this.dsAuthUsrMngmList.setColumn(nRow, 'authId', authId);
+        	this.dsAuthUsrMngmList.setColumn(nRow, 'authNm', authNm);
+        	this.dsAuthUsrMngmList.setColumn(nRow, 'empNo', empNo);
+        	this.dsAuthUsrMngmList.setColumn(nRow, 'empNm', empNm);
+        	this.dsAuthUsrMngmList.setColumn(nRow, 'deptNm', deptNm);
+        };
         /*******************************************************************************************************************************
          * 각 COMPONENT 별 EVENT 영역
         *******************************************************************************************************************************/
-
         this.dsAuthCodeList_onrowposchanged = function(obj,e)
         {
-        	var authId = obj.getColumn(e.newrow, 'authId');
-        	this.dsAuthId.setColumn(0, 'authId', authId);
-        	this.fnSearchAuthMenuList();
-        };
-
-        this.dsAuthMenuList_oncolumnchanged = function(obj,e)
-        {
-        	var mRow = this.dsAuthCodeList.rowposition;
-        	var authId = this.dsAuthCodeList.getColumn(mRow, 'authId');
-        	var oldAuthUseYn = obj.getOrgColumn(e.row, 'authUseYn');
-        	var authUseYn = obj.getColumn(e.row, 'authUseYn');
-
-        	if( oldAuthUseYn == 'N' && authUseYn == 'Y' ){
-        		obj.setColumn(e.row, 'authId', authId);
-        	}
+        	var nRow = this.dsAuthCodeList.rowposition;
+        	this.dsSubCond.clearData();
+        	this.dsSubCond.addRow();
+        	this.dsSubCond.setColumn(0, 'authId', this.dsAuthCodeList.getColumn(nRow, 'authId'));
+        	this.fnSearchAuthUsrList();
         };
 
         });
@@ -319,9 +406,8 @@
         {
             this.addEventHandler("onload",this.form_onload,this);
             this.dsAuthCodeList.addEventHandler("onrowposchanged",this.dsAuthCodeList_onrowposchanged,this);
-            this.dsAuthMenuList.addEventHandler("oncolumnchanged",this.dsAuthMenuList_oncolumnchanged,this);
         };
-        this.loadIncludeScript("ADMCOM0202U.xfdl");
+        this.loadIncludeScript("ADMCOM0203U.xfdl");
         this.loadPreloadList();
         
         // Remove Reference

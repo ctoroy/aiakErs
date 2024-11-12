@@ -31,7 +31,7 @@
             obj = new Div("Div00","30","0",null,"49","0",null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("Div00");
-            obj.set_url("sample::Workcomm.xfdl");
+            obj.set_url("design::frame/Workcomm.xfdl");
             this.addChild(obj.name, obj);
 
             obj = new Div("Div01","30","49",null,null,"0","10",null,null,null,null,this);
@@ -68,7 +68,7 @@
         
         this.loadPreloadList = function()
         {
-            this._addPreloadList("fdl","sample::Workcomm.xfdl");
+            this._addPreloadList("fdl","design::frame/Workcomm.xfdl");
             this._addPreloadList("fdl","sample::경비예산입력.xfdl");
         };
         

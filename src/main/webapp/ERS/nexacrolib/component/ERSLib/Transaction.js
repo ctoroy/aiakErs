@@ -170,6 +170,8 @@ pForm.gfnCallback = function (svcID, errorCode, errorMsg)
 		// form에 callback 함수가 있을때
 		if(this[objSvcID.callback]) this.lookupFunc(objSvcID.callback).call(objSvcID.svcId, errorCode, errorMsg);
 	}
+	
+	this.gfnStatusBarMsg(objSvcID.svcId);
 };
 
 /**
@@ -194,6 +196,63 @@ pForm.gfnErrorMsgCallbackk = function (sPopId, sRtn)
 			}
 			break;
 		default: break;
+	}
+};
+
+pForm.gfnStatusBarMsg = function(v)
+{
+	var statusBar = nexacro.getApplication().gvFrmBottom.form;
+	
+	try	{
+		// 하단 상태메시지 출력
+		var defaultMsg = ' 되었습니다.';
+		var msg = "";
+		if(v.indexOf('init') > -1) {
+			msg = '초기화' + defaultMsg;
+		}
+		else if (v.indexOf('list') > -1 || v.indexOf('select') > -1)
+		{
+			msg = '조회' + defaultMsg;
+		}
+		else if (v.indexOf('view') > -1)
+		{
+			msg = '조회' + defaultMsg;
+		}
+		else if (v.indexOf('save') > -1 || v.indexOf('grid_save') > -1 || v.indexOf('objection') > -1)
+		{
+			msg = '저장' + defaultMsg;
+		}
+		else if (v.indexOf('delete') > -1)
+		{
+			msg = '삭제' + defaultMsg;
+		}
+		else if (v.indexOf('submit') > -1)
+		{
+			msg = '제출' + defaultMsg;
+		}
+		else if (v.indexOf('approval') > -1)
+		{
+			msg = '승인' + defaultMsg;
+		}
+		else if (v.indexOf('reject') > -1)
+		{
+			msg = '거절' + defaultMsg;
+		}
+		else if (v.indexOf('cancel') > -1)
+		{
+			msg = '취소' + defaultMsg;
+		}
+		else
+		{
+			msg = '처리' + defaultMsg;
+		}
+		if(!this.gfnIsNull(statusBar.fnStatusMsg)) {
+			statusBar.fnStatusMsg(msg);
+		}
+	}
+	catch (e)
+	{
+		trace(e.message);
 	}
 };
 

@@ -77,17 +77,23 @@
         	this.fnInit();
         };
 
-        //화면 load시 초기화
+        /**
+         * @description 화면 load시 초기화
+         */
         this.fnInit = function()
         {
         };
 
-        //공통코드콤보설정(Combo/Grid)
+        /**
+         * @description 공통코드콤보설정(Combo/Grid)
+         */
         this.afterCommCodeLoad = function()
         {
         };
 
-        //공통코드콤보설정 서버조회방식
+        /**
+         * @description 공통코드콤보설정 서버조회방식
+         */
         this.fnAfterCommCodeLoad = function()
         {
         };
@@ -96,42 +102,54 @@
          * 공통함수영역 (cfnInit : 초기화 / cfnSearch : 조회 / cfnAdd : 추가 / cfnDel : 삭제 / cfnSave : 저장 / cfnClose : 화면 닫기전 체크)
          * 추가 버튼은 prefix cfn 으로 시작하여 명칭을 만든다.
         *******************************************************************************************************************************/
-        //초기화
+        /**
+         * @description 초기화
+         */
         this.cfnInit = function(obj, e)
         {
         	this.gfnAlert("msg.general", [obj.text + " 버튼입니다."]);
         	//TODO..
         };
 
-        //조회
+        /**
+         * @description 조회
+         */
         this.cfnSearch = function(obj, e)
         {
         	this.gfnAlert("msg.general", [obj.text + " 버튼입니다."]);
         	//TODO..
         };
 
-        //추가
+        /**
+         * @description 추가
+         */
         this.cfnAdd = function(obj, e)
         {
         	this.gfnAlert("msg.general", [obj.text + " 버튼입니다."]);
         	//TODO..
         };
 
-        //삭제
+        /**
+         * @description 삭제
+         */
         this.cfnDel = function(obj, e)
         {
         	this.gfnAlert("msg.general", [obj.text + " 버튼입니다."]);
         	//TODO..
         };
 
-        //저장
+        /**
+         * @description 저장
+         */
         this.cfnSave = function(obj, e)
         {
         	this.gfnAlert("msg.general", [obj.text + " 버튼입니다."]);
         	//TODO..
         };
 
-        //화면 닫기전 체크
+        /**
+         * @description 화면 닫기전 체크
+         */
         this.cfnClose = function()
         {
         	trace("업무화면에 수정 사항이 있으면  cfnClose 메소드를 추가 하세요.");

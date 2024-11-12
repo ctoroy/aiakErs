@@ -39,7 +39,7 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Static("staTitle","0","9","140","39",null,null,null,null,null,null,this);
+            obj = new Static("staTitle","0","9","130","39",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("경비 예산 조회");
             obj.set_cssclass("sta_WF_TitleLocation");
@@ -50,34 +50,29 @@
             obj.set_taborder("0");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnInit",null,"9","67","28","-230",null,null,null,null,null,this);
+            obj = new Button("btnInit00",null,"9","67","28","280",null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("초기화");
-            obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch",null,"9","67","28","-300",null,null,null,null,null,this);
+            obj = new Button("btnSearch",null,"9","67","28","210",null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("조회");
-            obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnAdd",null,"9","67","28","-370",null,null,null,null,null,this);
+            obj = new Button("btnAdd",null,"9","67","28","140",null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("추가");
-            obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnDel",null,"9","67","28","-440",null,null,null,null,null,this);
+            obj = new Button("btnDel",null,"9","67","28","70",null,null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_text("삭제");
-            obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnSave",null,"9","67","28","-510",null,null,null,null,null,this);
+            obj = new Button("btnSave00",null,"9","67","28","0",null,null,null,null,null,this);
             obj.set_taborder("5");
             obj.set_text("저장");
-            obj.set_visible("false");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnMyMenu","staTitle:10","11","32","31",null,null,null,null,null,null,this);
@@ -85,22 +80,22 @@
             obj.set_cssclass("btn_WF_Bookmark");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_02","btnMyMenu:3","15","24","24",null,null,null,null,null,null,this);
+            obj = new Button("btnOpen","btnMyMenu:3","15","24","24",null,null,null,null,null,null,this);
             obj.set_taborder("8");
             obj.set_cssclass("btn_WF_Open");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_03","btn_02:3","15","24","24",null,null,null,null,null,null,this);
+            obj = new Button("btnInit","btnOpen:3","15","24","24",null,null,null,null,null,null,this);
             obj.set_taborder("9");
             obj.set_cssclass("btn_WF_Reload");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_04","btn_03:3","15","24","24",null,null,null,null,null,null,this);
+            obj = new Button("btnSave","btnInit:3","15","24","24",null,null,null,null,null,null,this);
             obj.set_taborder("10");
             obj.set_cssclass("btn_WF_Save");
             this.addChild(obj.name, obj);
 
-            obj = new Static("staNavi","btn_04:10","4","255","44",null,null,null,null,null,null,this);
+            obj = new Static("staNavi","btnSave:10","4","255","44",null,null,null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_fittocontents("width");
             obj.set_usedecorate("true");
@@ -231,7 +226,7 @@
         	switch(sSvcId)
         	{
         		case "selectCmmBtnList":
-        			this.fnSetAuthBtn1();
+        			//this.fnSetAuthBtn1();
         			break;
 
         		default:break;
@@ -254,11 +249,11 @@
 
         	if(nRow < 0)
         	{
-        		this.btnMyMenu.set_cssclass("btn_WF_Favo");
+        		this.btnMyMenu.set_cssclass("btn_WF_Bookmark");
         	}
         	else
         	{
-        		this.btnMyMenu.set_cssclass("btn_WF_FavoS");
+        		this.btnMyMenu.set_cssclass("btn_WF_BookmarkS");
         	}
         };
 
@@ -616,8 +611,10 @@
          */
         this.btnMyMenu_onclick = function(obj,e)
         {
+        	this.gfnAlert("msg.general", ["즐겨찾기 개발중................. "]);
+        	return;
         	var bIsMymenu = false;
-        	if(this.btnMyMenu.cssclass == "btn_WF_FavoS")	bIsMymenu = true;
+        	if(this.btnMyMenu.cssclass == "btn_WF_BookmarkS")	bIsMymenu = true;
 
         	var objDs = this.objApp.gvFrmLeft.form.dsMyMenu;
         	var objMenuDs = this.objApp.gdsMenu;
@@ -675,18 +672,29 @@
         	this.fnSetBookmarkCss(obj);
         };
 
+        this.btnOpen_onclick = function(obj,e)
+        {
+        	//this.gfnAlert("msg.general", ["팝업창 개발중................. "]);
+        	var arg = this.objApp.gvFrsWork.getActiveFrame().arguments;
+        	var sPopId = arg.MENU_ID;
+        	this.gfnSetOpenPopup(sPopId, "", arg);
+        };
+
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.form_onload,this);
-            this.btnInit.addEventHandler("onclick",this.btnCmmn_onclick,this);
+            this.btnInit00.addEventHandler("onclick",this.btnCmmn_onclick,this);
             this.btnSearch.addEventHandler("onclick",this.btnCmmn_onclick,this);
             this.btnAdd.addEventHandler("onclick",this.btnCmmn_onclick,this);
             this.btnDel.addEventHandler("onclick",this.btnCmmn_onclick,this);
-            this.btnSave.addEventHandler("onclick",this.btnCmmn_onclick,this);
+            this.btnSave00.addEventHandler("onclick",this.btnCmmn_onclick,this);
             this.btnMyMenu.addEventHandler("onclick",this.btnMyMenu_onclick,this);
+            this.btnOpen.addEventHandler("onclick",this.btnOpen_onclick,this);
+            this.btnInit.addEventHandler("onclick",this.btnCmmn_onclick,this);
+            this.btnSave.addEventHandler("onclick",this.btnCmmn_onclick,this);
         };
         this.loadIncludeScript("frmWorkTitleDv.xfdl");
         this.loadPreloadList();

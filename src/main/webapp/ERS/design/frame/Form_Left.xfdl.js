@@ -135,7 +135,7 @@
             obj.set_autofittype("col");
             obj.set_binddataset("ds_sch");
             obj.set_cssclass("grd_LF_Sch");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/></Columns><Rows><Row size=\"28\"/></Rows><Band id=\"body\"><Cell text=\"bind:Column1\" tooltiptext=\"bind:Column1\" displaytype=\"decoratetext\" edittype=\"text\" textAlign=\"left\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/></Columns><Rows><Row size=\"28\"/></Rows><Band id=\"body\"><Cell text=\"bind:Column1\" tooltiptext=\"bind:Column1\" displaytype=\"decoratetext\" textAlign=\"left\"/></Band></Format></Formats>");
             this.PopupDiv00.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this.Div00.form

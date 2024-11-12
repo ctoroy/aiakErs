@@ -288,6 +288,7 @@
         	var navi = this.gfnReplaceAll(this.gfnTrim(this.fvMenuNavi), this.fvMenuNm, "<fc v='#990099'><b v='true'>"+this.fvMenuNm+"</b></fc>");
 
         	// 타이틀 세팅
+        	this.divTitle.form.staTitle.set_text(this.fvMenuNm);
         	this.divTitle.form.staNavi.set_text(navi + " ");
         	this.divTitle.form.resetScroll();
 

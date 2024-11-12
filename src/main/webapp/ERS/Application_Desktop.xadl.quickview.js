@@ -228,11 +228,6 @@
         			} else {
         				this.mainframe.set_titletext("로컬(웹)  - " + this.mainframe.titletext);
         			}
-
-        			//로컬은 cachelevel = "none";
-        			for(var i = 9; i < objEnv.services.length; i++) {
-        				objEnv.services[i].cachelevel = "none";
-        			}
         		}
         		//운영
         		else if(objSrv.url.indexOf("127.0.0.1:4098")>-1) {
@@ -245,11 +240,22 @@
         			this.mainframe.set_titletext("개발(웹)  - " + this.mainframe.titletext);
         		}
         	}
+        	this.fnCacheLeve();
+
         	this.gvRunMode = sRunMode;
         	trace("========== 접속경로 : " + nexacro.getProjectPath() + " / 실행환경(nRunMode) : " + this.gvRunMode + " / 서비스URL : " + objSrv.url + " ================");
 
         	// 로그인 화면 보여주기
         	this.gvFrmLogin.set_formurl(this._LOGIN_FORM_PATH);
+        };
+
+        this.fnCacheLeve = function()
+        {
+        	var objEnv	 = nexacro.getEnvironment();
+        	//로컬은 cachelevel = "none";
+        	for(var i = 9; i < objEnv.services.length; i++) {
+        		objEnv.services[i].cachelevel = "none";
+        	}
         };
 
         this.mainframe_onsize = function(obj,e)

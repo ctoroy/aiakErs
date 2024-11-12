@@ -26,12 +26,14 @@ if (nexacro.Environment)
         nexacro._addService("extlib", "file", "./_extlib_/", "session", null, "", "0", "");
         nexacro._addService("svcUrl", "JSP", "http://localhost:8080/uiadapter/", "none", null, "", "0", "0");
         nexacro._addService("ESRlib", "js", "./nexacrolib/component/ERSLib/", "none", null, "", "0", "0");
-        nexacro._addService("richtexteditorLib", "file", "./richtexteditorLib/", "session", null, "", "0", "0");
+        nexacro._addService("richtexteditorLib", "file", "./richtexteditorLib/", "none", null, "", "0", "0");
+        nexacro._addService("design", "form", "./design/", "none", null, "", "0", "0");
+        nexacro._addService("sample", "form", "./uiframe/sample/", "none", null, "", "0", "0");
+        nexacro._addService("richtexteditor", "form", "./richtexteditor/", "none", null, "", "0", "0");
         nexacro._addService("frame", "form", "./uiframe/frame/", "session", null, "", "0", "0");
         nexacro._addService("common", "form", "./uiframe/common/", "session", null, "", "0", "0");
-        nexacro._addService("sample", "form", "./uiframe/sample/", "session", null, "", "0", "0");
-        nexacro._addService("richtexteditor", "form", "./richtexteditor/", "session", null, "", "0", "0");
         nexacro._addService("SCC01", "form", "./SCC01/", "session", null, "", "0", "0");
+        nexacro._addService("ADMBCM08", "form", "./ADM/ADMBCM08/", "session", null, "", "0", "0");
         nexacro._addService("ADMCOM01", "form", "./ADM/ADMCOM01/", "session", null, "", "0", "0");
         nexacro._addService("ADMCOM02", "form", "./ADM/ADMCOM02/", "session", null, "", "0", "0");
         nexacro._addService("ADMCOM03", "form", "./ADM/ADMCOM03/", "session", null, "", "0", "0");
@@ -41,6 +43,7 @@ if (nexacro.Environment)
         nexacro._addService("MNUBGT01", "form", "./MNU/MNUBGT01/", "session", null, "", "0", "0");
         nexacro._addService("MNUBGT02", "form", "./MNU/MNUBGT02/", "session", null, "", "0", "0");
         nexacro._addService("MNUBGT03", "form", "./MNU/MNUBGT03/", "session", null, "", "0", "0");
+        nexacro._addService("TEMPLETE", "form", "./TEMPLETE/", "session", null, "", "0", "0");
     	nexacro._component_uri = (nexacro._arg_compurl ? nexacro._arg_compurl : "./nexacrolib/component/");
     	nexacro._theme_uri = "./_resource_/_theme_/";
     	// load components
