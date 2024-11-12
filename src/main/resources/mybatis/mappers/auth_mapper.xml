@@ -127,9 +127,9 @@
                         , MNU_PATH || T1.MNU_ID::TEXT
                         , T1.MNU_ID = ANY(MNU_PATH)
                      FROM SYS_MNU T1
-                        , MENU_LIST T2
-                    WHERE T1.UP_MNU_ID = T2.MNU_ID
-                      AND NOT CYCLE
+                    INNER JOIN MENU_LIST T2
+                       ON T1.UP_MNU_ID = T2.MNU_ID
+                    WHERE NOT CYCLE
              )
         SELECT CASE WHEN APM.MNU_ID IS NULL
                     THEN 'N'
@@ -137,7 +137,7 @@
                 END             AS authUseYn
              , ML.MNU_ID        AS mnuId
              , ML.MNU_NM        AS mnuNm
-             , APM.AUTH_ID        AS authId
+             , APM.AUTH_ID      AS authId
              , ML.SYS_ID        AS sysId
              , ML.UP_MNU_ID     AS upMnuId
              , ML.MNU_TP_CD     AS mnuTpCd
@@ -182,6 +182,75 @@
         DELETE FROM AUTH_PRGM_MNGM
          WHERE MNU_ID = #{mnuId}
            AND AUTH_ID = #{authId}
+    </delete>
+
+    <!-- 권한별사용자 등록여부 조회 -->
+    <select id="selectAuthUsrMngm" parameterType="aia.ers.application.pojo.Auth" resultType="aia.ers.application.pojo.Auth">
+        SELECT EM.DEPT_CD    AS deptCd
+             , EM.DEPT_CD    AS deptNm
+             , AUM.AUTH_ID   AS authId
+             , AUM.AUTH_ID   AS authNm
+             , AUM.EMP_NO    AS empNo
+             , AUM.EMP_NO    AS empNm
+             , AUM.RMAK      AS rmak
+          FROM AUTH_USR_MNGM AUM
+          LEFT OUTER JOIN EMP_MNGM EM
+            ON AUM.EMP_NO = EM.EMP_NO
+         WHERE AUM.EMP_NO = #{empNo}
+    </select>
+
+    <!-- 권한별사용자 조회 -->
+    <select id="selectAuthUsrMngmList" parameterType="aia.ers.application.pojo.Auth" resultType="aia.ers.application.pojo.Auth">
+        SELECT EM.DEPT_CD    AS deptCd
+             , EM.DEPT_CD    AS deptNm
+             , AUM.AUTH_ID   AS authId
+             , AUM.AUTH_ID   AS authNm
+             , AUM.EMP_NO    AS empNo
+             , AUM.EMP_NO    AS empNm
+             , AUM.RMAK      AS rmak
+          FROM AUTH_USR_MNGM AUM
+          LEFT OUTER JOIN EMP_MNGM EM
+            ON AUM.EMP_NO = EM.EMP_NO
+         WHERE AUM.AUTH_ID = #{authId}
+    </select>
+
+    <!-- 권한별사용자 등록 -->
+    <insert id="insertAuthUsrMngmList" parameterType="aia.ers.application.pojo.Auth">
+        INSERT INTO AUTH_USR_MNGM
+             ( AUTH_ID
+             , EMP_NO
+             , RMAK
+             , CRETR_ID
+             , CRET_DTTM
+             , MDFR_ID
+             , MDF_DTTM
+             )
+        VALUES
+             ( #{authId}
+             , #{empNo}
+             , #{rmak}
+             , #{cretrId}
+             , now()
+             , #{mdfrId}
+             , now()
+             )
+    </insert>
+
+    <!-- 권한별사용자 수정 -->
+    <update id="updateAuthUsrMngmList" parameterType="aia.ers.application.pojo.Auth">
+        UPDATE AUTH_USR_MNGM
+        SET RMAK = #{rmak}
+          , MDFR_ID = #{mdfrId}
+          , MDF_DTTM = now()
+        WHERE AUTH_ID = #{authId}
+          AND EMP_NO = #{empNo}
+    </update>
+
+    <!-- 권한별사용자 삭제 -->
+    <delete id="deleteAuthUsrMngmList" parameterType="aia.ers.application.pojo.Auth">
+        DELETE FROM AUTH_USR_MNGM
+        WHERE AUTH_ID = #{authId}
+          AND EMP_NO = #{empNo}
     </delete>
 
 </mapper>

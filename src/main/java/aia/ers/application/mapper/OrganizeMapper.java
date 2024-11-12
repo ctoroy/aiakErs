@@ -1,5 +1,6 @@
 package aia.ers.application.mapper;
 
+import aia.ers.application.pojo.Emp;
 import aia.ers.application.pojo.departDto;
 import aia.ers.application.pojo.employeeDto;
 
@@ -26,4 +27,5 @@ import java.util.List;
 public interface OrganizeMapper {
 	public List<departDto>           select_depart();
     public List<employeeDto>           select_employee();
+    public List<Emp> selectEmpList(Emp params);
 }

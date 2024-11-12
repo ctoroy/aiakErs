@@ -26,15 +26,13 @@ public class Auth extends NexacroBase {
     // Fields
     private String searchText;      //검색어
     private String authId;          //권한아이디
-    private String empNo;           //사원번호
     private String authNm;          //권한명
+    private String deptCd;          //부서코드
+    private String deptNm;          //부서명
+    private String empNo;           //사원번호
+    private String empNm;           //사원명
     private String rmak;            //비고
     private String authClssfc;      //권한타입
-    private String useYn;           //사용여부
-    private String cretrId;         //생성아이디
-    private String cretDttm;        //생성일시
-    private String mdfrId;          //수정자아이디
-    private String mdfDttm;         //수정일시
     private String mnuId;           //메뉴ID
     private String mnuNm;           //메뉴명
     private String sysId;           //시스템ID
@@ -48,4 +46,9 @@ public class Auth extends NexacroBase {
     private String smmnParmtNm;     //호출파라미터명
     private String sortSeq;         //정렬순번
     private String mnuPrintYn;      //메뉴출력여부
+    private String useYn;           //사용여부
+    private String cretrId;         //생성아이디
+    private String cretDttm;        //생성일시
+    private String mdfrId;          //수정자아이디
+    private String mdfDttm;         //수정일시
 }

@@ -11,7 +11,7 @@ import java.util.List;
  * @package com.nexacro.sample.uiadapter.spring.mapper
  * <pre>
  * 
- * @author  강성
+ * @author  강성호
  * @since   2024. 11. 06.
  * @version 1.0
  * @see
@@ -29,4 +29,9 @@ public interface AuthMapper {
     public List<Auth> selectAuthMenuList(Auth params);
     public void insertAuthPrgmMngmList(Auth authPrgmMngm);
     public void deleteAuthPrgmMngmList(Auth authPrgmMngm);
+    public Auth selectAuthUsrMngm(Auth params);
+    public List<Auth> selectAuthUsrMngmList(Auth params);
+    public void insertAuthUsrMngmList(Auth authPrgmMngm);
+    public void updateAuthUsrMngmList(Auth authPrgmMngm);
+    public void deleteAuthUsrMngmList(Auth authPrgmMngm);
 }

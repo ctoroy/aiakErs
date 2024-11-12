@@ -1,6 +1,7 @@
 package aia.ers.application.impl;
 
 import aia.ers.application.mapper.OrganizeMapper;
+import aia.ers.application.pojo.Emp;
 import aia.ers.application.pojo.departDto;
 import aia.ers.application.pojo.employeeDto;
 import aia.ers.application.service.OrganizeService;
@@ -34,5 +35,17 @@ public class OrganizeServiceImpl implements OrganizeService {
     public List<employeeDto> select_employee() {
         OrganizeMapper mapper = sqlSession.getMapper(OrganizeMapper.class);
         return mapper.select_employee();
+    }
+
+    /**
+     *
+     * @desc 사원목록 조회
+     * @param List<Emp> empList
+     * @return
+     */
+    @Override
+    public List<Emp> selectEmpList(Emp Params){
+        OrganizeMapper mapper = sqlSession.getMapper(OrganizeMapper.class);
+        return mapper.selectEmpList(Params);
     }
 }

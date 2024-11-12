@@ -53,4 +53,28 @@ public interface AuthService {
      * @return
      */
     void saveAuthMenuList(List<Auth> authMenuList);
+
+    /**
+     *
+     * @desc 권한별 사용자조회
+     * @param Auth params
+     * @return Auth
+     */
+    Auth selectAuthUsrMngm(Auth params);
+
+    /**
+     *
+     * @desc 권한별 사용자목록조회
+     * @param Auth params
+     * @return List<Auth>
+     */
+    List<Auth> selectAuthUsrMngmList(Auth params);
+
+    /**
+     *
+     * @desc 권한별 사용자 입력,삭제
+     * @param List<Auth> authUsrMngmList
+     * @return
+     */
+    void saveAuthUsrMngmList(List<Auth> authMenuList);
 }

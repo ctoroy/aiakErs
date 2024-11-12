@@ -65,6 +65,7 @@
     <Service prefixid="sample" type="form" url="./uiframe/sample/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
     <Service prefixid="richtexteditor" type="form" url="./richtexteditor/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
     <Service prefixid="SCC01" type="form" url="./SCC01/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
+    <Service prefixid="ADMBCM08" type="form" url="./ADM/ADMBCM08/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
     <Service prefixid="ADMCOM01" type="form" url="./ADM/ADMCOM01/" version="0" cachelevel="session" include_subdir="true" communicationversion="0"/>
     <Service prefixid="ADMCOM02" type="form" url="./ADM/ADMCOM02/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
     <Service prefixid="ADMCOM03" type="form" url="./ADM/ADMCOM03/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
@@ -74,6 +75,7 @@
     <Service prefixid="MNUBGT01" type="form" url="./MNU/MNUBGT01/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
     <Service prefixid="MNUBGT02" type="form" url="./MNU/MNUBGT02/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
     <Service prefixid="MNUBGT03" type="form" url="./MNU/MNUBGT03/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
+    <Service prefixid="TEMPLETE" type="form" url="./TEMPLETE/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
   </Services>
   <Protocols/>
   <DeviceAdaptors/>

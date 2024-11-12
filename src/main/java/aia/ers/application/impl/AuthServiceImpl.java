@@ -114,4 +114,56 @@ public class AuthServiceImpl implements AuthService {
             }
         });
     }
+
+    /**
+     *
+     * @desc 권한별 사용자 조회
+     * @param Auth params
+     * @return Auth
+     */
+    @Override
+    public Auth selectAuthUsrMngm(Auth params) {
+        AuthMapper mapper = sqlSession.getMapper(AuthMapper.class);
+        return mapper.selectAuthUsrMngm(params);
+    }
+
+    /**
+     *
+     * @desc 권한별 사용자목록 조회
+     * @param Auth params
+     * @return List<Auth>
+     */
+    @Override
+    public List<Auth> selectAuthUsrMngmList(Auth params) {
+        AuthMapper mapper = sqlSession.getMapper(AuthMapper.class);
+        return mapper.selectAuthUsrMngmList(params);
+    }
+
+    /**
+     *
+     * @desc 권한별 사용자목록 입력,삭제
+     * @param List<Auth> authUsrMngmList
+     * @return
+     */
+    @Override
+    public void saveAuthUsrMngmList(List<Auth> authUsrMngmList){
+        AuthMapper mapper = sqlSession.getMapper(AuthMapper.class);
+        authUsrMngmList.forEach(authUsrMngm -> {
+            switch (authUsrMngm.getRowType()) {
+                case DataSet.ROW_TYPE_INSERTED:
+                    authUsrMngm.setCretrId("ksh");
+                    authUsrMngm.setMdfrId("ksh");
+                    mapper.insertAuthUsrMngmList(authUsrMngm);
+                    break;
+                case DataSet.ROW_TYPE_UPDATED:
+                    authUsrMngm.setMdfrId("ksh");
+                    mapper.updateAuthUsrMngmList(authUsrMngm);
+                    break;
+                case DataSet.ROW_TYPE_DELETED:
+                    mapper.deleteAuthUsrMngmList(authUsrMngm);
+                    break;
+                default:
+            }
+        });
+    }
 }

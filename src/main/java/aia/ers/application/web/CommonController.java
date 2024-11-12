@@ -1,10 +1,12 @@
 package aia.ers.application.web;
 
-import com.nexacro.uiadapter.boot.core.NexacroException;
-import com.nexacro.uiadapter.boot.core.data.NexacroResult;
+import aia.ers.application.pojo.Emp;
 import aia.ers.application.pojo.departDto;
 import aia.ers.application.pojo.employeeDto;
 import aia.ers.application.service.OrganizeService;
+import com.nexacro.uiadapter.boot.core.NexacroException;
+import com.nexacro.uiadapter.boot.core.annotation.ParamDataSet;
+import com.nexacro.uiadapter.boot.core.data.NexacroResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +35,16 @@ public class CommonController {
         List<employeeDto> sampleList = organizeService.select_employee();
         NexacroResult result = new NexacroResult();
         result.addDataSet("EMPLOYEE_LIST", sampleList);
+
+        return result;
+    }
+
+    @RequestMapping(value = "/selectEmpList.do")
+    public NexacroResult selectEmpList(@ParamDataSet(name = "dsIn", required = false) Emp searchVo) throws NexacroException {
+
+        List<Emp> empList = organizeService.selectEmpList(searchVo);
+        NexacroResult result = new NexacroResult();
+        result.addDataSet("EMPLIST", empList);
 
         return result;
     }

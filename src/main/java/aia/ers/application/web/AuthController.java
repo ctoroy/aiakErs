@@ -102,4 +102,55 @@ public class AuthController {
 
     return result;
   }
+
+	/**
+	 *
+	 * <pre>
+	 * @desc 권한별 사용자조회 - VO
+	 * @param
+	 * @return NexacroResult
+	 * </pre>
+	 */
+	@RequestMapping(value = "/selectAuthUsrMngm.do")
+	public NexacroResult selectAuthUsrMngm(@ParamDataSet(name = "dsIn", required = false) Auth searchVo) throws NexacroException{
+
+		Auth authUsrMngm = authService.selectAuthUsrMngm(searchVo);
+		NexacroResult result = new NexacroResult();
+		result.addDataSet("AUTHUSRMNGM", authUsrMngm);
+
+		return result;
+	}
+
+	/**
+	 *
+	 * <pre>
+	 * @desc 권한별 사용자목록 조회 - VO
+	 * @param
+	 * @return NexacroResult
+	 * </pre>
+	 */
+	@RequestMapping(value = "/selectAuthUsrMngmList.do")
+	public NexacroResult selectAuthUsrMngmList(@ParamDataSet(name = "dsIn", required = false) Auth searchVo) throws NexacroException{
+
+		List<Auth> authUsrMngmList = authService.selectAuthUsrMngmList(searchVo);
+		NexacroResult result = new NexacroResult();
+		result.addDataSet("AUTHUSRMNGMLIST", authUsrMngmList);
+
+		return result;
+	}
+
+	/**
+	 * @desc 권한별 사용자 입력,삭제
+	 * @param
+	 * @return NexacroResult
+	 */
+	@RequestMapping(value = "/saveAuthUsrMngmList.do")
+	public NexacroResult saveAuthUsrMngmList(@ParamDataSet(name = "AUTHUSRMNGMLIST") List<Auth> authUsrMngmList) throws NexacroException{
+
+		authService.saveAuthUsrMngmList(authUsrMngmList);
+
+		NexacroResult result = new NexacroResult();
+
+		return result;
+	}
 }
