@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="ADMBCM0805P" width="850" height="500" titletext="사원정보" onload="ADMBCM0805P_onload">
+    <Layouts>
+      <Layout height="500" mobileorientation="landscape" width="850">
+        <Static id="staEmpList" taborder="0" text="사원 리스트" left="25" top="78" width="342" height="38" cssclass="sta_WF_Title"/>
+        <Grid id="grdEmpList" taborder="1" left="20" top="116" right="20" bottom="62" autofittype="col" oncelldblclick="grdList_oncelldblclick" binddataset="dsEmpList">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="150"/>
+                <Column size="150"/>
+                <Column size="150"/>
+                <Column size="150"/>
+              </Columns>
+              <Rows>
+                <Row size="32" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="사번"/>
+                <Cell col="1" text="성명"/>
+                <Cell col="2" text="부서"/>
+                <Cell col="3" text="상태"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:empNo" displaytype="text"/>
+                <Cell col="1" text="bind:empNm" displaytype="text"/>
+                <Cell col="2" text="bind:deptNm" displaytype="text"/>
+                <Cell col="3" text="bind:rgntnYn" displaytype="combotext" combodataset="dsRgntnYn" combocodecol="code" combodatacol="data"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static04" taborder="2" left="165" top="70" width="30" height="46" cssclass="sta_WF_GSize" visible="false" text="H46"/>
+        <Static id="Static04_00" taborder="3" left="20" top="0" height="20" cssclass="sta_WF_GSize" visible="false" text="H20" right="20"/>
+        <Static id="Static04_01" taborder="4" left="0" top="0" width="20" cssclass="sta_WF_GSize" visible="false" text="W 20" bottom="0"/>
+        <Static id="Static04_01_00" taborder="5" top="0" width="20" cssclass="sta_WF_GSize" visible="false" text="W 20" bottom="0" right="0"/>
+        <Button id="btnClose" taborder="7" text="취소" height="32" width="57" right="20" bottom="20" onclick="btnClose_onclick" cssclass="btn_WF_Popup02"/>
+        <Button id="btnConfirm" taborder="6" text="확인" height="32" width="57" cssclass="btn_WF_Popup" right="80" bottom="20" onclick="btnConfirm_onclick"/>
+        <Static id="Static04_00_00" taborder="8" left="20" height="20" cssclass="sta_WF_GSize" visible="false" text="H20" bottom="0" right="20"/>
+        <Static id="Static04_00_00_00" taborder="9" left="730" width="30" height="10" cssclass="sta_WF_GSize" visible="false" text="H10" bottom="52"/>
+        <Div id="divSearch" taborder="10" left="20" top="20" height="50" cssclass="div_WF_Search" text="" right="20">
+          <Layouts>
+            <Layout>
+              <Static id="staEmpNoNm" taborder="0" text="사번(성명)" left="0" top="12" width="86" height="24" cssclass="sta_WF_SchLabel"/>
+              <Edit id="edtEmpNoNm" taborder="1" left="staEmpNoNm:10" top="12" width="160" height="24" cssclass="edt_WF_Search" text=""/>
+              <Button id="btnSearch" taborder="2" text="조회" width="62" cssclass="btn_WF_Search" right="20" bottom="8" height="32" onclick="divSearch_btnSearch_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="sta04_01" taborder="11" left="20" top="70" width="90" height="8" cssclass="sta_WF_GSize" visible="false" text="H8"/>
+        <Static id="sta04_00_00" taborder="12" width="400" height="7" cssclass="sta_WF_GSize" visible="false" text="H7" top="109" right="24"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsEmpList">
+        <ColumnInfo>
+          <Column id="empNo" type="STRING" size="30"/>
+          <Column id="empEngNm" type="STRING" size="2000"/>
+          <Column id="empNm" type="STRING" size="200"/>
+          <Column id="deptRlNm" type="STRING" size="200"/>
+          <Column id="lcetNo" type="STRING" size="600"/>
+          <Column id="emalAddr" type="STRING" size="200"/>
+          <Column id="grad" type="STRING" size="10"/>
+          <Column id="dutyTtlNm" type="STRING" size="200"/>
+          <Column id="rgntnYn" type="STRING" size="1"/>
+          <Column id="chgYn" type="STRING" size="1"/>
+          <Column id="grpName" type="STRING" size="50"/>
+          <Column id="idNm" type="STRING" size="100"/>
+          <Column id="deptCd" type="STRING" size="9"/>
+          <Column id="deptNm" type="STRING" size="4000"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsEmpCond">
+        <ColumnInfo>
+          <Column id="searchText" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsRgntnYn">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">Y</Col>
+            <Col id="data">퇴사</Col>
+          </Row>
+          <Row>
+            <Col id="code">N</Col>
+            <Col id="data">재직</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsRtnEmpInfo">
+        <ColumnInfo>
+          <Column id="empNo" type="STRING" size="30"/>
+          <Column id="empEngNm" type="STRING" size="2000"/>
+          <Column id="empNm" type="STRING" size="200"/>
+          <Column id="deptRlNm" type="STRING" size="200"/>
+          <Column id="lcetNo" type="STRING" size="600"/>
+          <Column id="emalAddr" type="STRING" size="200"/>
+          <Column id="grad" type="STRING" size="10"/>
+          <Column id="dutyTtlNm" type="STRING" size="200"/>
+          <Column id="rgntnYn" type="STRING" size="1"/>
+          <Column id="chgYn" type="STRING" size="1"/>
+          <Column id="grpName" type="STRING" size="50"/>
+          <Column id="idNm" type="STRING" size="100"/>
+          <Column id="deptCd" type="STRING" size="9"/>
+          <Column id="deptNm" type="STRING" size="4000"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/**
+*  사원정보
+*  @FileName 	ADMBCM08/ADMBCM0805P.xfdl
+*  @Creator 	강성호
+*  @CreateDate 	2024.11.11
+*  @Desction    사원정보 화면
+************** 소스 수정 이력 ***********************************************
+* Date					Modifier					Description
+*******************************************************************************
+* 2021/01/05			TOBESOFT					최초생성
+*******************************************************************************
+*/
+
+/*******************************************************************************************************************************
+ * FORM 변수 선언 영역
+*******************************************************************************************************************************/
+this.fvSearch = "";	// 부모에서 넘긴 검색조건
+ 
+/*******************************************************************************************************************************
+ * FORM EVENT 영역(onload, onbeforeclose..)
+*******************************************************************************************************************************/
+this.ADMBCM0805P_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnload(obj,e); //필수함수
+	
+	// 초기화
+	this.fnPopupInit();
+};
+
+/*******************************************************************************************************************************
+ * 공통함수영역 (cfnSearch : 조회 / cfnSave : 저장 / cfnAdd : 신규 / cfnDel : 삭제 / cfnPrint : 인쇄..)
+*******************************************************************************************************************************/
+
+/*******************************************************************************************************************************
+ * Transaction 서비스호출 처리 영역
+*******************************************************************************************************************************/
+/**
+ * @description 사원 조회 트랜잭션
+ */
+this.fnSearchEmpList = function()
+{
+	// 마이메뉴 조회
+	var sSvcId 		= "selectEmpList";
+	var sSvcUrl     = "selectEmpList.do";
+	var sInData     = "dsIn=dsEmpCond";
+	var sOutData    = "dsEmpList=EMPLIST";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 	// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 			// trabsaction을 요청할 주소
+						sInData , 			// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 			// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 				// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  	// 통신방법 정의 [생략가능]
+};
+/*******************************************************************************************************************************
+ * Callback 영역 (Transaction, popup, message..)
+*******************************************************************************************************************************/
+this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
+{
+	switch(sSvcId) 
+	{
+		case "selectEmpList":
+			break;
+		default:break;
+	} 
+};
+/*******************************************************************************************************************************
+ * 사용자 Function 영역
+*******************************************************************************************************************************/
+/**
+ * @description 초기화
+*/
+this.fnPopupInit = function()
+{
+	this.dsEmpCond.clearData();
+	this.dsEmpList.clearData();
+}
+/*******************************************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+*******************************************************************************************************************************/
+/**
+ * @description 취소 버튼 클릭 이벤트
+*/
+this.btnClose_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.gfnClosePopup();
+};
+
+/**
+ * @description 확인 버튼 클릭 이벤트
+*/
+this.btnConfirm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var nRow = this.dsEmpList.rowposition;
+	this.dsRtnEmpInfo.clearData();
+	this.dsRtnEmpInfo.addRow();
+	this.dsRtnEmpInfo.copyRow(0, this.dsEmpList, nRow);
+	this.gfnClosePopup(this.dsRtnEmpInfo.saveJSON());
+// 	var empNo = this.dsEmpList.getColumn(nRow, "empNo");
+// 	var empNm = this.dsEmpList.getColumn(nRow, "empNm");
+// 	
+// 	var rtnValue = {
+// 	     rtnEmpNo:empNo
+// 		,rtnEmpNm:empNm
+// 	}
+// 		
+// 	this.gfnClosePopup(JSON.stringify(rtnValue));
+};
+
+/**
+ * @description 그리드셀 더블클릭 이벤트
+*/
+this.grdList_oncelldblclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	var nRow = this.dsEmpList.rowposition;
+	this.dsRtnEmpInfo.clearData();
+	this.dsRtnEmpInfo.addRow();
+	this.dsRtnEmpInfo.copyRow(0, this.dsEmpList, nRow);
+	this.gfnClosePopup(this.dsRtnEmpInfo.saveJSON());
+	//this.gfnClosePopup(this.dsRtnEmpInfo);
+// 	var empNo = this.dsEmpList.getColumn(nRow, "empNo");
+// 	var empNm = this.dsEmpList.getColumn(nRow, "empNm");
+// 	var deptNm = this.dsEmpList.getColumn(nRow, "deptNm");
+// 	
+// 	var rtnValue = {
+// 	     rtnEmpNo:empNo
+// 		,rtnEmpNm:empNm
+// 		,rtnDeptNm:deptNm
+// 		}
+// 	this.gfnClosePopup(JSON.stringify(rtnValue));
+};
+
+this.divSearch_btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.dsEmpCond.clearData();
+	this.dsEmpCond.addRow();
+	this.dsEmpCond.setColumn(0, 'searchText', this.divSearch.form.edtEmpNoNm.value);
+	this.fnSearchEmpList();
+};
+]]></Script>
+  </Form>
+</FDL>
