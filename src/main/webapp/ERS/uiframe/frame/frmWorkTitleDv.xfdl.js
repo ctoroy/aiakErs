@@ -674,7 +674,8 @@
 
         this.btnOpen_onclick = function(obj,e)
         {
-        	//this.gfnAlert("msg.general", ["팝업창 개발중................. "]);
+        	this.gfnAlert("msg.general", ["팝업창 개발중................. "]);
+        	return;
         	var arg = this.objApp.gvFrsWork.getActiveFrame().arguments;
         	var sPopId = arg.MENU_ID;
         	this.gfnSetOpenPopup(sPopId, "", arg);
