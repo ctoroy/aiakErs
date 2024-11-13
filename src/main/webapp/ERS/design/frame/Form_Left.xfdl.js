@@ -115,7 +115,7 @@
             obj.set_treeusecheckbox("false");
             obj.set_treeuseimage("true");
             obj.set_treeinitstatus("expand,all");
-            obj.set_cssclass("grd_LF_Menu");
+            obj.set_cssclass("grd_LF_MyMenu");
             obj.set_extendsizetype("row");
             obj.set_autofittype("col");
             obj.set_autosizingtype("row");

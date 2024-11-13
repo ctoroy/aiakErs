@@ -3067,9 +3067,10 @@
 	-nexa-border 		: 0px none;
 	background 		: #333d47;
 }
+
 .Grid.grd_LF_Menu
 {
-	-nexa-border 		: 0px none;
+	-nexa-border 		: 1px solid #666b78, 0px none, 0px none, 0px none;
 	background 		: transparent;
 }
 .Grid.grd_LF_Menu .body .row .cell
@@ -3094,22 +3095,22 @@
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev1
 {
-	-nexa-border 		: 0px none, 0px none, 0px none, 0px none;
+	-nexa-border 		: 0px none, 0px none, 1px solid #666b78, 0px none;
 	-nexa-padding 		: 11px 5px 11px 0px;
-	background 		: url('theme://images/grd_LF_Line.png') repeat-x left top transparent;
+	background 		: transparent;
 	color 			: #ffffff;
 	cursor 			: pointer;
 	font 			: 14px "SpoqaHanSansNeo-Medium";
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev1[status=mouseover]
 {
-	background 		: URL("theme://images/grd_LF_Line.png") repeat-x left top transparent;
+	background 		: transparent;
 	color 			: #ffd860;
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev1[userstatus=selected]
 {
-	background 		: URL("theme://images/grd_LF_Line.png") repeat-x left top transparent;
-	color 			: #ffffff;
+	background 		: transparent;
+	color 			: #ffd860;
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev2
 {
@@ -3181,7 +3182,65 @@
 	-nexa-icon 		: URL("theme://images/grd_LF_Delete.png");
 	background		: transparent;
 }
+
+.Grid.grd_LF_MyMenu
+{
+	-nexa-border 		: 0px none;
+	background 		: transparent;
+}
+.Grid.grd_LF_MyMenu .body .row .cell
+{
+	-nexa-border 		: 0px none, 0px none, 0px none, 0px none;
+	background 		: transparent;
+	-nexa-padding 		: 11px 5px 11px 0px;
+	color 			: #ffffff;
+	cursor 			: pointer;
+	font 			: 13px "SpoqaHanSansNeo-Medium";
+}
+.Grid.grd_LF_MyMenu .body .row .cell[status=mouseover]
+{
+	background 		: transparent;
+	color 			: #ffd860;
+}
+.Grid.grd_LF_MyMenu .body .row .cell[userstatus=selected]
+{
+	background 		: #e31f4e;
+	color 			: #ffffff;
+	border-radius 		: 0px;
+}
+.Grid.grd_LF_MyMenu .body .row .cell .celltreeitem .treeitembutton[userstatus=expand]
+{
+	-nexa-icon		: URL("theme://images/grd_LF_TreeOpen.png");
+}
+.Grid.grd_LF_MyMenu .body .row .cell .celltreeitem .treeitembutton[userstatus=collapse]
+{
+	-nexa-icon		: URL("theme://images/grd_LF_TreeClose.png");
+}
+.Grid.grd_LF_MyMenu .body .row .cell .celltreeitem .treeitemimage[userstatus=expand]
+{
+	-nexa-icon		: URL("theme://images/grd_LF_TreeCloseImg.png");
+}
+.Grid.grd_LF_MyMenu .body .row .cell .celltreeitem .treeitemimage[userstatus=collapse]
+{
+	-nexa-icon		: URL("theme://images/grd_LF_TreeOpenImg.png");
+}
+.Grid.grd_LF_MyMenu .body .row .cell .celltreeitem .treeitemimage[userstatus=leaf]
+{
+	-nexa-icon		: URL("theme://images/grd_LF_TreeLeafImg.png");
+}
+
+.Grid.grd_LF_MyMenu .body .row .cell.cell_LF_Delete .cellbutton,
+.Grid.grd_LF_MyMenu .body .row .cell.cell_LF_Delete .cellbutton[status=focused],.Grid.grd_LF_MyMenu .body .row .cell.cell_LF_Delete .cellbutton[status=mouseover],
+.Grid.grd_LF_MyMenu .body .row .cell.cell_LF_Delete .cellbutton[userstatus=pushed],.Grid.grd_LF_MyMenu .body .row .cell.cell_LF_Delete .cellbutton[userstatus=selected]
+{
+	-nexa-border 		: 0px none;
+	-nexa-padding 		: 0px 0px 0px 0px;
+	-nexa-icon 		: URL("theme://images/grd_LF_Delete.png");
+	background		: transparent;
+}
+
 .Grid.grd_LF_Menu .vscrollbar,.Grid.grd_LF_Menu .vscrollbar[status=mouseover],
+.Grid.grd_LF_MyMenu .vscrollbar,.Grid.grd_LF_MyMenu .vscrollbar[status=mouseover],
 .Grid.grd_MDI_List .vscrollbar,.Grid.grd_MDI_List .vscrollbar[status=mouseover],
 .Grid.grd_LF_Sch .vscrollbar,.Grid.grd_LF_Sch .vscrollbar[status=mouseover]
 {
@@ -3190,6 +3249,7 @@
 	background 		: transparent;
 }
 .Grid.grd_LF_Menu .vscrollbar[status=disabled],
+.Grid.grd_LF_MyMenu .vscrollbar[status=disabled],
 .Grid.grd_MDI_List .vscrollbar[status=disabled],
 .Grid.grd_LF_Sch .vscrollbar[status=disabled]
 {
@@ -3203,6 +3263,14 @@
 .Grid.grd_LF_Menu .vscrollbar .incbutton[status=mouseover],.Grid.grd_LF_Menu .vscrollbar .incbutton[status=focused],
 .Grid.grd_LF_Menu .vscrollbar .incbutton[userstatus=pushed],.Grid.grd_LF_Menu .vscrollbar .incbutton[userstatus=selected],
 .Grid.grd_LF_Menu .vscrollbar .incbutton[status=disabled],
+.Grid.grd_LF_MyMenu .vscrollbar .decbutton,
+.Grid.grd_LF_MyMenu .vscrollbar .decbutton[status=mouseover],.Grid.grd_LF_MyMenu .vscrollbar .decbutton[status=focused],
+.Grid.grd_LF_MyMenu .vscrollbar .decbutton[userstatus=pushed],.Grid.grd_LF_MyMenu .vscrollbar .decbutton[userstatus=selected],
+.Grid.grd_LF_MyMenu .vscrollbar .decbutton[status=disabled],
+.Grid.grd_LF_MyMenu .vscrollbar .incbutton,
+.Grid.grd_LF_MyMenu .vscrollbar .incbutton[status=mouseover],.Grid.grd_LF_MyMenu .vscrollbar .incbutton[status=focused],
+.Grid.grd_LF_MyMenu .vscrollbar .incbutton[userstatus=pushed],.Grid.grd_LF_MyMenu .vscrollbar .incbutton[userstatus=selected],
+.Grid.grd_LF_MyMenu .vscrollbar .incbutton[status=disabled],
 .Grid.grd_MDI_List .vscrollbar .decbutton,
 .Grid.grd_MDI_List .vscrollbar .decbutton[status=mouseover],.Grid.grd_MDI_List .vscrollbar .decbutton[status=focused],
 .Grid.grd_MDI_List .vscrollbar .decbutton[userstatus=pushed],.Grid.grd_MDI_List .vscrollbar .decbutton[userstatus=selected],
@@ -3224,6 +3292,8 @@
 }
 .Grid.grd_LF_Menu .vscrollbar .trackbar,
 .Grid.grd_LF_Menu .vscrollbar .trackbar[status=focused],
+.Grid.grd_LF_MyMenu .vscrollbar .trackbar,
+.Grid.grd_LF_MyMenu .vscrollbar .trackbar[status=focused],
 .Grid.grd_LF_Sch .vscrollbar .trackbar,
 .Grid.grd_LF_Sch .vscrollbar .trackbar[status=focused]
 {
@@ -3231,16 +3301,19 @@
 	border-radius 		: 10px;
 }
 .Grid.grd_LF_Menu .vscrollbar .trackbar[status=mouseover],
+.Grid.grd_LF_MyMenu .vscrollbar .trackbar[status=mouseover],
 .Grid.grd_LF_Sch .vscrollbar .trackbar[status=mouseover]
 {
 	background 		: #333d47;
 }
 .Grid.grd_LF_Menu .vscrollbar .trackbar[userstatus=pushed],.Grid.grd_LF_Menu .vscrollbar .trackbar[userstatus=selected],
+.Grid.grd_LF_MyMenu .vscrollbar .trackbar[userstatus=pushed],.Grid.grd_LF_MyMenu .vscrollbar .trackbar[userstatus=selected],
 .Grid.grd_LF_Sch .vscrollbar .trackbar[userstatus=pushed],.Grid.grd_LF_Sch .vscrollbar .trackbar[userstatus=selected]
 {
 	background 		: #333d47;
 }
 .Grid.grd_LF_Menu .vscrollbar .trackbar[status=disabled],
+.Grid.grd_LF_MyMenu .vscrollbar .trackbar[status=disabled],
 .Grid.grd_LF_Sch .vscrollbar .trackbar[status=disabled]
 {
 	background 		: #e4e4e4;

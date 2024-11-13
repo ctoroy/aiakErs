@@ -34,7 +34,7 @@
             </Layout>
           </Layouts>
         </Div>
-        <Grid id="Grid00_00" taborder="1" left="393" top="52" binddataset="ds_fav" treeuseline="false" treeusecheckbox="false" treeuseimage="true" treeinitstatus="expand,all" cssclass="grd_LF_Menu" extendsizetype="row" autofittype="col" autosizingtype="row" oncellclick="Grid00_oncellclick" bottom="0" treeusebutton="use" width="255" visible="false">
+        <Grid id="Grid00_00" taborder="1" left="393" top="52" binddataset="ds_fav" treeuseline="false" treeusecheckbox="false" treeuseimage="true" treeinitstatus="expand,all" cssclass="grd_LF_MyMenu" extendsizetype="row" autofittype="col" autosizingtype="row" oncellclick="Grid00_oncellclick" bottom="0" treeusebutton="use" width="255" visible="false">
           <Formats>
             <Format id="default">
               <Columns>

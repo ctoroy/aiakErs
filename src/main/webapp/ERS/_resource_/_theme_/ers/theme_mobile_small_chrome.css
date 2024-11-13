@@ -2403,7 +2403,10 @@ textarea::-webkit-scrollbar { display: none; }
 }
 .Grid.grd_LF_Menu
 {
-	border : 0px none;
+	border-top : 1px solid #666b78;
+	border-right : 0px none;
+	border-bottom : 0px none;
+	border-left : 0px none;
 	background : transparent;
 }
 .Grid.grd_LF_Menu .body .row .cell
@@ -2421,9 +2424,9 @@ textarea::-webkit-scrollbar { display: none; }
 {
 	border-top : 0px none;
 	border-right : 0px none;
-	border-bottom : 0px none;
+	border-bottom : 1px solid #666b78;
 	border-left : 0px none;
-	background : url('./images/grd_LF_Line.png') repeat-x left top transparent;
+	background : transparent;
 	color : #ffffff;
 	cursor : pointer;
 	font : 14px "SpoqaHanSansNeo-Medium";
@@ -2455,7 +2458,33 @@ textarea::-webkit-scrollbar { display: none; }
 	border : 0px none;
 	background : transparent;
 }
+.Grid.grd_LF_MyMenu
+{
+	border : 0px none;
+	background : transparent;
+}
+.Grid.grd_LF_MyMenu .body .row .cell
+{
+	border-top : 0px none;
+	border-right : 0px none;
+	border-bottom : 0px none;
+	border-left : 0px none;
+	background : transparent;
+	color : #ffffff;
+	cursor : pointer;
+	font : 13px "SpoqaHanSansNeo-Medium";
+}
+.Grid.grd_LF_MyMenu .body .row .cell.cell_LF_Delete.dummy.dummy.dummy .cellbutton
+{
+	border : 0px none;
+	background : transparent;
+}
 .Grid.grd_LF_Menu .vscrollbar
+{
+	border : 0px none;
+	background : transparent;
+}
+.Grid.grd_LF_MyMenu .vscrollbar
 {
 	border : 0px none;
 	background : transparent;
@@ -2471,6 +2500,11 @@ textarea::-webkit-scrollbar { display: none; }
 	background : transparent;
 }
 .Grid.grd_LF_Menu .vscrollbar .trackbar
+{
+	background : #333d47;
+	border-radius : 10px;
+}
+.Grid.grd_LF_MyMenu .vscrollbar .trackbar
 {
 	background : #333d47;
 	border-radius : 10px;
@@ -6086,7 +6120,7 @@ textarea::-webkit-scrollbar { display: none; }
 }
 #nexacontainer .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev1.dummy.dummy.dummy[data-status=mouseover]
 {
-	background : URL("./images/grd_LF_Line.png") repeat-x left top transparent;
+	background : transparent;
 	color : #ffd860;
 }
 #nexacontainer .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev2.dummy.dummy.dummy[data-status=mouseover]
@@ -6109,7 +6143,27 @@ textarea::-webkit-scrollbar { display: none; }
 	border : 0px none;
 	background : transparent;
 }
+#nexacontainer .Grid.grd_LF_MyMenu .body .row .cell[data-status=mouseover]
+{
+	background : transparent;
+	color : #ffd860;
+}
+#nexacontainer .Grid.grd_LF_MyMenu .body .row .cell.cell_LF_Delete.dummy.dummy.dummy .cellbutton[data-status=focused]
+{
+	border : 0px none;
+	background : transparent;
+}
+#nexacontainer .Grid.grd_LF_MyMenu .body .row .cell.cell_LF_Delete.dummy.dummy.dummy .cellbutton[data-status=mouseover]
+{
+	border : 0px none;
+	background : transparent;
+}
 #nexacontainer .Grid.grd_LF_Menu .vscrollbar[data-status=mouseover]
+{
+	border : 0px none;
+	background : transparent;
+}
+#nexacontainer .Grid.grd_LF_MyMenu .vscrollbar[data-status=mouseover]
 {
 	border : 0px none;
 	background : transparent;
@@ -6129,12 +6183,21 @@ textarea::-webkit-scrollbar { display: none; }
 	background : #333d47;
 	border-radius : 10px;
 }
+#nexacontainer .Grid.grd_LF_MyMenu .vscrollbar .trackbar[data-status=focused]
+{
+	background : #333d47;
+	border-radius : 10px;
+}
 #nexacontainer .Grid.grd_LF_Sch .vscrollbar .trackbar[data-status=focused]
 {
 	background : #333d47;
 	border-radius : 10px;
 }
 #nexacontainer .Grid.grd_LF_Menu .vscrollbar .trackbar[data-status=mouseover]
+{
+	background : #333d47;
+}
+#nexacontainer .Grid.grd_LF_MyMenu .vscrollbar .trackbar[data-status=mouseover]
 {
 	background : #333d47;
 }
@@ -8800,8 +8863,8 @@ textarea::-webkit-scrollbar { display: none; }
 }
 #nexacontainer .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev1.dummy.dummy.dummy[data-userstatus=selected]
 {
-	background : URL("./images/grd_LF_Line.png") repeat-x left top transparent;
-	color : #ffffff;
+	background : transparent;
+	color : #ffd860;
 }
 #nexacontainer .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev2.dummy.dummy.dummy[data-userstatus=selected]
 {
@@ -8825,11 +8888,35 @@ textarea::-webkit-scrollbar { display: none; }
 	border : 0px none;
 	background : transparent;
 }
+#nexacontainer .Grid.grd_LF_MyMenu .body .row .cell[data-userstatus=selected]
+{
+	background : #e31f4e;
+	color : #ffffff;
+	border-radius : 0px;
+}
+#nexacontainer .Grid.grd_LF_MyMenu .body .row .cell.cell_LF_Delete.dummy.dummy.dummy .cellbutton[data-userstatus=pushed]
+{
+	border : 0px none;
+	background : transparent;
+}
+#nexacontainer .Grid.grd_LF_MyMenu .body .row .cell.cell_LF_Delete.dummy.dummy.dummy .cellbutton[data-userstatus=selected]
+{
+	border : 0px none;
+	background : transparent;
+}
 #nexacontainer .Grid.grd_LF_Menu .vscrollbar .trackbar[data-userstatus=pushed]
 {
 	background : #333d47;
 }
 #nexacontainer .Grid.grd_LF_Menu .vscrollbar .trackbar[data-userstatus=selected]
+{
+	background : #333d47;
+}
+#nexacontainer .Grid.grd_LF_MyMenu .vscrollbar .trackbar[data-userstatus=pushed]
+{
+	background : #333d47;
+}
+#nexacontainer .Grid.grd_LF_MyMenu .vscrollbar .trackbar[data-userstatus=selected]
 {
 	background : #333d47;
 }
@@ -10618,6 +10705,10 @@ textarea::-webkit-scrollbar { display: none; }
 {
 	opacity : 0.3;
 }
+#nexacontainer .Grid.grd_LF_MyMenu .vscrollbar[data-status=disabled]
+{
+	opacity : 0.3;
+}
 #nexacontainer .Grid.grd_MDI_List .vscrollbar[data-status=disabled]
 {
 	opacity : 0.3;
@@ -10627,6 +10718,10 @@ textarea::-webkit-scrollbar { display: none; }
 	opacity : 0.3;
 }
 #nexacontainer .Grid.grd_LF_Menu .vscrollbar .trackbar[data-status=disabled]
+{
+	background : #e4e4e4;
+}
+#nexacontainer .Grid.grd_LF_MyMenu .vscrollbar .trackbar[data-status=disabled]
 {
 	background : #e4e4e4;
 }

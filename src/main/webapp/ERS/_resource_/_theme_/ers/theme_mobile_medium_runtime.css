@@ -1907,7 +1907,7 @@
 }
 .Grid.grd_LF_Menu
 {
-	border : 0px none;
+	border : 1px solid #666b78, 0px none, 0px none, 0px none;
 	background : transparent;
 }
 .Grid.grd_LF_Menu .body .row .cell
@@ -1920,8 +1920,8 @@
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev1
 {
-	border : 0px none, 0px none, 0px none, 0px none;
-	background : url('./images/grd_LF_Line.png') repeat-x left top transparent;
+	border : 0px none, 0px none, 1px solid #666b78, 0px none;
+	background : transparent;
 	color : #ffffff;
 	cursor : pointer;
 	font : 14px "SpoqaHanSansNeo-Medium";
@@ -1947,7 +1947,30 @@
 	border : 0px none;
 	background : transparent;
 }
+.Grid.grd_LF_MyMenu
+{
+	border : 0px none;
+	background : transparent;
+}
+.Grid.grd_LF_MyMenu .body .row .cell
+{
+	border : 0px none, 0px none, 0px none, 0px none;
+	background : transparent;
+	color : #ffffff;
+	cursor : pointer;
+	font : 13px "SpoqaHanSansNeo-Medium";
+}
+.Grid.grd_LF_MyMenu .body .row .cell.cell_LF_Delete .cellbutton
+{
+	border : 0px none;
+	background : transparent;
+}
 .Grid.grd_LF_Menu .vscrollbar
+{
+	border : 0px none;
+	background : transparent;
+}
+.Grid.grd_LF_MyMenu .vscrollbar
 {
 	border : 0px none;
 	background : transparent;
@@ -1963,6 +1986,11 @@
 	background : transparent;
 }
 .Grid.grd_LF_Menu .vscrollbar .trackbar
+{
+	background : #333d47;
+	border-radius : 10px;
+}
+.Grid.grd_LF_MyMenu .vscrollbar .trackbar
 {
 	background : #333d47;
 	border-radius : 10px;
@@ -5245,7 +5273,7 @@
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev1[status=mouseover]
 {
-	background : URL("./images/grd_LF_Line.png") repeat-x left top transparent;
+	background : transparent;
 	color : #ffd860;
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev2[status=mouseover]
@@ -5268,7 +5296,27 @@
 	border : 0px none;
 	background : transparent;
 }
+.Grid.grd_LF_MyMenu .body .row .cell[status=mouseover]
+{
+	background : transparent;
+	color : #ffd860;
+}
+.Grid.grd_LF_MyMenu .body .row .cell.cell_LF_Delete .cellbutton[status=focused]
+{
+	border : 0px none;
+	background : transparent;
+}
+.Grid.grd_LF_MyMenu .body .row .cell.cell_LF_Delete .cellbutton[status=mouseover]
+{
+	border : 0px none;
+	background : transparent;
+}
 .Grid.grd_LF_Menu .vscrollbar[status=mouseover]
+{
+	border : 0px none;
+	background : transparent;
+}
+.Grid.grd_LF_MyMenu .vscrollbar[status=mouseover]
 {
 	border : 0px none;
 	background : transparent;
@@ -5288,12 +5336,21 @@
 	background : #333d47;
 	border-radius : 10px;
 }
+.Grid.grd_LF_MyMenu .vscrollbar .trackbar[status=focused]
+{
+	background : #333d47;
+	border-radius : 10px;
+}
 .Grid.grd_LF_Sch .vscrollbar .trackbar[status=focused]
 {
 	background : #333d47;
 	border-radius : 10px;
 }
 .Grid.grd_LF_Menu .vscrollbar .trackbar[status=mouseover]
+{
+	background : #333d47;
+}
+.Grid.grd_LF_MyMenu .vscrollbar .trackbar[status=mouseover]
 {
 	background : #333d47;
 }
@@ -7767,8 +7824,8 @@
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev1[userstatus=selected]
 {
-	background : URL("./images/grd_LF_Line.png") repeat-x left top transparent;
-	color : #ffffff;
+	background : transparent;
+	color : #ffd860;
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev2[userstatus=selected]
 {
@@ -7792,11 +7849,35 @@
 	border : 0px none;
 	background : transparent;
 }
+.Grid.grd_LF_MyMenu .body .row .cell[userstatus=selected]
+{
+	background : #e31f4e;
+	color : #ffffff;
+	border-radius : 0px;
+}
+.Grid.grd_LF_MyMenu .body .row .cell.cell_LF_Delete .cellbutton[userstatus=pushed]
+{
+	border : 0px none;
+	background : transparent;
+}
+.Grid.grd_LF_MyMenu .body .row .cell.cell_LF_Delete .cellbutton[userstatus=selected]
+{
+	border : 0px none;
+	background : transparent;
+}
 .Grid.grd_LF_Menu .vscrollbar .trackbar[userstatus=pushed]
 {
 	background : #333d47;
 }
 .Grid.grd_LF_Menu .vscrollbar .trackbar[userstatus=selected]
+{
+	background : #333d47;
+}
+.Grid.grd_LF_MyMenu .vscrollbar .trackbar[userstatus=pushed]
+{
+	background : #333d47;
+}
+.Grid.grd_LF_MyMenu .vscrollbar .trackbar[userstatus=selected]
 {
 	background : #333d47;
 }
@@ -9451,6 +9532,10 @@
 {
 	opacity : 0.3;
 }
+.Grid.grd_LF_MyMenu .vscrollbar[status=disabled]
+{
+	opacity : 0.3;
+}
 .Grid.grd_MDI_List .vscrollbar[status=disabled]
 {
 	opacity : 0.3;
@@ -9460,6 +9545,10 @@
 	opacity : 0.3;
 }
 .Grid.grd_LF_Menu .vscrollbar .trackbar[status=disabled]
+{
+	background : #e4e4e4;
+}
+.Grid.grd_LF_MyMenu .vscrollbar .trackbar[status=disabled]
 {
 	background : #e4e4e4;
 }

@@ -1243,6 +1243,38 @@
             										}
             									},
             									{
+            										"grd_LF_MyMenu" :
+            										{
+            											"self" :
+            											{
+            												"enabled" :
+            												{
+            													"icon" : nexacro.UrlObject("none")
+            												},
+            												"mouseover" :
+            												{
+            													"icon" : nexacro.UrlObject("none")
+            												},
+            												"focused" :
+            												{
+            													"icon" : nexacro.UrlObject("none")
+            												},
+            												"pushed" :
+            												{
+            													"icon" : nexacro.UrlObject("none")
+            												},
+            												"selected" :
+            												{
+            													"icon" : nexacro.UrlObject("none")
+            												},
+            												"disabled" :
+            												{
+            													"icon" : nexacro.UrlObject("none")
+            												}
+            											}
+            										}
+            									},
+            									{
             										"grd_MDI_List" :
             										{
             											"self" :
@@ -1499,6 +1531,38 @@
             										}
             									},
             									{
+            										"grd_LF_MyMenu" :
+            										{
+            											"self" :
+            											{
+            												"enabled" :
+            												{
+            													"icon" : nexacro.UrlObject("none")
+            												},
+            												"mouseover" :
+            												{
+            													"icon" : nexacro.UrlObject("none")
+            												},
+            												"focused" :
+            												{
+            													"icon" : nexacro.UrlObject("none")
+            												},
+            												"pushed" :
+            												{
+            													"icon" : nexacro.UrlObject("none")
+            												},
+            												"selected" :
+            												{
+            													"icon" : nexacro.UrlObject("none")
+            												},
+            												"disabled" :
+            												{
+            													"icon" : nexacro.UrlObject("none")
+            												}
+            											}
+            										}
+            									},
+            									{
             										"grd_MDI_List" :
             										{
             											"self" :
@@ -1706,6 +1770,29 @@
             								[
             									{
             										"grd_LF_Menu" :
+            										{
+            											"self" :
+            											{
+            												"focused" :
+            												{
+            												},
+            												"mouseover" :
+            												{
+            												},
+            												"pushed" :
+            												{
+            												},
+            												"selected" :
+            												{
+            												},
+            												"disabled" :
+            												{
+            												}
+            											}
+            										}
+            									},
+            									{
+            										"grd_LF_MyMenu" :
             										{
             											"self" :
             											{
@@ -7482,6 +7569,18 @@
             							{
             								"enabled" :
             								{
+            									"border" : nexacro.BorderObject("1px solid #666b78, 0px none, 0px none, 0px none")
+            								}
+            							}
+            						}
+            					},
+            					{
+            						"grd_LF_MyMenu" :
+            						{
+            							"self" :
+            							{
+            								"enabled" :
+            								{
             									"border" : nexacro.BorderObject("0px none")
             								}
             							}
@@ -7738,6 +7837,29 @@
             											},
             											{
             												"grd_LF_Menu" :
+            												{
+            													"self" :
+            													{
+            														"enabled" :
+            														{
+            															"border" : nexacro.BorderObject("0px none, 0px none, 0px none, 0px none"),
+            															"padding" : nexacro.PaddingObject("11px 5px 11px 0px"),
+            															"color" : nexacro.ColorObject("#ffffff"),
+            															"font" : nexacro.FontObject("13px \"SpoqaHanSansNeo-Medium\"")
+            														},
+            														"mouseover" :
+            														{
+            															"color" : nexacro.ColorObject("#ffd860")
+            														},
+            														"selected" :
+            														{
+            															"color" : nexacro.ColorObject("#ffffff")
+            														}
+            													}
+            												}
+            											},
+            											{
+            												"grd_LF_MyMenu" :
             												{
             													"self" :
             													{
@@ -8589,7 +8711,7 @@
             																{
             																	"enabled" :
             																	{
-            																		"border" : nexacro.BorderObject("0px none, 0px none, 0px none, 0px none"),
+            																		"border" : nexacro.BorderObject("0px none, 0px none, 1px solid #666b78, 0px none"),
             																		"padding" : nexacro.PaddingObject("11px 5px 11px 0px"),
             																		"color" : nexacro.ColorObject("#ffffff"),
             																		"font" : nexacro.FontObject("14px \"SpoqaHanSansNeo-Medium\"")
@@ -8600,7 +8722,7 @@
             																	},
             																	"selected" :
             																	{
-            																		"color" : nexacro.ColorObject("#ffffff")
+            																		"color" : nexacro.ColorObject("#ffd860")
             																	}
             																}
             															}
@@ -10848,6 +10970,44 @@
             																			}
             																		}
             																	}
+            																},
+            																{
+            																	"grd_LF_MyMenu" :
+            																	{
+            																		"self" :
+            																		{
+            																			"enabled" :
+            																			{
+            																				"border" : nexacro.BorderObject("0px none"),
+            																				"padding" : nexacro.PaddingObject("0px 0px 0px 0px"),
+            																				"icon" : nexacro.UrlObject("URL(\"theme://images/grd_LF_Delete.png\")")
+            																			},
+            																			"focused" :
+            																			{
+            																				"border" : nexacro.BorderObject("0px none"),
+            																				"padding" : nexacro.PaddingObject("0px 0px 0px 0px"),
+            																				"icon" : nexacro.UrlObject("URL(\"theme://images/grd_LF_Delete.png\")")
+            																			},
+            																			"mouseover" :
+            																			{
+            																				"border" : nexacro.BorderObject("0px none"),
+            																				"padding" : nexacro.PaddingObject("0px 0px 0px 0px"),
+            																				"icon" : nexacro.UrlObject("URL(\"theme://images/grd_LF_Delete.png\")")
+            																			},
+            																			"pushed" :
+            																			{
+            																				"border" : nexacro.BorderObject("0px none"),
+            																				"padding" : nexacro.PaddingObject("0px 0px 0px 0px"),
+            																				"icon" : nexacro.UrlObject("URL(\"theme://images/grd_LF_Delete.png\")")
+            																			},
+            																			"selected" :
+            																			{
+            																				"border" : nexacro.BorderObject("0px none"),
+            																				"padding" : nexacro.PaddingObject("0px 0px 0px 0px"),
+            																				"icon" : nexacro.UrlObject("URL(\"theme://images/grd_LF_Delete.png\")")
+            																			}
+            																		}
+            																	}
             																}
             															]
             														}
@@ -11381,6 +11541,22 @@
             																		}
             																	}
             																}
+            															},
+            															{
+            																"grd_LF_MyMenu" :
+            																{
+            																	"self" :
+            																	{
+            																		"expand" :
+            																		{
+            																			"icon" : nexacro.UrlObject("URL(\"theme://images/grd_LF_TreeOpen.png\")")
+            																		},
+            																		"collapse" :
+            																		{
+            																			"icon" : nexacro.UrlObject("URL(\"theme://images/grd_LF_TreeClose.png\")")
+            																		}
+            																	}
+            																}
             															}
             														]
             													}
@@ -11438,6 +11614,26 @@
             														[
             															{
             																"grd_LF_Menu" :
+            																{
+            																	"self" :
+            																	{
+            																		"expand" :
+            																		{
+            																			"icon" : nexacro.UrlObject("URL(\"theme://images/grd_LF_TreeCloseImg.png\")")
+            																		},
+            																		"collapse" :
+            																		{
+            																			"icon" : nexacro.UrlObject("URL(\"theme://images/grd_LF_TreeOpenImg.png\")")
+            																		},
+            																		"leaf" :
+            																		{
+            																			"icon" : nexacro.UrlObject("URL(\"theme://images/grd_LF_TreeLeafImg.png\")")
+            																		}
+            																	}
+            																}
+            															},
+            															{
+            																"grd_LF_MyMenu" :
             																{
             																	"self" :
             																	{
@@ -15860,6 +16056,27 @@
             								}
             							},
             							{
+            								"grd_LF_MyMenu" :
+            								{
+            									"self" :
+            									{
+            										"enabled" :
+            										{
+            											"border" : nexacro.BorderObject("0px none"),
+            											"padding" : nexacro.PaddingObject("0px 5px")
+            										},
+            										"mouseover" :
+            										{
+            											"border" : nexacro.BorderObject("0px none"),
+            											"padding" : nexacro.PaddingObject("0px 5px")
+            										},
+            										"disabled" :
+            										{
+            										}
+            									}
+            								}
+            							},
+            							{
             								"grd_MDI_List" :
             								{
             									"self" :
@@ -16150,7 +16367,7 @@
         		imgcache[nexacro._getImageLocation("theme://images/btn_MDI_List.png")] = { width:12, height:11 };
         		imgcache[nexacro._getImageLocation("theme://images/btn_MDI_Pre.png")] = { width:12, height:12 };
         		imgcache[nexacro._getImageLocation("theme://images/btn_MDI_Next.png")] = { width:12, height:12 };
-        		imgcache[nexacro._getImageLocation("theme://images/btn_WF_Close.png")] = { width:0, height:0 };
+        		imgcache[nexacro._getImageLocation("theme://images/btn_WF_Close.png")] = { width:14, height:16 };
         		imgcache[nexacro._getImageLocation("theme://images/btn_LF_Close.png")] = { width:5, height:10 };
         		imgcache[nexacro._getImageLocation("theme://images/btn_LF_Open.png")] = { width:5, height:10 };
         		imgcache[nexacro._getImageLocation("theme://images/btn_LF_Menu01.png")] = { width:24, height:26 };
@@ -16166,7 +16383,6 @@
         		imgcache[nexacro._getImageLocation("theme://images/btn_LF_SchO.png")] = { width:17, height:16 };
         		imgcache[nexacro._getImageLocation("theme://images/btn_LF_Up.png")] = { width:8, height:4 };
         		imgcache[nexacro._getImageLocation("theme://images/btn_LF_Down.png")] = { width:8, height:4 };
-        		imgcache[nexacro._getImageLocation("theme://images/grd_LF_Line.png")] = { width:26, height:38 };
         		imgcache[nexacro._getImageLocation("theme://images/grd_LF_TreeOpen.png")] = { width:10, height:10 };
         		imgcache[nexacro._getImageLocation("theme://images/grd_LF_TreeClose.png")] = { width:10, height:10 };
         		imgcache[nexacro._getImageLocation("theme://images/grd_LF_TreeCloseImg.png")] = { width:1, height:1 };
@@ -16332,6 +16548,7 @@
         		imgcache[nexacro._getImageLocation("theme://images/frm_WF_HIncBtn.png")] = { width:3, height:5 };
         		imgcache[nexacro._getImageLocation("theme://images/frm_WF_VDecBtn.png")] = { width:5, height:3 };
         		imgcache[nexacro._getImageLocation("theme://images/frm_WF_VIncBtn.png")] = { width:5, height:3 };
+        		imgcache[nexacro._getImageLocation("theme://images/grd_LF_Line.png")] = { width:26, height:38 };
         		imgcache[nexacro._getImageLocation("theme://images/grd_LF_TreeClose02.png")] = { width:10, height:10 };
         		imgcache[nexacro._getImageLocation("theme://images/grd_LF_TreeOpen02.png")] = { width:10, height:10 };
         		imgcache[nexacro._getImageLocation("theme://images/grd_MF_Dot01.png")] = { width:7, height:7 };
