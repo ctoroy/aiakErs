@@ -38,12 +38,12 @@
                 <Cell expr="currow+1"/>
                 <Cell col="1" text="bind:authId" displaytype="text" editmaxlength="10" editimemode="alpha" editinputmode="upper" editinputtype="alpha,digit" textAlign="center"/>
                 <Cell col="2" text="bind:authNm" displaytype="text" textAlign="center"/>
-                <Cell col="3" text="bind:rmak" displaytype="text"/>
+                <Cell col="3" text="bind:rmak" displaytype="text" cssclass="cell_WF_Left"/>
               </Band>
             </Format>
           </Formats>
         </Grid>
-        <Static id="staAuthUsrTitle" taborder="4" text="사용자목록" left="grdAuthCodeList:20" top="divSearch:8" width="180" height="38" cssclass="sta_WF_Title"/>
+        <Static id="staAuthUsrTitle" taborder="4" text="사용자목록" left="grdAuthCodeList:20" top="divSearch:8" width="180" height="38" cssclass="sta_WF_SubTitle"/>
         <Grid id="grdAuthUsrList" taborder="3" left="grdAuthCodeList:20" top="staAuthUsrTitle:0" autofittype="col" binddataset="dsAuthUsrMngmList" cellsizingtype="col" treeusecheckbox="false" treeinitstatus="expand,all" autoenter="select" bottom="0" right="30" onheadvaluechanged="grdAuthUsrList_onheadvaluechanged">
           <Formats>
             <Format id="default">

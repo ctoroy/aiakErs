@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="ADMCOM0205U" width="1527" height="828" titletext="사용자별(예외) 추가권한관리" onload="form_onload">
+    <Layouts>
+      <Layout height="828" width="1527">
+        <Div id="divSearch" taborder="11" left="0" top="0" height="50" cssclass="div_WF_Search" text="" right="30">
+          <Layouts>
+            <Layout>
+              <Button id="btnSearch" taborder="2" text="조회" width="62" cssclass="btn_WF_Search" right="20" bottom="8" height="32" onclick="divSearch_btnSearch_onclick"/>
+              <Static id="staSearchText" taborder="0" text="사원번호(명)" left="0" top="12" width="96" height="24" cssclass="sta_WF_SchLabel" fittocontents="width"/>
+              <Edit id="edtWord" taborder="1" left="100" top="12" width="160" height="24" text="" cssclass="edt_WF_Search"/>
+              <Static id="sta04" taborder="3" left="91" top="14" width="10" height="21" cssclass="sta_WF_GSize" visible="false" text="W10"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="staEmpTitle" taborder="4" text="사원목록" left="0" top="divSearch:8" width="342" height="38" cssclass="sta_WF_Title"/>
+        <Grid id="grdEmpList" taborder="0" left="0" top="staEmpTitle:0" binddataset="dsEmpList" autofittype="col" height="343" right="30">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="60" band="left"/>
+                <Column size="200"/>
+                <Column size="200"/>
+                <Column size="200"/>
+                <Column size="200"/>
+              </Columns>
+              <Rows>
+                <Row size="32" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="No"/>
+                <Cell col="1" text="부서"/>
+                <Cell col="2" text="사번"/>
+                <Cell col="3" text="사원명"/>
+                <Cell col="4" text="등급"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="currow+1"/>
+                <Cell col="1" displaytype="text" text="bind:deptNm"/>
+                <Cell col="2" text="bind:empNo" displaytype="text"/>
+                <Cell col="3" text="bind:empNm" displaytype="text"/>
+                <Cell col="4" text="bind:grad" displaytype="text"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="staMenuTitle" taborder="1" text="메뉴목록" left="0" width="342" height="38" cssclass="sta_WF_SubTitle" top="grdEmpList:8"/>
+        <Grid id="grdUsrExcptAuthList" taborder="3" left="0" top="staMenuTitle:0" right="30" autofittype="col" binddataset="dsUsrExcptAuthList" cellsizingtype="col" treeinitstatus="expand,all" autoenter="select" bottom="0" treeusecheckbox="false">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="30"/>
+                <Column size="400"/>
+                <Column size="150"/>
+                <Column size="150"/>
+                <Column size="120"/>
+                <Column size="120"/>
+              </Columns>
+              <Rows>
+                <Row size="32" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell/>
+                <Cell col="1" text="메뉴"/>
+                <Cell col="2" text="메뉴코드"/>
+                <Cell col="3" text="메뉴구분"/>
+                <Cell col="4" text="출력여부"/>
+                <Cell col="5" text="사용여부"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="expr:mnuTpCd=='프로그램' ? 'checkboxcontrol':'none'" edittype="expr:mnuTpCd=='프로그램' ? 'checkbox':'none'" checkboxfalsevalue="N" checkboxtruevalue="Y" text="bind:excptAuthYn"/>
+                <Cell col="1" text="bind:mnuNm" displaytype="treeitemcontrol" textAlign="left" treelevel="bind:mnuLvlSize" edittype="tree" treecheck="bind:excptAuthYn" treestate="bind:mnuLvlSize" checkboxfalsevalue="N" checkboxtruevalue="Y"/>
+                <Cell col="2" text="bind:mnuId" displaytype="text" textAlign="center"/>
+                <Cell col="3" text="bind:mnuTpCd" displaytype="text"/>
+                <Cell col="4" text="bind:mnuPrintYn" displaytype="combotext" textAlign="center" combodataset="dsMnuPrintYn" combocodecol="code" combodatacol="data"/>
+                <Cell col="5" text="bind:useYn" displaytype="combotext" textAlign="center" calendardateformat="yyyy-MM-dd" combodataset="dsUseYn" combocodecol="code" combodatacol="data"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="sta04_00" taborder="2" top="0" width="30" cssclass="sta_WF_GSize" visible="false" text="W30" right="0" bottom="0"/>
+        <Static id="sta04" taborder="5" left="140" top="50" width="30" height="46" cssclass="sta_WF_GSize" visible="false" text="H46"/>
+        <Static id="sta04_01" taborder="6" left="140" top="439" width="30" height="46" cssclass="sta_WF_GSize" visible="false" text="H46"/>
+        <Static id="staTotal" taborder="7" text="총 &lt;fc v='#d31145'&gt;0&lt;/fc&gt;건" top="divSearch:18" width="150" height="24" usedecorate="true" right="30" cssclass="sta_WF_Total" textAlign="right"/>
+        <Static id="sta04_00_00" taborder="8" width="400" height="7" cssclass="sta_WF_GSize" visible="false" text="H7" top="89" right="30"/>
+        <Static id="sta04_01_00" taborder="9" left="0" top="50" width="90" height="8" cssclass="sta_WF_GSize" visible="false" text="H8"/>
+        <Static id="sta04_01_01" taborder="10" left="0" top="439" width="90" height="8" cssclass="sta_WF_GSize" visible="false" text="H8"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsUsrExcptAuthList" oncolumnchanged="dsUsrExcptAuthList_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="excptAuthYn" type="STRING" size="1"/>
+          <Column id="mnuId" type="STRING" size="50"/>
+          <Column id="mnuNm" type="STRING" size="50"/>
+          <Column id="empNo" type="STRING" size="30"/>
+          <Column id="sysId" type="STRING" size="50"/>
+          <Column id="upMnuId" type="STRING" size="50"/>
+          <Column id="mnuTpCd" type="STRING" size="10"/>
+          <Column id="mnuLvlSize" type="INT" size="10"/>
+          <Column id="prgmId" type="STRING" size="50"/>
+          <Column id="prgmPathNm" type="STRING" size="500"/>
+          <Column id="prgmTypeNm" type="STRING" size="10"/>
+          <Column id="smmnParmtNm" type="STRING" size="20"/>
+          <Column id="sortSeq" type="STRING" size="10"/>
+          <Column id="authYn" type="STRING" size="1"/>
+          <Column id="rmak" type="STRING" size="4000"/>
+          <Column id="useYn" type="STRING" size="1"/>
+          <Column id="mnuPrintYn" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsEmpList" onrowposchanged="dsEmpList_onrowposchanged">
+        <ColumnInfo>
+          <Column id="empNo" type="STRING" size="30"/>
+          <Column id="empEngNm" type="STRING" size="2000"/>
+          <Column id="empNm" type="STRING" size="200"/>
+          <Column id="deptRlNm" type="STRING" size="200"/>
+          <Column id="lcetNo" type="STRING" size="600"/>
+          <Column id="emalAddr" type="STRING" size="200"/>
+          <Column id="grad" type="STRING" size="10"/>
+          <Column id="dutyTtlNm" type="STRING" size="200"/>
+          <Column id="rgntnYn" type="STRING" size="1"/>
+          <Column id="chgYn" type="STRING" size="1"/>
+          <Column id="grpName" type="STRING" size="50"/>
+          <Column id="idNm" type="STRING" size="100"/>
+          <Column id="deptCd" type="STRING" size="9"/>
+          <Column id="deptNm" type="STRING" size="4000"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsCond">
+        <ColumnInfo>
+          <Column id="searchText" type="STRING" size="256"/>
+          <Column id="rgntnYn" type="STRING" size="1"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsSubCond">
+        <ColumnInfo>
+          <Column id="empNo" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsUseYn">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">Y</Col>
+            <Col id="data">사용</Col>
+          </Row>
+          <Row>
+            <Col id="code">N</Col>
+            <Col id="data">미사용</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsMnuPrintYn">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">Y</Col>
+            <Col id="data">출력</Col>
+          </Row>
+          <Row>
+            <Col id="code">N</Col>
+            <Col id="data">미출력</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/**
+*  AIA 비용관리시스템 시스템
+*  @FileName 	ADMCOM02/ADMCOM0205U.xfdl
+*  @Creator 	강성호
+*  @CreateDate 	2024.11.13
+*  @Desction 	사용자별(예외) 추가권한관리
+************** 소스 수정 이력 ***********************************************
+* Date					Modifier					Description
+*******************************************************************************
+* 2024.11.13			강성호						최초생성
+*******************************************************************************
+*/
+
+/*******************************************************************************************************************************
+ * FORM 변수 선언 영역
+*******************************************************************************************************************************/
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnload(obj); //필수함수
+	this.fnInit();
+};
+
+//화면 load시 초기화
+this.fnInit = function()
+{
+	this.fnSearch();
+};
+
+/*******************************************************************************************************************************
+ * 공통함수영역 (cfnSearch : 조회 / cfnAdd : 추가 / cfnSave : 저장 / cfnDel : 삭제 / cfnExecl : 엑셀.. / cfnPrint : 인쇄 / cfnHep : 도움말  / cfnClose : 화면 닫기전 체크)
+ * 추가 버튼은 prefix cfn 으로 시작하여 명칭을 만든다.
+*******************************************************************************************************************************/
+
+//저장
+this.cfnSave = function(obj, e)
+{
+	this.fnSaveUsrExcptAuthList();
+};
+
+//화면 닫기전 체크
+this.cfnClose = function()
+{
+	trace("업무화면에 수정 사항이 있으면  cfnClose 메소드를 추가 하세요.");
+	//return false;	//수정사항이 있을경우;
+};
+/*******************************************************************************************************************************
+ * Transaction 서비스호출 처리 영역
+*******************************************************************************************************************************/
+/**
+ * @description 사원 조회 트랜잭션
+ */
+this.fnSearchEmpList = function()
+{
+	// 마이메뉴 조회
+	var sSvcId 		= "selectEmpList";
+	var sSvcUrl     = "selectEmpList.do";
+	var sInData     = "dsIn=dsCond";
+	var sOutData    = "dsEmpList=EMPLIST";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 	// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 			// trabsaction을 요청할 주소
+						sInData , 			// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 			// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 				// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  	// 통신방법 정의 [생략가능]
+};
+
+/**
+ * @description 사용자별예외권한조회 트랜잭션
+ */
+this.fnSearchUsrExcptAuthList = function()
+{
+	// 마이메뉴 조회
+	var sSvcId 		= "selectUsrExcptAuthList";
+	var sSvcUrl     = "selectUsrExcptAuthList.do";
+	var sInData     = "dsIn=dsSubCond";
+	var sOutData    = "dsUsrExcptAuthList=USREXCPTAUTHLIST";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 	// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 			// trabsaction을 요청할 주소
+						sInData , 			// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 			// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 				// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  	// 통신방법 정의 [생략가능]
+};
+
+/**
+ * @description 사용자별예외권한 저장 트랜잭션
+ */
+this.fnSaveUsrExcptAuthList = function()
+{
+	// 마이메뉴 조회
+	var sSvcId 		= "saveUsrExcptAuthList";
+	var sSvcUrl     = "saveUsrExcptAuthList.do";
+	var sInData     = "USREXCPTAUTHLIST=dsUsrExcptAuthList:U";
+	var sOutData    = "";
+	var sArg      	= "";	
+	var sCallBackFnc = "fnCallback";
+	
+	this.gfnTransaction( sSvcId , 	// transaction을 구분하기 위한 svc id값
+						sSvcUrl , 			// trabsaction을 요청할 주소
+						sInData , 			// 입력값으로 보낼 dataset id , a=b형태로 실제이름과 입력이름을 매칭
+						sOutData , 			// 처리결과값으로 받을 dataset id, a=b형태로 실제이름과 입력이름을 매칭
+						sArg, 				// 입력갑스로 보낼 arguments, strFormData="20120607"
+						sCallBackFnc);  	// 통신방법 정의 [생략가능]
+};
+/*******************************************************************************************************************************
+ * Callback 영역 (Transaction, popup, message..)
+*******************************************************************************************************************************/
+this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
+{
+	switch(sSvcId) 
+	{
+		case "selectEmpList":
+			this.staTotal.text = "총 <fc v='#d31145'>" + this.dsEmpList.getRowCount() + "</fc>건";
+			break;
+		case "selectUsrExcptAuthList":
+			break;
+		case "saveUsrExcptAuthList":
+			this.fnSearchUsrExcptAuthList();
+			break;
+		default:break;
+	} 
+};
+/*******************************************************************************************************************************
+ * 사용자 Function 영역
+*******************************************************************************************************************************/
+this.fnSearch = function()
+{
+	this.dsCond.setColumn(0, "searchText", this.divSearch.form.edtWord.value);
+	this.dsCond.setColumn(0, 'rgntnYn', 'N');	//퇴사자 여부
+	
+	this.dsEmpList.clearData();
+	this.dsUsrExcptAuthList.clearData();
+	this.fnSearchEmpList();
+};
+
+/*******************************************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+*******************************************************************************************************************************/
+
+this.dsEmpList_onrowposchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSRowPosChangeEventInfo)
+{
+	if( this.dsEmpList.getRowCount() > 0 ){
+		var empNo = obj.getColumn(e.newrow, 'empNo');
+		this.dsSubCond.setColumn(0, 'empNo', empNo);
+		this.fnSearchUsrExcptAuthList();
+	}
+};
+
+this.dsUsrExcptAuthList_oncolumnchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSColChangeEventInfo)
+{
+	var mRow = this.dsEmpList.rowposition;
+	var empNo = this.dsEmpList.getColumn(mRow, 'empNo');
+	var oldExcptAuthYn = obj.getOrgColumn(e.row, 'excptAuthYn');
+	var excptAuthYn = obj.getColumn(e.row, 'excptAuthYn');
+	
+	if( oldExcptAuthYn == 'N' && excptAuthYn == 'Y' ){
+		obj.setColumn(e.row, 'empNo', empNo);
+	}
+};
+
+this.divSearch_btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fnSearch();
+};
+]]></Script>
+  </Form>
+</FDL>

@@ -48,7 +48,7 @@
                 <Cell expr="currow+1"/>
                 <Cell col="1" text="bind:authId" displaytype="text" editmaxlength="10" editimemode="alpha" editinputmode="upper" editinputtype="alpha,digit" textAlign="center"/>
                 <Cell col="2" text="bind:authNm" displaytype="text" textAlign="center"/>
-                <Cell col="3" text="bind:rmak" displaytype="text"/>
+                <Cell col="3" text="bind:rmak" displaytype="text" cssclass="cell_WF_Left"/>
                 <Cell col="4" displaytype="combotext" text="bind:useYn" combodataset="dsUseYn" combocodecol="code" combodatacol="data" textAlign="center"/>
                 <Cell col="5" text="bind:cretrId" displaytype="text" textAlign="center"/>
                 <Cell col="6" text="bind:cretDttm" textAlign="center" calendardateformat="yyyy-MM-dd" displaytype="date"/>
@@ -58,7 +58,7 @@
             </Format>
           </Formats>
         </Grid>
-        <Static id="staMenuTitle" taborder="3" text="메뉴목록" left="2" top="grdAuthCodeList:8" width="180" height="38" cssclass="sta_WF_Title"/>
+        <Static id="staMenuTitle" taborder="3" text="메뉴목록" left="2" top="grdAuthCodeList:8" width="180" height="38" cssclass="sta_WF_SubTitle"/>
         <Grid id="grdAuthMenuList" taborder="4" left="0" top="staMenuTitle:0" right="30" autofittype="col" binddataset="dsAuthMenuList" cellsizingtype="col" treeinitstatus="expand,all" autoenter="select" bottom="0" treeusecheckbox="false">
           <Formats>
             <Format id="default">

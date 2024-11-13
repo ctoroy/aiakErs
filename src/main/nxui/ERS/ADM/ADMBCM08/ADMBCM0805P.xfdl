@@ -75,6 +75,7 @@
       <Dataset id="dsEmpCond">
         <ColumnInfo>
           <Column id="searchText" type="STRING" size="256"/>
+          <Column id="rgntnYn" type="STRING" size="1"/>
         </ColumnInfo>
         <Rows>
           <Row/>
@@ -239,6 +240,8 @@ this.divSearch_btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEv
 	this.dsEmpCond.clearData();
 	this.dsEmpCond.addRow();
 	this.dsEmpCond.setColumn(0, 'searchText', this.divSearch.form.edtEmpNoNm.value);
+	this.dsEmpCond.setColumn(0, 'rgntnYn', 'N');	//퇴사자 여부
+	
 	this.fnSearchEmpList();
 };
 ]]></Script>

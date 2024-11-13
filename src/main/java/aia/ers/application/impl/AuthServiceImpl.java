@@ -181,4 +181,42 @@ public class AuthServiceImpl implements AuthService {
             }
         });
     }
+
+    /**
+     *
+     * @desc 사용자별(예외) 추가권한 조회
+     * @param Auth params
+     * @return List<Auth>
+     */
+    @Override
+    public List<Auth> selectUsrExcptAuthList(Auth params) {
+        AuthMapper mapper = sqlSession.getMapper(AuthMapper.class);
+        return mapper.selectUsrExcptAuthList(params);
+    }
+
+    /**
+     *
+     * @desc 사용자별(예외) 추가권한 입력,삭제
+     * @param List<Auth> authMenuList
+     * @return
+     */
+    @Override
+    public void saveUsrExcptAuthList(List<Auth> usrExcptAuthList){
+        AuthMapper mapper = sqlSession.getMapper(AuthMapper.class);
+        usrExcptAuthList.forEach(usrExcptAuth -> {
+            switch (usrExcptAuth.getRowType()) {
+                case DataSet.ROW_TYPE_UPDATED:
+                    String excptAuthYn = usrExcptAuth.getExcptAuthYn();
+                    if( "Y".equals(excptAuthYn) ){
+                        usrExcptAuth.setCretrId("ksh");
+                        usrExcptAuth.setMdfrId("ksh");
+                        mapper.insertUsrExcptAuthList(usrExcptAuth);
+                    } else {
+                        mapper.deleteUsrExcptAuthList(usrExcptAuth);
+                    }
+                    break;
+                default:
+            }
+        });
+    }
 }

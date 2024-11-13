@@ -153,4 +153,37 @@ public class AuthController {
 
 		return result;
 	}
+
+	/**
+	 *
+	 * <pre>
+	 * @desc 사용자별(예외) 추가권한 조회 - VO
+	 * @param
+	 * @return NexacroResult
+	 * </pre>
+	 */
+	@RequestMapping(value = "/selectUsrExcptAuthList.do")
+	public NexacroResult selectUsrExcptAuthList(@ParamDataSet(name = "dsIn", required = false) Auth searchVo) throws NexacroException{
+
+		List<Auth> usrExcptAuthList = authService.selectUsrExcptAuthList(searchVo);
+		NexacroResult result = new NexacroResult();
+		result.addDataSet("USREXCPTAUTHLIST", usrExcptAuthList);
+
+		return result;
+	}
+
+	/**
+	 * @desc 사용자별(예외) 추가권한 입력,삭제
+	 * @param
+	 * @return NexacroResult
+	 */
+	@RequestMapping(value = "/saveUsrExcptAuthList.do")
+	public NexacroResult saveUsrExcptAuthList(@ParamDataSet(name = "USREXCPTAUTHLIST") List<Auth> usrExcptAuthList) throws NexacroException{
+
+		authService.saveUsrExcptAuthList(usrExcptAuthList);
+
+		NexacroResult result = new NexacroResult();
+
+		return result;
+	}
 }

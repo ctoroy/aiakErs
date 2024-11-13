@@ -40,6 +40,7 @@ public class Auth extends NexacroBase {
     private String mnuTpCd;         //메뉴유형코드
     private int mnuLvlSize;         //메뉴레벨크기
     private String authUseYn;       //메뉴권한사용여부
+    private String excptAuthYn;     //예외권한사용여부
     private String prgmId;          //프로그램아이디
     private String prgmPathNm;      //프로그램경로명
     private String prgmTypeNm;      //프로그램타입명
@@ -47,6 +48,7 @@ public class Auth extends NexacroBase {
     private String sortSeq;         //정렬순번
     private String mnuPrintYn;      //메뉴출력여부
     private String useYn;           //사용여부
+    private String viewAuthYn;      //조회권한여부
     private String cretrId;         //생성아이디
     private String cretDttm;        //생성일시
     private String mdfrId;          //수정자아이디

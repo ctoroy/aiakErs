@@ -32,6 +32,9 @@
           LEFT OUTER JOIN DEPT_MNGM DM
             ON EM.DEPT_CD = DM.DEPT_CD
          WHERE 1=1
+        <if test="rgntnYn != null and rgntnYn !=''">
+           AND EM.RGNTN_YN = #{rgntnYn}
+        </if>
         <if test="searchText != null and searchText !=''">
            AND ( EM.EMP_NO LIKE CONCAT('%', #{searchText}, '%')
                  OR EM.EMP_NM LIKE CONCAT('%', #{searchText}, '%')
