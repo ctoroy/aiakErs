@@ -782,9 +782,8 @@ textarea::-webkit-scrollbar { display: none; }
 }
 .Static .nexacontentsbox
 {
-	white-space : pre-wrap;
-	word-wrap : break-word;
-	word-break : break-all;
+	white-space : pre;
+	word-wrap : normal;
 }
 .StepControl .stepitem
 {
@@ -1998,13 +1997,13 @@ textarea::-webkit-scrollbar { display: none; }
 }
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_FavMove.dummy.dummy.dummy .cellbutton
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_Delete.dummy.dummy.dummy .cellbutton
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 .Static.sta_TF_Bg
@@ -2014,11 +2013,11 @@ textarea::-webkit-scrollbar { display: none; }
 }
 .Static.sta_TF_LogoBg
 {
-	background : URL("./images/sta_TF_LogoBg.png") no-repeat left transparent;
+	background : URL("./images/sta_TF_LogoBg.png") no-repeat left center transparent;
 }
 .Static.sta_TF_Logo
 {
-	background : URL("./images/sta_TF_Logo.png") no-repeat left transparent;
+	background : URL("./images/sta_TF_Logo.png") no-repeat left center transparent;
 }
 .Static.sta_TF_LogoTxt
 {
@@ -2085,7 +2084,7 @@ textarea::-webkit-scrollbar { display: none; }
 .Button.btn_MDI_TabClose
 {
 	border : 0px none;
-	background : URL("./images/tab_WF_X.png") no-repeat center transparent;
+	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
 }
 .Grid.grd_MDI_List
 {
@@ -2100,13 +2099,13 @@ textarea::-webkit-scrollbar { display: none; }
 }
 .Grid.grd_MDI_List .body .row .cell.cell_TF_FavMove.dummy.dummy.dummy .cellbutton
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 .Grid.grd_MDI_List .body .row .cell.cell_TF_Delete.dummy.dummy.dummy .cellbutton
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 .Static.sta_MDI_Line
@@ -2127,12 +2126,12 @@ textarea::-webkit-scrollbar { display: none; }
 .Button.btn_LF_Close
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Close.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Close.png") no-repeat right center transparent;
 }
 .Button.btn_LF_Open
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Open.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Open.png") no-repeat right center transparent;
 }
 .Button.btn_LF_Menu01
 {
@@ -2319,17 +2318,17 @@ textarea::-webkit-scrollbar { display: none; }
 .Button.btn_LF_Set
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Set.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Set.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Logout
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Logout.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Logout.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Sch
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Sch.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Sch.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Edit
 {
@@ -2412,7 +2411,7 @@ textarea::-webkit-scrollbar { display: none; }
 	border-right : 0px none;
 	border-bottom : 0px none;
 	border-left : 0px none;
-	background : URL("./images/grd_LF_Line.png") transparent;
+	background : url('./images/grd_LF_Line.png') repeat-x left top transparent;
 	color : #ffffff;
 	cursor : pointer;
 	font : 14px "SpoqaHanSansNeo-Medium";
@@ -2490,13 +2489,13 @@ textarea::-webkit-scrollbar { display: none; }
 }
 .Static.sta_BF_Info
 {
-	background : URL("./images/sta_BF_Bullet.png") no-repeat left transparent;
+	background : URL("./images/sta_BF_Bullet.png") no-repeat left center transparent;
 	color : #293139;
 	font : 12px "SpoqaHanSansNeo-Regular";
 }
 .Static.sta_BF_User
 {
-	background : URL("./images/sta_BF_User.png") no-repeat left transparent;
+	background : URL("./images/sta_BF_User.png") no-repeat left center transparent;
 	color : #293139;
 	font : 12px "SpoqaHanSansNeo-Regular";
 }
@@ -2608,12 +2607,12 @@ textarea::-webkit-scrollbar { display: none; }
 .Button.btn_WF_CalLeft
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Left.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Left.png") no-repeat center center transparent;
 }
 .Button.btn_WF_CalRight
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Right.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Right.png") no-repeat center center transparent;
 }
 .Calendar.cal_MF_Cal
 {
@@ -2838,55 +2837,55 @@ textarea::-webkit-scrollbar { display: none; }
 .Button.btn_WF_EdiSch
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Search.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Search.png") no-repeat center center transparent;
 }
 .Button.btn_WF_ExcelUp
 {
-	background : URL("./images/btn_WF_ExcelUp.png") no-repeat center #f5f5f6;
+	background : URL("./images/btn_WF_ExcelUp.png") no-repeat center center #f5f5f6;
 }
 .Button.btn_WF_ExcelDown
 {
-	background : URL("./images/btn_WF_ExcelDown.png") no-repeat center #f5f5f6;
+	background : URL("./images/btn_WF_ExcelDown.png") no-repeat center center #f5f5f6;
 }
 .Button.btn_WF_Bookmark
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Bookmark.png") no-repeat center;
+	background : URL("./images/btn_WF_Bookmark.png") no-repeat center center;
 }
 .Button.btn_WF_BookmarkS
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 .Button.btn_WF_Open
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Open.png") no-repeat center;
+	background : URL("./images/btn_WF_Open.png") no-repeat center center;
 }
 .Button.btn_WF_OpenS
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 .Button.btn_WF_Reload
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Reload.png") no-repeat center;
+	background : URL("./images/btn_WF_Reload.png") no-repeat center center;
 }
 .Button.btn_WF_ReloadS
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 .Button.btn_WF_Save
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Save.png") no-repeat center;
+	background : URL("./images/btn_WF_Save.png") no-repeat center center;
 }
 .Button.btn_WF_SaveS
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 .Button.btn_WF_Up
 {
@@ -3156,6 +3155,11 @@ textarea::-webkit-scrollbar { display: none; }
 	font : 13px "SpoqaHanSansNeo-Regular";
 	letter-spacing : -1px;
 }
+.Static.sta_WF_SchLabel .nexacontentsbox
+{
+	white-space : pre;
+	word-wrap : normal;
+}
 .Static.sta_WF_SchLabelEssential
 {
 	background : URL("./images/essential.png") no-repeat 19px 1px;
@@ -3267,7 +3271,7 @@ textarea::-webkit-scrollbar { display: none; }
 }
 .Button.btn_WF_Sch
 {
-	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_Search.png") no-repeat center #ffffff;
+	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_Search.png") no-repeat center center #ffffff;
 }
 .Button.btn_WF_PreBtn
 {
@@ -3421,7 +3425,7 @@ textarea::-webkit-scrollbar { display: none; }
 }
 .Static.sta_LOGIN_Logo
 {
-	background : URL("./images/sta_LOGIN_Logo.png") no-repeat center transparent;
+	background : URL("./images/sta_LOGIN_Logo.png") no-repeat center center transparent;
 }
 .Static.sta_LOGIN_Id
 {
@@ -3429,7 +3433,7 @@ textarea::-webkit-scrollbar { display: none; }
 	border-right : 0px none;
 	border-bottom : 2px solid #e9ebf3;
 	border-left : 0px none;
-	background : URL("./images/sta_LOGIN_Id.png") no-repeat left transparent;
+	background : URL("./images/sta_LOGIN_Id.png") no-repeat left center transparent;
 }
 .Static.sta_LOGIN_Pw
 {
@@ -3437,7 +3441,7 @@ textarea::-webkit-scrollbar { display: none; }
 	border-right : 0px none;
 	border-bottom : 2px solid #e9ebf3;
 	border-left : 0px none;
-	background : URL("./images/sta_LOGIN_Pw.png") no-repeat left transparent;
+	background : URL("./images/sta_LOGIN_Pw.png") no-repeat left center transparent;
 }
 .Static.sta_LOGIN_Language
 {
@@ -3445,7 +3449,7 @@ textarea::-webkit-scrollbar { display: none; }
 	border-right : 0px none;
 	border-bottom : 2px solid #e9ebf3;
 	border-left : 0px none;
-	background : URL("./images/sta_LOGIN_Language.png") no-repeat left transparent;
+	background : URL("./images/sta_LOGIN_Language.png") no-repeat left center transparent;
 }
 .Static.sta_LOGIN_Line
 {
@@ -3454,7 +3458,7 @@ textarea::-webkit-scrollbar { display: none; }
 .Button.btn_POP_Close
 {
 	border : 0px none;
-	background : URL("./images/btn_POP_Close.png") no-repeat center transparent;
+	background : URL("./images/btn_POP_Close.png") no-repeat center center transparent;
 }
 .Div.div_POP_TitleBg
 {
@@ -5420,24 +5424,24 @@ textarea::-webkit-scrollbar { display: none; }
 }
 #nexacontainer .Grid.grd_LF_Sch .body .row .cell.cell_TF_FavMove.dummy.dummy.dummy .cellbutton[data-status=focused]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 #nexacontainer .Grid.grd_LF_Sch .body .row .cell.cell_TF_FavMove.dummy.dummy.dummy .cellbutton[data-status=mouseover]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 #nexacontainer .Grid.grd_LF_Sch .body .row .cell.cell_TF_Delete.dummy.dummy.dummy .cellbutton[data-status=focused]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 #nexacontainer .Grid.grd_LF_Sch .body .row .cell.cell_TF_Delete.dummy.dummy.dummy .cellbutton[data-status=mouseover]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 #nexacontainer .Button.btn_MDI_Close[data-status=focused]
@@ -5545,12 +5549,12 @@ textarea::-webkit-scrollbar { display: none; }
 #nexacontainer .Button.btn_MDI_TabClose[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/tab_WF_X.png") no-repeat center transparent;
+	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_MDI_TabClose[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/tab_WF_X.png") no-repeat center transparent;
+	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
 }
 #nexacontainer .Grid.grd_MDI_List .body .row .cell[data-status=mouseover]
 {
@@ -5560,45 +5564,45 @@ textarea::-webkit-scrollbar { display: none; }
 }
 #nexacontainer .Grid.grd_MDI_List .body .row .cell.cell_TF_FavMove.dummy.dummy.dummy .cellbutton[data-status=focused]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 #nexacontainer .Grid.grd_MDI_List .body .row .cell.cell_TF_FavMove.dummy.dummy.dummy .cellbutton[data-status=mouseover]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 #nexacontainer .Grid.grd_MDI_List .body .row .cell.cell_TF_Delete.dummy.dummy.dummy .cellbutton[data-status=focused]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 #nexacontainer .Grid.grd_MDI_List .body .row .cell.cell_TF_Delete.dummy.dummy.dummy .cellbutton[data-status=mouseover]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 #nexacontainer .Button.btn_LF_Close[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Close.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Close.png") no-repeat right center transparent;
 }
 #nexacontainer .Button.btn_LF_Close[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Close.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Close.png") no-repeat right center transparent;
 }
 #nexacontainer .Button.btn_LF_Open[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Open.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Open.png") no-repeat right center transparent;
 }
 #nexacontainer .Button.btn_LF_Open[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Open.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Open.png") no-repeat right center transparent;
 }
 #nexacontainer .Button.btn_LF_Menu01[data-status=mouseover]
 {
@@ -5967,32 +5971,32 @@ textarea::-webkit-scrollbar { display: none; }
 #nexacontainer .Button.btn_LF_Set[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Set.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Set.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_LF_Set[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Set.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Set.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_LF_Logout[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Logout.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Logout.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_LF_Logout[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Logout.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Logout.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_LF_Sch[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Sch.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Sch.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_LF_Sch[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_SchO.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_SchO.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_LF_Edit[data-status=focused]
 {
@@ -6055,7 +6059,7 @@ textarea::-webkit-scrollbar { display: none; }
 }
 #nexacontainer .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev1.dummy.dummy.dummy[data-status=mouseover]
 {
-	background : URL("./images/grd_LF_Line.png") transparent;
+	background : URL("./images/grd_LF_Line.png") repeat-x left top transparent;
 	color : #ffd860;
 }
 #nexacontainer .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev2.dummy.dummy.dummy[data-status=mouseover]
@@ -6245,22 +6249,22 @@ textarea::-webkit-scrollbar { display: none; }
 #nexacontainer .Button.btn_WF_CalLeft[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Left.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Left.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_WF_CalLeft[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Left.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Left.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_WF_CalRight[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Right.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Right.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_WF_CalRight[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Right.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Right.png") no-repeat center center transparent;
 }
 #nexacontainer .Calendar.cal_MF_Cal[data-status=mouseover]
 {
@@ -6464,7 +6468,7 @@ textarea::-webkit-scrollbar { display: none; }
 #nexacontainer .Button.btn_WF_EdiSch[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SearchO.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_SearchO.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_WF_SchSmall[data-status=focused]
 {
@@ -6492,95 +6496,95 @@ textarea::-webkit-scrollbar { display: none; }
 #nexacontainer .Button.btn_WF_EdiSch[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Search.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Search.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_WF_ExcelUp[data-status=focused]
 {
-	background : URL("./images/btn_WF_ExcelUp.png") no-repeat center #f5f5f6;
+	background : URL("./images/btn_WF_ExcelUp.png") no-repeat center center #f5f5f6;
 }
 #nexacontainer .Button.btn_WF_ExcelDown[data-status=focused]
 {
-	background : URL("./images/btn_WF_ExcelDown.png") no-repeat center #f5f5f6;
+	background : URL("./images/btn_WF_ExcelDown.png") no-repeat center center #f5f5f6;
 }
 #nexacontainer .Button.btn_WF_Bookmark[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Bookmark.png") no-repeat center;
+	background : URL("./images/btn_WF_Bookmark.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_BookmarkS[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_BookmarkS[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Bookmark[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Open[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Open.png") no-repeat center;
+	background : URL("./images/btn_WF_Open.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_OpenS[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_OpenS[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Open[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Reload[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Reload.png") no-repeat center;
+	background : URL("./images/btn_WF_Reload.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_ReloadS[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_ReloadS[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Reload[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Save[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Save.png") no-repeat center;
+	background : URL("./images/btn_WF_Save.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_SaveS[data-status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_SaveS[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Save[data-status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Up[data-status=focused]
 {
@@ -6971,12 +6975,12 @@ textarea::-webkit-scrollbar { display: none; }
 }
 #nexacontainer .Button.btn_WF_Sch[data-status=focused]
 {
-	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_Search.png") no-repeat center #ffffff;
+	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_Search.png") no-repeat center center #ffffff;
 }
 #nexacontainer .Button.btn_WF_Sch[data-status=mouseover]
 {
 	border : 1px solid #313340;
-	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_SearchO.png") no-repeat center #ffffff;
+	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_SearchO.png") no-repeat center center #ffffff;
 }
 #nexacontainer .Button.btn_WF_PreBtn[data-status=focused]
 {
@@ -8177,24 +8181,24 @@ textarea::-webkit-scrollbar { display: none; }
 }
 #nexacontainer .Grid.grd_LF_Sch .body .row .cell.cell_TF_FavMove.dummy.dummy.dummy .cellbutton[data-userstatus=pushed]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 #nexacontainer .Grid.grd_LF_Sch .body .row .cell.cell_TF_FavMove.dummy.dummy.dummy .cellbutton[data-userstatus=selected]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 #nexacontainer .Grid.grd_LF_Sch .body .row .cell.cell_TF_Delete.dummy.dummy.dummy .cellbutton[data-userstatus=pushed]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 #nexacontainer .Grid.grd_LF_Sch .body .row .cell.cell_TF_Delete.dummy.dummy.dummy .cellbutton[data-userstatus=selected]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 #nexacontainer .Button.btn_MDI_Close[data-userstatus=selected]
@@ -8300,12 +8304,12 @@ textarea::-webkit-scrollbar { display: none; }
 #nexacontainer .Button.btn_MDI_TabClose[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/tab_WF_X.png") no-repeat center transparent;
+	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_MDI_TabClose[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/tab_WF_X.png") no-repeat center transparent;
+	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
 }
 #nexacontainer .Grid.grd_MDI_List .body .row .cell[data-userstatus=selected]
 {
@@ -8314,45 +8318,45 @@ textarea::-webkit-scrollbar { display: none; }
 }
 #nexacontainer .Grid.grd_MDI_List .body .row .cell.cell_TF_FavMove.dummy.dummy.dummy .cellbutton[data-userstatus=pushed]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 #nexacontainer .Grid.grd_MDI_List .body .row .cell.cell_TF_FavMove.dummy.dummy.dummy .cellbutton[data-userstatus=selected]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 #nexacontainer .Grid.grd_MDI_List .body .row .cell.cell_TF_Delete.dummy.dummy.dummy .cellbutton[data-userstatus=pushed]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 #nexacontainer .Grid.grd_MDI_List .body .row .cell.cell_TF_Delete.dummy.dummy.dummy .cellbutton[data-userstatus=selected]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 #nexacontainer .Button.btn_LF_Close[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Close.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Close.png") no-repeat right center transparent;
 }
 #nexacontainer .Button.btn_TF_Close[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Close.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Close.png") no-repeat right center transparent;
 }
 #nexacontainer .Button.btn_LF_Open[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Open.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Open.png") no-repeat right center transparent;
 }
 #nexacontainer .Button.btn_LF_Open[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Open.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Open.png") no-repeat right center transparent;
 }
 #nexacontainer .Button.btn_LF_Menu01[data-userstatus=pushed]
 {
@@ -8721,32 +8725,32 @@ textarea::-webkit-scrollbar { display: none; }
 #nexacontainer .Button.btn_LF_Set[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Set.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Set.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_LF_Set[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Set.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Set.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_LF_Logout[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Logout.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Logout.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_LF_Logout[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Logout.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Logout.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_LF_Sch[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_SchO.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_SchO.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_LF_Sch[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_SchO.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_SchO.png") no-repeat center center transparent;
 }
 #nexacontainer .Edit.edi_LF_Sch[data-userstatus=nulltext]
 {
@@ -8760,7 +8764,7 @@ textarea::-webkit-scrollbar { display: none; }
 }
 #nexacontainer .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev1.dummy.dummy.dummy[data-userstatus=selected]
 {
-	background : URL("./images/grd_LF_Line.png") transparent;
+	background : URL("./images/grd_LF_Line.png") repeat-x left top transparent;
 	color : #ffffff;
 }
 #nexacontainer .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev2.dummy.dummy.dummy[data-userstatus=selected]
@@ -8934,22 +8938,22 @@ textarea::-webkit-scrollbar { display: none; }
 #nexacontainer .Button.btn_WF_CalLeft[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Left.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Left.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_WF_CalLeft[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Left.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Left.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_WF_CalRight[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Right.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Right.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_WF_CalRight[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Right.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Right.png") no-repeat center center transparent;
 }
 #nexacontainer .Calendar.cal_MF_Cal .datepicker .body .dayitem[data-userstatus=day]
 {
@@ -9082,12 +9086,12 @@ textarea::-webkit-scrollbar { display: none; }
 #nexacontainer .Button.btn_WF_EdiSch[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SearchO.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_SearchO.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_WF_EdiSch[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SearchO.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_SearchO.png") no-repeat center center transparent;
 }
 #nexacontainer .Button.btn_WF_SchSmall[data-userstatus=pushed]
 {
@@ -9114,82 +9118,82 @@ textarea::-webkit-scrollbar { display: none; }
 #nexacontainer .Button.btn_WF_BookmarkS[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_BookmarkS[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Bookmark[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Bookmark[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_OpenS[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_OpenS[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Open[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Open[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_ReloadS[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_ReloadS[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Reload[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Reload[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_SaveS[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_SaveS[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Save[data-userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Save[data-userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_PageS[data-userstatus=selected]
 {
@@ -9507,12 +9511,12 @@ textarea::-webkit-scrollbar { display: none; }
 #nexacontainer .Button.btn_WF_Sch[data-userstatus=pushed]
 {
 	border : 1px solid #313340;
-	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_SearchO.png") no-repeat center #ffffff;
+	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_SearchO.png") no-repeat center center #ffffff;
 }
 #nexacontainer .Button.btn_WF_Sch[data-userstatus=selected]
 {
 	border : 1px solid #313340;
-	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_SearchO.png") no-repeat center #ffffff;
+	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_SearchO.png") no-repeat center center #ffffff;
 }
 #nexacontainer .Button.btn_WF_PreBtn[data-userstatus=pushed]
 {
@@ -10623,42 +10627,42 @@ textarea::-webkit-scrollbar { display: none; }
 #nexacontainer .Button.btn_WF_Bookmark[data-status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Bookmark.png") no-repeat center;
+	background : URL("./images/btn_WF_Bookmark.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_BookmarkS[data-status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Open[data-status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Open.png") no-repeat center;
+	background : URL("./images/btn_WF_Open.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_OpenS[data-status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Reload[data-status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Reload.png") no-repeat center;
+	background : URL("./images/btn_WF_Reload.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_ReloadS[data-status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_Save[data-status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Save.png") no-repeat center;
+	background : URL("./images/btn_WF_Save.png") no-repeat center center;
 }
 #nexacontainer .Button.btn_WF_SaveS[data-status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 #nexacontainer .Edit.edt_WF_Search[data-status=disabled]
 {

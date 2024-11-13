@@ -12735,7 +12735,7 @@
             				{
             					"enabled" :
             					{
-            						"wordWrap" : "char"
+            						"wordWrap" : "none"
             					},
             					"disabled" :
             					{
@@ -12884,7 +12884,8 @@
             								{
             									"padding" : nexacro.PaddingObject("0px 0px 0px 30px"),
             									"font" : nexacro.FontObject("13px \"SpoqaHanSansNeo-Regular\""),
-            									"letterSpacing" : nexacro.CSSValueObject("-1px")
+            									"letterSpacing" : nexacro.CSSValueObject("-1px"),
+            									"wordWrap" : "none"
             								}
             							}
             						}

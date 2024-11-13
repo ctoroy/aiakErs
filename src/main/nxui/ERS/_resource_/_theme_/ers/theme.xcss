@@ -1243,7 +1243,7 @@
 /***** Static *****/
 .Static
 {
-	-nexa-word-wrap 	: char;
+	-nexa-word-wrap 	: none;
 }
 .Static[status=disabled]
 {
@@ -2501,7 +2501,7 @@
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_FavMove .cellbutton[userstatus=pushed],
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_FavMove .cellbutton[userstatus=selected]
 {
-	background 		: URL("theme://images/grd_TF_FavMove.png") no-repeat center transparent;
+	background 		: URL("theme://images/grd_TF_FavMove.png") no-repeat center center transparent;
 	-nexa-border 		: 0px none;
 	cursor 			: move;
 }
@@ -2511,7 +2511,7 @@
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_Delete .cellbutton[userstatus=pushed],
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_Delete .cellbutton[userstatus=selected]
 {
-	background 		: URL("theme://images/grd_TF_Delete.png") no-repeat center transparent;
+	background 		: URL("theme://images/grd_TF_Delete.png") no-repeat center center transparent;
 	-nexa-border 		: 0px none;
 }
 .Static.sta_TF_Bg
@@ -2521,11 +2521,11 @@
 }
 .Static.sta_TF_LogoBg
 {
-	background 		: URL("theme://images/sta_TF_LogoBg.png") no-repeat left transparent;
+	background 		: URL("theme://images/sta_TF_LogoBg.png") no-repeat left center transparent;
 }
 .Static.sta_TF_Logo
 {
-	background 		: URL("theme://images/sta_TF_Logo.png") no-repeat left transparent;
+	background 		: URL("theme://images/sta_TF_Logo.png") no-repeat left center transparent;
 }
 .Static.sta_TF_LogoTxt
 {
@@ -2661,7 +2661,7 @@
 {
 	-nexa-padding 		: 0px 0px 0px 0px;
 	-nexa-border 		: 0px none;
-	background 		: URL("theme://images/tab_WF_X.png") no-repeat center transparent;
+	background 		: URL("theme://images/tab_WF_X.png") no-repeat center center transparent;
 }
 .Grid.grd_MDI_List
 {
@@ -2687,7 +2687,7 @@
 .Grid.grd_MDI_List .body .row .cell.cell_TF_FavMove .cellbutton[userstatus=pushed],
 .Grid.grd_MDI_List .body .row .cell.cell_TF_FavMove .cellbutton[userstatus=selected]
 {
-	background 		: URL("theme://images/grd_TF_FavMove.png") no-repeat center transparent;
+	background 		: URL("theme://images/grd_TF_FavMove.png") no-repeat center center transparent;
 	-nexa-border 		: 0px none;
 	cursor 			: move;
 }
@@ -2697,7 +2697,7 @@
 .Grid.grd_MDI_List .body .row .cell.cell_TF_Delete .cellbutton[userstatus=pushed],
 .Grid.grd_MDI_List .body .row .cell.cell_TF_Delete .cellbutton[userstatus=selected]
 {
-	background 		: URL("theme://images/grd_TF_Delete.png") no-repeat center transparent;
+	background 		: URL("theme://images/grd_TF_Delete.png") no-repeat center center transparent;
 	-nexa-border 		: 0px none;
 }
 .Static.sta_MDI_Line, .Static.sta_LF_Line
@@ -2725,25 +2725,25 @@
 .Button.btn_LF_Close[status=focused]
 {
 	-nexa-border 		: 0px none;
-	background 		: URL("theme://images/btn_LF_Close.png") no-repeat right transparent;
+	background 		: URL("theme://images/btn_LF_Close.png") no-repeat right center transparent;
 }
 .Button.btn_LF_Close[userstatus=selected],
 .Button.btn_LF_Close[status=mouseover],.Button.btn_TF_Close[userstatus=pushed]
 {
 	-nexa-border 		: 0px none;
-	background 		: URL("theme://images/btn_LF_Close.png") no-repeat right transparent;
+	background 		: URL("theme://images/btn_LF_Close.png") no-repeat right center transparent;
 }
 .Button.btn_LF_Open,
 .Button.btn_LF_Open[status=focused]
 {
 	-nexa-border 		: 0px none;
-	background 		: URL("theme://images/btn_LF_Open.png") no-repeat right transparent;
+	background 		: URL("theme://images/btn_LF_Open.png") no-repeat right center transparent;
 }
 .Button.btn_LF_Open[userstatus=selected],
 .Button.btn_LF_Open[status=mouseover],.Button.btn_LF_Open[userstatus=pushed]
 {
 	-nexa-border 		: 0px none;
-	background 		: URL("theme://images/btn_LF_Open.png") no-repeat right transparent;
+	background 		: URL("theme://images/btn_LF_Open.png") no-repeat right center transparent;
 }
 .Button.btn_LF_Close[status=disabled],
 .Button.btn_LF_Open[status=disabled]
@@ -2951,26 +2951,26 @@
 {
 	-nexa-border 		: 0px none;
 	-nexa-padding 		: 0px 0px 0px 0px;
-	background 		: URL("theme://images/btn_LF_Set.png") no-repeat center transparent;
+	background 		: URL("theme://images/btn_LF_Set.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Set[status=mouseover],.Button.btn_LF_Set[userstatus=pushed],
 .Button.btn_LF_Set[userstatus=selected]
 {
 	-nexa-border 		: 0px none;
-	background 		: URL("theme://images/btn_LF_Set.png") no-repeat center transparent;
+	background 		: URL("theme://images/btn_LF_Set.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Logout,
 .Button.btn_LF_Logout[status=focused]
 {
 	-nexa-border 		: 0px none;
 	-nexa-padding 		: 0px 0px 0px 0px;
-	background 		: URL("theme://images/btn_LF_Logout.png") no-repeat center transparent;
+	background 		: URL("theme://images/btn_LF_Logout.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Logout[status=mouseover],.Button.btn_LF_Logout[userstatus=pushed],
 .Button.btn_LF_Logout[userstatus=selected]
 {
 	-nexa-border 		: 0px none;
-	background 		: URL("theme://images/btn_LF_Logout.png") no-repeat center transparent;
+	background 		: URL("theme://images/btn_LF_Logout.png") no-repeat center center transparent;
 }
 
 .Button.btn_LF_Sch,
@@ -2978,13 +2978,13 @@
 {
 	-nexa-border 		: 0px none;
 	-nexa-padding 		: 0px 0px 0px 0px;
-	background 		: URL("theme://images/btn_LF_Sch.png") no-repeat center transparent;
+	background 		: URL("theme://images/btn_LF_Sch.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Sch[status=mouseover],.Button.btn_LF_Sch[userstatus=pushed],
 .Button.btn_LF_Sch[userstatus=selected]
 {
 	-nexa-border 		: 0px none;
-	background 		: URL("theme://images/btn_LF_SchO.png") no-repeat center transparent;
+	background 		: URL("theme://images/btn_LF_SchO.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Edit,
 .Button.btn_LF_Edit[status=focused]
@@ -3087,19 +3087,19 @@
 {
 	-nexa-border 		: 0px none, 0px none, 0px none, 0px none;
 	-nexa-padding 		: 11px 5px 11px 0px;
-	background 		: URL("theme://images/grd_LF_Line.png") transparent;
+	background 		: url('theme://images/grd_LF_Line.png') repeat-x left top transparent;
 	color 			: #ffffff;
 	cursor 			: pointer;
 	font 			: 14px "SpoqaHanSansNeo-Medium";
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev1[status=mouseover]
 {
-	background 		: URL("theme://images/grd_LF_Line.png") transparent;
+	background 		: URL("theme://images/grd_LF_Line.png") repeat-x left top transparent;
 	color 			: #ffd860;
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev1[userstatus=selected]
 {
-	background 		: URL("theme://images/grd_LF_Line.png") transparent;
+	background 		: URL("theme://images/grd_LF_Line.png") repeat-x left top transparent;
 	color 			: #ffffff;
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev2
@@ -3276,14 +3276,14 @@
 .Static.sta_BF_Info
 {
 	-nexa-padding 		: 0px 0px 0px 9px;
-	background 		: URL("theme://images/sta_BF_Bullet.png") no-repeat left transparent;
+	background 		: URL("theme://images/sta_BF_Bullet.png") no-repeat left center transparent;
 	color			: #293139;
 	font			: 12px "SpoqaHanSansNeo-Regular";
 }
 .Static.sta_BF_User
 {
 	-nexa-padding 		: 0px 0px 0px 20px;
-	background 		: URL("theme://images/sta_BF_User.png") no-repeat left transparent;
+	background 		: URL("theme://images/sta_BF_User.png") no-repeat left center transparent;
 	color			: #293139;
 	font			: 12px "SpoqaHanSansNeo-Regular";
 }
@@ -3426,7 +3426,7 @@
 {
 	-nexa-padding 		: 0px 0px 0px 0px;
 	-nexa-border 		: 0px none;
-	background 		: URL("theme://images/btn_WF_Left.png") no-repeat center transparent;
+	background 		: URL("theme://images/btn_WF_Left.png") no-repeat center center transparent;
 }
 .Button.btn_WF_CalRight,
 .Button.btn_WF_CalRight[status=focused],.Button.btn_WF_CalRight[userstatus=selected],
@@ -3434,7 +3434,7 @@
 {
 	-nexa-padding 		: 0px 0px 0px 0px;
 	-nexa-border 		: 0px none;
-	background 		: URL("theme://images/btn_WF_Right.png") no-repeat center transparent;
+	background 		: URL("theme://images/btn_WF_Right.png") no-repeat center center transparent;
 }
 .Calendar.cal_MF_Cal,
 .Calendar.cal_MF_Cal[status=mouseover],.Calendar.cal_MF_Cal[status=focused]
@@ -3769,7 +3769,7 @@
 .Button.btn_WF_EdiSch[userstatus=selected]
 {
 	-nexa-border 		: 0px none;
-	background 		: URL("theme://images/btn_WF_SearchO.png") no-repeat center transparent;
+	background 		: URL("theme://images/btn_WF_SearchO.png") no-repeat center center transparent;
 }
 .Button.btn_WF_SchSmall,
 .Button.btn_WF_SchSmall[status=focused]
@@ -3893,19 +3893,19 @@
 {
 	-nexa-border 		: 0px none;
 	-nexa-padding 		: 0px 0px 0px 0px;
-	background 		: URL("theme://images/btn_WF_Search.png") no-repeat center transparent;
+	background 		: URL("theme://images/btn_WF_Search.png") no-repeat center center transparent;
 }
 .Button.btn_WF_ExcelUp,
 .Button.btn_WF_ExcelUp[status=focused]
 {
 	-nexa-text-padding 	: 0px;
-	background 		: URL("theme://images/btn_WF_ExcelUp.png") no-repeat center #f5f5f6;
+	background 		: URL("theme://images/btn_WF_ExcelUp.png") no-repeat center center #f5f5f6;
 }
 .Button.btn_WF_ExcelDown,
 .Button.btn_WF_ExcelDown[status=focused]
 {
 	-nexa-text-padding 	: 0px;
-	background 		: URL("theme://images/btn_WF_ExcelDown.png") no-repeat center #f5f5f6;
+	background 		: URL("theme://images/btn_WF_ExcelDown.png") no-repeat center center #f5f5f6;
 }
 .Button.btn_WF_Bookmark,
 .Button.btn_WF_Bookmark[status=focused],
@@ -3913,7 +3913,7 @@
 {
 	-nexa-border 		: 0px none;
 	-nexa-padding 		: 0px 0px 0px 0px;
-	background 		: URL("theme://images/btn_WF_Bookmark.png") no-repeat center;
+	background 		: URL("theme://images/btn_WF_Bookmark.png") no-repeat center center;
 }
 .Button.btn_WF_BookmarkS,
 .Button.btn_WF_BookmarkS[status=focused],.Button.btn_WF_BookmarkS[userstatus=selected],
@@ -3924,7 +3924,7 @@
 {
 	-nexa-border 		: 0px none;
 	-nexa-padding 		: 0px 0px 0px 0px;
-	background 		: URL("theme://images/btn_WF_BookmarkS.png") no-repeat center;
+	background 		: URL("theme://images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 .Button.btn_WF_Open,
 .Button.btn_WF_Open[status=focused],
@@ -3932,7 +3932,7 @@
 {
 	-nexa-border 		: 0px none;
 	-nexa-padding 		: 0px 0px 0px 0px;
-	background 		: URL("theme://images/btn_WF_Open.png") no-repeat center;
+	background 		: URL("theme://images/btn_WF_Open.png") no-repeat center center;
 }
 .Button.btn_WF_OpenS,
 .Button.btn_WF_OpenS[status=focused],.Button.btn_WF_OpenS[userstatus=selected],
@@ -3943,7 +3943,7 @@
 {
 	-nexa-border 		: 0px none;
 	-nexa-padding 		: 0px 0px 0px 0px;
-	background 		: URL("theme://images/btn_WF_OpenS.png") no-repeat center;
+	background 		: URL("theme://images/btn_WF_OpenS.png") no-repeat center center;
 }
 .Button.btn_WF_Reload,
 .Button.btn_WF_Reload[status=focused],
@@ -3951,7 +3951,7 @@
 {
 	-nexa-border 		: 0px none;
 	-nexa-padding 		: 0px 0px 0px 0px;
-	background 		: URL("theme://images/btn_WF_Reload.png") no-repeat center;
+	background 		: URL("theme://images/btn_WF_Reload.png") no-repeat center center;
 }
 .Button.btn_WF_ReloadS,
 .Button.btn_WF_ReloadS[status=focused],.Button.btn_WF_ReloadS[userstatus=selected],
@@ -3962,7 +3962,7 @@
 {
 	-nexa-border 		: 0px none;
 	-nexa-padding 		: 0px 0px 0px 0px;
-	background 		: URL("theme://images/btn_WF_ReloadS.png") no-repeat center;
+	background 		: URL("theme://images/btn_WF_ReloadS.png") no-repeat center center;
 }
 .Button.btn_WF_Save,
 .Button.btn_WF_Save[status=focused],
@@ -3970,7 +3970,7 @@
 {
 	-nexa-border 		: 0px none;
 	-nexa-padding 		: 0px 0px 0px 0px;
-	background 		: URL("theme://images/btn_WF_Save.png") no-repeat center;
+	background 		: URL("theme://images/btn_WF_Save.png") no-repeat center center;
 }
 .Button.btn_WF_SaveS,
 .Button.btn_WF_SaveS[status=focused],.Button.btn_WF_SaveS[userstatus=selected],
@@ -3981,7 +3981,7 @@
 {
 	-nexa-border 		: 0px none;
 	-nexa-padding 		: 0px 0px 0px 0px;
-	background 		: URL("theme://images/btn_WF_SaveS.png") no-repeat center;
+	background 		: URL("theme://images/btn_WF_SaveS.png") no-repeat center center;
 }
 .Button.btn_WF_Up,
 .Button.btn_WF_Up[status=focused]
@@ -4434,6 +4434,7 @@
 	-nexa-padding 		: 0px 0px 0px 30px;
 	font 			: 13px "SpoqaHanSansNeo-Regular";
 	letter-spacing 		: -1px;
+	-nexa-word-wrap 	: none;
 }
 .Static.sta_WF_SchLabelEssential
 {
@@ -4550,13 +4551,13 @@
 .Button.btn_WF_Sch[status=focused]
 {
 	-nexa-padding : 0px;
-	background : URL("imagerc::devPackModule/btn_WF_Search.png") no-repeat center #ffffff;
+	background : URL("imagerc::devPackModule/btn_WF_Search.png") no-repeat center center #ffffff;
 }
 .Button.btn_WF_Sch[status=mouseover],.Button.btn_WF_Sch[userstatus=pushed],
 .Button.btn_WF_Sch[userstatus=selected]
 {
 	-nexa-border : 1px solid #313340;
-	background : URL("imagerc::devPackModule/btn_WF_SearchO.png") no-repeat center #ffffff;
+	background : URL("imagerc::devPackModule/btn_WF_SearchO.png") no-repeat center center #ffffff;
 }
 .Button.btn_WF_PreBtn,
 .Button.btn_WF_PreBtn[status=focused],
@@ -4721,22 +4722,22 @@
 }
 .Static.sta_LOGIN_Logo
 {
-	background 		: URL("theme://images/sta_LOGIN_Logo.png") no-repeat center transparent;
+	background 		: URL("theme://images/sta_LOGIN_Logo.png") no-repeat center center transparent;
 }
 .Static.sta_LOGIN_Id
 {
 	-nexa-border 		: 0px none, 0px none, 2px solid #e9ebf3, 0px none;
-	background 		: URL("theme://images/sta_LOGIN_Id.png") no-repeat left transparent;
+	background 		: URL("theme://images/sta_LOGIN_Id.png") no-repeat left center transparent;
 }
 .Static.sta_LOGIN_Pw
 {
 	-nexa-border 		: 0px none, 0px none, 2px solid #e9ebf3, 0px none;
-	background 		: URL("theme://images/sta_LOGIN_Pw.png") no-repeat left transparent;
+	background 		: URL("theme://images/sta_LOGIN_Pw.png") no-repeat left center transparent;
 }
 .Static.sta_LOGIN_Language
 {
 	-nexa-border 		: 0px none, 0px none, 2px solid #e9ebf3, 0px none;
-	background 		: URL("theme://images/sta_LOGIN_Language.png") no-repeat left transparent;
+	background 		: URL("theme://images/sta_LOGIN_Language.png") no-repeat left center transparent;
 }
 .Static.sta_LOGIN_Line
 {
@@ -4752,7 +4753,7 @@
 {
 	-nexa-border 		: 0px none;
 	-nexa-padding 		: 0px 0px 0px 0px;
-	background 		: URL("theme://images/btn_POP_Close.png") no-repeat center transparent;
+	background 		: URL("theme://images/btn_POP_Close.png") no-repeat center center transparent;
 }   
 .Button.btn_POP_Close[userstatus=pushed],.Button.btn_POP_Close[status=mouseover],
 .Button.btn_POP_Close[userstatus=selected]

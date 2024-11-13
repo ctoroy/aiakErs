@@ -510,7 +510,7 @@
 }
 .Static .nexacontentsbox
 {
-	-nexa-word-wrap : char;
+	-nexa-word-wrap : none;
 }
 .StepControl .stepitem
 {
@@ -1532,13 +1532,13 @@
 }
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_FavMove .cellbutton
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_Delete .cellbutton
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 .Static.sta_TF_Bg
@@ -1548,11 +1548,11 @@
 }
 .Static.sta_TF_LogoBg
 {
-	background : URL("./images/sta_TF_LogoBg.png") no-repeat left transparent;
+	background : URL("./images/sta_TF_LogoBg.png") no-repeat left center transparent;
 }
 .Static.sta_TF_Logo
 {
-	background : URL("./images/sta_TF_Logo.png") no-repeat left transparent;
+	background : URL("./images/sta_TF_Logo.png") no-repeat left center transparent;
 }
 .Static.sta_TF_LogoTxt
 {
@@ -1612,7 +1612,7 @@
 .Button.btn_MDI_TabClose
 {
 	border : 0px none;
-	background : URL("./images/tab_WF_X.png") no-repeat center transparent;
+	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
 }
 .Grid.grd_MDI_List
 {
@@ -1627,13 +1627,13 @@
 }
 .Grid.grd_MDI_List .body .row .cell.cell_TF_FavMove .cellbutton
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 .Grid.grd_MDI_List .body .row .cell.cell_TF_Delete .cellbutton
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 .Static.sta_MDI_Line
@@ -1654,12 +1654,12 @@
 .Button.btn_LF_Close
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Close.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Close.png") no-repeat right center transparent;
 }
 .Button.btn_LF_Open
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Open.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Open.png") no-repeat right center transparent;
 }
 .Button.btn_LF_Menu01
 {
@@ -1832,17 +1832,17 @@
 .Button.btn_LF_Set
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Set.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Set.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Logout
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Logout.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Logout.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Sch
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Sch.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Sch.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Edit
 {
@@ -1916,7 +1916,7 @@
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev1
 {
 	border : 0px none, 0px none, 0px none, 0px none;
-	background : URL("./images/grd_LF_Line.png") transparent;
+	background : url('./images/grd_LF_Line.png') repeat-x left top transparent;
 	color : #ffffff;
 	cursor : pointer;
 	font : 14px "SpoqaHanSansNeo-Medium";
@@ -1987,13 +1987,13 @@
 }
 .Static.sta_BF_Info
 {
-	background : URL("./images/sta_BF_Bullet.png") no-repeat left transparent;
+	background : URL("./images/sta_BF_Bullet.png") no-repeat left center transparent;
 	color : #293139;
 	font : 12px "SpoqaHanSansNeo-Regular";
 }
 .Static.sta_BF_User
 {
-	background : URL("./images/sta_BF_User.png") no-repeat left transparent;
+	background : URL("./images/sta_BF_User.png") no-repeat left center transparent;
 	color : #293139;
 	font : 12px "SpoqaHanSansNeo-Regular";
 }
@@ -2084,12 +2084,12 @@
 .Button.btn_WF_CalLeft
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Left.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Left.png") no-repeat center center transparent;
 }
 .Button.btn_WF_CalRight
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Right.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Right.png") no-repeat center center transparent;
 }
 .Calendar.cal_MF_Cal
 {
@@ -2308,55 +2308,55 @@
 .Button.btn_WF_EdiSch
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Search.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Search.png") no-repeat center center transparent;
 }
 .Button.btn_WF_ExcelUp
 {
-	background : URL("./images/btn_WF_ExcelUp.png") no-repeat center #f5f5f6;
+	background : URL("./images/btn_WF_ExcelUp.png") no-repeat center center #f5f5f6;
 }
 .Button.btn_WF_ExcelDown
 {
-	background : URL("./images/btn_WF_ExcelDown.png") no-repeat center #f5f5f6;
+	background : URL("./images/btn_WF_ExcelDown.png") no-repeat center center #f5f5f6;
 }
 .Button.btn_WF_Bookmark
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Bookmark.png") no-repeat center;
+	background : URL("./images/btn_WF_Bookmark.png") no-repeat center center;
 }
 .Button.btn_WF_BookmarkS
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 .Button.btn_WF_Open
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Open.png") no-repeat center;
+	background : URL("./images/btn_WF_Open.png") no-repeat center center;
 }
 .Button.btn_WF_OpenS
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 .Button.btn_WF_Reload
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Reload.png") no-repeat center;
+	background : URL("./images/btn_WF_Reload.png") no-repeat center center;
 }
 .Button.btn_WF_ReloadS
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 .Button.btn_WF_Save
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Save.png") no-repeat center;
+	background : URL("./images/btn_WF_Save.png") no-repeat center center;
 }
 .Button.btn_WF_SaveS
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 .Button.btn_WF_Up
 {
@@ -2602,6 +2602,10 @@
 	font : 13px "SpoqaHanSansNeo-Regular";
 	letter-spacing : -1px;
 }
+.Static.sta_WF_SchLabel .nexacontentsbox
+{
+	-nexa-word-wrap : none;
+}
 .Static.sta_WF_SchLabelEssential
 {
 	background : URL("./images/essential.png") no-repeat 19px 1px;
@@ -2707,7 +2711,7 @@
 }
 .Button.btn_WF_Sch
 {
-	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_Search.png") no-repeat center #ffffff;
+	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_Search.png") no-repeat center center #ffffff;
 }
 .Button.btn_WF_PreBtn
 {
@@ -2847,22 +2851,22 @@
 }
 .Static.sta_LOGIN_Logo
 {
-	background : URL("./images/sta_LOGIN_Logo.png") no-repeat center transparent;
+	background : URL("./images/sta_LOGIN_Logo.png") no-repeat center center transparent;
 }
 .Static.sta_LOGIN_Id
 {
 	border : 0px none, 0px none, 2px solid #e9ebf3, 0px none;
-	background : URL("./images/sta_LOGIN_Id.png") no-repeat left transparent;
+	background : URL("./images/sta_LOGIN_Id.png") no-repeat left center transparent;
 }
 .Static.sta_LOGIN_Pw
 {
 	border : 0px none, 0px none, 2px solid #e9ebf3, 0px none;
-	background : URL("./images/sta_LOGIN_Pw.png") no-repeat left transparent;
+	background : URL("./images/sta_LOGIN_Pw.png") no-repeat left center transparent;
 }
 .Static.sta_LOGIN_Language
 {
 	border : 0px none, 0px none, 2px solid #e9ebf3, 0px none;
-	background : URL("./images/sta_LOGIN_Language.png") no-repeat left transparent;
+	background : URL("./images/sta_LOGIN_Language.png") no-repeat left center transparent;
 }
 .Static.sta_LOGIN_Line
 {
@@ -2871,7 +2875,7 @@
 .Button.btn_POP_Close
 {
 	border : 0px none;
-	background : URL("./images/btn_POP_Close.png") no-repeat center transparent;
+	background : URL("./images/btn_POP_Close.png") no-repeat center center transparent;
 }
 .Div.div_POP_TitleBg
 {
@@ -4626,24 +4630,24 @@
 }
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_FavMove .cellbutton[status=focused]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_FavMove .cellbutton[status=mouseover]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_Delete .cellbutton[status=focused]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_Delete .cellbutton[status=mouseover]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 .Button.btn_MDI_Close[status=focused]
@@ -4742,12 +4746,12 @@
 .Button.btn_MDI_TabClose[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/tab_WF_X.png") no-repeat center transparent;
+	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
 }
 .Button.btn_MDI_TabClose[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/tab_WF_X.png") no-repeat center transparent;
+	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
 }
 .Grid.grd_MDI_List .body .row .cell[status=mouseover]
 {
@@ -4757,45 +4761,45 @@
 }
 .Grid.grd_MDI_List .body .row .cell.cell_TF_FavMove .cellbutton[status=focused]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 .Grid.grd_MDI_List .body .row .cell.cell_TF_FavMove .cellbutton[status=mouseover]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 .Grid.grd_MDI_List .body .row .cell.cell_TF_Delete .cellbutton[status=focused]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 .Grid.grd_MDI_List .body .row .cell.cell_TF_Delete .cellbutton[status=mouseover]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 .Button.btn_LF_Close[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Close.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Close.png") no-repeat right center transparent;
 }
 .Button.btn_LF_Close[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Close.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Close.png") no-repeat right center transparent;
 }
 .Button.btn_LF_Open[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Open.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Open.png") no-repeat right center transparent;
 }
 .Button.btn_LF_Open[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Open.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Open.png") no-repeat right center transparent;
 }
 .Button.btn_LF_Menu01[status=mouseover]
 {
@@ -5136,32 +5140,32 @@
 .Button.btn_LF_Set[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Set.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Set.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Set[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Set.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Set.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Logout[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Logout.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Logout.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Logout[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Logout.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Logout.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Sch[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Sch.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Sch.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Sch[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_SchO.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_SchO.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Edit[status=focused]
 {
@@ -5218,7 +5222,7 @@
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev1[status=mouseover]
 {
-	background : URL("./images/grd_LF_Line.png") transparent;
+	background : URL("./images/grd_LF_Line.png") repeat-x left top transparent;
 	color : #ffd860;
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev2[status=mouseover]
@@ -5378,22 +5382,22 @@
 .Button.btn_WF_CalLeft[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Left.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Left.png") no-repeat center center transparent;
 }
 .Button.btn_WF_CalLeft[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Left.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Left.png") no-repeat center center transparent;
 }
 .Button.btn_WF_CalRight[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Right.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Right.png") no-repeat center center transparent;
 }
 .Button.btn_WF_CalRight[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Right.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Right.png") no-repeat center center transparent;
 }
 .Calendar.cal_MF_Cal[status=mouseover]
 {
@@ -5591,7 +5595,7 @@
 .Button.btn_WF_EdiSch[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SearchO.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_SearchO.png") no-repeat center center transparent;
 }
 .Button.btn_WF_SchSmall[status=focused]
 {
@@ -5619,95 +5623,95 @@
 .Button.btn_WF_EdiSch[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Search.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Search.png") no-repeat center center transparent;
 }
 .Button.btn_WF_ExcelUp[status=focused]
 {
-	background : URL("./images/btn_WF_ExcelUp.png") no-repeat center #f5f5f6;
+	background : URL("./images/btn_WF_ExcelUp.png") no-repeat center center #f5f5f6;
 }
 .Button.btn_WF_ExcelDown[status=focused]
 {
-	background : URL("./images/btn_WF_ExcelDown.png") no-repeat center #f5f5f6;
+	background : URL("./images/btn_WF_ExcelDown.png") no-repeat center center #f5f5f6;
 }
 .Button.btn_WF_Bookmark[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Bookmark.png") no-repeat center;
+	background : URL("./images/btn_WF_Bookmark.png") no-repeat center center;
 }
 .Button.btn_WF_BookmarkS[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 .Button.btn_WF_BookmarkS[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 .Button.btn_WF_Bookmark[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 .Button.btn_WF_Open[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Open.png") no-repeat center;
+	background : URL("./images/btn_WF_Open.png") no-repeat center center;
 }
 .Button.btn_WF_OpenS[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 .Button.btn_WF_OpenS[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 .Button.btn_WF_Open[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 .Button.btn_WF_Reload[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Reload.png") no-repeat center;
+	background : URL("./images/btn_WF_Reload.png") no-repeat center center;
 }
 .Button.btn_WF_ReloadS[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 .Button.btn_WF_ReloadS[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 .Button.btn_WF_Reload[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 .Button.btn_WF_Save[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Save.png") no-repeat center;
+	background : URL("./images/btn_WF_Save.png") no-repeat center center;
 }
 .Button.btn_WF_SaveS[status=focused]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 .Button.btn_WF_SaveS[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 .Button.btn_WF_Save[status=mouseover]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 .Button.btn_WF_Up[status=focused]
 {
@@ -6068,12 +6072,12 @@
 }
 .Button.btn_WF_Sch[status=focused]
 {
-	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_Search.png") no-repeat center #ffffff;
+	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_Search.png") no-repeat center center #ffffff;
 }
 .Button.btn_WF_Sch[status=mouseover]
 {
 	border : 1px solid #313340;
-	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_SearchO.png") no-repeat center #ffffff;
+	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_SearchO.png") no-repeat center center #ffffff;
 }
 .Button.btn_WF_PreBtn[status=focused]
 {
@@ -7181,24 +7185,24 @@
 }
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_FavMove .cellbutton[userstatus=pushed]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_FavMove .cellbutton[userstatus=selected]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_Delete .cellbutton[userstatus=pushed]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 .Grid.grd_LF_Sch .body .row .cell.cell_TF_Delete .cellbutton[userstatus=selected]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 .Button.btn_MDI_Close[userstatus=selected]
@@ -7298,12 +7302,12 @@
 .Button.btn_MDI_TabClose[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/tab_WF_X.png") no-repeat center transparent;
+	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
 }
 .Button.btn_MDI_TabClose[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/tab_WF_X.png") no-repeat center transparent;
+	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
 }
 .Grid.grd_MDI_List .body .row .cell[userstatus=selected]
 {
@@ -7312,45 +7316,45 @@
 }
 .Grid.grd_MDI_List .body .row .cell.cell_TF_FavMove .cellbutton[userstatus=pushed]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 .Grid.grd_MDI_List .body .row .cell.cell_TF_FavMove .cellbutton[userstatus=selected]
 {
-	background : URL("./images/grd_TF_FavMove.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_FavMove.png") no-repeat center center transparent;
 	border : 0px none;
 	cursor : move;
 }
 .Grid.grd_MDI_List .body .row .cell.cell_TF_Delete .cellbutton[userstatus=pushed]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 .Grid.grd_MDI_List .body .row .cell.cell_TF_Delete .cellbutton[userstatus=selected]
 {
-	background : URL("./images/grd_TF_Delete.png") no-repeat center transparent;
+	background : URL("./images/grd_TF_Delete.png") no-repeat center center transparent;
 	border : 0px none;
 }
 .Button.btn_LF_Close[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Close.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Close.png") no-repeat right center transparent;
 }
 .Button.btn_TF_Close[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Close.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Close.png") no-repeat right center transparent;
 }
 .Button.btn_LF_Open[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Open.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Open.png") no-repeat right center transparent;
 }
 .Button.btn_LF_Open[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Open.png") no-repeat right transparent;
+	background : URL("./images/btn_LF_Open.png") no-repeat right center transparent;
 }
 .Button.btn_LF_Menu01[userstatus=pushed]
 {
@@ -7691,32 +7695,32 @@
 .Button.btn_LF_Set[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Set.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Set.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Set[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Set.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Set.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Logout[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Logout.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Logout.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Logout[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_Logout.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_Logout.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Sch[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_SchO.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_SchO.png") no-repeat center center transparent;
 }
 .Button.btn_LF_Sch[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_LF_SchO.png") no-repeat center transparent;
+	background : URL("./images/btn_LF_SchO.png") no-repeat center center transparent;
 }
 .Edit.edi_LF_Sch[userstatus=nulltext]
 {
@@ -7730,7 +7734,7 @@
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev1[userstatus=selected]
 {
-	background : URL("./images/grd_LF_Line.png") transparent;
+	background : URL("./images/grd_LF_Line.png") repeat-x left top transparent;
 	color : #ffffff;
 }
 .Grid.grd_LF_Menu .body .row .cell.cell_LF_Lev2[userstatus=selected]
@@ -7874,22 +7878,22 @@
 .Button.btn_WF_CalLeft[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Left.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Left.png") no-repeat center center transparent;
 }
 .Button.btn_WF_CalLeft[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Left.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Left.png") no-repeat center center transparent;
 }
 .Button.btn_WF_CalRight[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Right.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Right.png") no-repeat center center transparent;
 }
 .Button.btn_WF_CalRight[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Right.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_Right.png") no-repeat center center transparent;
 }
 .Calendar.cal_MF_Cal .datepicker .body .dayitem[userstatus=day]
 {
@@ -8022,12 +8026,12 @@
 .Button.btn_WF_EdiSch[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SearchO.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_SearchO.png") no-repeat center center transparent;
 }
 .Button.btn_WF_EdiSch[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SearchO.png") no-repeat center transparent;
+	background : URL("./images/btn_WF_SearchO.png") no-repeat center center transparent;
 }
 .Button.btn_WF_SchSmall[userstatus=pushed]
 {
@@ -8054,82 +8058,82 @@
 .Button.btn_WF_BookmarkS[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 .Button.btn_WF_BookmarkS[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 .Button.btn_WF_Bookmark[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 .Button.btn_WF_Bookmark[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 .Button.btn_WF_OpenS[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 .Button.btn_WF_OpenS[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 .Button.btn_WF_Open[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 .Button.btn_WF_Open[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 .Button.btn_WF_ReloadS[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 .Button.btn_WF_ReloadS[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 .Button.btn_WF_Reload[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 .Button.btn_WF_Reload[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 .Button.btn_WF_SaveS[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 .Button.btn_WF_SaveS[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 .Button.btn_WF_Save[userstatus=selected]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 .Button.btn_WF_Save[userstatus=pushed]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 .Button.btn_WF_PageS[userstatus=selected]
 {
@@ -8432,12 +8436,12 @@
 .Button.btn_WF_Sch[userstatus=pushed]
 {
 	border : 1px solid #313340;
-	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_SearchO.png") no-repeat center #ffffff;
+	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_SearchO.png") no-repeat center center #ffffff;
 }
 .Button.btn_WF_Sch[userstatus=selected]
 {
 	border : 1px solid #313340;
-	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_SearchO.png") no-repeat center #ffffff;
+	background : URL("./../../../_resource_/_images_/devPackModule/btn_WF_SearchO.png") no-repeat center center #ffffff;
 }
 .Button.btn_WF_PreBtn[userstatus=pushed]
 {
@@ -9457,42 +9461,42 @@
 .Button.btn_WF_Bookmark[status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Bookmark.png") no-repeat center;
+	background : URL("./images/btn_WF_Bookmark.png") no-repeat center center;
 }
 .Button.btn_WF_BookmarkS[status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center;
+	background : URL("./images/btn_WF_BookmarkS.png") no-repeat center center;
 }
 .Button.btn_WF_Open[status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Open.png") no-repeat center;
+	background : URL("./images/btn_WF_Open.png") no-repeat center center;
 }
 .Button.btn_WF_OpenS[status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_OpenS.png") no-repeat center;
+	background : URL("./images/btn_WF_OpenS.png") no-repeat center center;
 }
 .Button.btn_WF_Reload[status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Reload.png") no-repeat center;
+	background : URL("./images/btn_WF_Reload.png") no-repeat center center;
 }
 .Button.btn_WF_ReloadS[status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_ReloadS.png") no-repeat center;
+	background : URL("./images/btn_WF_ReloadS.png") no-repeat center center;
 }
 .Button.btn_WF_Save[status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_Save.png") no-repeat center;
+	background : URL("./images/btn_WF_Save.png") no-repeat center center;
 }
 .Button.btn_WF_SaveS[status=disabled]
 {
 	border : 0px none;
-	background : URL("./images/btn_WF_SaveS.png") no-repeat center;
+	background : URL("./images/btn_WF_SaveS.png") no-repeat center center;
 }
 .Edit.edt_WF_Search[status=disabled]
 {
