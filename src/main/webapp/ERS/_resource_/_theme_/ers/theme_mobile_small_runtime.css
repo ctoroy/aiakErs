@@ -1614,6 +1614,11 @@
 	border : 0px none;
 	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
 }
+.Button.btn_WF_Close
+{
+	border : 0px none;
+	background : URL("./images/btn_WF_Close.png") no-repeat center center transparent;
+}
 .Grid.grd_MDI_List
 {
 	border : 0px none;
@@ -2535,6 +2540,14 @@
 .Div.div_WF_Frame
 {
 	background : #ffffff;
+}
+.Form.frm_WF_Popup
+{
+	border : 2px solid #4f5860;
+}
+.Div.div_WF_Popup
+{
+	border : 2px solid #4f5860;
 }
 .Grid.grd_WF_NoneS
 {
@@ -4752,6 +4765,16 @@
 {
 	border : 0px none;
 	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
+}
+.Button.btn_WF_Close[status=focused]
+{
+	border : 0px none;
+	background : URL("./images/btn_WF_Close.png") no-repeat center center transparent;
+}
+.Button.btn_WF_Close[status=mouseover]
+{
+	border : 0px none;
+	background : URL("./images/btn_WF_Close.png") no-repeat center center transparent;
 }
 .Grid.grd_MDI_List .body .row .cell[status=mouseover]
 {
@@ -7308,6 +7331,16 @@
 {
 	border : 0px none;
 	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
+}
+.Button.btn_WF_Close[userstatus=selected]
+{
+	border : 0px none;
+	background : URL("./images/btn_WF_Close.png") no-repeat center center transparent;
+}
+.Button.btn_WF_Close[userstatus=pushed]
+{
+	border : 0px none;
+	background : URL("./images/btn_WF_Close.png") no-repeat center center transparent;
 }
 .Grid.grd_MDI_List .body .row .cell[userstatus=selected]
 {

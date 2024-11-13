@@ -1897,6 +1897,18 @@
             						}
             					},
             					{
+            						"frm_WF_Popup" :
+            						{
+            							"self" :
+            							{
+            								"enabled" :
+            								{
+            									"border" : nexacro.BorderObject("2px solid #4f5860")
+            								}
+            							}
+            						}
+            					},
+            					{
             						"frm_POP_Bg" :
             						{
             							"self" :
@@ -2412,6 +2424,39 @@
             					},
             					{
             						"btn_MDI_TabClose" :
+            						{
+            							"self" :
+            							{
+            								"enabled" :
+            								{
+            									"padding" : nexacro.PaddingObject("0px 0px 0px 0px"),
+            									"border" : nexacro.BorderObject("0px none")
+            								},
+            								"focused" :
+            								{
+            									"padding" : nexacro.PaddingObject("0px 0px 0px 0px"),
+            									"border" : nexacro.BorderObject("0px none")
+            								},
+            								"selected" :
+            								{
+            									"padding" : nexacro.PaddingObject("0px 0px 0px 0px"),
+            									"border" : nexacro.BorderObject("0px none")
+            								},
+            								"mouseover" :
+            								{
+            									"padding" : nexacro.PaddingObject("0px 0px 0px 0px"),
+            									"border" : nexacro.BorderObject("0px none")
+            								},
+            								"pushed" :
+            								{
+            									"padding" : nexacro.PaddingObject("0px 0px 0px 0px"),
+            									"border" : nexacro.BorderObject("0px none")
+            								}
+            							}
+            						}
+            					},
+            					{
+            						"btn_WF_Close" :
             						{
             							"self" :
             							{
@@ -15952,6 +15997,18 @@
             						}
             					},
             					{
+            						"div_WF_Popup" :
+            						{
+            							"self" :
+            							{
+            								"enabled" :
+            								{
+            									"border" : nexacro.BorderObject("2px solid #4f5860")
+            								}
+            							}
+            						}
+            					},
+            					{
             						"div_CalHead" :
             						{
             							"self" :
@@ -16093,6 +16150,7 @@
         		imgcache[nexacro._getImageLocation("theme://images/btn_MDI_List.png")] = { width:12, height:11 };
         		imgcache[nexacro._getImageLocation("theme://images/btn_MDI_Pre.png")] = { width:12, height:12 };
         		imgcache[nexacro._getImageLocation("theme://images/btn_MDI_Next.png")] = { width:12, height:12 };
+        		imgcache[nexacro._getImageLocation("theme://images/btn_WF_Close.png")] = { width:0, height:0 };
         		imgcache[nexacro._getImageLocation("theme://images/btn_LF_Close.png")] = { width:5, height:10 };
         		imgcache[nexacro._getImageLocation("theme://images/btn_LF_Open.png")] = { width:5, height:10 };
         		imgcache[nexacro._getImageLocation("theme://images/btn_LF_Menu01.png")] = { width:24, height:26 };
@@ -16111,8 +16169,8 @@
         		imgcache[nexacro._getImageLocation("theme://images/grd_LF_Line.png")] = { width:26, height:38 };
         		imgcache[nexacro._getImageLocation("theme://images/grd_LF_TreeOpen.png")] = { width:10, height:10 };
         		imgcache[nexacro._getImageLocation("theme://images/grd_LF_TreeClose.png")] = { width:10, height:10 };
-        		imgcache[nexacro._getImageLocation("theme://images/grd_LF_TreeCloseImg.png")] = { width:0, height:0 };
-        		imgcache[nexacro._getImageLocation("theme://images/grd_LF_TreeOpenImg.png")] = { width:0, height:0 };
+        		imgcache[nexacro._getImageLocation("theme://images/grd_LF_TreeCloseImg.png")] = { width:1, height:1 };
+        		imgcache[nexacro._getImageLocation("theme://images/grd_LF_TreeOpenImg.png")] = { width:1, height:1 };
         		imgcache[nexacro._getImageLocation("theme://images/grd_LF_TreeLeafImg.png")] = { width:3, height:3 };
         		imgcache[nexacro._getImageLocation("theme://images/grd_LF_Delete.png")] = { width:16, height:16 };
         		imgcache[nexacro._getImageLocation("theme://images/sta_BF_Bullet.png")] = { width:4, height:4 };

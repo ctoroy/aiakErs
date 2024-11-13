@@ -2663,6 +2663,15 @@
 	-nexa-border 		: 0px none;
 	background 		: URL("theme://images/tab_WF_X.png") no-repeat center center transparent;
 }
+
+.Button.btn_WF_Close,
+.Button.btn_WF_Close[status=focused],.Button.btn_WF_Close[userstatus=selected],
+.Button.btn_WF_Close[status=mouseover],.Button.btn_WF_Close[userstatus=pushed]
+{
+	-nexa-padding 		: 0px 0px 0px 0px;
+	-nexa-border 		: 0px none;
+	background 		: URL("theme://images/btn_WF_Close.png") no-repeat center center transparent;
+}
 .Grid.grd_MDI_List
 {
 	-nexa-border 		: 0px none;
@@ -4304,6 +4313,10 @@
 .Form.frm_WF_Frame,.Div.div_WF_Frame
 {
 	background 		: #ffffff;
+}
+.Form.frm_WF_Popup,.Div.div_WF_Popup
+{
+	-nexa-border 		: 2px solid #4f5860;
 }
 /*WorkForm 스크롤
 .Form.frm_WF_Frame .vscrollbar,

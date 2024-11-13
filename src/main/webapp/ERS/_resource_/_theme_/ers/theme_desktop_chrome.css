@@ -2093,6 +2093,11 @@ textarea::-webkit-scrollbar { display: none; }
 	border : 0px none;
 	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
 }
+.Button.btn_WF_Close
+{
+	border : 0px none;
+	background : URL("./images/btn_WF_Close.png") no-repeat center center transparent;
+}
 .Grid.grd_MDI_List
 {
 	border : 0px none;
@@ -3073,6 +3078,14 @@ textarea::-webkit-scrollbar { display: none; }
 .Div.div_WF_Frame
 {
 	background : #ffffff;
+}
+.Form.frm_WF_Popup
+{
+	border : 2px solid #4f5860;
+}
+.Div.div_WF_Popup
+{
+	border : 2px solid #4f5860;
 }
 .Grid.grd_WF_NoneS
 {
@@ -5559,6 +5572,16 @@ textarea::-webkit-scrollbar { display: none; }
 {
 	border : 0px none;
 	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
+}
+#nexacontainer .Button.btn_WF_Close[data-status=focused]
+{
+	border : 0px none;
+	background : URL("./images/btn_WF_Close.png") no-repeat center center transparent;
+}
+#nexacontainer .Button.btn_WF_Close[data-status=mouseover]
+{
+	border : 0px none;
+	background : URL("./images/btn_WF_Close.png") no-repeat center center transparent;
 }
 #nexacontainer .Grid.grd_MDI_List .body .row .cell[data-status=mouseover]
 {
@@ -8313,6 +8336,16 @@ textarea::-webkit-scrollbar { display: none; }
 {
 	border : 0px none;
 	background : URL("./images/tab_WF_X.png") no-repeat center center transparent;
+}
+#nexacontainer .Button.btn_WF_Close[data-userstatus=selected]
+{
+	border : 0px none;
+	background : URL("./images/btn_WF_Close.png") no-repeat center center transparent;
+}
+#nexacontainer .Button.btn_WF_Close[data-userstatus=pushed]
+{
+	border : 0px none;
+	background : URL("./images/btn_WF_Close.png") no-repeat center center transparent;
 }
 #nexacontainer .Grid.grd_MDI_List .body .row .cell[data-userstatus=selected]
 {
