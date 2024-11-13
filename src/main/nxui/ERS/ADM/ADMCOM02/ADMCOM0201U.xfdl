@@ -47,7 +47,7 @@
                 <Cell col="9" text="수정일"/>
               </Band>
               <Band id="body">
-                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk"/>
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk" checkboxfalsevalue="N" checkboxtruevalue="Y"/>
                 <Cell col="1" expr="currow+1"/>
                 <Cell col="2" text="bind:authId" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'text'  : 'none'" editmaxlength="10" editimemode="alpha" editinputmode="upper" editinputtype="alpha,digit" textAlign="center"/>
                 <Cell col="3" text="bind:authNm" displaytype="expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? 'editcontrol'  : 'normal'" edittype="text" textAlign="center"/>
@@ -85,6 +85,7 @@
       </Dataset>
       <Dataset id="dsAuthCodeList">
         <ColumnInfo>
+          <Column id="chk" type="STRING" size="1"/>
           <Column id="authId" type="STRING" size="10"/>
           <Column id="authNm" type="STRING" size="4000"/>
           <Column id="rmak" type="STRING" size="4000"/>
@@ -333,7 +334,13 @@ this.divSearch_cboAuthClssfc_onitemchanged = function(obj:nexacro.Combo,e:nexacr
 
 this.grdAuthCodeList_onheadvaluechanged = function(obj:nexacro.Grid,e:nexacro.GridHeadValueChangedEventInfo)
 {
-	trace(e.newvalue);
+	if( e.cell == 0){
+		this.dsAuthCodeList.set_enableevent(false); //이벤트 비활성화
+		for (var i=0; i < this.dsAuthCodeList.getRowCount(); i++) {			
+			this.dsAuthCodeList.setColumn(i, 'chk', e.newvalue); //체크박스를 checkValue로 설정
+		}
+		this.dsAuthCodeList.set_enableevent(true); //이벤트 활성화
+	}
 };
 ]]></Script>
   </Form>

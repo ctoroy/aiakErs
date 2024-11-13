@@ -44,7 +44,7 @@
           </Formats>
         </Grid>
         <Static id="staAuthUsrTitle" taborder="4" text="사용자목록" left="grdAuthCodeList:20" top="divSearch:8" width="180" height="38" cssclass="sta_WF_Title"/>
-        <Grid id="grdAuthUsrList" taborder="3" left="grdAuthCodeList:20" top="staAuthUsrTitle:0" autofittype="col" binddataset="dsAuthUsrMngmList" cellsizingtype="col" treeusecheckbox="false" treeinitstatus="expand,all" autoenter="select" bottom="0" right="30">
+        <Grid id="grdAuthUsrList" taborder="3" left="grdAuthCodeList:20" top="staAuthUsrTitle:0" autofittype="col" binddataset="dsAuthUsrMngmList" cellsizingtype="col" treeusecheckbox="false" treeinitstatus="expand,all" autoenter="select" bottom="0" right="30" onheadvaluechanged="grdAuthUsrList_onheadvaluechanged">
           <Formats>
             <Format id="default">
               <Columns>
@@ -61,7 +61,7 @@
                 <Row size="28"/>
               </Rows>
               <Band id="head">
-                <Cell/>
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" checkboxfalsevalue="N" checkboxtruevalue="Y"/>
                 <Cell col="1" text="순번"/>
                 <Cell col="2" text="부서명"/>
                 <Cell col="3" text="권한명"/>
@@ -90,7 +90,7 @@
             </Layout>
           </Layouts>
         </Div>
-        <Static id="staTotal" taborder="7" text="총 &lt;fc v='#d31145'&gt;0&lt;/fc&gt;건" top="68" width="100" height="24" usedecorate="true" right="divCmmnBtn:10" fittocontents="none" cssclass="sta_WF_Total" textAlign="right"/>
+        <Static id="staTotal" taborder="7" text="총 &lt;fc v='#d31145'&gt;0&lt;/fc&gt;건" top="divSearch:18" width="100" height="24" usedecorate="true" right="divCmmnBtn:10" fittocontents="none" cssclass="sta_WF_Total" textAlign="right"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -148,7 +148,7 @@
           </Row>
         </Rows>
       </Dataset>
-      <Dataset id="dsAuthUsrMngmList" useclientlayout="true">
+      <Dataset id="dsAuthUsrMngmList">
         <ColumnInfo>
           <Column id="chk" type="STRING" size="1"/>
           <Column id="deptNm" type="STRING" size="4000"/>
@@ -378,6 +378,7 @@ this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
 			break;
 		case "selectAuthUsrMngmList":
 			this.staTotal.text = "총 <fc v='#d31145'>" + this.dsAuthUsrMngmList.getRowCount() + "</fc>건";
+			this.fnAddCheckBox(this.grdAuthUsrList);
 			break;
 		case "saveAuthUsrList":
 			this.fnSearchAuthUsrList();
@@ -386,14 +387,17 @@ this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
 	} 
 };
 
-this.fnPopupCallback = function(strId, rtnObj)
+//this.fnPopupCallback = function(strId, rtnObj)
+this.fnPopupCallback = function(rtnObj)
 {
-	this.dsEmpInfo.loadJSON(rtnObj);
-	if( this.dsEmpInfo.getRowCount() > 0 ){
-		this.dsEmpInfo.addColumn('authClssfc','STRING', 2);
-		this.dsEmpInfo.setColumn(0, 'authClssfc', this.divSearch.form.cboAuthClssfc.value);
-		trace(this.dsEmpInfo.saveXML());
-		this.fnSearchAuthUsr();
+	if( typeof rtnObj == 'object' ){
+		//this.dsEmpInfo.loadJSON(rtnObj);
+		this.dsEmpInfo.copyData(rtnObj);
+		if( this.dsEmpInfo.getRowCount() > 0 ){
+			this.dsEmpInfo.addColumn('authClssfc');
+			this.dsEmpInfo.setColumn(0, 'authClssfc', this.divSearch.form.cboAuthClssfc.value);
+			this.fnSearchAuthUsr();
+		}
 	}
 };
 /*******************************************************************************************************************************
@@ -445,6 +449,22 @@ this.fnUsrAdd = function(){
 	this.dsAuthUsrMngmList.setColumn(nRow, 'deptNm', deptNm);
 	this.dsAuthUsrMngmList.setColumn(nRow, 'useYn', 'Y');
 };
+
+this.fnAddCheckBox = function(objGrid)
+{
+	var objDs = objGrid.getBindDataset();
+	if(objDs.rowcount > 0)
+	{
+		objDs.enableevent = false;
+		objDs.addColumn("chk")
+		for(var i = 0; i < objDs.rowcount; i++)
+		{
+			objDs.setColumn(i, "chk", 0);
+		}
+		objDs.applyChange();
+		objDs.enableevent = true;
+	}
+};
 /*******************************************************************************************************************************
  * 각 COMPONENT 별 EVENT 영역
 *******************************************************************************************************************************/
@@ -480,6 +500,17 @@ this.divSearch_cboAuthClssfc_onitemchanged = function(obj:nexacro.Combo,e:nexacr
 		this.divCmmnBtn.form.btnDel.enable = false;
 	}
 	this.fnSearch();
+};
+
+this.grdAuthUsrList_onheadvaluechanged = function(obj:nexacro.Grid,e:nexacro.GridHeadValueChangedEventInfo)
+{
+	if( e.cell == 0){
+		this.dsAuthUsrMngmList.set_enableevent(false); //이벤트 비활성화
+		for (var i=0; i < this.dsAuthUsrMngmList.getRowCount(); i++) {			
+			this.dsAuthUsrMngmList.setColumn(i, 'chk', e.newvalue); //체크박스를 checkValue로 설정
+		}
+		this.dsAuthUsrMngmList.set_enableevent(true); //이벤트 활성화
+	}
 };
 ]]></Script>
   </Form>

@@ -50,6 +50,7 @@
           </Layouts>
         </Div>
         <Static id="sta04_01" taborder="11" left="20" top="70" width="90" height="8" cssclass="sta_WF_GSize" visible="false" text="H8"/>
+        <Static id="staTotal" taborder="12" text="총 &lt;fc v='#d31145'&gt;0&lt;/fc&gt;건" top="divSearch:18" width="100" height="24" usedecorate="true" right="20" fittocontents="none" cssclass="sta_WF_Total" textAlign="right"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -178,6 +179,7 @@ this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
 	switch(sSvcId) 
 	{
 		case "selectEmpList":
+			this.staTotal.text = "총 <fc v='#d31145'>" + this.dsEmpList.getRowCount() + "</fc>건";
 			break;
 		default:break;
 	} 
@@ -214,6 +216,7 @@ this.btnConfirm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 	this.dsRtnEmpInfo.addRow();
 	this.dsRtnEmpInfo.copyRow(0, this.dsEmpList, nRow);
 	this.opener.fnPopupCallback(this.dsRtnEmpInfo);
+	this.gfnClosePopup();
 	//this.gfnClosePopup(this.dsRtnEmpInfo.saveJSON());
 };
 
@@ -226,18 +229,9 @@ this.grdList_oncelldblclick = function(obj:nexacro.Grid,e:nexacro.GridClickEvent
 	this.dsRtnEmpInfo.clearData();
 	this.dsRtnEmpInfo.addRow();
 	this.dsRtnEmpInfo.copyRow(0, this.dsEmpList, nRow);
-	this.gfnClosePopup(this.dsRtnEmpInfo.saveJSON());
-	//this.gfnClosePopup(this.dsRtnEmpInfo);
-// 	var empNo = this.dsEmpList.getColumn(nRow, "empNo");
-// 	var empNm = this.dsEmpList.getColumn(nRow, "empNm");
-// 	var deptNm = this.dsEmpList.getColumn(nRow, "deptNm");
-// 	
-// 	var rtnValue = {
-// 	     rtnEmpNo:empNo
-// 		,rtnEmpNm:empNm
-// 		,rtnDeptNm:deptNm
-// 		}
-// 	this.gfnClosePopup(JSON.stringify(rtnValue));
+	this.opener.fnPopupCallback(this.dsRtnEmpInfo);
+	this.gfnClosePopup();
+	//this.gfnClosePopup(this.dsRtnEmpInfo.saveJSON());
 };
 
 this.divSearch_btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
