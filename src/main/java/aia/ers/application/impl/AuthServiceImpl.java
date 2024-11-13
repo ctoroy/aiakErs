@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * <pre>
@@ -136,7 +137,14 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public List<Auth> selectAuthUsrMngmList(Auth params) {
         AuthMapper mapper = sqlSession.getMapper(AuthMapper.class);
-        return mapper.selectAuthUsrMngmList(params);
+        String strAuthClssfc = params.getAuthClssfc();
+        // 권한타입이 권한인 경우
+        if( "R".equals(strAuthClssfc) ){
+            return mapper.selectAuthUsrMngmGrpList(params);
+        // 권한타입이 부서인 경우
+        }else{
+            return mapper.selectAuthUsrMngmDeptList(params);
+        }
     }
 
     /**
@@ -156,8 +164,15 @@ public class AuthServiceImpl implements AuthService {
                     mapper.insertAuthUsrMngmList(authUsrMngm);
                     break;
                 case DataSet.ROW_TYPE_UPDATED:
-                    authUsrMngm.setMdfrId("ksh");
-                    mapper.updateAuthUsrMngmList(authUsrMngm);
+                    Auth rtnAuthUsrMngm = mapper.selectAuthUsrMngm(authUsrMngm);
+                    if(Objects.isNull(rtnAuthUsrMngm) ){
+                        authUsrMngm.setCretrId("ksh");
+                        authUsrMngm.setMdfrId("ksh");
+                        mapper.insertAuthUsrMngmList(authUsrMngm);
+                    } else {
+                        authUsrMngm.setMdfrId("ksh");
+                        mapper.updateAuthUsrMngmList(authUsrMngm);
+                    }
                     break;
                 case DataSet.ROW_TYPE_DELETED:
                     mapper.deleteAuthUsrMngmList(authUsrMngm);

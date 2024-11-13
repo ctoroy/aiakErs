@@ -190,17 +190,21 @@
              , EM.DEPT_CD    AS deptNm
              , AUM.AUTH_ID   AS authId
              , AUM.AUTH_ID   AS authNm
+             , AG.AUTH_CLSSFC AS authClssfc
              , AUM.EMP_NO    AS empNo
              , AUM.EMP_NO    AS empNm
              , AUM.RMAK      AS rmak
           FROM AUTH_USR_MNGM AUM
           LEFT OUTER JOIN EMP_MNGM EM
             ON AUM.EMP_NO = EM.EMP_NO
+          LEFT OUTER JOIN AUTH_GRP AG
+            ON AUM.AUTH_ID = AG.AUTH_ID
          WHERE AUM.EMP_NO = #{empNo}
+           AND AG.AUTH_CLSSFC = #{authClssfc}
     </select>
 
-    <!-- 권한별사용자 조회 -->
-    <select id="selectAuthUsrMngmList" parameterType="aia.ers.application.pojo.Auth" resultType="aia.ers.application.pojo.Auth">
+    <!-- 권한별사용자 권한별 조회 -->
+    <select id="selectAuthUsrMngmGrpList" parameterType="aia.ers.application.pojo.Auth" resultType="aia.ers.application.pojo.Auth">
         SELECT EM.DEPT_CD    AS deptCd
              , EM.DEPT_CD    AS deptNm
              , AUM.AUTH_ID   AS authId
@@ -208,10 +212,36 @@
              , AUM.EMP_NO    AS empNo
              , AUM.EMP_NO    AS empNm
              , AUM.RMAK      AS rmak
+             , AUM.USE_YN    AS useYn
           FROM AUTH_USR_MNGM AUM
           LEFT OUTER JOIN EMP_MNGM EM
             ON AUM.EMP_NO = EM.EMP_NO
          WHERE AUM.AUTH_ID = #{authId}
+    </select>
+
+    <!-- 권한별사용자 부서별 조회 -->
+    <select id="selectAuthUsrMngmDeptList" parameterType="aia.ers.application.pojo.Auth" resultType="aia.ers.application.pojo.Auth">
+        SELECT EM.DEPT_CD    AS deptCd
+             , EM.DEPT_CD    AS deptNm    /* 나중에 함수로 변경 필요 */
+             , CASE WHEN AUM.AUTH_ID IS NULL
+                    THEN #{authId}
+                    ELSE AUM.AUTH_ID
+                END          AS authId
+             , CASE WHEN AUM.AUTH_ID IS NULL
+                    THEN #{authId}
+                    ELSE AUM.AUTH_ID
+                END          AS authNm    /* 나중에 함수로 변경 필요 */
+             , EM.EMP_NO     AS empNo
+             , EM.EMP_NO     AS empNm    /* 나중에 함수로 변경 필요 */
+             , AUM.RMAK      AS rmak
+             , CASE WHEN AUM.USE_YN IS NULL
+                    THEN 'N'
+                    ELSE AUM.USE_YN
+                END          AS useYn
+          FROM EMP_MNGM EM
+          LEFT OUTER JOIN AUTH_USR_MNGM AUM
+            ON EM.EMP_NO = AUM.EMP_NO
+         WHERE EM.DEPT_CD = #{deptCd}
     </select>
 
     <!-- 권한별사용자 등록 -->
@@ -220,6 +250,7 @@
              ( AUTH_ID
              , EMP_NO
              , RMAK
+             , USE_YN
              , CRETR_ID
              , CRET_DTTM
              , MDFR_ID
@@ -229,6 +260,7 @@
              ( #{authId}
              , #{empNo}
              , #{rmak}
+             , #{useYn}
              , #{cretrId}
              , now()
              , #{mdfrId}
@@ -239,11 +271,12 @@
     <!-- 권한별사용자 수정 -->
     <update id="updateAuthUsrMngmList" parameterType="aia.ers.application.pojo.Auth">
         UPDATE AUTH_USR_MNGM
-        SET RMAK = #{rmak}
-          , MDFR_ID = #{mdfrId}
-          , MDF_DTTM = now()
-        WHERE AUTH_ID = #{authId}
-          AND EMP_NO = #{empNo}
+           SET RMAK = #{rmak}
+             , USE_YN = #{useYn}
+             , MDFR_ID = #{mdfrId}
+             , MDF_DTTM = now()
+         WHERE AUTH_ID = #{authId}
+           AND EMP_NO = #{empNo}
     </update>
 
     <!-- 권한별사용자 삭제 -->

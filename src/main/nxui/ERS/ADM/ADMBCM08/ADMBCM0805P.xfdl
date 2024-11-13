@@ -50,7 +50,6 @@
           </Layouts>
         </Div>
         <Static id="sta04_01" taborder="11" left="20" top="70" width="90" height="8" cssclass="sta_WF_GSize" visible="false" text="H8"/>
-        <Static id="sta04_00_00" taborder="12" width="400" height="7" cssclass="sta_WF_GSize" visible="false" text="H7" top="109" right="24"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -214,16 +213,8 @@ this.btnConfirm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 	this.dsRtnEmpInfo.clearData();
 	this.dsRtnEmpInfo.addRow();
 	this.dsRtnEmpInfo.copyRow(0, this.dsEmpList, nRow);
-	this.gfnClosePopup(this.dsRtnEmpInfo.saveJSON());
-// 	var empNo = this.dsEmpList.getColumn(nRow, "empNo");
-// 	var empNm = this.dsEmpList.getColumn(nRow, "empNm");
-// 	
-// 	var rtnValue = {
-// 	     rtnEmpNo:empNo
-// 		,rtnEmpNm:empNm
-// 	}
-// 		
-// 	this.gfnClosePopup(JSON.stringify(rtnValue));
+	this.opener.fnPopupCallback(this.dsRtnEmpInfo);
+	//this.gfnClosePopup(this.dsRtnEmpInfo.saveJSON());
 };
 
 /**

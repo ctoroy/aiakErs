@@ -1,20 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="ADMCOM0202U" width="1280" height="720" titletext="권한그룹별 메뉴관리" onload="form_onload">
+  <Form id="ADMCOM0202U" width="1527" height="828" titletext="권한그룹별 메뉴관리" onload="form_onload">
     <Layouts>
-      <Layout height="720" horizontalgap="0" mobileorientation="landscape" spacing="0px" tabletemplate="1* / 1*" verticalgap="0" width="1280">
-        <Div id="divSearch" taborder="0" text="divSearch" left="0" top="0" height="70" right="0" border="1px solid">
+      <Layout height="828" horizontalgap="0" mobileorientation="landscape" spacing="0px" tabletemplate="1* / 1*" verticalgap="0" width="1527">
+        <Div id="divSearch" taborder="0" text="divSearch" left="0" top="0" height="50" right="30" cssclass="div_WF_Search">
           <Layouts>
             <Layout>
-              <Static id="staWord" taborder="0" text="검색어" left="20" top="20" width="60" height="30" border="1px solid"/>
-              <Edit id="edtWord" taborder="1" left="staWord:10" top="20" width="140" height="30"/>
-              <Static id="staAuthClssfc" taborder="2" text="권한타입" left="edtWord:50" top="20" width="60" height="30" border="1px solid"/>
-              <Combo id="cboAuthClssfc" taborder="3" text="권한" left="staAuthClssfc:10" top="20" width="80" height="30" innerdataset="dsAuthClssfc" codecolumn="code" datacolumn="data" index="0" value="R"/>
+              <Static id="staWord" taborder="0" text="검색어" left="0" top="12" width="70" height="24" cssclass="sta_WF_SchLabel"/>
+              <Edit id="edtWord" taborder="1" left="staWord:10" top="12" width="140" height="24"/>
+              <Static id="staAuthClssfc" taborder="2" text="권한타입" left="edtWord:10" top="12" width="80" height="24" cssclass="sta_WF_SchLabelEssential"/>
+              <Combo id="cboAuthClssfc" taborder="3" text="권한" left="staAuthClssfc:10" top="12" width="80" height="24" innerdataset="dsAuthClssfc" codecolumn="code" datacolumn="data" index="0" value="R" cssclass="essential" onitemchanged="divSearch_cboAuthClssfc_onitemchanged"/>
+              <Button id="btnSearch" taborder="4" text="조회" width="62" cssclass="btn_WF_Search" right="20" bottom="8" height="32" onclick="divSearch_btnSearch_onclick"/>
             </Layout>
           </Layouts>
         </Div>
-        <Static id="staMenuTitle" taborder="2" text="권한코드목록" left="0" top="divSearch:10" width="180" height="30" border="1px solid"/>
-        <Grid id="grdAuthCodeList" taborder="1" left="0" top="staMenuTitle:10" right="0" autofittype="col" binddataset="dsAuthCodeList" cellsizingtype="col" autoenter="select" height="270">
+        <Static id="staAuthCodeTitle" taborder="2" text="권한코드목록" left="0" top="divSearch:8" width="180" height="38" cssclass="sta_WF_Title"/>
+        <Grid id="grdAuthCodeList" taborder="1" left="0" top="staAuthCodeTitle:0" right="30" autofittype="col" binddataset="dsAuthCodeList" cellsizingtype="col" autoenter="select" height="270">
           <Formats>
             <Format id="default">
               <Columns>
@@ -29,7 +30,7 @@
                 <Column size="120"/>
               </Columns>
               <Rows>
-                <Row size="28" band="head"/>
+                <Row size="32" band="head"/>
                 <Row size="28"/>
               </Rows>
               <Band id="head">
@@ -57,8 +58,8 @@
             </Format>
           </Formats>
         </Grid>
-        <Static id="staMenuTitle00" taborder="3" text="메뉴목록" left="2" top="400" width="180" height="30" border="1px solid"/>
-        <Grid id="grdAuthMenuList" taborder="4" left="0" top="staMenuTitle00:10" right="0" autofittype="col" binddataset="dsAuthMenuList" cellsizingtype="col" treeinitstatus="expand,all" autoenter="select" bottom="0" treeusecheckbox="false">
+        <Static id="staMenuTitle" taborder="3" text="메뉴목록" left="2" top="grdAuthCodeList:8" width="180" height="38" cssclass="sta_WF_Title"/>
+        <Grid id="grdAuthMenuList" taborder="4" left="0" top="staMenuTitle:0" right="30" autofittype="col" binddataset="dsAuthMenuList" cellsizingtype="col" treeinitstatus="expand,all" autoenter="select" bottom="0" treeusecheckbox="false">
           <Formats>
             <Format id="default">
               <Columns>
@@ -70,7 +71,7 @@
                 <Column size="120"/>
               </Columns>
               <Rows>
-                <Row size="28" band="head"/>
+                <Row size="32" band="head"/>
                 <Row size="28"/>
               </Rows>
               <Band id="head">
@@ -92,6 +93,8 @@
             </Format>
           </Formats>
         </Grid>
+        <Static id="sta04_00" taborder="5" top="0" width="30" cssclass="sta_WF_GSize" visible="false" text="W30" right="0" bottom="0"/>
+        <Static id="staTotal" taborder="6" text="총 &lt;fc v='#d31145'&gt;0&lt;/fc&gt;건" top="68" width="100" height="24" usedecorate="true" right="30" fittocontents="none" cssclass="sta_WF_Total" textAlign="right"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -230,11 +233,6 @@ this.fnInit = function()
  * 공통함수영역 (cfnSearch : 조회 / cfnAdd : 추가 / cfnSave : 저장 / cfnDel : 삭제 / cfnExecl : 엑셀.. / cfnPrint : 인쇄 / cfnHep : 도움말  / cfnClose : 화면 닫기전 체크)
  * 추가 버튼은 prefix cfn 으로 시작하여 명칭을 만든다.
 *******************************************************************************************************************************/
-//조회
-this.cfnSearch = function(obj, e)
-{
-	this.fnSearch();
-};
 
 //저장
 this.cfnSave = function(obj, e)
@@ -321,6 +319,7 @@ this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
 	switch(sSvcId) 
 	{
 		case "selectAuthCodeList":
+			this.staTotal.text = "총 <fc v='#d31145'>" + this.dsAuthCodeList.getRowCount() + "</fc>건";
 			break;
 		case "selectAuthMenuList":
 			break;
@@ -337,6 +336,8 @@ this.fnSearch = function()
 {
 	this.dsCond.setColumn(0, "searchText", this.divSearch.form.edtWord.value);
 	this.dsCond.setColumn(0, "authClssfc", this.divSearch.form.cboAuthClssfc.value);
+	this.dsAuthCodeList.clearData();
+	this.dsAuthMenuList.clearData();
 	this.fnSearchAuthCodeList();
 };
 
@@ -346,9 +347,11 @@ this.fnSearch = function()
 
 this.dsAuthCodeList_onrowposchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSRowPosChangeEventInfo)
 {
-	var authId = obj.getColumn(e.newrow, 'authId');
-	this.dsAuthId.setColumn(0, 'authId', authId);
-	this.fnSearchAuthMenuList();
+	if( this.dsAuthCodeList.getRowCount() > 0 ){
+		var authId = obj.getColumn(e.newrow, 'authId');
+		this.dsAuthId.setColumn(0, 'authId', authId);
+		this.fnSearchAuthMenuList();
+	}
 };
 
 this.dsAuthMenuList_oncolumnchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSColChangeEventInfo)
@@ -361,6 +364,16 @@ this.dsAuthMenuList_oncolumnchanged = function(obj:nexacro.NormalDataset,e:nexac
 	if( oldAuthUseYn == 'N' && authUseYn == 'Y' ){
 		obj.setColumn(e.row, 'authId', authId);
 	}
+};
+
+this.divSearch_btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.fnSearch();
+};
+
+this.divSearch_cboAuthClssfc_onitemchanged = function(obj:nexacro.Combo,e:nexacro.ItemChangeEventInfo)
+{
+	this.fnSearch();
 };
 ]]></Script>
   </Form>

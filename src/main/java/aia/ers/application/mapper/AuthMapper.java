@@ -30,7 +30,8 @@ public interface AuthMapper {
     public void insertAuthPrgmMngmList(Auth authPrgmMngm);
     public void deleteAuthPrgmMngmList(Auth authPrgmMngm);
     public Auth selectAuthUsrMngm(Auth params);
-    public List<Auth> selectAuthUsrMngmList(Auth params);
+    public List<Auth> selectAuthUsrMngmGrpList(Auth params);
+    public List<Auth> selectAuthUsrMngmDeptList(Auth params);
     public void insertAuthUsrMngmList(Auth authPrgmMngm);
     public void updateAuthUsrMngmList(Auth authPrgmMngm);
     public void deleteAuthUsrMngmList(Auth authPrgmMngm);
