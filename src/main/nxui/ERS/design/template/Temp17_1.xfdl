@@ -2,7 +2,7 @@
 <FDL version="2.1">
   <Form id="Temp09_1" width="850" height="500" titletext="Popup Form" onload="form_onload">
     <Layouts>
-      <Layout height="500" mobileorientation="landscape" width="850">
+      <Layout height="500" width="850">
         <Static id="sta00" taborder="0" text="사용자 리스트" left="25" top="78" width="342" height="38" cssclass="sta_WF_Title"/>
         <Grid id="grdList" taborder="1" left="20" top="116" right="20" bottom="62" autofittype="col" oncelldblclick="grdList_oncelldblclick">
           <Formats>
@@ -36,11 +36,10 @@
         <Static id="Static04_00" taborder="3" left="20" top="0" height="20" cssclass="sta_WF_GSize" visible="false" text="H20" right="20"/>
         <Static id="Static04_01" taborder="4" left="0" top="0" width="20" cssclass="sta_WF_GSize" visible="false" text="W 20" bottom="0"/>
         <Static id="Static04_01_00" taborder="5" top="0" width="20" cssclass="sta_WF_GSize" visible="false" text="W 20" bottom="0" right="0"/>
-        <Button id="btnClose" taborder="7" text="취소" height="32" width="57" right="20" bottom="20" onclick="btnClose_onclick" cssclass="btn_WF_Popup02"/>
-        <Button id="btnConfirm" taborder="6" text="확인" height="32" width="57" cssclass="btn_WF_Popup" right="80" bottom="20" onclick="btnConfirm_onclick"/>
-        <Static id="Static04_00_00" taborder="8" left="20" height="20" cssclass="sta_WF_GSize" visible="false" text="H20" bottom="0" right="20"/>
-        <Static id="Static04_00_00_00" taborder="9" left="730" width="30" height="10" cssclass="sta_WF_GSize" visible="false" text="H10" bottom="52"/>
-        <Div id="divSearch00" taborder="10" left="20" top="20" height="50" cssclass="div_WF_Search" text="" right="20">
+        <Button id="btnConfirm" taborder="6" text="확인" height="32" width="57" cssclass="btn_WF_Popup" right="20" bottom="20" onclick="btnConfirm_onclick"/>
+        <Static id="Static04_00_00" taborder="7" left="20" height="20" cssclass="sta_WF_GSize" visible="false" text="H20" bottom="0" right="20"/>
+        <Static id="Static04_00_00_00" taborder="8" left="790" width="30" height="10" cssclass="sta_WF_GSize" visible="false" text="H10" bottom="52"/>
+        <Div id="divSearch00" taborder="9" left="20" top="20" height="50" cssclass="div_WF_Search" text="" right="20">
           <Layouts>
             <Layout>
               <Static id="sta00" taborder="0" text="예산년도" left="0" top="12" width="96" height="24" cssclass="sta_WF_SchLabelEssential" fittocontents="width"/>
@@ -70,26 +69,27 @@
               </Combo>
               <Edit id="edt04" taborder="4" left="294" top="12" width="160" height="24" cssclass="edt_WF_Search" text=""/>
               <Button id="btn02" taborder="5" left="426" top="12" width="28" height="24" cssclass="btn_WF_EdiSch"/>
+              <Button id="btn_03" taborder="6" top="12" width="24" height="24" cssclass="btn_WF_Reload" right="91"/>
             </Layout>
           </Layouts>
         </Div>
-        <Static id="sta04_01" taborder="11" left="20" top="70" width="90" height="8" cssclass="sta_WF_GSize" visible="false" text="H8"/>
-        <Static id="staTotal" taborder="12" text="총 &lt;fc v='#d31145'&gt;270&lt;/fc&gt;건" top="88" width="53" height="24" usedecorate="true" right="281" fittocontents="width" cssclass="sta_WF_Total"/>
-        <Div id="divCmmnBtn" taborder="13" text="Div01" top="85" width="251" height="24" left="staTotal:10">
+        <Static id="sta04_01" taborder="10" left="20" top="70" width="90" height="8" cssclass="sta_WF_GSize" visible="false" text="H8"/>
+        <Static id="staTotal" taborder="11" text="총 &lt;fc v='#d31145'&gt;270&lt;/fc&gt;건" top="88" width="53" height="24" usedecorate="true" right="281" fittocontents="width" cssclass="sta_WF_Total"/>
+        <Div id="divCmmnBtn" taborder="12" text="Div01" top="85" width="251" height="24" left="staTotal:10">
           <Layouts>
             <Layout>
-              <Button id="btnAdd" taborder="1" text="행추가" top="0" width="77" height="24" cssclass="btn_WF_Add" left="94"/>
+              <Button id="btnAdd" taborder="1" text="행추가 " top="0" width="77" height="24" cssclass="btn_WF_Add" left="94"/>
               <Button id="Button36" taborder="0" text="행삭제" top="0" width="77" height="24" left="174" cssclass="btn_WF_Delete"/>
               <Button id="btnExcelUp" taborder="2" top="0" width="44" height="24" cssclass="btn_WF_ExcelUp" left="47"/>
               <Button id="btnExcelDown" taborder="3" top="0" width="44" height="24" cssclass="btn_WF_ExcelDown" left="0"/>
             </Layout>
           </Layouts>
         </Div>
-        <Static id="sta04_00_00" taborder="14" width="400" height="7" cssclass="sta_WF_GSize" visible="false" text="H7" top="109" right="24"/>
+        <Static id="sta04_00_00" taborder="13" width="400" height="7" cssclass="sta_WF_GSize" visible="false" text="H7" top="109" right="24"/>
       </Layout>
     </Layouts>
     <Objects>
-      <Dataset id="dsGrid">
+      <Dataset id="ds_grid">
         <ColumnInfo>
           <Column id="ID" type="STRING" size="256"/>
           <Column id="NAME" type="STRING" size="256"/>

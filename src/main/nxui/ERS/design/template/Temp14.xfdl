@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="Temp14" width="1527" height="828" titletext="Tree" cssclass="frm_WF_Frame" onload="form_onload">
+  <Form id="Temp14" width="1527" height="828" titletext="Tree" onload="form_onload">
     <Layouts>
       <Layout height="828" width="1527">
         <Static id="sta01" taborder="0" text="상세디테일01" width="342" height="38" cssclass="sta_WF_SubTitle" top="58" left="350"/>

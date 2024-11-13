@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="Temp02" width="1527" height="828" titletext="Tab" cssclass="frm_WF_Frame" onload="form_onload">
+  <Form id="Temp02" width="1527" height="828" titletext="Tab" onload="form_onload">
     <Layouts>
       <Layout height="828" width="1527">
         <Tab id="Tab00" taborder="1" left="0" top="60" right="30" height="768">
           <Tabpages>
-            <Tabpage id="Tabpage1" text="Tabpage1" url="design::template/Temp16_1.xfdl"/>
-            <Tabpage id="Tabpage2" text="Tabpage2" url="design::template/Temp16_2.xfdl"/>
+            <Tabpage id="Tabpage1" text="Tabpage1" url="template::Temp16_1.xfdl"/>
+            <Tabpage id="Tabpage2" text="Tabpage2" url="template::Temp16_2.xfdl"/>
           </Tabpages>
         </Tab>
         <Static id="sta04_00" taborder="2" top="0" width="30" cssclass="sta_WF_GSize" visible="false" text="W30" right="0" bottom="0"/>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="Temp05" width="1527" height="828" titletext="Master-Detail(1n)" cssclass="frm_WF_Frame" onload="form_onload">
+  <Form id="Temp05" width="1527" height="828" titletext="Master-Detail(1n)" onload="form_onload">
     <Layouts>
       <Layout height="828" width="1527">
         <Grid id="grd00" taborder="0" left="0" top="242" binddataset="ds_grid" autofittype="col" right="30" minheight="353" maxheight="" bottom="0">
@@ -116,7 +116,7 @@
         <Div id="divCmmnBtn" taborder="11" text="Div01" top="211" width="251" height="24" left="staUnit:10">
           <Layouts>
             <Layout>
-              <Button id="btnAdd" taborder="1" text="행추가" top="0" width="77" height="24" cssclass="btn_WF_Add" left="94"/>
+              <Button id="btnAdd" taborder="1" text="행추가 " top="0" width="77" height="24" cssclass="btn_WF_Add" left="94"/>
               <Button id="Button36" taborder="0" text="행삭제" top="0" width="77" height="24" left="174" cssclass="btn_WF_Delete"/>
               <Button id="btnExcelUp" taborder="2" top="0" width="44" height="24" cssclass="btn_WF_ExcelUp" left="47"/>
               <Button id="btnExcelDown" taborder="3" top="0" width="44" height="24" cssclass="btn_WF_ExcelDown" left="0"/>

@@ -59,7 +59,7 @@
         <Div id="divCmmnBtn" taborder="8" text="Div01" top="153" width="251" height="24" left="staUnit:10">
           <Layouts>
             <Layout>
-              <Button id="btnAdd" taborder="1" text="행추가" top="0" width="77" height="24" cssclass="btn_WF_Add" left="94"/>
+              <Button id="btnAdd" taborder="1" text="행추가 " top="0" width="77" height="24" cssclass="btn_WF_Add" left="94"/>
               <Button id="Button36" taborder="0" text="행삭제" top="0" width="77" height="24" left="174" cssclass="btn_WF_Delete"/>
               <Button id="btnExcelUp" taborder="2" top="0" width="44" height="24" cssclass="btn_WF_ExcelUp" left="47"/>
               <Button id="btnExcelDown" taborder="3" top="0" width="44" height="24" cssclass="btn_WF_ExcelDown" left="0"/>
