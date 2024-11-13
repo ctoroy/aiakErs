@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Temp09_1" width="850" height="710" titletext="공지사항 신규수정팝업" onload="form_onload">
+    <Layouts>
+      <Layout height="710" width="850">
+        <Static id="sta00" taborder="0" text="공지사항 상세정보" left="25" top="20" width="342" height="38" cssclass="sta_WF_Title"/>
+        <Grid id="grdList" taborder="1" left="20" top="476" right="20" autofittype="col" oncelldblclick="grdList_oncelldblclick" binddataset="ds_grid" height="172">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40" band="left"/>
+                <Column size="60" band="left"/>
+                <Column size="708"/>
+              </Columns>
+              <Rows>
+                <Row size="32" band="head"/>
+                <Row size="28"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkboxcontrol" edittype="checkbox"/>
+                <Cell col="1" text="NO"/>
+                <Cell col="2" text="파일명"/>
+              </Band>
+              <Band id="body">
+                <Cell/>
+                <Cell col="1" text="bind:ID" displaytype="text"/>
+                <Cell col="2" text="bind:NAME" displaytype="text"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static04" taborder="2" left="165" top="20" width="30" height="38" cssclass="sta_WF_GSize" visible="false" text="H38"/>
+        <Static id="Static04_00" taborder="3" left="20" top="0" height="20" cssclass="sta_WF_GSize" visible="false" text="H20" right="20"/>
+        <Static id="Static04_01" taborder="4" left="0" top="0" width="20" cssclass="sta_WF_GSize" visible="false" text="W 20" bottom="0"/>
+        <Static id="Static04_01_00" taborder="5" top="0" width="20" cssclass="sta_WF_GSize" visible="false" text="W 20" bottom="0" right="0"/>
+        <Button id="btnClose" taborder="7" text="취소" height="32" width="57" right="20" bottom="20" onclick="btnClose_onclick" cssclass="btn_WF_Popup02"/>
+        <Button id="btnConfirm" taborder="6" text="저장" height="32" width="57" cssclass="btn_WF_Popup" right="80" bottom="20" onclick="btnConfirm_onclick"/>
+        <Static id="Static04_00_00" taborder="8" left="20" height="20" cssclass="sta_WF_GSize" visible="false" text="H20" bottom="0" right="20"/>
+        <Static id="Static04_00_00_00" taborder="9" left="730" width="30" height="10" cssclass="sta_WF_GSize" visible="false" text="H10" bottom="52"/>
+        <Div id="divBtn" taborder="10" text="Div01" top="445" width="305" height="24" right="20">
+          <Layouts>
+            <Layout>
+              <Button id="btnAdd" taborder="1" text="파일저장" top="0" width="74" height="24" left="154"/>
+              <Button id="Button36" taborder="0" text="미리보기" top="0" width="74" height="24" left="231"/>
+              <Button id="btnAdd00" taborder="2" text="파일추가" top="0" width="74" height="24" left="77"/>
+              <Button id="btnAdd00_00" taborder="3" text="새로고침" top="0" width="74" height="24" left="0"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="sta04_00_00" taborder="11" width="400" height="7" cssclass="sta_WF_GSize" visible="false" text="H7" top="469" right="24"/>
+        <Div id="div01" taborder="12" left="20" height="380" right="20" top="58">
+          <Layouts>
+            <Layout>
+              <Static id="sta06" taborder="0" text="Static02" left="0" top="33" height="34" cssclass="sta_WF_LabelBg" right="0"/>
+              <Static id="sta03" taborder="1" text="Static02" left="0" top="0" height="34" cssclass="sta_WF_LabelBg" right="0"/>
+              <Static id="sta02" taborder="2" text="제목" left="0" top="0" width="120" height="34" cssclass="sta_WF_LabelEssential"/>
+              <Static id="sta05" taborder="3" text="작성자" left="0" top="33" width="120" height="34" cssclass="sta_WF_Label"/>
+              <Static id="sta07" taborder="4" text="Static02" left="0" top="66" cssclass="sta_WF_LabelBg" right="0" bottom="0"/>
+              <Static id="sta08" taborder="5" text="내용" left="0" top="66" width="120" cssclass="sta_WF_Label" bottom="0"/>
+              <Edit id="edt00" taborder="6" left="124" top="38" width="246" height="24"/>
+              <Edit id="edt05" taborder="7" left="124" top="5" height="24" cssclass="essential" right="5"/>
+              <TextArea id="txa00" taborder="8" left="124" top="71" enable="true" scrolltype="both" right="5" bottom="5"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="sta04_00_00_00" taborder="13" width="400" height="7" cssclass="sta_WF_GSize" visible="false" text="H7" top="438" right="24"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_grid">
+        <ColumnInfo>
+          <Column id="ID" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="DEPARTMENT" type="STRING" size="256"/>
+          <Column id="DESCRIPTION" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/**
+*  DevPACK
+*  @FileName 	Temp09_01.xfdl
+*  @Creator 	TOBESOFT
+*  @CreateDate 	2021/01/05
+*  @Desction    팝업연결용 화면
+************** 소스 수정 이력 ***********************************************
+* Date					Modifier					Description
+*******************************************************************************
+* 2021/01/05			TOBESOFT					최초생성
+*******************************************************************************
+*/
+
+/*******************************************************************************************************************************
+ * FORM 변수 선언 영역
+*******************************************************************************************************************************/
+this.fvSearch = "";	// 부모에서 넘긴 검색조건
+ 
+/*******************************************************************************************************************************
+ * FORM EVENT 영역(onload, onbeforeclose..)
+*******************************************************************************************************************************/
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.gfnFormOnload(obj,e); //필수함수
+	
+	// 초기화
+	this.fnInit();
+};
+
+/*******************************************************************************************************************************
+ * 공통함수영역 (cfnSearch : 조회 / cfnSave : 저장 / cfnAdd : 신규 / cfnDel : 삭제 / cfnPrint : 인쇄..)
+*******************************************************************************************************************************/
+
+/*******************************************************************************************************************************
+ * Transaction 서비스호출 처리 영역
+*******************************************************************************************************************************/
+
+/*******************************************************************************************************************************
+ * Callback 영역 (Transaction, popup, message..)
+*******************************************************************************************************************************/
+
+/*******************************************************************************************************************************
+ * 사용자 Function 영역
+*******************************************************************************************************************************/
+/**
+ * @description 초기화
+*/
+this.fnInit = function()
+{
+	this.fvSearch = this.getOwnerFrame().pvSearch;
+	
+	if (!this.gfnIsNull(this.fvSearch)) 
+	{
+		this.dsGrid.filter("NAME.indexOf('" + this.fvSearch + "') > -1");
+	}
+	
+	this.grdList.set_binddataset("dsGrid");
+	
+	this.dsGrid.set_rowposition(0);
+}
+
+/**
+ * @description 사용자 검색
+*/
+this.fnSearch = function()
+{
+	var sSearch = this.divSearch.form.edtName.value;
+	
+	if (this.gfnIsNull(sSearch)) sSearch = "";
+	
+	this.dsGrid.filter("NAME.indexOf('" + sSearch + "') > -1");
+}
+
+/*******************************************************************************************************************************
+ * 각 COMPONENT 별 EVENT 영역
+*******************************************************************************************************************************/
+/**
+ * @description 취소 버튼 클릭 이벤트
+*/
+this.btnClose_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.gfnClosePopup();
+};
+
+/**
+ * @description 확인 버튼 클릭 이벤트
+*/
+this.btnConfirm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var nRow = this.dsGrid.rowposition;
+	
+	var sId = this.dsGrid.getColumn(nRow, "ID");
+	var sName = this.dsGrid.getColumn(nRow, "NAME");
+	
+	var rtnValue = {
+	     rtnId:sId
+		,rtnName:sName
+	}
+		
+	this.gfnClosePopup(JSON.stringify(rtnValue));
+};
+
+/**
+ * @description 그리드셀 더블클릭 이벤트
+*/
+this.grdList_oncelldblclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	var nRow = this.dsGrid.rowposition;
+	
+	var sId = this.dsGrid.getColumn(nRow, "ID");
+	var sName = this.dsGrid.getColumn(nRow, "NAME");
+	
+	var rtnValue = {
+	     rtnId:sId
+		,rtnName:sName
+	}
+		
+	this.gfnClosePopup(JSON.stringify(rtnValue));
+};
+
+/**
+ * @description 조회 버튼 클릭 이벤트
+*/
+this.divSearch_btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	// 사용자 검색
+	this.fnSearch();
+};
+
+/**
+ * @description 검색 엔터키 이벤트
+*/
+this.divSearch_edtName_onkeyup = function(obj:nexacro.Edit,e:nexacro.KeyEventInfo)
+{
+	// 엔터키일 경우
+	if (e.keycode == 13)
+	{
+		// 사용자 검색
+		this.fnSearch();
+	}
+};
+]]></Script>
+  </Form>
+</FDL>
