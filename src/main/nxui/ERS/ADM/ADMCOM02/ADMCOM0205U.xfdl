@@ -7,9 +7,9 @@
           <Layouts>
             <Layout>
               <Button id="btnSearch" taborder="2" text="조회" width="62" cssclass="btn_WF_Search" right="20" bottom="8" height="32" onclick="divSearch_btnSearch_onclick"/>
-              <Static id="staSearchText" taborder="0" text="사원번호(명)" left="0" top="12" width="96" height="24" cssclass="sta_WF_SchLabel" fittocontents="width"/>
-              <Edit id="edtWord" taborder="1" left="100" top="12" width="160" height="24" text="" cssclass="edt_WF_Search"/>
-              <Static id="sta04" taborder="3" left="91" top="14" width="10" height="21" cssclass="sta_WF_GSize" visible="false" text="W10"/>
+              <Static id="staSearchText" taborder="0" text="사원번호(성명)" left="0" top="12" width="110" height="24" cssclass="sta_WF_SchLabel" fittocontents="width"/>
+              <Static id="sta04" taborder="3" left="staSearchText:0" top="14" width="10" height="21" cssclass="sta_WF_GSize" visible="false" text="W10"/>
+              <Edit id="edtWord" taborder="1" left="sta04:0" top="12" width="160" height="24" text="" cssclass="edt_WF_Search"/>
             </Layout>
           </Layouts>
         </Div>

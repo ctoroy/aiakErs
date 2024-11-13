@@ -43,7 +43,7 @@
         <Div id="divSearch" taborder="10" left="20" top="20" height="50" cssclass="div_WF_Search" text="" right="20">
           <Layouts>
             <Layout>
-              <Static id="staEmpNoNm" taborder="0" text="사번(성명)" left="0" top="12" width="86" height="24" cssclass="sta_WF_SchLabel"/>
+              <Static id="staEmpNoNm" taborder="0" text="사원번호(성명)" left="0" top="12" width="110" height="24" cssclass="sta_WF_SchLabel"/>
               <Edit id="edtEmpNoNm" taborder="1" left="staEmpNoNm:10" top="12" width="160" height="24" cssclass="edt_WF_Search" text=""/>
               <Button id="btnSearch" taborder="2" text="조회" width="62" cssclass="btn_WF_Search" right="20" bottom="8" height="32" onclick="divSearch_btnSearch_onclick"/>
             </Layout>
