@@ -17,7 +17,7 @@
              , MDF_DTTM     AS mdfDttm
           FROM AUTH_GRP
          WHERE AUTH_CLSSFC = #{authClssfc}
-           <if test="searchText != null">
+           <if test="searchText != null and searchText != ''">
            AND ( AUTH_ID LIKE concat('%', #{searchText} , '%')
                  OR AUTH_NM LIKE concat('%', #{searchText}, '%') )
            </if>
@@ -291,6 +291,25 @@
 
     <!-- 사용자별(예외) 추가권한 조회 -->
     <select id="selectUsrExcptAuthList" parameterType="aia.ers.application.pojo.Auth" resultType="aia.ers.application.pojo.Auth">
+        SELECT DISTINCT EM.DEPT_CD    AS deptCd
+             , EM.DEPT_CD    AS deptNm
+             , UEA.EMP_NO    AS empNo
+             , EM.EMP_NM     AS empNm
+             , EM.GRAD       AS grad
+          FROM USR_EXCPT_AUTH UEA
+         INNER JOIN EMP_MNGM EM
+            ON UEA.EMP_NO = EM.EMP_NO
+         WHERE 1=1
+           AND EM.RGNTN_YN = 'N'
+        <if test="searchText != null and searchText != ''">
+           AND ( UEA.EMP_NO LIKE concat('%', #{searchText} , '%')
+                 OR EM.EMP_NM LIKE concat('%', #{searchText}, '%') )
+        </if>
+        ORDER BY EM.DEPT_CD, EM.EMP_NM
+    </select>
+
+    <!-- 사용자별(예외) 추가권한 메뉴 조회 -->
+    <select id="selectUsrExcptAuthMenuList" parameterType="aia.ers.application.pojo.Auth" resultType="aia.ers.application.pojo.Auth">
         WITH RECURSIVE MENU_LIST( MNU_ID
             , MNU_NM
             , SYS_ID
@@ -353,7 +372,7 @@
             END             AS excptAuthYn
              , ML.MNU_ID        AS mnuId
              , ML.MNU_NM        AS mnuNm
-             , UEA.EMP_NO       AS empNo
+             , COALESCE(NULLIF(UEA.EMP_NO,''),#{empNo})       AS empNo
              , ML.SYS_ID        AS sysId
              , ML.UP_MNU_ID     AS upMnuId
              , ML.MNU_TP_CD     AS mnuTpCd
@@ -399,8 +418,10 @@
     <!-- 사용자별(예외) 추가권한 삭제 -->
     <delete id="deleteUsrExcptAuthList" parameterType="aia.ers.application.pojo.Auth">
         DELETE FROM USR_EXCPT_AUTH
-        WHERE MNU_ID = #{mnuId}
-          AND EMP_NO = #{empNo}
+        WHERE EMP_NO = #{empNo}
+        <if test="mnuId != null and mnuId != ''">
+          AND MNU_ID = #{mnuId}
+        </if>
     </delete>
 
 </mapper>

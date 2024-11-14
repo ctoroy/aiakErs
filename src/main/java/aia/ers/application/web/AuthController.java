@@ -173,14 +173,33 @@ public class AuthController {
 	}
 
 	/**
+	 *
+	 * <pre>
+	 * @desc 사용자별(예외) 추가권한 메뉴 조회 - VO
+	 * @param
+	 * @return NexacroResult
+	 * </pre>
+	 */
+	@RequestMapping(value = "/selectUsrExcptAuthMenuList.do")
+	public NexacroResult selectUsrExcptAuthMenuList(@ParamDataSet(name = "dsIn", required = false) Auth searchVo) throws NexacroException{
+
+		List<Auth> usrExcptAuthMenuList = authService.selectUsrExcptAuthMenuList(searchVo);
+		NexacroResult result = new NexacroResult();
+		result.addDataSet("USREXCPTAUTHMENULIST", usrExcptAuthMenuList);
+
+		return result;
+	}
+
+	/**
 	 * @desc 사용자별(예외) 추가권한 입력,삭제
 	 * @param
 	 * @return NexacroResult
 	 */
 	@RequestMapping(value = "/saveUsrExcptAuthList.do")
-	public NexacroResult saveUsrExcptAuthList(@ParamDataSet(name = "USREXCPTAUTHLIST") List<Auth> usrExcptAuthList) throws NexacroException{
+	public NexacroResult saveUsrExcptAuthList(@ParamDataSet(name = "USREXCPTAUTHLIST") List<Auth> usrExcptAuthList,
+																								@ParamDataSet(name = "USREXCPTAUTHMENULIST") List<Auth> usrExcptAuthMenuList) throws NexacroException{
 
-		authService.saveUsrExcptAuthList(usrExcptAuthList);
+		authService.saveUsrExcptAuthList(usrExcptAuthList, usrExcptAuthMenuList);
 
 		NexacroResult result = new NexacroResult();
 

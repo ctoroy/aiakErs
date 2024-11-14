@@ -196,24 +196,46 @@ public class AuthServiceImpl implements AuthService {
 
     /**
      *
+     * @desc 사용자별(예외) 추가권한 메뉴 조회
+     * @param Auth params
+     * @return List<Auth>
+     */
+    @Override
+    public List<Auth> selectUsrExcptAuthMenuList(Auth params) {
+        AuthMapper mapper = sqlSession.getMapper(AuthMapper.class);
+        return mapper.selectUsrExcptAuthMenuList(params);
+    }
+
+    /**
+     *
      * @desc 사용자별(예외) 추가권한 입력,삭제
      * @param List<Auth> authMenuList
      * @return
      */
     @Override
-    public void saveUsrExcptAuthList(List<Auth> usrExcptAuthList){
+    public void saveUsrExcptAuthList(List<Auth> usrExcptAuthList, List<Auth> usrExcptAuthMenuList){
         AuthMapper mapper = sqlSession.getMapper(AuthMapper.class);
+        //사원의 일부 권한만 삭제
+        usrExcptAuthMenuList.forEach(usrExcptAuthMenu -> {
+            switch (usrExcptAuthMenu.getRowType()) {
+                case DataSet.ROW_TYPE_UPDATED:
+                    String excptAuthYn = usrExcptAuthMenu.getExcptAuthYn();
+                    if( "Y".equals(excptAuthYn) ){
+                        usrExcptAuthMenu.setCretrId("ksh");
+                        usrExcptAuthMenu.setMdfrId("ksh");
+                        mapper.insertUsrExcptAuthList(usrExcptAuthMenu);
+                    } else {
+                        mapper.deleteUsrExcptAuthList(usrExcptAuthMenu);
+                    }
+                    break;
+                default:
+            }
+        });
+        //사원의 권한 전체 삭제
         usrExcptAuthList.forEach(usrExcptAuth -> {
             switch (usrExcptAuth.getRowType()) {
-                case DataSet.ROW_TYPE_UPDATED:
-                    String excptAuthYn = usrExcptAuth.getExcptAuthYn();
-                    if( "Y".equals(excptAuthYn) ){
-                        usrExcptAuth.setCretrId("ksh");
-                        usrExcptAuth.setMdfrId("ksh");
-                        mapper.insertUsrExcptAuthList(usrExcptAuth);
-                    } else {
-                        mapper.deleteUsrExcptAuthList(usrExcptAuth);
-                    }
+                case DataSet.ROW_TYPE_DELETED:
+                    mapper.deleteUsrExcptAuthList(usrExcptAuth);
                     break;
                 default:
             }

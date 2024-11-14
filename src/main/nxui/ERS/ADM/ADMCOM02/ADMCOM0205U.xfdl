@@ -3,7 +3,7 @@
   <Form id="ADMCOM0205U" width="1527" height="828" titletext="사용자별(예외) 추가권한관리" onload="form_onload">
     <Layouts>
       <Layout height="828" width="1527">
-        <Div id="divSearch" taborder="11" left="0" top="0" height="50" cssclass="div_WF_Search" text="" right="30">
+        <Div id="divSearch" taborder="10" left="0" top="0" height="50" cssclass="div_WF_Search" text="" right="30">
           <Layouts>
             <Layout>
               <Button id="btnSearch" taborder="2" text="조회" width="62" cssclass="btn_WF_Search" right="20" bottom="8" height="32" onclick="divSearch_btnSearch_onclick"/>
@@ -14,10 +14,11 @@
           </Layouts>
         </Div>
         <Static id="staEmpTitle" taborder="4" text="사원목록" left="0" top="divSearch:8" width="342" height="38" cssclass="sta_WF_Title"/>
-        <Grid id="grdEmpList" taborder="0" left="0" top="staEmpTitle:0" binddataset="dsEmpList" autofittype="col" height="343" right="30">
+        <Grid id="grdUsrExcptAuthList" taborder="0" left="0" top="staEmpTitle:0" binddataset="dsUsrExcptAuthList" autofittype="col" height="343" right="30">
           <Formats>
             <Format id="default">
               <Columns>
+                <Column size="48" band="left"/>
                 <Column size="60" band="left"/>
                 <Column size="200"/>
                 <Column size="200"/>
@@ -29,24 +30,26 @@
                 <Row size="28"/>
               </Rows>
               <Band id="head">
-                <Cell text="No"/>
-                <Cell col="1" text="부서"/>
-                <Cell col="2" text="사번"/>
-                <Cell col="3" text="사원명"/>
-                <Cell col="4" text="등급"/>
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" checkboxfalsevalue="N" checkboxtruevalue="Y"/>
+                <Cell col="1" text="No"/>
+                <Cell col="2" text="부서"/>
+                <Cell col="3" text="사번"/>
+                <Cell col="4" text="사원명"/>
+                <Cell col="5" text="등급"/>
               </Band>
               <Band id="body">
-                <Cell expr="currow+1"/>
-                <Cell col="1" displaytype="text" text="bind:deptNm"/>
-                <Cell col="2" text="bind:empNo" displaytype="text"/>
-                <Cell col="3" text="bind:empNm" displaytype="text"/>
-                <Cell col="4" text="bind:grad" displaytype="text"/>
+                <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chk" checkboxfalsevalue="N" checkboxtruevalue="Y"/>
+                <Cell col="1" expr="currow+1"/>
+                <Cell col="2" displaytype="text" text="bind:deptNm"/>
+                <Cell col="3" text="bind:empNo" displaytype="text"/>
+                <Cell col="4" text="bind:empNm" displaytype="text"/>
+                <Cell col="5" text="bind:grad" displaytype="text"/>
               </Band>
             </Format>
           </Formats>
         </Grid>
-        <Static id="staMenuTitle" taborder="1" text="메뉴목록" left="0" width="342" height="38" cssclass="sta_WF_SubTitle" top="grdEmpList:8"/>
-        <Grid id="grdUsrExcptAuthList" taborder="3" left="0" top="staMenuTitle:0" right="30" autofittype="col" binddataset="dsUsrExcptAuthList" cellsizingtype="col" treeinitstatus="expand,all" autoenter="select" bottom="0" treeusecheckbox="false">
+        <Static id="staMenuTitle" taborder="1" text="메뉴목록" left="0" width="342" height="38" cssclass="sta_WF_SubTitle" top="grdUsrExcptAuthList:8"/>
+        <Grid id="grdUsrExcptAuthMenuList" taborder="3" left="0" top="staMenuTitle:0" right="30" autofittype="col" binddataset="dsUsrExcptAuthMenuList" cellsizingtype="col" treeinitstatus="expand,all" autoenter="select" bottom="0" treeusecheckbox="false">
           <Formats>
             <Format id="default">
               <Columns>
@@ -83,32 +86,28 @@
         <Static id="sta04_00" taborder="2" top="0" width="30" cssclass="sta_WF_GSize" visible="false" text="W30" right="0" bottom="0"/>
         <Static id="sta04" taborder="5" left="140" top="50" width="30" height="46" cssclass="sta_WF_GSize" visible="false" text="H46"/>
         <Static id="sta04_01" taborder="6" left="140" top="439" width="30" height="46" cssclass="sta_WF_GSize" visible="false" text="H46"/>
-        <Static id="staTotal" taborder="7" text="총 &lt;fc v='#d31145'&gt;0&lt;/fc&gt;건" top="divSearch:18" width="150" height="24" usedecorate="true" right="30" cssclass="sta_WF_Total" textAlign="right"/>
-        <Static id="sta04_00_00" taborder="8" width="400" height="7" cssclass="sta_WF_GSize" visible="false" text="H7" top="89" right="30"/>
-        <Static id="sta04_01_00" taborder="9" left="0" top="50" width="90" height="8" cssclass="sta_WF_GSize" visible="false" text="H8"/>
-        <Static id="sta04_01_01" taborder="10" left="0" top="439" width="90" height="8" cssclass="sta_WF_GSize" visible="false" text="H8"/>
+        <Static id="sta04_00_00" taborder="7" width="400" height="7" cssclass="sta_WF_GSize" visible="false" text="H7" top="89" right="30"/>
+        <Static id="sta04_01_00" taborder="8" left="0" top="50" width="90" height="8" cssclass="sta_WF_GSize" visible="false" text="H8"/>
+        <Static id="sta04_01_01" taborder="9" left="0" top="439" width="90" height="8" cssclass="sta_WF_GSize" visible="false" text="H8"/>
+        <Static id="staTotal" taborder="12" text="총 &lt;fc v='#d31145'&gt;0&lt;/fc&gt;건" top="divSearch:18" width="100" height="24" usedecorate="true" right="195" fittocontents="none" cssclass="sta_WF_Total" textAlign="right"/>
+        <Div id="divCmmnBtn" taborder="11" text="Div01" top="65" width="157" height="24" left="staTotal:10">
+          <Layouts>
+            <Layout>
+              <Button id="btnAdd" taborder="1" text="행추가" top="0" width="77" height="24" cssclass="btn_WF_Add" onclick="divCmmnBtn_btnAdd_onclick" left="0"/>
+              <Button id="btnDel" taborder="0" text="행삭제" top="0" width="77" height="24" left="btnAdd:3" cssclass="btn_WF_Delete" onclick="divCmmnBtn_btnDel_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
       </Layout>
     </Layouts>
     <Objects>
-      <Dataset id="dsUsrExcptAuthList" oncolumnchanged="dsUsrExcptAuthList_oncolumnchanged">
+      <Dataset id="dsUsrExcptAuthList" onrowposchanged="dsUsrExcptAuthList_onrowposchanged" canrowposchange="dsUsrExcptAuthList_canrowposchange">
         <ColumnInfo>
-          <Column id="excptAuthYn" type="STRING" size="1"/>
-          <Column id="mnuId" type="STRING" size="50"/>
-          <Column id="mnuNm" type="STRING" size="50"/>
+          <Column id="deptCd" type="STRING" size="9"/>
+          <Column id="deptNm" type="STRING" size="4000"/>
           <Column id="empNo" type="STRING" size="30"/>
-          <Column id="sysId" type="STRING" size="50"/>
-          <Column id="upMnuId" type="STRING" size="50"/>
-          <Column id="mnuTpCd" type="STRING" size="10"/>
-          <Column id="mnuLvlSize" type="INT" size="10"/>
-          <Column id="prgmId" type="STRING" size="50"/>
-          <Column id="prgmPathNm" type="STRING" size="500"/>
-          <Column id="prgmTypeNm" type="STRING" size="10"/>
-          <Column id="smmnParmtNm" type="STRING" size="20"/>
-          <Column id="sortSeq" type="STRING" size="10"/>
-          <Column id="authYn" type="STRING" size="1"/>
-          <Column id="rmak" type="STRING" size="4000"/>
-          <Column id="useYn" type="STRING" size="1"/>
-          <Column id="mnuPrintYn" type="STRING" size="1"/>
+          <Column id="empNm" type="STRING" size="200"/>
+          <Column id="grad" type="STRING" size="10"/>
         </ColumnInfo>
       </Dataset>
       <Dataset id="dsEmpList" onrowposchanged="dsEmpList_onrowposchanged">
@@ -178,6 +177,38 @@
           </Row>
         </Rows>
       </Dataset>
+      <Dataset id="dsUsrExcptAuthMenuList">
+        <ColumnInfo>
+          <Column id="excptAuthYn" type="STRING" size="1"/>
+          <Column id="mnuId" type="STRING" size="50"/>
+          <Column id="mnuNm" type="STRING" size="50"/>
+          <Column id="empNo" type="STRING" size="30"/>
+          <Column id="sysId" type="STRING" size="50"/>
+          <Column id="upMnuId" type="STRING" size="50"/>
+          <Column id="mnuTpCd" type="STRING" size="10"/>
+          <Column id="mnuLvlSize" type="INT" size="10"/>
+          <Column id="prgmId" type="STRING" size="50"/>
+          <Column id="prgmPathNm" type="STRING" size="500"/>
+          <Column id="prgmTypeNm" type="STRING" size="10"/>
+          <Column id="smmnParmtNm" type="STRING" size="20"/>
+          <Column id="sortSeq" type="STRING" size="10"/>
+          <Column id="authYn" type="STRING" size="1"/>
+          <Column id="rmak" type="STRING" size="4000"/>
+          <Column id="useYn" type="STRING" size="1"/>
+          <Column id="mnuPrintYn" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsEmpInfo">
+        <ColumnInfo>
+          <Column id="deptNm" type="STRING" size="256"/>
+          <Column id="authId" type="STRING" size="10"/>
+          <Column id="authNm" type="STRING" size="256"/>
+          <Column id="empNo" type="STRING" size="30"/>
+          <Column id="empNm" type="STRING" size="256"/>
+          <Column id="rmak" type="STRING" size="4000"/>
+          <Column id="useYn" type="STRING" size="1"/>
+        </ColumnInfo>
+      </Dataset>
     </Objects>
     <Script type="xscript5.1"><![CDATA[/**
 *  AIA 비용관리시스템 시스템
@@ -215,6 +246,13 @@ this.fnInit = function()
 //저장
 this.cfnSave = function(obj, e)
 {
+	var nRow = this.dsUsrExcptAuthList.rowposition;
+	if( this.dsUsrExcptAuthList.getRowType(nRow) == Dataset.ROWTYPE_INSERT ){
+		if( this.dsUsrExcptAuthMenuList.findRow('excptAuthYn', 'Y') == -1 ){
+			this.alert('사원 추가 시 메뉴는 필수 선택입니다.');
+			return false;
+		}
+	}
 	this.fnSaveUsrExcptAuthList();
 };
 
@@ -228,15 +266,15 @@ this.cfnClose = function()
  * Transaction 서비스호출 처리 영역
 *******************************************************************************************************************************/
 /**
- * @description 사원 조회 트랜잭션
+ * @description 사용자별예외권한조회 트랜잭션
  */
-this.fnSearchEmpList = function()
+this.fnSearchUsrExcptAuthList = function()
 {
 	// 마이메뉴 조회
-	var sSvcId 		= "selectEmpList";
-	var sSvcUrl     = "selectEmpList.do";
+	var sSvcId 		= "selectUsrExcptAuthList";
+	var sSvcUrl     = "selectUsrExcptAuthList.do";
 	var sInData     = "dsIn=dsCond";
-	var sOutData    = "dsEmpList=EMPLIST";
+	var sOutData    = "dsUsrExcptAuthList=USREXCPTAUTHLIST";
 	var sArg      	= "";	
 	var sCallBackFnc = "fnCallback";
 	
@@ -249,15 +287,15 @@ this.fnSearchEmpList = function()
 };
 
 /**
- * @description 사용자별예외권한조회 트랜잭션
+ * @description 사용자별예외권한 메뉴조회 트랜잭션
  */
-this.fnSearchUsrExcptAuthList = function()
+this.fnSearchUsrExcptAuthMenuList = function()
 {
 	// 마이메뉴 조회
-	var sSvcId 		= "selectUsrExcptAuthList";
-	var sSvcUrl     = "selectUsrExcptAuthList.do";
+	var sSvcId 		= "selectUsrExcptAuthMenuList";
+	var sSvcUrl     = "selectUsrExcptAuthMenuList.do";
 	var sInData     = "dsIn=dsSubCond";
-	var sOutData    = "dsUsrExcptAuthList=USREXCPTAUTHLIST";
+	var sOutData    = "dsUsrExcptAuthMenuList=USREXCPTAUTHMENULIST";
 	var sArg      	= "";	
 	var sCallBackFnc = "fnCallback";
 	
@@ -277,7 +315,7 @@ this.fnSaveUsrExcptAuthList = function()
 	// 마이메뉴 조회
 	var sSvcId 		= "saveUsrExcptAuthList";
 	var sSvcUrl     = "saveUsrExcptAuthList.do";
-	var sInData     = "USREXCPTAUTHLIST=dsUsrExcptAuthList:U";
+	var sInData     = "USREXCPTAUTHLIST=dsUsrExcptAuthList:U USREXCPTAUTHMENULIST=dsUsrExcptAuthMenuList:U";
 	var sOutData    = "";
 	var sArg      	= "";	
 	var sCallBackFnc = "fnCallback";
@@ -296,10 +334,12 @@ this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
 {
 	switch(sSvcId) 
 	{
-		case "selectEmpList":
-			this.staTotal.text = "총 <fc v='#d31145'>" + this.dsEmpList.getRowCount() + "</fc>건";
-			break;
 		case "selectUsrExcptAuthList":
+			this.staTotal.text = "총 <fc v='#d31145'>" + this.dsUsrExcptAuthList.getRowCount() + "</fc>건";
+			this.fnAddCheckBox(this.grdUsrExcptAuthList);
+			break;
+		case "selectUsrExcptAuthMenuList":
+			this.staTotal.text = "총 <fc v='#d31145'>" + this.dsUsrExcptAuthList.getRowCount() + "</fc>건";
 			break;
 		case "saveUsrExcptAuthList":
 			this.fnSearchUsrExcptAuthList();
@@ -307,6 +347,30 @@ this.fnCallback = function (sSvcId, nErrCd, sErrMsg)
 		default:break;
 	} 
 };
+
+this.fnPopupCallback = function(rtnObj)
+{
+	if( typeof rtnObj == 'object' ){
+		//this.dsEmpInfo.copyData(rtnObj);
+		if( rtnObj.getRowCount() > 0 ){
+			var empNo = rtnObj.getColumn(0, 'empNo');
+			if( this.dsUsrExcptAuthList.findRow('empNo', empNo) > -1 ){
+				this.alert('이미 등록된 사원입니다. 확인 후 이용바랍니다.');
+				return false;
+			}
+			var nRow = this.dsUsrExcptAuthList.addRow();
+			this.dsUsrExcptAuthList.setColumn(nRow, 'deptNm', rtnObj.getColumn(0, 'deptNm'));
+			this.dsUsrExcptAuthList.setColumn(nRow, 'empNo', empNo);
+			this.dsUsrExcptAuthList.setColumn(nRow, 'empNm', rtnObj.getColumn(0, 'empNm'));
+			this.dsUsrExcptAuthList.setColumn(nRow, 'grad', rtnObj.getColumn(0, 'grad'));
+			
+			this.dsSubCond.setColumn(0, 'empNo', rtnObj.getColumn(0, 'empNo'));
+
+			this.fnSearchUsrExcptAuthMenuList();
+		}
+	}
+};
+
 /*******************************************************************************************************************************
  * 사용자 Function 영역
 *******************************************************************************************************************************/
@@ -315,39 +379,103 @@ this.fnSearch = function()
 	this.dsCond.setColumn(0, "searchText", this.divSearch.form.edtWord.value);
 	this.dsCond.setColumn(0, 'rgntnYn', 'N');	//퇴사자 여부
 	
-	this.dsEmpList.clearData();
 	this.dsUsrExcptAuthList.clearData();
-	this.fnSearchEmpList();
+	this.dsUsrExcptAuthMenuList.clearData();
+	this.fnSearchUsrExcptAuthList();
 };
 
+this.fnAdd = function()
+{
+	this.gfnOpenPopup("ADMBCM0805P", "ADMBCM08::ADMBCM0805P.xfdl", null, "fnPopupCallback");
+};
+
+this.fnDel = function(objds)
+{
+	objds.enableevent = false;
+	objds.filter("chk == 'Y'");
+	if(objds.rowcount > 0)
+	{
+		for(var i = objds.rowcount - 1; i > -1; i--)
+		{
+			if (objds.getColumn(i, "chk") == "Y" )
+			{
+				objds.deleteRow(i);
+			}
+		}
+	}
+	objds.filter("");
+	objds.enableevent = true;
+	this.staTotal.text = "총 <fc v='#d31145'>" + this.dsUsrExcptAuthList.getRowCount() + "</fc>건";
+};
+
+this.fnAddCheckBox = function(objGrid)
+{
+	var objDs = objGrid.getBindDataset();
+	if(objDs.rowcount > 0)
+	{
+		objDs.enableevent = false;
+		objDs.addColumn("chk")
+		for(var i = 0; i < objDs.rowcount; i++)
+		{
+			objDs.setColumn(i, "chk", 0);
+		}
+		objDs.applyChange();
+		objDs.enableevent = true;
+	}
+};
 /*******************************************************************************************************************************
  * 각 COMPONENT 별 EVENT 영역
 *******************************************************************************************************************************/
 
-this.dsEmpList_onrowposchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSRowPosChangeEventInfo)
+this.dsUsrExcptAuthList_canrowposchange = function(obj:nexacro.NormalDataset,e:nexacro.DSRowPosChangeEventInfo)
 {
-	if( this.dsEmpList.getRowCount() > 0 ){
-		var empNo = obj.getColumn(e.newrow, 'empNo');
-		this.dsSubCond.setColumn(0, 'empNo', empNo);
-		this.fnSearchUsrExcptAuthList();
+	if( obj.getRowType(e.oldrow)  == Dataset.ROWTYPE_INSERT ){
+		if( this.dsUsrExcptAuthMenuList.findRow('excptAuthYn', 'Y') == -1 ){
+			if(!this.confirm('수정 중인 내용은 저장 되지 않습니다. 변경 하실 경우 추가 된 사원은 삭제 됩니다. 변경 하시겠습니까?')){
+				return false;
+			}
+			obj.deleteRow(e.oldrow);
+		}
+	}
+	for( var i = 0; i < this.dsUsrExcptAuthMenuList.getRowCount(); i++ ){
+		if( dsUsrExcptAuthMenuList.getRowType(i) == Dataset.ROWTYPE_UPDATE ){
+			if(!this.confirm('수정 중인 내용은 저장 되지 않습니다. 변경 하시겠습니까?')){
+				return false;
+			}
+		}
 	}
 };
 
-this.dsUsrExcptAuthList_oncolumnchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSColChangeEventInfo)
+this.dsUsrExcptAuthList_onrowposchanged = function(obj:nexacro.NormalDataset,e:nexacro.DSRowPosChangeEventInfo)
 {
-	var mRow = this.dsEmpList.rowposition;
-	var empNo = this.dsEmpList.getColumn(mRow, 'empNo');
-	var oldExcptAuthYn = obj.getOrgColumn(e.row, 'excptAuthYn');
-	var excptAuthYn = obj.getColumn(e.row, 'excptAuthYn');
-	
-	if( oldExcptAuthYn == 'N' && excptAuthYn == 'Y' ){
-		obj.setColumn(e.row, 'empNo', empNo);
-	}
+	var empNo = obj.getColumn(e.newrow, 'empNo');
+	this.dsSubCond.setColumn(0, 'empNo', empNo);
+	this.fnSearchUsrExcptAuthMenuList();
 };
 
 this.divSearch_btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
 	this.fnSearch();
+};
+
+this.divCmmnBtn_btnAdd_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	for( var i=0; i < this.dsUsrExcptAuthList.getRowCount(); i++ ){
+		if( this.dsUsrExcptAuthList.getRowType(i) == Dataset.ROWTYPE_INSERT ){
+			this.alert('한번에 1명의 사원만 저장할 수 있습니다. 저장 후 이용 바랍니다.');
+			return false;
+		}
+	}
+	this.fnAdd();
+};
+
+this.divCmmnBtn_btnDel_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	if( this.dsUsrExcptAuthList.findRow('chk', 'Y') == -1 ){
+		this.alert('삭제하려는 사원을 선택해주세요.');
+		return false
+	}
+	this.fnDel(this.dsUsrExcptAuthList);
 };
 ]]></Script>
   </Form>
