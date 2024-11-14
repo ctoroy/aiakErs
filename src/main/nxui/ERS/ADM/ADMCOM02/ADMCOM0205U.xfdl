@@ -438,7 +438,7 @@ this.dsUsrExcptAuthList_canrowposchange = function(obj:nexacro.NormalDataset,e:n
 		}
 	}
 	for( var i = 0; i < this.dsUsrExcptAuthMenuList.getRowCount(); i++ ){
-		if( dsUsrExcptAuthMenuList.getRowType(i) == Dataset.ROWTYPE_UPDATE ){
+		if( this.dsUsrExcptAuthMenuList.getRowType(i) == Dataset.ROWTYPE_UPDATE ){
 			if(!this.confirm('수정 중인 내용은 저장 되지 않습니다. 변경 하시겠습니까?')){
 				return false;
 			}
