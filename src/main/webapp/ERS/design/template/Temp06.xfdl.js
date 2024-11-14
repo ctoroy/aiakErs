@@ -11,7 +11,6 @@
         {
             this.set_name("Temp06");
             this.set_titletext("Master-Detail-V(n:n)");
-            this.set_cssclass("frm_WF_Frame");
             if (Form == this.constructor)
             {
                 this._setFormPosition(1527,828);
@@ -23,24 +22,24 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Grid("grd00","0","96",null,"338","30",null,null,null,null,null,this);
+            obj = new Grid("grd00","0","96",null,"343","30",null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_binddataset("ds_grid");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"40\"/><Column size=\"48\"/><Column size=\"160\"/><Column size=\"60\"/><Column size=\"80\"/><Column size=\"160\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"60\"/></Columns><Rows><Row size=\"32\" band=\"head\"/><Row size=\"32\"/></Rows><Band id=\"head\"><Cell text=\"chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"No\"/><Cell col=\"2\" text=\"에디트\"/><Cell col=\"3\" text=\"필수\" cssclass=\"essential\"/><Cell col=\"4\" text=\"숫자\"/><Cell col=\"5\" text=\"익스팬드\"/><Cell col=\"6\" text=\"콤보박스\"/><Cell col=\"7\" text=\"캘린더\"/><Cell col=\"8\" text=\"중앙정렬\"/><Cell col=\"9\" text=\"버튼\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:No\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:Edi\" displaytype=\"editcontrol\" edittype=\"normal\"/><Cell col=\"3\" text=\"bind:Essential\" displaytype=\"text\"/><Cell col=\"4\" text=\"bind:Num\" displaytype=\"number\"/><Cell col=\"5\" text=\"bind:Expand\" displaytype=\"editcontrol\" expandshow=\"show\" expandsize=\"30\" edittype=\"normal\"/><Cell col=\"6\" text=\"bind:Cmb\" displaytype=\"combocontrol\" edittype=\"combo\"/><Cell col=\"7\" text=\"bind:Cal\" displaytype=\"calendarcontrol\" edittype=\"date\" calendardateformat=\"yyyy-MM-dd\"/><Cell col=\"8\" text=\"bind:CenterAlign\" displaytype=\"text\"/><Cell col=\"9\" text=\"bind:Btn\" displaytype=\"buttoncontrol\" edittype=\"button\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"40\"/><Column size=\"48\"/><Column size=\"160\"/><Column size=\"60\"/><Column size=\"80\"/><Column size=\"160\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"60\"/></Columns><Rows><Row size=\"32\" band=\"head\"/><Row size=\"28\"/></Rows><Band id=\"head\"><Cell text=\"chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"No\"/><Cell col=\"2\" text=\"에디트\"/><Cell col=\"3\" text=\"필수\" cssclass=\"essential\"/><Cell col=\"4\" text=\"숫자\"/><Cell col=\"5\" text=\"익스팬드\"/><Cell col=\"6\" text=\"콤보박스\"/><Cell col=\"7\" text=\"캘린더\"/><Cell col=\"8\" text=\"중앙정렬\"/><Cell col=\"9\" text=\"버튼\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:No\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:Edi\" displaytype=\"editcontrol\" edittype=\"normal\"/><Cell col=\"3\" text=\"bind:Essential\" displaytype=\"text\"/><Cell col=\"4\" text=\"bind:Num\" displaytype=\"number\"/><Cell col=\"5\" text=\"bind:Expand\" displaytype=\"editcontrol\" expandshow=\"show\" expandsize=\"30\" edittype=\"normal\"/><Cell col=\"6\" text=\"bind:Cmb\" displaytype=\"combocontrol\" edittype=\"combo\"/><Cell col=\"7\" text=\"bind:Cal\" displaytype=\"calendarcontrol\" edittype=\"date\" calendardateformat=\"yyyy-MM-dd\"/><Cell col=\"8\" text=\"bind:CenterAlign\" displaytype=\"text\"/><Cell col=\"9\" text=\"bind:Btn\" displaytype=\"buttoncontrol\" edittype=\"button\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta01","0","442","342","38",null,null,null,null,null,null,this);
+            obj = new Static("sta01","0","447","342","38",null,null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("상세리스트");
             obj.set_cssclass("sta_WF_SubTitle");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("grd01","0","480",null,null,"30","0",null,null,null,null,this);
+            obj = new Grid("grd01","0","485",null,null,"30","0",null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_binddataset("ds_grid");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"40\"/><Column size=\"48\"/><Column size=\"160\"/><Column size=\"60\"/><Column size=\"80\"/><Column size=\"160\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"60\"/></Columns><Rows><Row size=\"32\" band=\"head\"/><Row size=\"32\"/></Rows><Band id=\"head\"><Cell text=\"chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"No\"/><Cell col=\"2\" text=\"에디트\"/><Cell col=\"3\" text=\"필수\" cssclass=\"essential\"/><Cell col=\"4\" text=\"숫자\"/><Cell col=\"5\" text=\"익스팬드\"/><Cell col=\"6\" text=\"콤보박스\"/><Cell col=\"7\" text=\"캘린더\"/><Cell col=\"8\" text=\"중앙정렬\"/><Cell col=\"9\" text=\"버튼\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:No\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:Edi\" displaytype=\"editcontrol\" edittype=\"normal\"/><Cell col=\"3\" text=\"bind:Essential\" displaytype=\"text\"/><Cell col=\"4\" text=\"bind:Num\" displaytype=\"number\"/><Cell col=\"5\" text=\"bind:Expand\" displaytype=\"editcontrol\" expandshow=\"show\" expandsize=\"30\" edittype=\"normal\"/><Cell col=\"6\" text=\"bind:Cmb\" displaytype=\"combocontrol\" edittype=\"combo\"/><Cell col=\"7\" text=\"bind:Cal\" displaytype=\"calendarcontrol\" edittype=\"date\" calendardateformat=\"yyyy-MM-dd\"/><Cell col=\"8\" text=\"bind:CenterAlign\" displaytype=\"text\"/><Cell col=\"9\" text=\"bind:Btn\" displaytype=\"buttoncontrol\" edittype=\"button\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"40\"/><Column size=\"48\"/><Column size=\"160\"/><Column size=\"60\"/><Column size=\"80\"/><Column size=\"160\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"60\"/></Columns><Rows><Row size=\"32\" band=\"head\"/><Row size=\"28\"/></Rows><Band id=\"head\"><Cell text=\"chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"No\"/><Cell col=\"2\" text=\"에디트\"/><Cell col=\"3\" text=\"필수\" cssclass=\"essential\"/><Cell col=\"4\" text=\"숫자\"/><Cell col=\"5\" text=\"익스팬드\"/><Cell col=\"6\" text=\"콤보박스\"/><Cell col=\"7\" text=\"캘린더\"/><Cell col=\"8\" text=\"중앙정렬\"/><Cell col=\"9\" text=\"버튼\"/></Band><Band id=\"body\"><Cell text=\"bind:chk\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"bind:No\" displaytype=\"text\"/><Cell col=\"2\" text=\"bind:Edi\" displaytype=\"editcontrol\" edittype=\"normal\"/><Cell col=\"3\" text=\"bind:Essential\" displaytype=\"text\"/><Cell col=\"4\" text=\"bind:Num\" displaytype=\"number\"/><Cell col=\"5\" text=\"bind:Expand\" displaytype=\"editcontrol\" expandshow=\"show\" expandsize=\"30\" edittype=\"normal\"/><Cell col=\"6\" text=\"bind:Cmb\" displaytype=\"combocontrol\" edittype=\"combo\"/><Cell col=\"7\" text=\"bind:Cal\" displaytype=\"calendarcontrol\" edittype=\"date\" calendardateformat=\"yyyy-MM-dd\"/><Cell col=\"8\" text=\"bind:CenterAlign\" displaytype=\"text\"/><Cell col=\"9\" text=\"bind:Btn\" displaytype=\"buttoncontrol\" edittype=\"button\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Static("sta04_00",null,"0","30",null,"0","0",null,null,null,null,this);
@@ -63,7 +62,7 @@
             obj.set_text("H46");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta04_01","140","434","30","46",null,null,null,null,null,null,this);
+            obj = new Static("sta04_01","140","439","30","46",null,null,null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_cssclass("sta_WF_GSize");
             obj.set_visible("false");
@@ -93,7 +92,7 @@
 
             obj = new Button("btnAdd","94","0","77","24",null,null,null,null,null,null,this.divCmmnBtn.form);
             obj.set_taborder("1");
-            obj.set_text("행추가");
+            obj.set_text("행추가 ");
             obj.set_cssclass("btn_WF_Add");
             this.divCmmnBtn.addChild(obj.name, obj);
 
@@ -120,7 +119,7 @@
             obj.set_text("H7");
             this.addChild(obj.name, obj);
 
-            obj = new Static("staTotal00",null,"452","53","24","347",null,null,null,null,null,this);
+            obj = new Static("staTotal00",null,"457","53","24","347",null,null,null,null,null,this);
             obj.set_taborder("11");
             obj.set_text("총 <fc v=\'#d31145\'>270</fc>건");
             obj.set_usedecorate("true");
@@ -128,7 +127,7 @@
             obj.set_cssclass("sta_WF_Total");
             this.addChild(obj.name, obj);
 
-            obj = new Static("staUnit00","staTotal00:5","452",null,"24","289",null,null,null,null,null,this);
+            obj = new Static("staUnit00","staTotal00:5","457",null,"24","289",null,null,null,null,null,this);
             obj.set_taborder("12");
             obj.set_text("(단위: 원)");
             obj.set_usedecorate("true");
@@ -136,14 +135,14 @@
             obj.set_cssclass("sta_WF_Total");
             this.addChild(obj.name, obj);
 
-            obj = new Div("divCmmnBtn00","staUnit00:10","449","251","24",null,null,null,null,null,null,this);
+            obj = new Div("divCmmnBtn00","staUnit00:10","454","251","24",null,null,null,null,null,null,this);
             obj.set_taborder("13");
             obj.set_text("Div01");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnAdd","94","0","77","24",null,null,null,null,null,null,this.divCmmnBtn00.form);
             obj.set_taborder("1");
-            obj.set_text("행추가");
+            obj.set_text("행추가 ");
             obj.set_cssclass("btn_WF_Add");
             this.divCmmnBtn00.addChild(obj.name, obj);
 
@@ -163,7 +162,7 @@
             obj.set_cssclass("btn_WF_ExcelDown");
             this.divCmmnBtn00.addChild(obj.name, obj);
 
-            obj = new Static("sta04_00_00_00",null,"473","400","7","30",null,null,null,null,null,this);
+            obj = new Static("sta04_00_00_00",null,"478","400","7","30",null,null,null,null,null,this);
             obj.set_taborder("14");
             obj.set_cssclass("sta_WF_GSize");
             obj.set_visible("false");
@@ -177,7 +176,7 @@
             obj.set_text("H8");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta04_01_01","0","434","90","8",null,null,null,null,null,null,this);
+            obj = new Static("sta04_01_01","0","439","90","8",null,null,null,null,null,null,this);
             obj.set_taborder("16");
             obj.set_cssclass("sta_WF_GSize");
             obj.set_visible("false");

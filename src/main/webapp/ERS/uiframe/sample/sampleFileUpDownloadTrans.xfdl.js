@@ -219,7 +219,7 @@
         // User Script
         this.registerScript("sampleFileUpDownloadTrans.xfdl", function() {
         /**
-        *  nexacro 17 demo
+        *  AIA 비용관리시스템 시스템
         *  @MenuPath    대메뉴 > 소메뉴
         *  @FileName    FileUpDown.xfdl
         *  @Creator     presales

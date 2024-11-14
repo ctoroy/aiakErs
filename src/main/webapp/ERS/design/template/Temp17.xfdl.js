@@ -43,7 +43,7 @@
             obj = new Div("Div01","0","30",null,null,"0","0",null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_text("Div01");
-            obj.set_url("design::template/Temp17_1.xfdl");
+            obj.set_url("template::Temp17_1.xfdl");
             this.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this.Div00.form
@@ -67,7 +67,7 @@
         
         this.loadPreloadList = function()
         {
-            this._addPreloadList("fdl","design::template/Temp17_1.xfdl");
+            this._addPreloadList("fdl","template::Temp17_1.xfdl");
         };
         
         // User Script

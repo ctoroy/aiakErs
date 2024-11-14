@@ -50,7 +50,7 @@
 
             obj = new Button("btnHome","393","7","40","36",null,null,null,null,null,null,this);
             obj.set_taborder("6");
-            obj.set_cssclass("btn_MDI_Home");
+            obj.set_cssclass("btn_MDI_HomeS");
             this.addChild(obj.name, obj);
 
             obj = new Div("divTab","btnHome:0","0",null,null,"188","0",null,null,null,null,this);
@@ -141,7 +141,7 @@
 
             obj = new Button("btnHome00","393","47","40","36",null,null,null,null,null,null,this);
             obj.set_taborder("14");
-            obj.set_cssclass("btn_MDI_HomeS");
+            obj.set_cssclass("btn_MDI_Home");
             obj.set_visible("false");
             this.addChild(obj.name, obj);
 
@@ -168,6 +168,12 @@
             obj = new Button("Button00_00","344","146","20","20",null,null,null,null,null,null,this);
             obj.set_taborder("17");
             obj.set_cssclass("btn_MDI_TabClose");
+            obj.set_visible("false");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static00_00","182","148","1","17",null,null,null,null,null,null,this);
+            obj.set_taborder("18");
+            obj.set_cssclass("sta_MDI_Line");
             obj.set_visible("false");
             this.addChild(obj.name, obj);
             // Layout Functions
@@ -674,6 +680,7 @@
         	objTab.setEventHandler("onclick", this.btnTab_onclick, this);
         	//objTab.setEventHandler("oncontextmenu", this.btnTab_oncontextmenu, this);
         	//objTab.setEventHandler("ondrag", this.btnTab_ondrag, this);
+        	var lineWidth = objTab.getOffsetWidth();
 
         	if(this.fnFindObj(sExBtnId) == null)
         	{
@@ -687,6 +694,17 @@
 
         		objBtn.setEventHandler("onclick", this.btnExtra_onclick, this);
         	}
+
+
+        // 	if(this.fnFindObj(sTabID+"LINE") == null)
+        // 	{
+        // 		var objStatic = new Static();
+        // 		objStatic.init(sTabID+"LINE", lineWidth-1, 18, 1, 17, null, null);
+        //
+        // 		this.divTab.addChild(objStatic.id, objStatic);
+        // 		objStatic.set_cssclass("sta_MDI_Line");
+        // 		objStatic.show();
+        // 	}
         };
 
         /**

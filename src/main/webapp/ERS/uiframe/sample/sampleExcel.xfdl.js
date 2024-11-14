@@ -139,17 +139,13 @@
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnExcelDown",null,"0","119","28","0",null,null,null,null,null,this.divCmmnBtn.form);
+            obj = new Button("btnExcelDown",null,"0","44","28","0",null,null,null,null,null,this.divCmmnBtn.form);
             obj.set_taborder("0");
-            obj.set_text("엑셀다운로드");
-            obj.set_fittocontents("width");
-            obj.set_cssclass("btn_WF_ExcelSave");
+            obj.set_cssclass("btn_WF_ExcelDown");
             this.divCmmnBtn.addChild(obj.name, obj);
 
-            obj = new Button("btnExcelUp",null,"0","107","28","btnExcelDown:5",null,null,null,null,null,this.divCmmnBtn.form);
+            obj = new Button("btnExcelUp",null,"0","44","28","btnExcelDown:5",null,null,null,null,null,this.divCmmnBtn.form);
             obj.set_taborder("1");
-            obj.set_text("엑셀업로드");
-            obj.set_fittocontents("width");
             obj.set_cssclass("btn_WF_ExcelUp");
             this.divCmmnBtn.addChild(obj.name, obj);
 
@@ -195,15 +191,15 @@
         // User Script
         this.registerScript("sampleExcel.xfdl", function() {
         /**
-        *  문화센터 파크 및 마권안내 홈페이지 재구축
+        *  AIA 비용관리시스템 시스템
         *  @FileName 	sampleExcel.xfdl
-        *  @Creator 	TOBESOFT
-        *  @CreateDate 	2020.11.30
+        *  @Creator 	송원창
+        *  @CreateDate 	2024.11.14
         *  @Desction
         ************** 소스 수정 이력 ***********************************************
         * Date					Modifier					Description
         *******************************************************************************
-        * 2020.11.30			TOBESOFT					최초생성
+        * 2024.11.14			송원창						최초생성
         *******************************************************************************
         */
 

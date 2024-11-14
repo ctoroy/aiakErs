@@ -11,7 +11,6 @@
         {
             this.set_name("Temp14");
             this.set_titletext("Tree");
-            this.set_cssclass("frm_WF_Frame");
             if (Form == this.constructor)
             {
                 this._setFormPosition(1527,828);

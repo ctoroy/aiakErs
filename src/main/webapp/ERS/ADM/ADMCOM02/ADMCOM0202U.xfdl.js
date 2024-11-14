@@ -13,7 +13,7 @@
             this.set_titletext("권한그룹별 메뉴관리");
             if (Form == this.constructor)
             {
-                this._setFormPosition(1280,720);
+                this._setFormPosition(1527,828);
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
@@ -52,60 +52,67 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Div("divSearch","0","0",null,"70","0",null,null,null,null,null,this);
+            obj = new Div("divSearch","0","0",null,"50","30",null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_text("divSearch");
-            obj.set_border("1px solid");
+            obj.set_cssclass("div_WF_Search");
             this.addChild(obj.name, obj);
 
-            obj = new Static("staWord","20","20","60","30",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("staWord","0","12","70","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("0");
             obj.set_text("검색어");
-            obj.set_border("1px solid");
+            obj.set_cssclass("sta_WF_SchLabel");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Edit("edtWord","staWord:10","20","140","30",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Edit("edtWord","staWord:10","12","140","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("1");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("staAuthClssfc","edtWord:50","20","60","30",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("staAuthClssfc","edtWord:10","12","80","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("2");
             obj.set_text("권한타입");
-            obj.set_border("1px solid");
+            obj.set_cssclass("sta_WF_SchLabelEssential");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Combo("cboAuthClssfc","staAuthClssfc:10","20","80","30",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Combo("cboAuthClssfc","staAuthClssfc:10","12","80","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("3");
             obj.set_innerdataset("dsAuthClssfc");
             obj.set_codecolumn("code");
             obj.set_datacolumn("data");
+            obj.set_cssclass("essential");
             obj.set_text("권한");
             obj.set_value("R");
             obj.set_index("0");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("staMenuTitle","0","divSearch:10","180","30",null,null,null,null,null,null,this);
+            obj = new Button("btnSearch",null,null,"62","32","20","8",null,null,null,null,this.divSearch.form);
+            obj.set_taborder("4");
+            obj.set_text("조회");
+            obj.set_cssclass("btn_WF_Search");
+            this.divSearch.addChild(obj.name, obj);
+
+            obj = new Static("staAuthCodeTitle","0","divSearch:8","180","38",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("권한코드목록");
-            obj.set_border("1px solid");
+            obj.set_cssclass("sta_WF_Title");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("grdAuthCodeList","0","staMenuTitle:10",null,"270","0",null,null,null,null,null,this);
+            obj = new Grid("grdAuthCodeList","0","staAuthCodeTitle:0",null,"270","30",null,null,null,null,null,this);
             obj.set_taborder("1");
             obj.set_autofittype("col");
             obj.set_binddataset("dsAuthCodeList");
             obj.set_cellsizingtype("col");
             obj.set_autoenter("select");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"100\"/><Column size=\"250\"/><Column size=\"400\"/><Column size=\"100\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"120\"/></Columns><Rows><Row size=\"28\" band=\"head\"/><Row size=\"28\"/></Rows><Band id=\"head\"><Cell text=\"순번\"/><Cell col=\"1\" text=\"권한코드\"/><Cell col=\"2\" text=\"권한명\"/><Cell col=\"3\" text=\"비고\"/><Cell col=\"4\" text=\"사용여부\"/><Cell col=\"5\" text=\"등록자\"/><Cell col=\"6\" text=\"등록일\"/><Cell col=\"7\" text=\"수정자\"/><Cell col=\"8\" text=\"수정일\"/></Band><Band id=\"body\"><Cell expr=\"currow+1\"/><Cell col=\"1\" text=\"bind:authId\" displaytype=\"text\" editmaxlength=\"10\" editimemode=\"alpha\" editinputmode=\"upper\" editinputtype=\"alpha,digit\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:authNm\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:rmak\" displaytype=\"text\"/><Cell col=\"4\" displaytype=\"combotext\" text=\"bind:useYn\" combodataset=\"dsUseYn\" combocodecol=\"code\" combodatacol=\"data\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:cretrId\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:cretDttm\" textAlign=\"center\" calendardateformat=\"yyyy-MM-dd\" displaytype=\"date\"/><Cell col=\"7\" text=\"bind:mdfrId\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:mdfDttm\" displaytype=\"date\" textAlign=\"center\" calendardateformat=\"yyyy-MM-dd\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"100\"/><Column size=\"250\"/><Column size=\"400\"/><Column size=\"100\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"120\"/><Column size=\"120\"/></Columns><Rows><Row size=\"32\" band=\"head\"/><Row size=\"28\"/></Rows><Band id=\"head\"><Cell text=\"순번\"/><Cell col=\"1\" text=\"권한코드\"/><Cell col=\"2\" text=\"권한명\"/><Cell col=\"3\" text=\"비고\"/><Cell col=\"4\" text=\"사용여부\"/><Cell col=\"5\" text=\"등록자\"/><Cell col=\"6\" text=\"등록일\"/><Cell col=\"7\" text=\"수정자\"/><Cell col=\"8\" text=\"수정일\"/></Band><Band id=\"body\"><Cell expr=\"currow+1\"/><Cell col=\"1\" text=\"bind:authId\" displaytype=\"text\" editmaxlength=\"10\" editimemode=\"alpha\" editinputmode=\"upper\" editinputtype=\"alpha,digit\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:authNm\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:rmak\" displaytype=\"text\" cssclass=\"cell_WF_Left\"/><Cell col=\"4\" displaytype=\"combotext\" text=\"bind:useYn\" combodataset=\"dsUseYn\" combocodecol=\"code\" combodatacol=\"data\" textAlign=\"center\"/><Cell col=\"5\" text=\"bind:cretrId\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"6\" text=\"bind:cretDttm\" textAlign=\"center\" calendardateformat=\"yyyy-MM-dd\" displaytype=\"date\"/><Cell col=\"7\" text=\"bind:mdfrId\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"8\" text=\"bind:mdfDttm\" displaytype=\"date\" textAlign=\"center\" calendardateformat=\"yyyy-MM-dd\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("staMenuTitle00","2","400","180","30",null,null,null,null,null,null,this);
+            obj = new Static("staMenuTitle","2","grdAuthCodeList:8","180","38",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_text("메뉴목록");
-            obj.set_border("1px solid");
+            obj.set_cssclass("sta_WF_SubTitle");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("grdAuthMenuList","0","staMenuTitle00:10",null,null,"0","0",null,null,null,null,this);
+            obj = new Grid("grdAuthMenuList","0","staMenuTitle:0",null,null,"30","0",null,null,null,null,this);
             obj.set_taborder("4");
             obj.set_autofittype("col");
             obj.set_binddataset("dsAuthMenuList");
@@ -113,7 +120,23 @@
             obj.set_treeinitstatus("expand,all");
             obj.set_autoenter("select");
             obj.set_treeusecheckbox("false");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"30\"/><Column size=\"400\"/><Column size=\"150\"/><Column size=\"150\"/><Column size=\"120\"/><Column size=\"120\"/></Columns><Rows><Row size=\"28\" band=\"head\"/><Row size=\"28\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"메뉴\"/><Cell col=\"2\" text=\"메뉴코드\"/><Cell col=\"3\" text=\"메뉴구분\"/><Cell col=\"4\" text=\"출력여부\"/><Cell col=\"5\" text=\"사용여부\"/></Band><Band id=\"body\"><Cell displaytype=\"expr:mnuTpCd==&apos;프로그램&apos; ? &apos;checkboxcontrol&apos;:&apos;none&apos;\" edittype=\"expr:mnuTpCd==&apos;프로그램&apos; ? &apos;checkbox&apos;:&apos;none&apos;\" checkboxfalsevalue=\"N\" checkboxtruevalue=\"Y\" text=\"bind:authUseYn\"/><Cell col=\"1\" text=\"bind:mnuNm\" displaytype=\"treeitemcontrol\" textAlign=\"left\" treelevel=\"bind:mnuLvlSize\" edittype=\"tree\" treecheck=\"bind:authUseYn\" treestate=\"bind:mnuLvlSize\" checkboxfalsevalue=\"N\" checkboxtruevalue=\"Y\"/><Cell col=\"2\" text=\"bind:mnuId\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:mnuTpCd\" displaytype=\"text\"/><Cell col=\"4\" text=\"bind:mnuPrintYn\" displaytype=\"combotext\" textAlign=\"center\" combodataset=\"dsMnuPrintYn\" combocodecol=\"code\" combodatacol=\"data\"/><Cell col=\"5\" text=\"bind:useYn\" displaytype=\"combotext\" textAlign=\"center\" calendardateformat=\"yyyy-MM-dd\" combodataset=\"dsUseYn\" combocodecol=\"code\" combodatacol=\"data\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"30\"/><Column size=\"400\"/><Column size=\"150\"/><Column size=\"150\"/><Column size=\"120\"/><Column size=\"120\"/></Columns><Rows><Row size=\"32\" band=\"head\"/><Row size=\"28\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\" text=\"메뉴\"/><Cell col=\"2\" text=\"메뉴코드\"/><Cell col=\"3\" text=\"메뉴구분\"/><Cell col=\"4\" text=\"출력여부\"/><Cell col=\"5\" text=\"사용여부\"/></Band><Band id=\"body\"><Cell displaytype=\"expr:mnuTpCd==&apos;프로그램&apos; ? &apos;checkboxcontrol&apos;:&apos;none&apos;\" edittype=\"expr:mnuTpCd==&apos;프로그램&apos; ? &apos;checkbox&apos;:&apos;none&apos;\" checkboxfalsevalue=\"N\" checkboxtruevalue=\"Y\" text=\"bind:authUseYn\"/><Cell col=\"1\" text=\"bind:mnuNm\" displaytype=\"treeitemcontrol\" textAlign=\"left\" treelevel=\"bind:mnuLvlSize\" edittype=\"tree\" treecheck=\"bind:authUseYn\" treestate=\"bind:mnuLvlSize\" checkboxfalsevalue=\"N\" checkboxtruevalue=\"Y\"/><Cell col=\"2\" text=\"bind:mnuId\" displaytype=\"text\" textAlign=\"center\"/><Cell col=\"3\" text=\"bind:mnuTpCd\" displaytype=\"text\"/><Cell col=\"4\" text=\"bind:mnuPrintYn\" displaytype=\"combotext\" textAlign=\"center\" combodataset=\"dsMnuPrintYn\" combocodecol=\"code\" combodatacol=\"data\"/><Cell col=\"5\" text=\"bind:useYn\" displaytype=\"combotext\" textAlign=\"center\" calendardateformat=\"yyyy-MM-dd\" combodataset=\"dsUseYn\" combocodecol=\"code\" combodatacol=\"data\"/></Band></Format></Formats>");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("sta04_00",null,"0","30",null,"0","0",null,null,null,null,this);
+            obj.set_taborder("5");
+            obj.set_cssclass("sta_WF_GSize");
+            obj.set_visible("false");
+            obj.set_text("W30");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("staTotal",null,"68","100","24","30",null,null,null,null,null,this);
+            obj.set_taborder("6");
+            obj.set_text("총 <fc v=\'#d31145\'>0</fc>건");
+            obj.set_usedecorate("true");
+            obj.set_fittocontents("none");
+            obj.set_cssclass("sta_WF_Total");
+            obj.set_textAlign("right");
             this.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this.divSearch.form
@@ -121,7 +144,7 @@
             this.divSearch.form.addLayout(obj.name, obj);
 
             //-- Default Layout : this
-            obj = new Layout("default","",1280,720,this,function(p){});
+            obj = new Layout("default","",1527,828,this,function(p){});
             obj.set_horizontalgap("0");
             obj.set_mobileorientation("landscape");
             obj.set_spacing("0px");
@@ -179,11 +202,6 @@
          * 공통함수영역 (cfnSearch : 조회 / cfnAdd : 추가 / cfnSave : 저장 / cfnDel : 삭제 / cfnExecl : 엑셀.. / cfnPrint : 인쇄 / cfnHep : 도움말  / cfnClose : 화면 닫기전 체크)
          * 추가 버튼은 prefix cfn 으로 시작하여 명칭을 만든다.
         *******************************************************************************************************************************/
-        //조회
-        this.cfnSearch = function(obj, e)
-        {
-        	this.fnSearch();
-        };
 
         //저장
         this.cfnSave = function(obj, e)
@@ -270,6 +288,7 @@
         	switch(sSvcId)
         	{
         		case "selectAuthCodeList":
+        			this.staTotal.text = "총 <fc v='#d31145'>" + this.dsAuthCodeList.getRowCount() + "</fc>건";
         			break;
         		case "selectAuthMenuList":
         			break;
@@ -286,6 +305,8 @@
         {
         	this.dsCond.setColumn(0, "searchText", this.divSearch.form.edtWord.value);
         	this.dsCond.setColumn(0, "authClssfc", this.divSearch.form.cboAuthClssfc.value);
+        	this.dsAuthCodeList.clearData();
+        	this.dsAuthMenuList.clearData();
         	this.fnSearchAuthCodeList();
         };
 
@@ -295,9 +316,11 @@
 
         this.dsAuthCodeList_onrowposchanged = function(obj,e)
         {
-        	var authId = obj.getColumn(e.newrow, 'authId');
-        	this.dsAuthId.setColumn(0, 'authId', authId);
-        	this.fnSearchAuthMenuList();
+        	if( this.dsAuthCodeList.getRowCount() > 0 ){
+        		var authId = obj.getColumn(e.newrow, 'authId');
+        		this.dsAuthId.setColumn(0, 'authId', authId);
+        		this.fnSearchAuthMenuList();
+        	}
         };
 
         this.dsAuthMenuList_oncolumnchanged = function(obj,e)
@@ -312,12 +335,24 @@
         	}
         };
 
+        this.divSearch_btnSearch_onclick = function(obj,e)
+        {
+        	this.fnSearch();
+        };
+
+        this.divSearch_cboAuthClssfc_onitemchanged = function(obj,e)
+        {
+        	this.fnSearch();
+        };
+
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.form_onload,this);
+            this.divSearch.form.cboAuthClssfc.addEventHandler("onitemchanged",this.divSearch_cboAuthClssfc_onitemchanged,this);
+            this.divSearch.form.btnSearch.addEventHandler("onclick",this.divSearch_btnSearch_onclick,this);
             this.dsAuthCodeList.addEventHandler("onrowposchanged",this.dsAuthCodeList_onrowposchanged,this);
             this.dsAuthMenuList.addEventHandler("oncolumnchanged",this.dsAuthMenuList_oncolumnchanged,this);
         };

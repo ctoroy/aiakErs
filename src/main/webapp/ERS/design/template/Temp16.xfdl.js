@@ -11,7 +11,6 @@
         {
             this.set_name("Temp02");
             this.set_titletext("Tab");
-            this.set_cssclass("frm_WF_Frame");
             if (Form == this.constructor)
             {
                 this._setFormPosition(1527,828);
@@ -29,12 +28,12 @@
 
             obj = new Tabpage("Tabpage1",this.Tab00);
             obj.set_text("Tabpage1");
-            obj.set_url("design::template/Temp16_1.xfdl");
+            obj.set_url("template::Temp16_1.xfdl");
             this.Tab00.addChild(obj.name, obj);
 
             obj = new Tabpage("Tabpage2",this.Tab00);
             obj.set_text("Tabpage2");
-            obj.set_url("design::template/Temp16_2.xfdl");
+            obj.set_url("template::Temp16_2.xfdl");
             this.Tab00.addChild(obj.name, obj);
 
             obj = new Static("sta04_00",null,"0","30",null,"0","0",null,null,null,null,this);
@@ -212,8 +211,8 @@
         
         this.loadPreloadList = function()
         {
-            this._addPreloadList("fdl","design::template/Temp16_1.xfdl");
-            this._addPreloadList("fdl","design::template/Temp16_2.xfdl");
+            this._addPreloadList("fdl","template::Temp16_1.xfdl");
+            this._addPreloadList("fdl","template::Temp16_2.xfdl");
         };
         
         // User Script

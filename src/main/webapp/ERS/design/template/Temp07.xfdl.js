@@ -11,7 +11,6 @@
         {
             this.set_name("Temp07");
             this.set_titletext("Master-Detail-H(n:n)");
-            this.set_cssclass("frm_WF_Frame");
             if (Form == this.constructor)
             {
                 this._setFormPosition(1527,828);

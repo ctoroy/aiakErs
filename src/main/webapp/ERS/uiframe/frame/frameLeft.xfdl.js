@@ -117,7 +117,7 @@
             obj.set_cssclass("grd_LF_Menu");
             obj.set_treeuseline("false");
             obj.set_formatid("default");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"250\"/></Columns><Rows><Row size=\"38\"/></Rows><Band id=\"body\"><Cell cssclass=\"cell_LF_Lev2\" text=\"bind:menuNm\" tooltiptext=\"bind:menuNm\" displaytype=\"treeitemcontrol\" edittype=\"tree\" treelevel=\"bind:menuLvl\"/></Band></Format><Format id=\"btnFavoratie\"><Columns><Column size=\"199\"/><Column size=\"48\"/></Columns><Rows><Row size=\"38\"/></Rows><Band id=\"body\"><Cell text=\"bind:menuNm\" tooltiptext=\"bind:menuNm\" displaytype=\"treeitemcontrol\" edittype=\"tree\" treelevel=\"bind:menuLvl\"/><Cell col=\"1\" cssclass=\"cell_LF_Delete\" displaytype=\"buttoncontrol\" edittype=\"button\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"250\"/></Columns><Rows><Row size=\"38\"/></Rows><Band id=\"body\"><Cell text=\"bind:menuNm\" tooltiptext=\"bind:menuNm\" displaytype=\"treeitemcontrol\" edittype=\"tree\" treelevel=\"bind:menuLvl\" cssclass=\"expr:menuLvl == &apos;0&apos; ? &apos;cell_LF_Lev1&apos; : &apos;cell_LF_Lev2&apos;\"/></Band></Format><Format id=\"btnFavoratie\"><Columns><Column size=\"199\"/><Column size=\"48\"/></Columns><Rows><Row size=\"38\"/></Rows><Band id=\"body\"><Cell text=\"bind:menuNm\" tooltiptext=\"bind:menuNm\" displaytype=\"treeitemcontrol\" edittype=\"tree\" treelevel=\"bind:menuLvl\"/><Cell col=\"1\" cssclass=\"cell_LF_Delete\" displaytype=\"buttoncontrol\" edittype=\"button\"/></Band></Format></Formats>");
             this.divList.addChild(obj.name, obj);
 
             obj = new Grid("grdFavoratie","410","315",null,null,"-247","445",null,null,null,null,this);
@@ -126,6 +126,7 @@
             obj.set_treeusecheckbox("false");
             obj.set_treeinitstatus("collapse,all");
             obj.set_binddataset("dsMyMenu");
+            obj.set_visible("false");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"195\"/></Columns><Rows><Row size=\"30\"/></Rows><Band id=\"body\"><Cell text=\"bind:menuNm\" treelevel=\"bind:menuLv\" tooltiptext=\"bind:menuNm\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
@@ -289,8 +290,7 @@
 
         	//this.objApp.gdsMenu.appendData(this.objApp.Dataset0, true);
         	this.dsMenu.copyData(this.objApp.gdsMenu);
-
-
+        	//this.fnSetGridRowSize();
         };
 
         /**
@@ -298,18 +298,18 @@
         */
         this.fnSetGridRowSize = function()
         {
-        	let objGrid = this.divLnb.form.grdMenu;
+        	let objGrid = this.divList.form.grdMenu;
         	objGrid.set_enableredraw(false);
 
         	for(let i=0; i < this.dsMenu.rowcount; i++)
         	{
         		let grdRow = objGrid.getTreeRow(i);
         		let css = objGrid.getCellPropertyValue(grdRow, 0, "cssclass");
-
-        		if(css == "cell_LF_Lev") {
+        trace(css);
+        		if(css == "cell_LF_Lev1") {
         			objGrid.setRealRowSize(grdRow,"50");
         		} else {
-        			objGrid.setRealRowSize(grdRow,"25");
+        			objGrid.setRealRowSize(grdRow,"38");
         		}
         	}
         	objGrid.set_enableredraw(true);

@@ -9,11 +9,11 @@
         
         this.on_create = function()
         {
-            this.set_name("ADMCOM0102U");
-            this.set_titletext("메뉴등록");
+            this.set_name("menuList");
+            this.set_titletext("New Form");
             if (Form == this.constructor)
             {
-                this._setFormPosition(1280,720);
+                this._setFormPosition(1527,828);
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
@@ -42,95 +42,117 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Div("divSearch","0","0",null,"70","0",null,null,null,null,null,this);
+            obj = new Button("btn00","540","42","120","50",null,null,null,null,null,null,this);
             obj.set_taborder("0");
-            obj.set_text("divSearch");
-            obj.set_border("1px solid");
+            obj.set_text("btn00");
+            obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new Static("staSysId","66","20","60","30",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Button("btn01","753","33","120","50",null,null,null,null,null,null,this);
+            obj.set_taborder("1");
+            obj.set_text("btn01");
+            obj.set_visible("false");
+            this.addChild(obj.name, obj);
+
+            obj = new Div("divSearch","0","0",null,"52","30",null,null,null,null,null,this);
+            obj.set_taborder("2");
+            obj.set_text("divSearch");
+            obj.set_cssclass("div_WF_Search");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("staSysId","0","13","90","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("0");
             obj.set_text("시스템ID");
-            obj.set_border("1px solid");
+            obj.set_cssclass("sta_WF_SchLabel");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Edit("edtSysId","131","20","140","30",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Edit("edtSysId","100","13","140","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("1");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("staSysNm","366","20","60","30",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("staSysNm","240","13","90","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("2");
             obj.set_text("시스템명");
-            obj.set_border("1px solid");
+            obj.set_cssclass("sta_WF_SchLabel");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Edit("edtSysNm","431","20","140","30",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Edit("edtSysNm","330","13","140","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("3");
             this.divSearch.addChild(obj.name, obj);
 
-            obj = new Static("staMenuTitle","0","divSearch:10","180","30",null,null,null,null,null,null,this);
-            obj.set_taborder("2");
+            obj = new Button("btnSearch",null,null,"62","36","25","7",null,null,null,null,this.divSearch.form);
+            obj.set_taborder("4");
+            obj.set_text("조회");
+            obj.set_cssclass("btn_WF_Search");
+            this.divSearch.addChild(obj.name, obj);
+
+            obj = new Static("staMenuTitle","0","60","180","38",null,null,null,null,null,null,this);
+            obj.set_taborder("3");
             obj.set_text("메뉴/프로그램 목록");
-            obj.set_border("1px solid");
+            obj.set_cssclass("sta_WF_Title");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("grdMenuList","0","staMenuTitle:10",null,"270","0",null,null,null,null,null,this);
-            obj.set_taborder("1");
+            obj = new Grid("grdMenuList","0","98",null,null,"30","240",null,null,null,null,this);
+            obj.set_taborder("4");
             obj.set_autofittype("col");
             obj.set_binddataset("dsMenuList");
             obj.set_cellsizingtype("col");
             obj.set_treeusecheckbox("false");
             obj.set_treeinitstatus("expand,all");
             obj.set_autoenter("select");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"180\"/><Column size=\"60\"/><Column size=\"70\"/><Column size=\"80\"/><Column size=\"70\"/><Column size=\"50\"/><Column size=\"48\"/><Column size=\"200\"/><Column size=\"90\"/><Column size=\"55\"/><Column size=\"55\"/><Column size=\"80\"/><Column size=\"55\"/><Column size=\"55\"/></Columns><Rows><Row size=\"28\" band=\"head\"/><Row size=\"28\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"메뉴명\"/><Cell col=\"2\" text=\"시스템\"/><Cell col=\"3\" text=\"메뉴ID\"/><Cell col=\"4\" text=\"상위메뉴\"/><Cell col=\"5\" text=\"메뉴유형\"/><Cell col=\"6\" text=\"레벨\"/><Cell col=\"7\" text=\"순서\"/><Cell col=\"8\" text=\"메뉴위치\"/><Cell col=\"9\" text=\"프로그램ID\"/><Cell col=\"10\" text=\"타입\"/><Cell col=\"11\" text=\"사용여부\"/><Cell col=\"12\" text=\"호출파라미터\"/><Cell col=\"13\" text=\"출력여부\"/><Cell col=\"14\" text=\"공통여부\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"bind:menuNm\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;treeitemcontrol&apos;\" edittype=\"text\" treelevel=\"bind:menuLvl\" tooltiptext=\"bind:menuNm\" border=\"0px none,1px solid #dbdee2,0px none,0px none\"/><Cell col=\"2\" edittype=\"text\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\" text=\"bind:sysId\"/><Cell col=\"3\" text=\"bind:menuId\" edittype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;text&apos;  : &apos;none&apos;\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\"/><Cell col=\"4\" edittype=\"text\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\" text=\"bind:highMenuId\"/><Cell col=\"5\" edittype=\"text\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\" text=\"bind:menuTpcd\"/><Cell col=\"6\" textAlign=\"center\" edittype=\"text\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\" text=\"bind:menuLvl\"/><Cell col=\"7\" textAlign=\"center\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;text&apos;\" text=\"bind:sortSeq\" edittype=\"text\"/><Cell col=\"8\" tooltiptext=\"bind:prgPath\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;text&apos;\" edittype=\"text\" text=\"bind:prgPath\"/><Cell col=\"9\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\" edittype=\"text\" text=\"bind:prgId\"/><Cell col=\"10\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\" edittype=\"text\" text=\"bind:prgType\"/><Cell col=\"11\" text=\"bind:usyn\"/><Cell col=\"12\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\" edittype=\"text\" text=\"bind:callParam\"/><Cell col=\"13\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:mgrUsyn\" checkboxtruevalue=\"Y\" checkboxfalsevalue=\"N\"/><Cell col=\"14\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:comYn\" checkboxfalsevalue=\"N\" checkboxtruevalue=\"Y\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"180\"/><Column size=\"60\"/><Column size=\"70\"/><Column size=\"80\"/><Column size=\"70\"/><Column size=\"50\"/><Column size=\"48\"/><Column size=\"48\"/><Column size=\"200\"/><Column size=\"90\"/><Column size=\"55\"/><Column size=\"55\"/><Column size=\"80\"/><Column size=\"55\"/><Column size=\"55\"/></Columns><Rows><Row size=\"32\" band=\"head\"/><Row size=\"28\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\"/><Cell col=\"1\" text=\"메뉴명\"/><Cell col=\"2\" text=\"시스템\"/><Cell col=\"3\" text=\"메뉴ID\"/><Cell col=\"4\" text=\"상위메뉴\"/><Cell col=\"5\" text=\"메뉴유형\"/><Cell col=\"6\" text=\"레벨\"/><Cell col=\"7\" text=\"순서\"/><Cell col=\"8\"/><Cell col=\"9\" text=\"메뉴위치\"/><Cell col=\"10\" text=\"프로그램ID\"/><Cell col=\"11\" text=\"타입\"/><Cell col=\"12\" text=\"사용여부\"/><Cell col=\"13\" text=\"호출파라미터\"/><Cell col=\"14\" text=\"출력여부\"/><Cell col=\"15\" text=\"공통여부\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" text=\"bind:menuNm\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;treeitemcontrol&apos;\" edittype=\"text\" treelevel=\"bind:menuLvl\" tooltiptext=\"bind:menuNm\" border=\"0px none,1px solid #dbdee2,0px none,0px none\"/><Cell col=\"2\" edittype=\"text\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\" text=\"bind:sysId\"/><Cell col=\"3\" text=\"bind:menuId\" edittype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;text&apos;  : &apos;none&apos;\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\"/><Cell col=\"4\" edittype=\"text\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\" text=\"bind:highMenuId\"/><Cell col=\"5\" edittype=\"text\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\" text=\"bind:menuTpcd\"/><Cell col=\"6\" textAlign=\"center\" edittype=\"text\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\" text=\"bind:menuLvl\"/><Cell col=\"7\" textAlign=\"center\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\" text=\"bind:sortSeq\" edittype=\"text\"/><Cell col=\"8\" expr=\"dataset.getRowType(currow)\"/><Cell col=\"9\" tooltiptext=\"bind:prgPath\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;text&apos;\" edittype=\"text\" text=\"bind:prgPath\"/><Cell col=\"10\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\" edittype=\"text\" text=\"bind:prgId\"/><Cell col=\"11\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\" edittype=\"text\" text=\"bind:prgType\"/><Cell col=\"12\" text=\"bind:usyn\"/><Cell col=\"13\" displaytype=\"expr:dataset.getRowType(currow) == Dataset.ROWTYPE_INSERT ? &apos;editcontrol&apos;  : &apos;normal&apos;\" edittype=\"text\" text=\"bind:callParam\"/><Cell col=\"14\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:mgrUsyn\" checkboxtruevalue=\"Y\" checkboxfalsevalue=\"N\"/><Cell col=\"15\" displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:comYn\" checkboxfalsevalue=\"N\" checkboxtruevalue=\"Y\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("staMenuTitle00","2","grdMenuList:10","180","30",null,null,null,null,null,null,this);
-            obj.set_taborder("3");
+            obj = new Static("staMenuTitle00","0",null,"180","38",null,"194",null,null,null,null,this);
+            obj.set_taborder("5");
             obj.set_text("버튼목록");
-            obj.set_border("1px solid");
+            obj.set_cssclass("sta_WF_Title");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("grdMenuList00","0","staMenuTitle00:10",null,"270","0",null,null,null,null,null,this);
-            obj.set_taborder("4");
+            obj = new Grid("grdMenuList00","0",null,null,"194","30","0",null,null,null,null,this);
+            obj.set_taborder("6");
             obj.set_binddataset("dsCmmBtnList");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"66\"/><Column size=\"170\"/><Column size=\"170\"/><Column size=\"170\"/><Column size=\"170\"/><Column size=\"170\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"text\" text=\"사용여부\"/><Cell col=\"1\" text=\"순번\"/><Cell col=\"2\" text=\"코드\"/><Cell col=\"3\" text=\"버튼명\"/><Cell col=\"4\" text=\"호출함수\"/><Cell col=\"5\" text=\"클래스명\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:usyn\" checkboxtruevalue=\"Y\" checkboxfalsevalue=\"N\"/><Cell col=\"1\" text=\"bind:sortSeq\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:btnId\"/><Cell col=\"3\" text=\"bind:btnNm\"/><Cell col=\"4\" text=\"bind:functionNm\"/><Cell col=\"5\" text=\"bind:cssNm\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"66\"/><Column size=\"170\"/><Column size=\"170\"/><Column size=\"170\"/><Column size=\"170\"/><Column size=\"170\"/></Columns><Rows><Row size=\"32\" band=\"head\"/><Row size=\"28\"/></Rows><Band id=\"head\"><Cell displaytype=\"text\" text=\"사용여부\"/><Cell col=\"1\" text=\"순번\"/><Cell col=\"2\" text=\"코드\"/><Cell col=\"3\" text=\"버튼명\"/><Cell col=\"4\" text=\"호출함수\"/><Cell col=\"5\" text=\"클래스명\"/></Band><Band id=\"body\"><Cell displaytype=\"checkboxcontrol\" edittype=\"checkbox\" text=\"bind:usyn\" checkboxtruevalue=\"Y\" checkboxfalsevalue=\"N\"/><Cell col=\"1\" text=\"bind:sortSeq\" textAlign=\"center\"/><Cell col=\"2\" text=\"bind:btnId\"/><Cell col=\"3\" text=\"bind:btnNm\"/><Cell col=\"4\" text=\"bind:functionNm\"/><Cell col=\"5\" text=\"bind:cssNm\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn00","610","11","120","50",null,null,null,null,null,null,this);
-            obj.set_taborder("5");
-            obj.set_text("조회");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btn01","750","10","120","50",null,null,null,null,null,null,this);
-            obj.set_taborder("6");
-            obj.set_text("추가");
-            obj.set_visible("false");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btn02","890","10","120","50",null,null,null,null,null,null,this);
+            obj = new Div("divGridBtn",null,"67","251","24","30",null,null,null,null,null,this);
             obj.set_taborder("7");
-            obj.set_text("삭제");
-            obj.set_visible("false");
+            obj.set_text("Div01");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn03","1030","10","120","50",null,null,null,null,null,null,this);
-            obj.set_taborder("8");
-            obj.set_text("저장");
-            this.addChild(obj.name, obj);
+            obj = new Button("btnAdd","94","0","77","24",null,null,null,null,null,null,this.divGridBtn.form);
+            obj.set_taborder("1");
+            obj.set_text("행추가");
+            obj.set_cssclass("btn_WF_Add");
+            this.divGridBtn.addChild(obj.name, obj);
+
+            obj = new Button("btnDel","174","0","77","24",null,null,null,null,null,null,this.divGridBtn.form);
+            obj.set_taborder("0");
+            obj.set_text("행삭제");
+            obj.set_cssclass("btn_WF_Delete");
+            this.divGridBtn.addChild(obj.name, obj);
+
+            obj = new Button("btnExcelUp","47","0","44","24",null,null,null,null,null,null,this.divGridBtn.form);
+            obj.set_taborder("2");
+            obj.set_cssclass("btn_WF_ExcelUp");
+            this.divGridBtn.addChild(obj.name, obj);
+
+            obj = new Button("btnExcelDown","0","0","44","24",null,null,null,null,null,null,this.divGridBtn.form);
+            obj.set_taborder("3");
+            obj.set_cssclass("btn_WF_ExcelDown");
+            this.divGridBtn.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this.divSearch.form
             obj = new Layout("default","",0,0,this.divSearch.form,function(p){});
             this.divSearch.form.addLayout(obj.name, obj);
 
+            //-- Default Layout : this.divGridBtn.form
+            obj = new Layout("default","",0,0,this.divGridBtn.form,function(p){});
+            this.divGridBtn.form.addLayout(obj.name, obj);
+
             //-- Default Layout : this
-            obj = new Layout("default","",1280,720,this,function(p){});
-            obj.set_horizontalgap("0");
-            obj.set_mobileorientation("landscape");
-            obj.set_spacing("0px");
-            obj.set_tabletemplate("1* / 1*");
-            obj.set_verticalgap("0");
+            obj = new Layout("default","",1527,828,this,function(p){});
             this.addLayout(obj.name, obj);
             
             // BindItem Information
@@ -327,17 +349,7 @@
         	switch(sSvcId)
         	{
         		case "selectMenuList":
-        			if(this.dsMenuList.rowcount > 0)
-        			{
-        				this.dsMenuList.enableevent = false;
-        				this.dsMenuList.addColumn("chk")
-        				for(var i = 0; i < this.dsMenuList.rowcount; i++)
-        				{
-        					this.dsMenuList.setColumn(i, "chk", 0);
-        				}
-        				this.dsMenuList.applyChange();
-        				this.dsMenuList.enableevent = true;
-        			}
+        			this.fnAddCheckBox(this.grdMenuList);
         			this.fvAddFlag = false;
         			break;
         		case "saveMenuList":
@@ -357,32 +369,21 @@
         {
         	this.dsCmmBtnList.clearData();
         };
-        /*******************************************************************************************************************************
-         * 각 COMPONENT 별 EVENT 영역
-        *******************************************************************************************************************************/
 
-        this.grdMenuList_oncellclick = function(obj,e)
+        this.fnAddCheckBox = function(objGrid)
         {
-
-        	if(e.col == 3 && !this.fvAddFlag)	//메뉴id 클릭시
+        	var objDs = objGrid.getBindDataset();
+        	if(objDs.rowcount > 0)
         	{
-        		this.fnClearDataSet();
-        		var objDs = obj.getBindDataset();
-        		if(objDs.rowcount ==  0) return;
 
-        		if(objDs.getRowType(objDs.rowposition) == Dataset.ROWTYPE_INSERT)
+        		objDs.enableevent = false;
+        		objDs.addColumn("chk")
+        		for(var i = 0; i < objDs.rowcount; i++)
         		{
-        			return;
+        			objDs.setColumn(i, "chk", 0);
         		}
-
-        		var nRow = obj.getTreeRow(e.row);
-        		var nStat = obj.getTreeStatus(nRow);
-
-        		if(nStat == 3)
-        		{
-        			this.dsMenuId.setColumn(0, "menuId", objDs.getColumn(objDs.rowposition, "menuId"));
-        			this.fnSearchCmmBtn();
-        		}
+        		objDs.applyChange();
+        		objDs.enableevent = true;
         	}
         };
 
@@ -428,11 +429,43 @@
         	this.dsMenuList.filter("");
         	this.dsMenuList.enableevent = true;
         };
+        /*******************************************************************************************************************************
+         * 각 COMPONENT 별 EVENT 영역
+        *******************************************************************************************************************************/
 
-
-        this.dsMenuList_canrowposchange = function(obj,e)
+        this.grdMenuList_oncellclick = function(obj,e)
         {
 
+        	if(e.col == 3 && !this.fvAddFlag)	//메뉴id 클릭시
+        	{
+        		this.fnClearDataSet();
+        		var objDs = obj.getBindDataset();
+        		if(objDs.rowcount ==  0) return;
+
+        		if(objDs.getRowType(objDs.rowposition) == Dataset.ROWTYPE_INSERT)
+        		{
+        			return;
+        		}
+
+        		var nRow = obj.getTreeRow(e.row);
+        		var nStat = obj.getTreeStatus(nRow);
+
+        		if(nStat == 3)
+        		{
+        			this.dsMenuId.setColumn(0, "menuId", objDs.getColumn(objDs.rowposition, "menuId"));
+        			this.fnSearchCmmBtn();
+        		}
+        	}
+        };
+
+        this.divCmmnBtn_btnAdd_onclick = function(obj,e)
+        {
+        	this.fnAdd();
+        };
+
+        this.divCmmnBtn_btnDel_onclick = function(obj,e)
+        {
+        	this.fnDel();
         };
 
         this.dsMenuList_onrowposchanged = function(obj,e)
@@ -442,19 +475,18 @@
         		obj.rowposition = e.oldrow;
         	}
         };
-
         });
         
         // Regist UI Components Event
         this.on_initEvent = function()
         {
             this.addEventHandler("onload",this.form_onload,this);
+            this.btn00.addEventHandler("onclick",this.btn00_onclick,this);
+            this.btn01.addEventHandler("onclick",this.btn01_onclick,this);
+            this.divSearch.form.btnSearch.addEventHandler("onclick",this.cfnSearch,this);
             this.grdMenuList.addEventHandler("oncellclick",this.grdMenuList_oncellclick,this);
-            this.btn00.addEventHandler("onclick",this.cfnSearch,this);
-            this.btn01.addEventHandler("onclick",this.cfnAdd,this);
-            this.btn02.addEventHandler("onclick",this.cfnDel,this);
-            this.btn03.addEventHandler("onclick",this.cfnSave,this);
-            this.dsMenuList.addEventHandler("canrowposchange",this.dsMenuList_canrowposchange,this);
+            this.divGridBtn.form.btnAdd.addEventHandler("onclick",this.divCmmnBtn_btnAdd_onclick,this);
+            this.divGridBtn.form.btnDel.addEventHandler("onclick",this.divCmmnBtn_btnDel_onclick,this);
             this.dsMenuList.addEventHandler("onrowposchanged",this.dsMenuList_onrowposchanged,this);
         };
         this.loadIncludeScript("ADMCOM0102U.xfdl");

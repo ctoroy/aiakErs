@@ -130,7 +130,7 @@
             obj.set_taborder("11");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch",null,null,"62","32","20","8",null,null,null,null,this.Div00.form);
+            obj = new Button("btnSearch",null,null,"64","36","20","6",null,null,null,null,this.Div00.form);
             obj.set_taborder("12");
             obj.set_text("조회");
             obj.set_cssclass("btn_WF_Search");
@@ -176,6 +176,20 @@
             obj.set_cssclass("sta_WF_GSize");
             obj.set_visible("false");
             obj.set_text("W10");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Static("sta04_01_01_00_00","1475","14","20","21",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("19");
+            obj.set_cssclass("sta_WF_GSize");
+            obj.set_visible("false");
+            obj.set_text("W20");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Static("sta04_01_01_00_00_00","1435",null,"20","6",null,"0",null,null,null,null,this.Div00.form);
+            obj.set_taborder("20");
+            obj.set_cssclass("sta_WF_GSize");
+            obj.set_visible("false");
+            obj.set_text("H6");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static04_00",null,"0","30",null,"0","0",null,null,null,null,this);
@@ -325,7 +339,7 @@
             obj.set_taborder("17");
             this.Div00_00.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch",null,null,"62","32","20","8",null,null,null,null,this.Div00_00.form);
+            obj = new Button("btnSearch",null,null,"64","36","20","12",null,null,null,null,this.Div00_00.form);
             obj.set_taborder("18");
             obj.set_text("조회");
             obj.set_cssclass("btn_WF_Search");
@@ -353,6 +367,20 @@
             obj.set_text("투비");
             obj.set_value("1");
             obj.set_index("0");
+            this.Div00_00.addChild(obj.name, obj);
+
+            obj = new Static("sta04_01_01_00_00","1475","43","20","21",null,null,null,null,null,null,this.Div00_00.form);
+            obj.set_taborder("21");
+            obj.set_cssclass("sta_WF_GSize");
+            obj.set_visible("false");
+            obj.set_text("W20");
+            this.Div00_00.addChild(obj.name, obj);
+
+            obj = new Static("sta04_01_01_00_00_00","1435",null,"20","12",null,"0",null,null,null,null,this.Div00_00.form);
+            obj.set_taborder("22");
+            obj.set_cssclass("sta_WF_GSize");
+            obj.set_visible("false");
+            obj.set_text("H12");
             this.Div00_00.addChild(obj.name, obj);
 
             obj = new Div("Div00_00_00","0","220",null,"108","30",null,null,null,null,null,this);
@@ -539,7 +567,7 @@
             obj.set_taborder("24");
             this.Div00_00_00.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch",null,null,"62","32","20","8",null,null,null,null,this.Div00_00_00.form);
+            obj = new Button("btnSearch",null,null,"64","36","20","12",null,null,null,null,this.Div00_00_00.form);
             obj.set_taborder("25");
             obj.set_text("조회");
             obj.set_cssclass("btn_WF_Search");
@@ -579,6 +607,20 @@
             obj.set_text("투비");
             obj.set_value("1");
             obj.set_index("0");
+            this.Div00_00_00.addChild(obj.name, obj);
+
+            obj = new Static("sta04_01_01_00_00","1475","72","20","21",null,null,null,null,null,null,this.Div00_00_00.form);
+            obj.set_taborder("29");
+            obj.set_cssclass("sta_WF_GSize");
+            obj.set_visible("false");
+            obj.set_text("W20");
+            this.Div00_00_00.addChild(obj.name, obj);
+
+            obj = new Static("sta04_01_01_00_00_00","1435",null,"20","12",null,"0",null,null,null,null,this.Div00_00_00.form);
+            obj.set_taborder("30");
+            obj.set_cssclass("sta_WF_GSize");
+            obj.set_visible("false");
+            obj.set_text("H12");
             this.Div00_00_00.addChild(obj.name, obj);
 
             obj = new Div("Div00_00_00_00","0","370",null,"137","30",null,null,null,null,null,this);
@@ -809,7 +851,7 @@
             obj.set_taborder("31");
             this.Div00_00_00_00.addChild(obj.name, obj);
 
-            obj = new Button("btnSearch",null,null,"62","32","20","8",null,null,null,null,this.Div00_00_00_00.form);
+            obj = new Button("btnSearch",null,null,"64","36","20","12",null,null,null,null,this.Div00_00_00_00.form);
             obj.set_taborder("32");
             obj.set_text("조회");
             obj.set_cssclass("btn_WF_Search");
@@ -861,6 +903,20 @@
             obj.set_text("투비");
             obj.set_value("1");
             obj.set_index("0");
+            this.Div00_00_00_00.addChild(obj.name, obj);
+
+            obj = new Static("sta04_01_01_00_00_00","1435",null,"20","12",null,"0",null,null,null,null,this.Div00_00_00_00.form);
+            obj.set_taborder("37");
+            obj.set_cssclass("sta_WF_GSize");
+            obj.set_visible("false");
+            obj.set_text("H12");
+            this.Div00_00_00_00.addChild(obj.name, obj);
+
+            obj = new Static("sta04_01_01_00_00","1475","101","20","21",null,null,null,null,null,null,this.Div00_00_00_00.form);
+            obj.set_taborder("38");
+            obj.set_cssclass("sta_WF_GSize");
+            obj.set_visible("false");
+            obj.set_text("W20");
             this.Div00_00_00_00.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this.Div00.form

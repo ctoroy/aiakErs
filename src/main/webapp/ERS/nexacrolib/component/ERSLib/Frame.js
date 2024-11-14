@@ -669,21 +669,21 @@ pForm.gfnFormOnload = function (objForm)
 	var objApp = nexacro.getApplication();
 	
 	// 워크영역 스크롤 삭제
-	if(objForm.parent.name === "divWork")
-	{
-		var layoutHeight = nexacro._getLayoutManager().getLayout(objForm).height;
-		var layoutWidth  = nexacro._getLayoutManager().getLayout(objForm).width;
-		
-		if(layoutHeight > objForm.parent._minheight)
-		{
-			objForm.parent.set_height(layoutHeight+20);
-		}
-		if(layoutWidth > objForm.parent._minwidth)
-		{
-			//objForm.parent.set_width(layoutWidth+20);
-		}
-		objForm.parent.parent.resetScroll();
-	}
+// 	if(objForm.parent.name === "divWork")
+// 	{
+// 		var layoutHeight = nexacro._getLayoutManager().getLayout(objForm).height;
+// 		var layoutWidth  = nexacro._getLayoutManager().getLayout(objForm).width;
+// 		
+// 		if(layoutHeight > objForm.parent._minheight)
+// 		{
+// 			objForm.parent.set_height(layoutHeight+20);
+// 		}
+// 		if(layoutWidth > objForm.parent._minwidth)
+// 		{
+// 			//objForm.parent.set_width(layoutWidth+20);
+// 		}
+// 		objForm.parent.parent.resetScroll();
+// 	}
 	
 	// 부모가 divWork일때(업무화면일때) keyDown 이벤트 추가 및 화면 loading 시간 측정
 	if(objForm.parent.name === "divWork")

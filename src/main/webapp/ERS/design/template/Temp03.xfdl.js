@@ -11,7 +11,6 @@
         {
             this.set_name("Temp03");
             this.set_titletext("List-Detail");
-            this.set_cssclass("frm_WF_Frame");
             if (Form == this.constructor)
             {
                 this._setFormPosition(1527,818);
@@ -278,7 +277,7 @@
 
             obj = new Button("btnAdd","94","0","77","24",null,null,null,null,null,null,this.divCmmnBtn.form);
             obj.set_taborder("1");
-            obj.set_text("행추가");
+            obj.set_text("행추가 ");
             obj.set_cssclass("btn_WF_Add");
             this.divCmmnBtn.addChild(obj.name, obj);
 

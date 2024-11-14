@@ -27,7 +27,7 @@
             obj.set_formscrolltype("none");
             this.addChild(obj.name, obj);
 
-            obj = new Div("divWork","20","52",null,null,"0","20","1048",null,null,null,this);
+            obj = new Div("divWork","20","52",null,null,"0","20","1280",null,null,null,this);
             obj.set_taborder("1");
             obj.set_cssclass("div_WF_Frame");
             this.addChild(obj.name, obj);
@@ -35,14 +35,6 @@
             obj = new Button("btnClose","divTitle:3","9","67","28",null,null,null,null,null,null,this);
             obj.set_taborder("2");
             obj.set_text("닫기");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00","229","60","251","50",null,null,null,null,null,null,this);
-            obj.set_taborder("3");
-            obj.set_text("WORK frame");
-            obj.set_font("normal 800 36px/normal \"Malgun Gothic\"");
-            obj.set_background("white");
-            obj.set_opacity("50%");
             this.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this.divTitle
@@ -285,7 +277,7 @@
 
         	//사용자관리 > <fc v='#333333'><b v='true'>메뉴권한관리</b></fc>
 
-        	var navi = this.gfnReplaceAll(this.gfnTrim(this.fvMenuNavi), this.fvMenuNm, "<fc v='#990099'><b v='true'>"+this.fvMenuNm+"</b></fc>");
+        	var navi = this.gfnReplaceAll(this.gfnTrim(this.fvMenuNavi), this.fvMenuNm, "<fc v='red'><b v='true'>"+this.fvMenuNm+"</b></fc>");
 
         	// 타이틀 세팅
         	this.divTitle.form.staTitle.set_text(this.fvMenuNm);

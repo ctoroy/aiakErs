@@ -17,7 +17,7 @@
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
-            obj = new Dataset("dsGrid", this);
+            obj = new Dataset("ds_grid", this);
             obj._setContents("<ColumnInfo><Column id=\"ID\" type=\"STRING\" size=\"256\"/><Column id=\"NAME\" type=\"STRING\" size=\"256\"/><Column id=\"DEPARTMENT\" type=\"STRING\" size=\"256\"/><Column id=\"DESCRIPTION\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"ID\">aaaaaaaaa</Col><Col id=\"NAME\">김영수</Col><Col id=\"DEPARTMENT\">사업컨설팅팀</Col><Col id=\"DESCRIPTION\">책임</Col></Row><Row><Col id=\"ID\">bbbbbbbb</Col><Col id=\"NAME\">최희영</Col><Col id=\"DEPARTMENT\">프리세일즈팀</Col><Col id=\"DESCRIPTION\">수석</Col></Row><Row><Col id=\"ID\">ccccccccc</Col><Col id=\"NAME\">최택수</Col><Col id=\"DEPARTMENT\">재무회계팀</Col><Col id=\"DESCRIPTION\">선임</Col></Row><Row><Col id=\"ID\">dddddddd</Col><Col id=\"NAME\">소희진</Col><Col id=\"DEPARTMENT\">공시팀</Col><Col id=\"DESCRIPTION\">책임</Col></Row><Row><Col id=\"ID\">eeeeeeeee</Col><Col id=\"NAME\">김나라</Col><Col id=\"DEPARTMENT\">인사총무팀</Col><Col id=\"DESCRIPTION\">책임</Col></Row><Row><Col id=\"ID\">ffffffffffff</Col><Col id=\"NAME\">박찬수</Col><Col id=\"DEPARTMENT\">영업팀</Col><Col id=\"DESCRIPTION\">수석</Col></Row><Row><Col id=\"ID\">gggggggg</Col><Col id=\"NAME\">허소진</Col><Col id=\"DEPARTMENT\">사업지원팀</Col><Col id=\"DESCRIPTION\">수석</Col></Row><Row><Col id=\"ID\">hhhhhhhh</Col><Col id=\"NAME\">김철수</Col><Col id=\"DEPARTMENT\">개발지원팀</Col><Col id=\"DESCRIPTION\">선임</Col></Row></Rows>");
             this.addChild(obj.name, obj);
             
@@ -62,34 +62,28 @@
             obj.set_text("W 20");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnClose",null,null,"57","32","20","20",null,null,null,null,this);
-            obj.set_taborder("7");
-            obj.set_text("취소");
-            obj.set_cssclass("btn_WF_Popup02");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("btnConfirm",null,null,"57","32","80","20",null,null,null,null,this);
+            obj = new Button("btnConfirm",null,null,"57","32","20","20",null,null,null,null,this);
             obj.set_taborder("6");
             obj.set_text("확인");
             obj.set_cssclass("btn_WF_Popup");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static04_00_00","20",null,null,"20","20","0",null,null,null,null,this);
-            obj.set_taborder("8");
+            obj.set_taborder("7");
             obj.set_cssclass("sta_WF_GSize");
             obj.set_visible("false");
             obj.set_text("H20");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static04_00_00_00","730",null,"30","10",null,"52",null,null,null,null,this);
-            obj.set_taborder("9");
+            obj = new Static("Static04_00_00_00","790",null,"30","10",null,"52",null,null,null,null,this);
+            obj.set_taborder("8");
             obj.set_cssclass("sta_WF_GSize");
             obj.set_visible("false");
             obj.set_text("H10");
             this.addChild(obj.name, obj);
 
             obj = new Div("divSearch00","20","20",null,"50","20",null,null,null,null,null,this);
-            obj.set_taborder("10");
+            obj.set_taborder("9");
             obj.set_cssclass("div_WF_Search");
             obj.set_text("");
             this.addChild(obj.name, obj);
@@ -138,15 +132,20 @@
             obj.set_cssclass("btn_WF_EdiSch");
             this.divSearch00.addChild(obj.name, obj);
 
+            obj = new Button("btn_03",null,"12","24","24","91",null,null,null,null,null,this.divSearch00.form);
+            obj.set_taborder("6");
+            obj.set_cssclass("btn_WF_Reload");
+            this.divSearch00.addChild(obj.name, obj);
+
             obj = new Static("sta04_01","20","70","90","8",null,null,null,null,null,null,this);
-            obj.set_taborder("11");
+            obj.set_taborder("10");
             obj.set_cssclass("sta_WF_GSize");
             obj.set_visible("false");
             obj.set_text("H8");
             this.addChild(obj.name, obj);
 
             obj = new Static("staTotal",null,"88","53","24","281",null,null,null,null,null,this);
-            obj.set_taborder("12");
+            obj.set_taborder("11");
             obj.set_text("총 <fc v=\'#d31145\'>270</fc>건");
             obj.set_usedecorate("true");
             obj.set_fittocontents("width");
@@ -154,13 +153,13 @@
             this.addChild(obj.name, obj);
 
             obj = new Div("divCmmnBtn","staTotal:10","85","251","24",null,null,null,null,null,null,this);
-            obj.set_taborder("13");
+            obj.set_taborder("12");
             obj.set_text("Div01");
             this.addChild(obj.name, obj);
 
             obj = new Button("btnAdd","94","0","77","24",null,null,null,null,null,null,this.divCmmnBtn.form);
             obj.set_taborder("1");
-            obj.set_text("행추가");
+            obj.set_text("행추가 ");
             obj.set_cssclass("btn_WF_Add");
             this.divCmmnBtn.addChild(obj.name, obj);
 
@@ -181,7 +180,7 @@
             this.divCmmnBtn.addChild(obj.name, obj);
 
             obj = new Static("sta04_00_00",null,"109","400","7","24",null,null,null,null,null,this);
-            obj.set_taborder("14");
+            obj.set_taborder("13");
             obj.set_cssclass("sta_WF_GSize");
             obj.set_visible("false");
             obj.set_text("H7");
@@ -197,7 +196,6 @@
 
             //-- Default Layout : this
             obj = new Layout("default","",850,500,this,function(p){});
-            obj.set_mobileorientation("landscape");
             this.addLayout(obj.name, obj);
             
             // BindItem Information
@@ -363,7 +361,6 @@
         {
             this.addEventHandler("onload",this.form_onload,this);
             this.grdList.addEventHandler("oncelldblclick",this.grdList_oncelldblclick,this);
-            this.btnClose.addEventHandler("onclick",this.btnClose_onclick,this);
             this.btnConfirm.addEventHandler("onclick",this.btnConfirm_onclick,this);
         };
         this.loadIncludeScript("Temp17_1.xfdl");

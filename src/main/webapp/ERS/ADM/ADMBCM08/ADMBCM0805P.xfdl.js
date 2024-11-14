@@ -23,7 +23,7 @@
 
 
             obj = new Dataset("dsEmpCond", this);
-            obj._setContents("<ColumnInfo><Column id=\"searchText\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row/></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"searchText\" type=\"STRING\" size=\"256\"/><Column id=\"rgntnYn\" type=\"STRING\" size=\"1\"/></ColumnInfo><Rows><Row/></Rows>");
             this.addChild(obj.name, obj);
 
 
@@ -110,9 +110,9 @@
             obj.set_text("");
             this.addChild(obj.name, obj);
 
-            obj = new Static("staEmpNoNm","0","12","86","24",null,null,null,null,null,null,this.divSearch.form);
+            obj = new Static("staEmpNoNm","0","12","110","24",null,null,null,null,null,null,this.divSearch.form);
             obj.set_taborder("0");
-            obj.set_text("사번(성명)");
+            obj.set_text("사원번호(성명)");
             obj.set_cssclass("sta_WF_SchLabel");
             this.divSearch.addChild(obj.name, obj);
 
@@ -135,11 +135,13 @@
             obj.set_text("H8");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta04_00_00",null,"109","400","7","24",null,null,null,null,null,this);
+            obj = new Static("staTotal",null,"divSearch:18","100","24","20",null,null,null,null,null,this);
             obj.set_taborder("12");
-            obj.set_cssclass("sta_WF_GSize");
-            obj.set_visible("false");
-            obj.set_text("H7");
+            obj.set_text("총 <fc v=\'#d31145\'>0</fc>건");
+            obj.set_usedecorate("true");
+            obj.set_fittocontents("none");
+            obj.set_cssclass("sta_WF_Total");
+            obj.set_textAlign("right");
             this.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this.divSearch.form
@@ -229,6 +231,7 @@
         	switch(sSvcId)
         	{
         		case "selectEmpList":
+        			this.staTotal.text = "총 <fc v='#d31145'>" + this.dsEmpList.getRowCount() + "</fc>건";
         			break;
         		default:break;
         	}
@@ -264,16 +267,9 @@
         	this.dsRtnEmpInfo.clearData();
         	this.dsRtnEmpInfo.addRow();
         	this.dsRtnEmpInfo.copyRow(0, this.dsEmpList, nRow);
-        	this.gfnClosePopup(this.dsRtnEmpInfo.saveJSON());
-        // 	var empNo = this.dsEmpList.getColumn(nRow, "empNo");
-        // 	var empNm = this.dsEmpList.getColumn(nRow, "empNm");
-        //
-        // 	var rtnValue = {
-        // 	     rtnEmpNo:empNo
-        // 		,rtnEmpNm:empNm
-        // 	}
-        //
-        // 	this.gfnClosePopup(JSON.stringify(rtnValue));
+        	this.opener.fnPopupCallback(this.dsRtnEmpInfo);
+        	this.gfnClosePopup();
+        	//this.gfnClosePopup(this.dsRtnEmpInfo.saveJSON());
         };
 
         /**
@@ -285,18 +281,9 @@
         	this.dsRtnEmpInfo.clearData();
         	this.dsRtnEmpInfo.addRow();
         	this.dsRtnEmpInfo.copyRow(0, this.dsEmpList, nRow);
-        	this.gfnClosePopup(this.dsRtnEmpInfo.saveJSON());
-        	//this.gfnClosePopup(this.dsRtnEmpInfo);
-        // 	var empNo = this.dsEmpList.getColumn(nRow, "empNo");
-        // 	var empNm = this.dsEmpList.getColumn(nRow, "empNm");
-        // 	var deptNm = this.dsEmpList.getColumn(nRow, "deptNm");
-        //
-        // 	var rtnValue = {
-        // 	     rtnEmpNo:empNo
-        // 		,rtnEmpNm:empNm
-        // 		,rtnDeptNm:deptNm
-        // 		}
-        // 	this.gfnClosePopup(JSON.stringify(rtnValue));
+        	this.opener.fnPopupCallback(this.dsRtnEmpInfo);
+        	this.gfnClosePopup();
+        	//this.gfnClosePopup(this.dsRtnEmpInfo.saveJSON());
         };
 
         this.divSearch_btnSearch_onclick = function(obj,e)
@@ -304,6 +291,8 @@
         	this.dsEmpCond.clearData();
         	this.dsEmpCond.addRow();
         	this.dsEmpCond.setColumn(0, 'searchText', this.divSearch.form.edtEmpNoNm.value);
+        	this.dsEmpCond.setColumn(0, 'rgntnYn', 'N');	//퇴사자 여부
+
         	this.fnSearchEmpList();
         };
 
