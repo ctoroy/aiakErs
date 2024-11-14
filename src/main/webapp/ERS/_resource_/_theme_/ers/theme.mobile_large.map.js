@@ -25,7 +25,7 @@
             							"enabled" :
             							{
             								"color" : nexacro.ColorObject("#333333"),
-            								"font" : nexacro.FontObject("bold 14px \"SpoqaHanSansNeo-Regular\"")
+            								"font" : nexacro.FontObject("14px \"SpoqaHanSansNeo-Regular\"")
             							}
             						}
             					},
@@ -2003,6 +2003,19 @@
             								"enabled" :
             								{
             									"border" : nexacro.BorderObject("0px none")
+            								}
+            							}
+            						}
+            					},
+            					{
+            						"frm_MessagePOP" :
+            						{
+            							"self" :
+            							{
+            								"enabled" :
+            								{
+            									"border" : nexacro.BorderObject("0px none"),
+            									"edge" : nexacro.EdgeImageObject("url('theme://images/frm_MessageBg.png') 30px 30px")
             								}
             							}
             						}
@@ -13835,19 +13848,19 @@
             							{
             								"enabled" :
             								{
-            									"border" : nexacro.BorderObject("1px solid #dddddd")
+            									"border" : nexacro.BorderObject("1px solid #e5e8f1")
             								},
             								"focused" :
             								{
-            									"border" : nexacro.BorderObject("1px solid #dddddd")
+            									"border" : nexacro.BorderObject("1px solid #e5e8f1")
             								},
             								"mouseover" :
             								{
-            									"border" : nexacro.BorderObject("1px solid #dddddd")
+            									"border" : nexacro.BorderObject("1px solid #e5e8f1")
             								},
             								"readonly" :
             								{
-            									"border" : nexacro.BorderObject("1px solid #dddddd")
+            									"border" : nexacro.BorderObject("1px solid #e5e8f1")
             								}
             							}
             						}
@@ -16486,6 +16499,7 @@
         		imgcache[nexacro._getImageLocation("theme://images/sta_LOGIN_Pw.png")] = { width:0, height:0 };
         		imgcache[nexacro._getImageLocation("theme://images/sta_LOGIN_Language.png")] = { width:0, height:0 };
         		imgcache[nexacro._getImageLocation("theme://images/btn_POP_Close.png")] = { width:12, height:11 };
+        		imgcache[nexacro._getImageLocation("theme://images/frm_MessageBg.png")] = { width:70, height:100 };
         		imgcache[nexacro._getImageLocation("theme://images/sta_WF_GLineV.png")] = { width:9, height:17 };
         		imgcache[nexacro._getImageLocation("theme://images/sta_WF_GLineH.png")] = { width:17, height:9 };
         		imgcache[nexacro._getImageLocation("theme://images/ico_MT.png")] = { width:12, height:8 };

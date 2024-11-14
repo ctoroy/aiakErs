@@ -88,9 +88,17 @@ public interface AuthService {
 
     /**
      *
+     * @desc 사용자별(예외) 추가권한 메뉴 조회
+     * @param Auth params
+     * @return List<Auth>
+     */
+    List<Auth> selectUsrExcptAuthMenuList(Auth params);
+
+    /**
+     *
      * @desc 사용자별(예외) 추가권한 입력,삭제
      * @param List<Auth> usrExcptAuthList
      * @return
      */
-    void saveUsrExcptAuthList(List<Auth> usrExcptAuthList);
+    void saveUsrExcptAuthList(List<Auth> usrExcptAuthList, List<Auth> usrExcptAuthMenuList);
 }

@@ -31,6 +31,7 @@ public class Auth extends NexacroBase {
     private String deptNm;          //부서명
     private String empNo;           //사원번호
     private String empNm;           //사원명
+    private String grad;            //등급
     private String rmak;            //비고
     private String authClssfc;      //권한타입
     private String mnuId;           //메뉴ID
