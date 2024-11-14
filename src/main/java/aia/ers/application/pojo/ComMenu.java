@@ -38,7 +38,7 @@ public class ComMenu extends NexacroBase {
     private String prgPath;
     private String prgType;
     private String callParam;
-    private int sortSeq;
+    private Integer sortSeq;
     private String rmk;
     private String usyn;
     private String mgrUsyn;

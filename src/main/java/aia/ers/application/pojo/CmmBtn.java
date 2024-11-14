@@ -32,7 +32,7 @@ public class CmmBtn extends NexacroBase {
     private String btnNm;
     private String functionNm;
     private String cssNm;
-    private int sortSeq;
+    private Integer sortSeq;
     private String rmk;
     private String usyn;
     private String crtrId;

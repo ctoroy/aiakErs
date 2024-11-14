@@ -33,7 +33,7 @@ public class ComCode extends NexacroBase {
     private String cmnCdnm;
     private String sysId;
     private String rmk;
-    private int sortSeq;
+    private Integer sortSeq;
     private String usyn;
     private String cdSettVl1;
     private String cdSettVl2;
