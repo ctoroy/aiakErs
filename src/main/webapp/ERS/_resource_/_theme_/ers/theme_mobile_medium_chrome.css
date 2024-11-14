@@ -313,7 +313,7 @@ textarea::-webkit-scrollbar { display: none; }
 {
 	background : #ffffff;
 	color : #333333;
-	font : bold 14px "SpoqaHanSansNeo-Regular";
+	font : 14px "SpoqaHanSansNeo-Regular";
 }
 .DatePickerControl .head .yearstatic
 {
@@ -3515,12 +3515,25 @@ textarea::-webkit-scrollbar { display: none; }
 .Div.div_POP_TitleBg
 {
 	background : #e31f4e;
+	border-radius : 4px 4px 0px 0px;
 }
 .Form.frm_POP_Bg
 {
 	border : 0px none;
 	background : #ffffff;
 	border-radius : 4px;
+}
+.Form.frm_MessagePOP
+{
+	border : 0px none;
+	background : #ffffff;
+	border-radius : 4px;
+}
+.Form.frm_MessagePOP >.nexaedge
+{
+	border-image-source : url('./images/frm_MessageBg.png');
+	border-image-slice : 30 30 fill;
+	border-image-width : 30px 30px;
 }
 .Static.sta_POP_Title
 {
@@ -3529,8 +3542,9 @@ textarea::-webkit-scrollbar { display: none; }
 }
 .TextArea.txt_POP_Text
 {
-	border : 1px solid #dddddd;
-	background : transparent;
+	border : 1px solid #e5e8f1;
+	background : #f7f8fa;
+	border-radius : 4px;
 }
 .Static.sta_WF_GSize
 {
@@ -7180,18 +7194,21 @@ textarea::-webkit-scrollbar { display: none; }
 }
 #nexacontainer .TextArea.txt_POP_Text[data-status=focused]
 {
-	border : 1px solid #dddddd;
-	background : transparent;
+	border : 1px solid #e5e8f1;
+	background : #f7f8fa;
+	border-radius : 4px;
 }
 #nexacontainer .TextArea.txt_POP_Text[data-status=mouseover]
 {
-	border : 1px solid #dddddd;
-	background : transparent;
+	border : 1px solid #e5e8f1;
+	background : #f7f8fa;
+	border-radius : 4px;
 }
 #nexacontainer .TextArea.txt_POP_Text[data-status=readonly]
 {
-	border : 1px solid #dddddd;
-	background : transparent;
+	border : 1px solid #e5e8f1;
+	background : #f7f8fa;
+	border-radius : 4px;
 }
 #nexacontainer .Grid.grd_WF_CalMgmt .body .row .cell[data-status=mouseover]
 {

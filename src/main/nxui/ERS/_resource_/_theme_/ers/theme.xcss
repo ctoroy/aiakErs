@@ -26,7 +26,7 @@
 {
 	background 		: #ffffff;
 	color 			: #333333;
-	font 			: bold 14px "SpoqaHanSansNeo-Regular";
+	font 			: 14px "SpoqaHanSansNeo-Regular";
 }
 .DatePickerControl .head .prevbutton,
 .DatePickerControl .head .prevbutton[status=focused]
@@ -4849,12 +4849,20 @@
 .Div.div_POP_TitleBg
 {
 	background 		: #e31f4e;
+	border-radius 		: 4px 4px 0px 0px;
 }
 .Form.frm_POP_Bg
 {
 	-nexa-border 		: 0px none;
 	background 		: #ffffff;
 	border-radius 		: 4px;
+}
+.Form.frm_MessagePOP
+{
+	-nexa-border 		: 0px none;
+	background 		: #ffffff;
+	border-radius 		: 4px;
+	-nexa-edge 		: url('theme://images/frm_MessageBg.png') 30px 30px;
 }
 .Static.sta_POP_Title
 {
@@ -4865,8 +4873,9 @@
 .TextArea.txt_POP_Text[status=focused],.TextArea.txt_POP_Text[status=mouseover],
 .TextArea.txt_POP_Text[status=readonly]
 {
-	-nexa-border 		: 1px solid #dddddd;
-	background 		: transparent;
+	-nexa-border 		: 1px solid #e5e8f1;
+	background 		: #f7f8fa;
+	border-radius 		: 4px;
 }
 /***************************************************************************/
 /*******************	POPUP FRAME END			********************/
