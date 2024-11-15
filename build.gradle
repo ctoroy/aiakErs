@@ -8,12 +8,12 @@ plugins {
 }
 
 bootWar {
-    archiveFileName = "uiadapter-boot3-0.0.1-SNAPSHOT-plain.war"
+    archiveFileName = "aiakErs-0.0.1-SNAPSHOT-plain.war"
 }
 
 group = 'com.nexacro.archetype'
 version = '0.0.1-SNAPSHOT'
-description = 'uiadapter-boot3'
+description = 'aiakErs'
 apply plugin: 'war'
 
 java {
