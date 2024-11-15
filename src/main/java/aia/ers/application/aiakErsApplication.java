@@ -8,10 +8,10 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 // 일반 실행 형식
-public class UiadapterApplication extends SpringBootServletInitializer {
+public class aiakErsApplication extends SpringBootServletInitializer {
 
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(UiadapterApplication.class);
+		return builder.sources(aiakErsApplication.class);
 	}
 
 // War 파일로 배포형식
@@ -28,6 +28,6 @@ public class UiadapterApplication extends SpringBootServletInitializer {
 	 */
 
 	public static void main(String[] args) {
-		SpringApplication.run(UiadapterApplication.class, args);
+		SpringApplication.run(aiakErsApplication.class, args);
 	}
 }
