@@ -57,7 +57,7 @@
     <Service prefixid="font" type="resource" url="./_resource_/_font_/" version="0" cachelevel="session" include_subdir="false"/>
     <Service prefixid="stringrc" type="resource" url="./_resource_/_stringrc_/" version="0" cachelevel="session" include_subdir="false"/>
     <Service prefixid="extlib" type="resource" url="./_extlib_/" version="0" cachelevel="session" include_subdir="true"/>
-    <Service prefixid="svcUrl" type="JSP" version="0" cachelevel="none" include_subdir="false" communicationversion="0" url="http://localhost:8080/uiadapter/"/>
+    <Service prefixid="svcUrl" type="JSP" version="0" cachelevel="none" include_subdir="false" communicationversion="0" url="http://localhost:8080/"/>
     <Service prefixid="ESRlib" type="js" url="./nexacrolib/component/ERSLib/" version="0" cachelevel="none" include_subdir="false" communicationversion="0"/>
     <Service prefixid="richtexteditorLib" type="file" url="./richtexteditorLib/" version="0" cachelevel="none" include_subdir="true" communicationversion="0"/>
     <Service prefixid="design" type="form" url="./design/" version="0" cachelevel="none" include_subdir="true" communicationversion="0"/>

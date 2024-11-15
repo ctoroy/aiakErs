@@ -217,7 +217,7 @@
         		var urlPath = window.location.protocol + "//" + window.location.host;
 
         		//서비스  URL 세팅
-         		objSrv.set_url(urlPath+"/uiadapter/");
+         		objSrv.set_url(urlPath+"/");
 
         		//로컬(웹)
         	    if(objSrv.url.indexOf("localhost") > -1 || objSrv.url.indexOf("127.0.0.1") > -1) {

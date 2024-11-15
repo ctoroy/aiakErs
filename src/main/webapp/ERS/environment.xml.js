@@ -24,7 +24,7 @@ if (nexacro.Environment)
         nexacro._addService("font", "file", "./_resource_/_font_/", "session", null, "", "0", "");
         nexacro._addService("stringrc", "file", "./_resource_/_stringrc_/", "session", null, "", "0", "");
         nexacro._addService("extlib", "file", "./_extlib_/", "session", null, "", "0", "");
-        nexacro._addService("svcUrl", "JSP", "http://localhost:8080/uiadapter/", "none", null, "", "0", "0");
+        nexacro._addService("svcUrl", "JSP", "http://localhost:8080/", "none", null, "", "0", "0");
         nexacro._addService("ESRlib", "js", "./nexacrolib/component/ERSLib/", "none", null, "", "0", "0");
         nexacro._addService("richtexteditorLib", "file", "./richtexteditorLib/", "none", null, "", "0", "0");
         nexacro._addService("design", "form", "./design/", "none", null, "", "0", "0");
