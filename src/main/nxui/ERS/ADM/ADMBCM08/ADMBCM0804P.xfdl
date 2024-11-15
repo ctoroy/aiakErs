@@ -106,7 +106,7 @@
 ************** 소스 수정 이력 ***********************************************
 * Date					Modifier					Description
 *******************************************************************************
-* 2021/01/05			TOBESOFT					최초생성
+* 2024/11/12			이중섭					최초생성
 *******************************************************************************
 */
 
@@ -129,6 +129,11 @@ this.ADMBCM0804P_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 /*******************************************************************************************************************************
  * 공통함수영역 (cfnSearch : 조회 / cfnSave : 저장 / cfnAdd : 신규 / cfnDel : 삭제 / cfnPrint : 인쇄..)
 *******************************************************************************************************************************/
+//조회
+this.cfnSearch = function ()
+{
+	this.fnSearch();
+};
 
 /*******************************************************************************************************************************
  * Transaction 서비스호출 처리 영역
@@ -136,7 +141,7 @@ this.ADMBCM0804P_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 /**
  * @description 사원 조회 트랜잭션
  */
-this.fnSearchArtcList = function()
+this.fnSearch = function()
 {
 	// 마이메뉴 조회
 	var sSvcId 		= "selectArtcList";
@@ -176,6 +181,16 @@ this.fnPopupInit = function()
 	this.dsArtcList.clearData();
 	this.dsArtcCond.setColumn(0,'bdgYear',new Date().getFullYear());
 }
+
+this.fnReturn = function(){
+	var nRow = this.dsArtcList.rowposition;
+	this.dsRtnArtcInfo.clearData();
+	this.dsRtnArtcInfo.addRow();
+	this.dsRtnArtcInfo.copyRow(0, this.dsArtcList, nRow);
+	this.opener.fnPopupCallback(this.dsRtnArtcInfo);
+	this.gfnClosePopup();
+}
+
 /*******************************************************************************************************************************
  * 각 COMPONENT 별 EVENT 영역
 *******************************************************************************************************************************/
@@ -203,17 +218,9 @@ this.grdList_oncelldblclick = function(obj:nexacro.Grid,e:nexacro.GridClickEvent
 	this.fnReturn();
 };
 
-this.fnReturn = function(){
-	var nRow = this.dsArtcList.rowposition;
-	this.dsRtnArtcInfo.clearData();
-	this.dsRtnArtcInfo.addRow();
-	this.dsRtnArtcInfo.copyRow(0, this.dsArtcList, nRow);
-	this.gfnClosePopup(this.dsRtnArtcInfo.saveJSON());
-}
-
 this.divSearch_btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	this.fnSearchArtcList();
+	this.cfnSearch();
 };
 ]]></Script>
     <Bind>
